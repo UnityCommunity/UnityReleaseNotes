@@ -1,0 +1,115 @@
+5.4.0b3 Release Notes (since Beta 2)
+Known Issues
+
+    Creating a scene from the Project Browser's 'Create' menu currently crashes Unity. Use the 'New Scene' option from the main menu instead.
+    Fallback from Deferred to Forward when rendering lightmapped objects with mixed-mode light - can be fixed by introduction of baked shadow mask for lightmapped objects
+    GPU Instancing: When drawing meshes with instancing shaders by Graphics.DrawMesh, Unity fails to render with correct mesh.
+    Legacy Animation: Changes to the lights in 5.3 have caused an issue so that it currently is not possible to animate lights using the Legacy animation system. Fix arrived in 5.3, and is being forward ported soon.
+    Saving a scene on OSX might throw the error in the console: "TLS Allocator ALLOC_TEMP_THREAD..". Happens only on OSX El Capitan (10.11.1). Doesn't happen on OSX 10.10;
+    WebPlayer build is not removed. Expect its removal in a future beta.
+    [VR] Missing shadows in VR mode players with Forward and Legacy Deferred rendering Error: Attempting to release RenderTexture that were not gotten as a temp buffer
+
+Features
+
+    Kernel: The transform component has been rewritten using SIMD and a cache friendly data layout, the code is simpler and faster. As a result Transform.Setparent for large hieararchies can also be more expensive since all data for one hiearchy will always be tightly packed together.
+    Particles: Define particle width and height separately
+    VR: VR Multi Device Support
+        PlayerSettings: When the Virtual Reality Supported checkbox is checked, a prioritized list is shown allowing devs to choose which VR SDKs their game supports. (Similar to the Graphics API selection dialog)
+        VR SDK list is per build-target.
+        Dependencies (dlls, etc) will be copied to the build for every sdk in the list.
+        At startup, we’ll go down the list and try to initialize each device. If any fail to initialize (headset not connected, etc), we’ll move on to the next. If all fail, we won’t enter VR mode.
+        PlayerSettings: Deprecate PlayerSettings’ stereoscopic 3d checkbox. This goes through the same subsystem as the VR devices, so a non-headmounted stereoscopic driver is one of the possible devices on supporting platforms.
+        VR API: Deprecate VRDeviceType enum and VRSettings.loadedDevice. This is replaced with VRSettings.loadedDeviceName and VRSettings.LoadDeviceByName().
+        VR API: Add the ability to get a list of supported sdks. Readonly: string[] VRSettings.supportedDevices
+
+Backwards Compatibility Breaking Changes
+
+    IMGUI: Fixed InvalidOperationException is thrown on opening "select audio clip" pop up dialog AND added EditorGUI.DisabledScope to replace deprecated EditorGUI.[Begin/End]DisabledGroup()
+
+Changes
+
+    Graphics: Unity splashscreen replacement. Unform across platforms now and featuring a light and dark(pro only) style.
+    Windows Store: Deprecated PlayerSettings.WSA.enableLowLatencyPresentationAPI. It is now always enabled.
+
+Improvements
+
+    Editor - Other: ENABLE_PROFILER now works correctly in Editor for runtime dll
+    Graphics: DX11: Unity drawing annotations correct appear on Windows Store platforms when using GPU debuggers
+    IL2CPP: Optimize method prologues for code size and incremental builds
+    Metal: Support multithreaded rendering on iOS and OSX Metal devices
+    Samsung TV: 2016 Samsung TVs are now supported.
+    WebGL: Support incremental builds of generated C++ code.
+    Windows Store: Added PlayerSettings.WSA.Declarations API for setting declarations for Package.appxmanifest.
+
+Fixes
+
+    Add animation support of light shadow near plane
+    2D: Add tooltips for Size, Full Tile or Threshold on the 9-slice section of the Sprite Renderer
+    2D: Fix error log 'GetLocalizedString is not allowed...'
+    2D: Fix memory leak when applying changes to sprite
+    2D: Packing crunched sprites crashes at crnlib::crn_comp::append_chunks
+    2D: Text is clipped in the 2D preferences
+    Animation: Changed parameter ordering in add property popup
+    Animation: Disabled muti-file editing of model scale because it wasn't working properly
+    Animation: Dragging sprite assets into the hierarchy window, then pressing cancel, deletes their parent GameObject
+    Animation: Fixed Animator.UpdateMode not being saved
+    Animation: Fixed beeping sounds when pressing 'k' and 'c' hotkeys in the Animation Window.
+    Animation: Fixed broken import of RootMotion transforms for Humanoid
+    Animation: Fixed contextual menu operation on multiple selection in animation window hierarchy
+    Animation: Fixed crash when deleting all euler keys in animation curve.
+    Animation: Fixed Crossfade called subsequently not properly interrupting transition.
+    Animation: Fixed current frame not set properly in animation window at certain sample rates.
+    Animation: Fixed event window not showing up when pressing add animation event button
+    Animation: Fixed frame clipping not performed when changing clips in curve editor.
+    Animation: Fixed frame number not updating when pressing next/previous key frame button when it's being edited.
+    Animation: Fixed ghost rename text field in animation window when changing selection
+    Animation: Fixed key editing over duplicates issues in curve editor
+    Animation: Fixed missing operation when dragging dope key outside of viewport
+    Animation: Fixed missing update to inspector when adding or remove property while recording animation
+    Animation: Fixed missing update to inspector when adding or removing property while recording animation.
+    Animation: Fixed OpenGL errors showing in console when closing "Add Property" popup window
+    Animation: Fixed property value not getting unselected on mouse down in animation window.
+    Animation: Fixed scene not being dirtied when AnimatorController changes on Animator.
+    Animation: Fixed unremovable property in the animation window.
+    Animation: Renamed interpolation Euler Angles (Quaternion Approximation) to Euler Angles (Quaternion) for simplicity
+    Audio: Audio Profiler shows "wrong" information when using Spatialization
+    Audio: Audio profiler: Added separator lines between columns, adapted initial column widths to fit and added support for horizontal scrolling.
+    Audio: Fixed mixer reverb effects getting cut off early in standalone builds.
+    Audio: No longer shows "Failed to initialize spatializer" warning when Spatializer Plugin is set to "None".
+    Editor: Fix a now perfectly OK assert that can happen when alt-tabbing back.
+    Editor - Other: Fixed [Editor, A$] Unity crashes when closing it with detached Asset Store window
+    Graphics - General: Fixed [DX12] CPU profiler timeline view broken
+    IMGUI: Fixed GenericMenu shortcut keys are not displayed
+    IMGUI: Fixed Make BeginVertical behave like BeginHorizontal.
+    IMGUI: Fixed Material Property Drawer does not display a slider or drop-down menu
+    IMGUI: Fixed NullReferenceException in plugin crashes Unity at GUIStyle::Draw
+    iOS: Add font containing Lao characters to the fallback list
+    iOS: Don't override iPod music when corresponding player setting is not set
+    iOS: Fix crash on iOS 6.0 devices
+    iOS: Fix Korean, Indian and Hebrew font fallbacks
+    iOS: Work around launch screen asset catalog bug
+    iOS/tvOS: Build all object files with correct SDK
+    Mono: Correct a crash in mono_string_to_utf8_checked when Marshal.StructureToPtr is called from managed code.
+    Mono: Implement IPv6 support on Windows.
+    Particles: Fixed IsFinite error spam with particles and second camera.
+    Particles: Fixed issue where particle system is stopped and cleared and after that it won't play when simulation space set to local.
+    Particles: Fixed particle system only playing once.
+    Particles: Fixed particle systemm not playing when triggered via Event Trigger.
+    Particles: Fixed particles are not drawn in the correct order on rotated particle systems.
+    Particles: Fixed particles disappearing after going offscreen and returning.
+    Particles: Fixed particles systems not looping correctly.
+    Particles: Fixed ParticleSystem.IsAlive() always returns True for particle systems with longer duration
+    Particles: Fixed wrong culling of some particle objects caused by incorrect bounds calculation due to parent scaling.
+    Particles: Particle system doesn't play if method is called via Invoke fixed.
+    Particles: Particles are now emitted with the correct position//rotation when using a Skinned Mesh Renderer or Mesh Renderer as shape.
+    Profiler: Fixed incorrect time displaying in CPU profiler if time exceeded 5 seconds
+    Scripting: Fix issue that causes UnityScript to incorrectly detect some methods return type
+    tvOS: Duplicate another image layer when not all are defined
+    UI: Multiple display support disabled on all platforms except WiiU and 3DS. This will be re-enabled once the non-native resolution bug is fixed.
+    Window Management: Fixed LockReloadAssemblies is not working correctly
+    Window Management: Fixed Minimizing unity changes the size of maximized unity windows
+    Windows Store: Application will exit without crashing when calling Application.Quit
+    Windows Store: Fix AccessViolationException when initializing matchmaking in UNet
+    Windows Store: Fixed crash in TouchScreenKeyboard when any members are used immediately after Open()
+    Windows Store: RunInBackground option will be respected when application window looses focus, and if enabled, the application will keep updating. Note: if application window is minimized it will be still paused, because OS suspends the application.
+    Windows Store: Screen.resolutions will return a valid value.
