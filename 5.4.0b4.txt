@@ -1,0 +1,41 @@
+5.4.0b4 Release Notes
+Known Issues
+
+    2D: Opening Sprite-Packer window and packing might result in a crash on Mac Editor. To work-around, try entering play-mode and then use Sprite-Packer window
+    Changing the active graphics API in the Editor while a Canvas is in the scene will crash the Editor. As a workaround, open only a new, empty scene before changing graphics API.
+    Fallback from Deferred to Forward when rendering lightmapped objects with mixed-mode light - can be fixed by introduction of baked shadow mask for lightmapped objects
+    GPU Instancing: When drawing meshes with instancing shaders by Graphics.DrawMesh, Unity fails to render with correct mesh.
+    Legacy Animation: Changes to the lights in 5.3 have caused an issue so that it currently is not possible to animate lights using the Legacy animation system. Fix arrived in 5.3, and is being forward ported soon.
+    Saving a scene on OSX might throw the error in the console: "TLS Allocator ALLOC_TEMP_THREAD..". Happens only on OSX El Capitan (10.11.1). Doesn't happen on OSX 10.10;
+    VR: Standalone players build with Unity 5.4.0 beta 4 with VR support show a vertically stretched Unity logo on the splash screen
+    WebPlayer build is not removed. Expect its removal in a future beta.
+
+Changes
+
+    WebGL: Removed .htaccess file generation
+
+Improvements
+
+    Analytics: Added support for Analytics on AppleTV device.
+    Android: Android: Marshmallow - Added the possibility to disable the permission dialog by adding metadata to the activity
+    Compute: Support #pragma enable_d3d11_debug_symbols just like for regular shaders
+    IL2CPP: Remove warnings from generated C++ code when compiling with clang.
+    iOS/IL2CPP: Add support for Xcode 7.3 (don't use __declspec attributes).
+    Scene Management: Added events onSceneLoaded, onSceneUnloaded, onActiveSceneChanged to SceneManager
+
+Fixes
+
+    Android: Android: Fixed remote frame debugger
+    Android: Android: Marshmallow - Fixed issues when querying for custom permissions
+    Android: Android: Mono - Fixed crash on startup with Unity Ads when stripping is enabled
+    Compute: Avoid constant buffer overwrites when passing too wide data (e.g. Vector4 for a float3 constant)
+    Editor: Fixed a bug in the property diff recorder would insert property modification on the prefab asset if it was being edited in the inspector
+    GI: Added a note in Lighting window when reflection source is not set
+    GI: Fixed missing ambient when AmbientGI is set to Baked, but BakedGI is disabled.
+    GI: Make substances work with baked transparency.
+    Graphics: Fixed profiling related information (SetGpuProgramName) performance issue in development player builds. (to 5.3 too)
+    Graphics: Graphics: Fix performance regression in dynamic batching on Adreno and Mali GPUs
+    Graphics: Textures imported as cubemaps now are properly marked as non-readable if import option says so. Saves memory! (coming to 5.3 too)
+    Shaders: Some optimizations for surface shader importing time.
+    tvOS: Fix rendering path selector in player settings
+    Windows Store: Fix serialization error, Unity will no longer serialize fields in Windows Store Apps which are of the same type as the class where this field is located, for ex., if you have a class Test and you have a field inside public Test MyField;. This behavior was already present in Editor, but not in Windows Store Apps.
