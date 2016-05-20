@@ -1,0 +1,43 @@
+5.4.0b16 Release Notes (Delta since b15)
+Known Issues
+
+    Crash in ::RenderGameViewCameras:: after overflowing Width or Height fields of the Game view resolution window
+    In deferred rendering, lightmapped objects affected by mixed-mode lights will fallback to forward rendering.
+    Shadows: Directional shadows will present shadow acne when using a custom projection matrix and a very large frustum (20k+)
+    Unity crashes when calling various methods on TerrainData with boundary values
+    Using OpenVR + Vive + Outdated Oculus Utils = Crash. Users are advised to update their Oculus Utils.
+    VR: Image effects do not currently work with single pass rendering.
+    VR: Some built-in shaders do not currently work with single pass rendering resulting in wrong transformations in right eye. Workaround is to manually include the shaders in your project.
+    Windows Store: Unity APIs which use multidimensional arrays as parameters don't work on UWP when .NET Native compilation is enabled (for ex., Master config). For ex., TerrainData.SetHeights. This includes all Unity versions where UWP is supported. The bug has been logged with Microsoft.
+    [Android/Audio] App with audio hangs on start if audio disabled in Project Audio settings
+    [GL] [Windows] Unity crashes or hangs with no respond on moving and undocking tabs
+    [iOS] "Shader compilation failed" error in the log
+    [iOS] Crash with 'gpus_ReturnGuiltyForHardwareRestart' when running GLES2/3 on A9 & A9X devices
+    [iOS][Metal] Performance degradation in 5.4 with some custom shaders
+    [SinglePassStereo] Deferred rendering + spot and point lights stereo discrepancy
+
+Features
+
+    VR: Added support for Native Spatializer Plugins for VR. Oculus Spatializer included with the support.
+
+Improvements
+
+    Profiler: Added toggle to exclude reference traversal in memory profile.
+
+Fixes
+
+    Asset Bundles: Fixed up-to-date check when a script is only renamed, which previously could result in Asset Bundle build failures.
+    Compute: Documented the restriction whereby ComputeBuffer.CopyCount is only available to IndirectArgs or Raw typed destination buffers.
+    Compute: Fixed a regression where ComputeShader.SetFloats wouldn't set all values in some constants (like arrays of matrices).
+    IAP: Fixed case of failed IAP purchase events costing unity Analytics analysis points.
+    IAP: Fixed case of IAP not sending Transaction events to Unity Analytics.
+    Materials: Fixed a crash if GetMaterialProperties is called with a null in the list of materials.
+    Shaders: Fixed a case where a material using a standard shader with transparency could be sorted incorrectly if the shader was reselected.
+    Shaders: Fixed a potential crash if an internal error is encountered compiling a D3D11 shader.
+    Shaders: Fixed UNITY_SAMPLE_TEXCUBE_LOD to force texCubeBias only when we are sure that there is no texCubeLod available
+    Shaders: Improved error messages emitted if a syntax error is found early in surface analysis.
+    Shaders: Removed a spurious error about _Emission if a legacy Self-Illumin shader was selected in a material.
+    Windows Store: Fixed exception while marshalling UnityEngine.NavMeshTriangulation.
+    Windows Store: Fixed marshaling of UnityEngine.HumanDescription: previously the field hasTranslationDoF was not mashaled.
+    Windows Store: Fixed marshaling of UnityEngine.SplatPrototype: previously fields specularMetallic and smoothness were not marshaled. Because of this terrains would sometimes be rendered incorrectly.
+    Windows Store: Fixed www.error return result: previously it would return only an error code but now it will also contain the error message returned by the server.
