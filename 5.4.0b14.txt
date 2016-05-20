@@ -1,0 +1,56 @@
+5.4.0b14 Release Notes (Delta Since b13)
+Known Issues
+
+    After expand/collapse Unity Editor window looks corrupted. If you maximize/minimize/click on windows in Editor they'll return to normal state.
+    Crash in ::RenderGameViewCameras:: after overflowing Width or Height fields of the Game view resolution window
+    First launch of Unity on new computer doesn't create "~/Library/Unity/Packages" folder, blocking homescreen from loading. Second launch will fix the issue
+    GPU Instancing: Instancing might get broken under glcore if graphics jobs are enabled.
+    In deferred rendering, lightmapped objects affected by mixed-mode lights will fallback to forward rendering.
+    On Windows with MSAA and Image Effects, game view can be rendered upside down.
+    RTP Terrain shader rendering is broken after upgrading project to 5.4
+    Shadows: Directional shadows will present shadow acnee when using a custom projection matrix and a very large frustum (20k+)
+    Unity crashes when calling various methods on TerrainData with boundary values
+    Using OpenVR + Vive + Outdated Oculus Utils = Crash. Users are advised to update their Oculus Utils.
+    VR: GearVR builds are not functional in this beta release, please use b13
+    VR: Image effects do not currently work with single pass rendering.
+    VR: Single-Pass-Stereo causes some lighting problems
+    VR: Some built-in shaders do not currently work with single pass rendering resulting in wrong transformations in right eye. Workaround is to manually include the shaders in your project.
+    [GL] [Windows] Unity crashes or hangs with no respond on moving and undocking tabs
+    [iOS][Metal] Performance degradation in 5.4 with some custom shaders
+    [OnWillRenderObject] Offscreen rendering from within OnWillRenderObject breaks billboard particles
+    [OSX] ALLOC_TEMP_THREAD errors are shown after clicking 'Save' button while switching to imported scene
+    [Scene] Can't shift-click to multi-select objects in scene view.
+    [Windows Store] Unity APIs which use multidimensional arrays as parameters don't work on UWP when .NET Native compilation is enabled (for ex., Master config). For ex., TerrainData.SetHeights. This includes all Unity versions where UWP is supported. The bug has been logged with Microsoft.
+
+Improvements
+
+    Graphics: Added GL.Flush API.
+    Graphics: Added MaterialPropertyBlock.SetBuffer
+    Graphics: Added useLightProbes argument to Graphics.DrawMesh (defaults to true).
+    iOS: Add device support for iPhone SE and iPad Pro 9.7"
+    Shaders: Added PassFlags=OnlyDirectional pass tag. When used in ForwardBase pass, it makes sure that only ambient, light probe and main directional light information is passed. Non-important lights are not being passed as vertex light constants nor are put into SH data then.
+    Shaders: Improve shader translation performance when compiling shaders into OpenGL ES 2.0 & Metal
+
+Fixes
+
+    Asset Import: Fix issue with fileScale value always set to 1 on first import
+    Asset Import: Support of Blender 2.77 and later
+    Compute: Do not log warnings/errors when current build target does not support compute shaders
+    Connect: Opening "last loaded project" upon unity start up will not unlink project anymore from its organization
+    DX11: Fixed errors when trying to create floating point textures in linear color space, with mismatching flags.
+    GI: Disallow negative importance for reflection probes.
+    GI: Fixed errors when using baked lightmaps & multi-scene editing
+    GI: Fixed some directional specular lightmap artifacts
+    Global Illumination: Fixed a reflection probe baking issue in multi scene editing.
+    Graphics: Apply material keywords when drawing from command buffers
+    Graphics: Fixed material index not being used when calling Graphics.DrawMeshNow with rotation
+    Graphics: Improved feedback on Recalculate Bounds in LODGroup inspector.
+    IAP: If a store implementation notified Unity IAP of a purchase for a product that was unknown to Unity IAP, the application did not receive a ProcessPurchase invocation. ProcessPurchase will now be invoked in this scenario.
+    MonoDevelop: Fixed issue with MonoDevelop sometimes giving focus to the wrong script when opened from Unity
+    Occlusion Culling: Fixed broken portal visualization in some cases.
+    Occlusion Culling: Fixed visualization when changing scenes.
+    VR: Fixed VRSettings.supportedDevices not populating until a VR device is loaded.
+    Windows Phone 8: Added obsolete attribute for BuildTargetGroup.WP8 and BuildTarget.WP8Player
+    Windows Store: Fixed AssemblyConverter failures related to genereic parameters and similar error will give more information in the output making it easier to pinpoint the cause
+    Windows Store: Fixed certain UnityEngine.Networking features not working when Unity C# projects are enabled
+    Windows Store: Fixed extended splash screen placement in Windows Phone 8.1, now it will match the system splash screen placement
