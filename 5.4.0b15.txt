@@ -1,0 +1,45 @@
+5.4.0b15 Release Notes (Delta since b14)
+Known Issues
+
+    Crash in ::RenderGameViewCameras:: after overflowing Width or Height fields of the Game view resolution window
+    In deferred rendering, light-mapped objects affected by mixed-mode lights will fallback to forward rendering.
+    OSX: ALLOC_TEMP_THREAD errors are shown after clicking 'Save' button while switching to imported scene
+    Shadows: Directional shadows will present shadow acne when using a custom projection matrix and a very large frustum (20k+)
+    Unity crashes when calling various methods on TerrainData with boundary values
+    Using OpenVR + Vive + Outdated Oculus Utils = Crash. Users are advised to update their Oculus Utils.
+    VR: Image effects do not currently work with single pass rendering.
+    VR: Some built-in shaders do not currently work with single pass rendering resulting in wrong transformations in right eye. Workaround is to manually include the shaders in your project.
+    Windows Store: Unity APIs which use multidimensional arrays as parameters don't work on UWP when .NET Native compilation is enabled (for ex., Master config). For ex., TerrainData.SetHeights. This includes all Unity versions where UWP is supported. The bug has been logged with Microsoft.
+    [GL] [Windows] Unity crashes or hangs with no respond on moving and undocking tabs
+    [iOS][Metal] Performance degradation in 5.4 with some custom shaders
+    [SinglePassStereo] Deferred rendering + spot and point lights stereo discrepancy
+
+Improvements
+
+    Compute: Exposed ComputeShader.GetKernelThreadGroupSizes to query compute thread group sizes.
+    Windows Standalone: Added "Copy PDB files" option in build settings window, this way you can control to copy debugging files or not.
+
+Fixes
+
+    Animation: Fixed a crash in the importer when all keyframes on a track are invalid.
+    Animation: Fixed copy/paste to a clip where associated properties don't exist.
+    Animation: Fixed Generic MatchTarget.
+    Animation: Fixed leaking scriptable objects in AnimationWindow.
+    AssetBundles: Fixed default lzma compression for BuildPipeline.BuildStreamedSceneAssetBundle.
+    Editor: Editor will show compiler errors in English while building to Windows Store Apps, even if Windows locale is not set to English.
+    Editor: Fixed exception when renaming script outside of the editor.
+    Editor: Fixed OSX native web view that would continue ticking its timer after being closed.
+    Editor: Fixed performance issue in SpriteInspector.
+    Editor: Prevent dragging of objects between different editor processes causing unintended behaviour.
+    Global Illumination: Change to warn when trying to update disabled reflection probe.
+    Shaders: Change to allow surface shaders to directly include "Lighting.cginc" to control where it is included.
+    tvOS: Change to disable Menu button when playing video if allowExitToHome is disabled.
+    tvOS: Change to make tvOS platform support installation independent from iOS platform support.
+    tvOS: Enabled movie playing on tvOS.
+    tvOS: Fix to enable game controller in tvOS on-screen keyboard.
+    tvOS: Fix to separate tvOS SDK and OS version settings from iOS.
+    tvOS: Fixed SetScriptingDefineSymbolsForGroup for tvOS
+    tvOS: Fixed Xcode plugin installation when it is done by tvOS platform support.
+    WebGL: Fixed issues launching WebGL content in iframes when third-party cookies are disabled.
+    WebGL: Improved performance of floating point Math in Chrome.
+    Windows Standalone: Game execution will no longer freeze while dragging window via title bar.
