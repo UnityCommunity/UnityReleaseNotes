@@ -1,0 +1,95 @@
+5.4.0b10 Release Notes
+Known Issues
+
+    After expand/collapse Unity Editor window looks corrupted. If you maximize/minimize/click on windows in Editor they'll return to normal state.
+    Android: UI Input requires two touches to work
+    Crash in ::RenderGameViewCameras:: after overflowing Width or Height fields of the Game view resolution window
+    First launch of Unity on new computer doesn't create "~/Library/Unity/Packages" folder, blocking homescreen from loading. Second launch will fix the issue
+    GPU Instancing: Instancing might get broken under glcore if graphics jobs are enabled.
+    In deferred rendering, lightmapped objects affected by mixed-mode lights will fallback to forward rendering.
+    On Windows with MSAA and Image Effects, game view can be rendered upside down.
+    Shadows: Directional shadows will present shadow acnee when using a custom projection matrix and a very large frustum (20k+)
+    Using OpenVR + Vive + Outdated Oculus Utils = Crash. Users are advised to update their Oculus Utils.
+    VR: Image effects do not currently work with single pass rendering.
+    VR: Single-Pass-Stereo causes some lighting problems
+    VR: Some built-in shaders do not currently work with single pass rendering resulting in wrong transformations in right eye. Workaround is to manually include the shaders in your project.
+    With Webplayer removal, desktop players are now part of their respective editor installations. Thus the option to separately install them is removed.
+    [Billboard][LOD] Unity crashes when picking deleted Speedtree Billboard LOD level
+    [IMGUI][OSX] Detached tab is not moved slightly with the cursor after opening project with changed layout in 5.4.
+
+Changes
+
+    Global Illumination: When compositing the directional lightmap removed the clamping on the w-component of the generated pixels.
+    Particles: Added particle radius parameter for world collisions.
+
+Improvements
+
+    Android: Audio - Don't select OpenSL output if the native device params are too bad for fast path (fixes audio issues on buggy devices)
+    Android: Buildpipe - Updated SDK tools requirements for the Editor
+    Android: Editor - Added Marshmallow to the list of APIs
+    Android: IL2CPP - Use Android NDK x64 on x64 Windows Editor
+    Android: SoftInput - Get rid of hardcoded text color, switch to Light theme
+
+    Graphics: Added a -window-mode command line argument to override full-screen behaviour. Options: exclusive, borderless.
+
+    Installer: Mac Download Assistant will write additional logs to ~/Library/Logs/Unity/DownloadAssistant.log
+    Standalones: Add -hideWindow command line option to launch standalone applications with window hidden.
+
+Fixes
+
+    Android: Fix bug in Texture.GetPixels for ETC compressed textures
+    Android: Fix for black screen or crash during startup on old PVR devices (Samsung Galaxy S I9000)
+    Android: Fix freeze in new splash screen when using threaded GfxDevice
+    Android: Fixed a crash related to the main context not being an Activity
+    Android: Fixed an issue where Ping wouldn't work in release mode
+    Android: fixed an issue where SystemInfo.deviceUniqueIdentifier would return an empty string on some x86 devices
+    Android: LocationService - Fixed crash bug
+    Android: PlayerPrefs - Fixed an issue where upgrading a lot of keys from a previous version of unity would cause an out of memory error
+    Android/IL2CPP: Fixed build errors on NDK paths with whitespaces
+    Android/IL2CPP: Fixed crash on second startup after installation
+    Animation: Added an error when an AnimatorOverrideController can't find the animations to override in the base AnimatorController
+    Animation: Disabled recording and playback ui in animation window when in game mode
+    Animation: Disabled reset menu item in component when animation mode is active.
+    Animation: Fix animation clip length for bundled clip
+    Animation: Fix for deleted GameObject when cancelling AnimationClip creation on Sprite drop.
+    Animation: Fix RootMotion import for generic animation with parent with specific default values
+    Animation: Fixed a bug spewing errors when the animation mode was reset from saving the scene.
+    Animation: Fixed a bug where animations created using the "Create" menu would contain an empty Sprite track
+    Animation: Fixed adding an Animator via the AnimationWindow not dirtying the scene
+    Animation: Fixed an issue where Changing culling modes during runtime would not take effect correctly
+    Animation: Fixed an issue where changing the selected game object would leave the animated properties modified.
+    Animation: Fixed an issue where events and additional curves in 0-length animations were popping errors
+    Animation: Fixed an issue where having animations with a mixed number of bones in a controller, and having Write Defaults to false would throw errors.
+    Animation: Fixed an issue where imported keyframes would overlap and get sorted in the wrong order
+    Animation: Fixed an issue where switching to playmode and applying import properties to a Legacy Animation would crash
+    Animation: Fixed an issue with rotations staying applied after animating
+    Animation: Fixed Animation previewer not detecting properly target object to preview
+    Animation: Fixed AnimationClip.SampleAnimation leak
+    Animation: Fixed Animator with statemachine behaviour runtime compile error not firing callback on the right SMB
+    Animation: Fixed blend tree inspector not updating animator values in game mode
+    Animation: Fixed Culled Animator still calling PrepareFrame
+    Animation: Fixed curve editor range not updated when moving animation event.
+    Animation: Fixed error message in AnimationClip importer.
+    Animation: Fixed error message when using BlendTree livelink
+    Animation: Fixed highlight at wrong index after drag&dropping layer in Animator.
+    Animation: Fixed inconsistency in tangent mode when a key frame is created between two with different tangent modes
+    Animation: Fixed incorrect transition shown in inspector when entering game mode.
+    Animation: Fixed long start play mode for scene with a lot of controller
+    Animation: Fixed negative value in frame navigation ui not prevented
+    Animation: Fixed offset when drag&dropping sprites in animation window
+    Animation: Fixed scale value getting zeroed when removing scale curve components in AnimationWindow.
+    Animation: Fixed StateMachineBehaviours on layer not being called properly.
+    Animation: Fixed StateMachineTransition being displayed as EntryTransition
+    Animation: Fixed the display order of properties in the animation window to be the same as instantiation in component.
+    Animation: Fixed transition previewer getting infinite loop with some transitions
+    Animation: Prevent Animation Event from being created with negative time.
+    Animation: Removed modal dialog showing when removing states or transitions in the animator window.
+    Animation: Rotate tool rotates wrong for object with negatively scaled parent
+    Animation: Rotation value changes on play mode a little bit
+    Graphics: Fixed meshes with large scale and blend shapes sometimes not being lit correctly
+    Graphics: Static batching can batch somewhat more objects now. Previously had a limit of 32k indices, now 64k. 32k limit stays on Mac due to driver issues.
+    Multiplayer: Fixed an issue where specifying http:// or https:// in the MatchMaker URI could cause the system to fail to connect to MatchMaker
+    Multiplayer: Removed annoying warning: "no free events", and "Attempt to send to not connected connection", as well as fix ack doesn't reset with connection resetting bug
+    Scripting: Fixed OnAudioFilterRead() crash.
+    Shaders: Reduce number of DX11 samplers used by Standard shader (two reflection probes share a sampler; and three LPPV textures share a sampler)
+    Windows: Properly handle non-ascii command line arguments in editor and standalone
