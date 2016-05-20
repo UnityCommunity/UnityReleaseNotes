@@ -1,0 +1,65 @@
+5.4.0b9 Release Notes
+Known Issues
+
+    After expand/collapse Unity Editor window looks corrupted. If you maximize/minimize/click on windows in Editor they'll return to normal state.
+    GPU Instancing: Instancing might get broken under glcore if graphics jobs are enabled.
+    Graphics: with the new jobs enabled, reflection probes might render incorrectly in rare cases.
+    In deferred rendering, lightmapped objects affected by mixed-mode lights will fallback to forward rendering.
+    On Windows with MSAA and Image Effects, game view can be rendered upside down
+    Shadows: Directional shadows will present shadow acnee when using a custom projection matrix and a very large frustum (20k+)
+    Using OpenVR + Vive + Outdated Oculus Utils = Crash. Users are advised to update their Oculus Utils
+    VR: Single-Pass-Stereo causes some lighting problems
+    [Billboard][LOD] Unity crashes when picking deleted Speedtree Billboard LOD level
+    [IMGUI][OSX][Regression] Detached tab is not moved slightly with the cursor after opening project with changed layout in 5.4
+    [Regression] RTP Terrain shader rendering is broken after upgrading project to 5.4
+
+Features
+
+    VR: Native OpenVR support added
+        Note that native OpenVR support renders with an off-center asymmetric projection matrix. This means that any shaders which relied on fov / aspect may not work correctly.
+
+Backwards Compatibility Breaking Changes
+
+    Shaders: Default shader compilation target was changed to "#pragma target 2.5" (SM3.0 on DX9, DX11 9.3 feature level on WinPhone). Can still target DX9 SM2.0 and DX11 9.1 feature level with "#pragma target 2.0". The majority of built-in shaders target 2.5 now. Notable exceptions are Unlit, VertexLit and fixed function shaders.
+
+Improvements
+
+    Editor: Added support for resizing the height of the preferences window.
+    Shaders: ComputeBuffer data layout now matches between DX and automatically translated GL shaders. Action required: All OpenGL specific data layout tweaking in user scripts getting or setting data from ComputeBuffer should be removed.
+
+Fixes
+
+    Animation: Fix to prevent crash when a clip is null for an animation extracted from an asset bundle, and whose dependencies have not loaded.
+    Asset Bundles: Fixed the source of error messages when building variant asset bundles.
+    AssetBundles: BuildAssetBundles will now switch back to the original Active Build Target when finished.
+    Editor: Fixed access violation in GUIView::GUIViewWndProc.
+    Editor: Fixed case of access to destroyed window during shutdown.
+    Editor: Fixed case of different color gradients & pickers being seen between Gamma and Linear space player settings
+    Editor: Fixed case of EditorJsonUtility throwing MissingMethodException.
+    Editor: Fixed changing order of components not getting saved. We now also support undo.
+    Editor: Fixed crash that could happen when animation window is open and playmode is entered
+    Graphics: Fixed case of crash after SetTargetBuffers and GameObject.SetActive(false).
+    Graphics: Fixed some cases of incorrectly detecting "destroy RT being assigned to Camera.targetTexture", resulting in losing Camera.targetTexture - e.g. in case of context-loss on DirectX or changing Emulation Layer in the Editor and such like.
+    Multiplayer: Fixed issue where wrong initialization connection amount could lead to system crash.
+    OpenGL: Fixed various corner case issues for GLSL shader generation on ComputeBuffer loads, stores and atomic ops
+    OpenGL: Windows fullscreen mode fixes
+    Physics: Fix to ensure that 2D Overlap/Cast checks use consistent 'skin' radius for all shapes
+    Physics: Fix to ensure that a Joint2D auto-configuration still works if joint is added from script.
+    Physics: Fix to ensure that a TargetJoint2D added via script allows collisions with static colliders.
+    Physics: Fix to ensure that changing Rigidbody2D.gravityScale whilst a Rigidbody2D.MovePosition is in progress now works.
+    Physics: Fix to stop Rigidbody2D with Interpolation being placed at world origin for a single update upon start.
+    Physics: Fixed case of center of mass and inertia tensor being reset after game object was reactivated.
+    Physics: Rigidbodies without non-trigger colliders can again have custom center of mass and inertia tensor.
+    Scripting: Always throw an exception when calling AssetDatabase methods from constructors and during serialization
+    Scripting: Deactivation order during built application shutdown is now consistent with normal scene unloading. Previously closing a built aplication could result in a NullReference exception.
+    Scripting: Fixed crash after calling DestroyImmediate(gameObject) in MonoBehaviour.Awake
+    Scripting: Fixed crash when accessing SerializedProperty.tooltip in some cases.
+    Scripting: Fixed issue with being unable to use ScriptableObject.CreateInstance with a nested ScriptableObject class
+    Standalone player: Fixed Application.persistentDataPath when Product Name contains invalid path character.
+    Templates: Fixed whitespaces in Editor Tests template
+    UI: Fixed ArgumentOutOfRange exception sometimes being thrown when editing InputField on mobile.
+    Visual Studio: Fixed crash when opening VisualStudio + improved VisualStudio startup performance
+    Windows: "Build & Run On" option will now work correctly with Universal Windows 10 Apps (it is no longer greyed out)
+    Windows: Screen.currentResolution() now returns desktop resolution instead of window screen resolution when application is in windowed mode.
+    Windows Store: Fixed support for JPEG images for tiles, splash screen etc.
+    Windows Store: SystemInfo.deviceType will now correctly report Handheld when running on Windows Phone 10.
