@@ -1,0 +1,53 @@
+5.4.0b13 Release Notes (Delta Since b12)
+Known Issues
+
+    After expand/collapse Unity Editor window looks corrupted. If you maximize/minimize/click on windows in Editor they'll return to normal state.
+    Crash in ::RenderGameViewCameras:: after overflowing Width or Height fields of the Game view resolution window
+    First launch of Unity on new computer doesn't create "~/Library/Unity/Packages" folder, blocking homescreen from loading. Second launch will fix the issue
+    GPU Instancing: Instancing might get broken under glcore if graphics jobs are enabled.
+    In deferred rendering, lightmapped objects affected by mixed-mode lights will fallback to forward rendering.
+    On Windows with MSAA and Image Effects, game view can be rendered upside down.
+    Shadows: Directional shadows will present shadow acnee when using a custom projection matrix and a very large frustum (20k+)
+    Unity crashes when calling various methods on TerrainData with boundary values
+    Using OpenVR + Vive + Outdated Oculus Utils = Crash. Users are advised to update their Oculus Utils.
+    VR: Image effects do not currently work with single pass rendering.
+    VR: Single-Pass-Stereo causes some lighting problems
+    VR: Some built-in shaders do not currently work with single pass rendering resulting in wrong transformations in right eye. Workaround is to manually include the shaders in your project.
+    [Collab] Cannot publish more than 6000 files at once
+    [iOS][Metal] Performance degradation in 5.4 with some custom shaders
+    [OnWillRenderObject] Offscreen rendering from within OnWillRenderObject breaks billboard particles
+    [Regression][5.3][OSX] ALLOC_TEMP_THREAD errors are shown after clicking 'Save' button while switching to imported scene
+    [Scene] Can't shift-click to multi-select objects in scene view.
+    [Windows Store] Unity APIs which use multidimensional arrays as parameters don't work on UWP when .NET Native compilation is enabled (for ex., Master config). For ex., TerrainData.SetHeights. This includes all Unity versions where UWP is supported. The bug has been logged with Microsoft.
+
+Improvements
+
+    iOS: Added Xcode 7.3 Build & Run support.
+
+Fixes
+
+    Animation: Fixed case of animation compression distorting animation.
+    Animation: Fixed case of blend tree inspector not updating animator values in game mode.
+    Animation: Fixed case of incorrect transition shown in inspector when entering game mode.
+    Animation: Fixed case of missing transitions when undoing layer deletion in Animator Window.
+    Animation: Fixed case of playback not stopping when changing frame in the animation window.
+    Animation: Fixed case of sample rate not being taken into account when moving key frame in curve editor.
+    Animation: Fixed case of scene view not updating when changing clip in the animation window.
+    Animation: Fixed case of slider in curve editor and dope sheet editor resetting for clips of short duration.
+    Animation: Fixed case of state machine undo moving focus back to base layer.
+    Animation: Fixed error message in console while optimizing animation hierarchy.
+    Animation: Fixed issue where it was not possible to change clip when Animation Window is locked.
+    Animation: Fixed issue whereby animation events could be added to read-only animation clips.
+    Animation: Fixed issue whereby property or keyframe deletion in read-only clip was not disabled in Animation Window.
+    Animation: Fixed issues when drag&dropping sprite into a clip with no existing sprites.
+    Documentation: Restored lost documentation for RenderTargetSetup.
+    Editor: Fixed an issue that could cause scenes containing prefab instances with driven transforms to immediately become dirty.
+    Global Illumination: Fixed issue whereby changing Reflection Probe component positioning in the inspector makes realtime probe black.
+    Metal: Fixed case of native RenderBuffer query failing in case of multi-threaded rendering.
+    Networking: Fixed issue where the client was unable to free connections in NetworkServer when using WebSocket.
+    Networking: Fixed issue whereby transferring data via reliable sequenced qos channel could result in lost messages in "bad" network conditions.
+    Physics2D: Fixed case of Collision2D.relativeVelocity being reported with incorrect values.
+    Physics2D: Fixed issue with dragging a Sprite/Texture2D into the inspector, causing a PolygonCollider2D to use it even though it is not dropped on the component.
+    Windows Store: Fixed case of mouse scroll not generating GUI events and being less sensitive than on other platforms.
+    Windows Store: Fixed case of Windows Store 8.1 Universal failing to build: Implemented changes to help SerializationWeaver find references which have Windows SDK specified when building to Universal 8.1.
+    Windows Store: Fixed compilation error when using .NET 4 plugin without placeholder and compilation override None.
