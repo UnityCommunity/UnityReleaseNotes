@@ -1,0 +1,46 @@
+5.4.0b8 Release Notes
+Known Issues
+
+    After expand/collapse Unity Editor window looks corrupted. If you maximize/minimize/click on windows in Editor they'll return to normal state.
+    GPU Instancing: Instancing might get broken under glcore if graphics jobs are enabled.
+    Graphics: with the new jobs enabled, reflection probes might render incorrectly in rare cases.
+    In deferred rendering, lightmapped objects affected by mixed-mode lights will fallback to forward rendering.
+    On Windows with MSAA and Image Effects, game view can be rendered upside down
+    Shadows: Directional shadows will present shadow acnee when using a custom projection matrice and a very large frustum (20k+)
+    VR: Single-Pass-Stereo causes some lighting problems
+    [Billboard][LOD] Unity crashes when picking deleted Speedtree Billboard LOD level
+    [IMGUI][OSX][Regression] Detached tab is not moved slightly with the cursor after opening project with changed layout in 5.4
+    [Regression][5.4][RTP] RTP Terrain shader rendering is broken after upgrading project to 5.4
+
+Improvements
+
+    Editor: Add api to toggle preventing cross-scene references on/off.
+    Editor: Discard changes' in scene context menu: Reloads selected modified scenes
+    GI: Improved light update performance
+    Multiplayer: Make matchName and matchSize serializable attributes so they can save on the network manager
+    Scripting: Added array APIs to Shader and CommandBuffer class.
+
+Fixes
+
+    Animation: Fixed an issue where Rotation values would change on save
+    Animation: Fixed an issue where Rotation values would stay applied to objects after exiting Animation Mode
+    Editor: Fixed curves in particle system inspector not showing negative values initially
+    Editor: Fixed squashed vector fields in material editor
+    Global Illumination: Fixed multi-scene baking
+    Global Illumination: In editor, avoid some of automatic GI overhead when GI is turned off
+    Graphics: Added profiler markers on async texture loading waits
+    Linux: Fixed flickering/corrupted rendering with OpenGL Core
+    Linux: Fixed non-native-resolution fullscreen rendering with OpenGL Core
+    Multiplayer: Clean up MatchInfo UI in the NetworkManager play mode inspector
+    Multiplayer: Explicitly Dispose() WWW object in MatchMaker callback handler when done with it.
+    Multiplayer: Fixed bug where connecting to a non https MatchMaker after joining 1 match would fail in all cases
+    Multiplayer: Fixed issue where an error response from the server could lead to undesirable console output in non error cases when setting the match auth token
+    Multiplayer: Fixed issue where default matchmaker port was 80 instead of 443 in 1 code path
+    Multiplayer: Fixed issue with matchSize being incorrectly used from a join match response
+    Multiplayer: Fixed UI panel on NetworkManager for match max size and name, as well as add in tooltip info for both
+    Multiplayer: Fixed up MatchMaker URI to be correct with http:// prefix as default
+    Plugins: Fixed Editor crash, when trying to set plugin settings for deprecated platforms.
+    Shaders: Fixed case of animated standard shader Emission being wrongly overriden by material inspector
+    Shadows: Fixed shadow error messages happening in some cases
+    Shadows: Fixed shadows disappearing for some off-screen shadows casters
+    Shadows: Prevent setting out-of-range shadow strength
