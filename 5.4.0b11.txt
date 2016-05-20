@@ -1,0 +1,44 @@
+5.4.0b11 Release Notes (Delta since b10)
+
+This section contains the release notes pertinent to this release, as a delta from the previous beta release (5.4.0b10).
+
+Users new to 5.4 are advised to read the section entitled Release Notes (Full), further below.
+Known Issues
+
+    After expand/collapse Unity Editor window looks corrupted. If you maximize/minimize/click on windows in Editor they'll return to normal state.
+    Android: UI Input requires two touches to work
+    Crash in ::RenderGameViewCameras:: after overflowing Width or Height fields of the Game view resolution window
+    First launch of Unity on new computer doesn't create "~/Library/Unity/Packages" folder, blocking homescreen from loading. Second launch will fix the issue
+    GPU Instancing: Instancing might get broken under glcore if graphics jobs are enabled.
+    In deferred rendering, lightmapped objects affected by mixed-mode lights will fallback to forward rendering.
+    On Windows with MSAA and Image Effects, game view can be rendered upside down.
+    RTP Terrain shader rendering is broken after upgrading project to 5.4
+    Shadows: Directional shadows will present shadow acnee when using a custom projection matrix and a very large frustum (20k+)
+    Unity crashes when calling various methods on TerrainData with boundary values
+    Using OpenVR + Vive + Outdated Oculus Utils = Crash. Users are advised to update their Oculus Utils.
+    VR: Image effects do not currently work with single pass rendering.
+    VR: Single-Pass-Stereo causes some lighting problems
+    VR: Some built-in shaders do not currently work with single pass rendering resulting in wrong transformations in right eye. Workaround is to manually include the shaders in your project.
+    With Webplayer removal, desktop players are now part of their respective editor installations. Thus the option to separately install them is removed.
+    [IMGUI][OSX] Detached tab is not moved slightly with the cursor after opening project with changed layout in 5.4.
+    [iOS][Metal] Performance degradation in 5.4 with some custom shaders
+    [iOS][GLES2] Performance degradation in 5.4 with some custom shaders
+
+Features
+
+    Windows: Windows Standalone player now can be run in Low Integrity Mode by passing -runWithLowIntegritylevel command line argument
+
+Improvements
+
+    Editor: Added ability to hide the tetrahedron wireframe while editing light probe group.
+    Editor: Added cancel button to "Opening Visual Studio" progress dialog.
+    Editor: Added edit mode for light probe group to avoid accidental selection changes.
+    Serialization: Serialization depth limit warning now prints the serialization hierarchy that triggered the warning
+    Shaders: Improved game data build times with many complex shaders, especially when they were already compiled before.
+
+Fixes
+
+    Editor: Adjusted the width of the 'Build Settings' window so that it displays its contents correctly, even if support for some of the players is not currently available.
+    Editor: CTRL/CMD + marquee select now correctly substracts from selection in light probe group editor
+    WebGL: Fixed 'Uncaught incorrect header check' error.
+    Windows Store: Fix to exclude abstract classes from serialization (as is the case for all other platforms)
