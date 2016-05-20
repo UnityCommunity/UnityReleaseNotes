@@ -1,0 +1,58 @@
+5.4.0b6 Release Notes
+Known Issues
+
+    After expand/collapse Unity Editor window looks corrupted. If you maximize/minimize/click on windows in Editor they'll return to normal state.
+    Changing the active graphics API in the Editor while a Canvas is in the scene will crash the Editor. As a workaround, open only a new, empty scene before changing graphics API.
+    Graphics: a deadlock might happen in very rare cases in the PrepareShadowMaps.
+    Graphics: with the new jobs enabled, reflection probes might render incorrectly in rare cases.
+    In deferred rendering, lightmapped objects affected by mixed-mode lights will fallback to forward rendering.
+    Saving a scene on OSX might throw the error in the console: "TLS Allocator ALLOC_TEMP_THREAD..". Happens only on OSX El Capitan (10.11.1). Doesn't happen on OSX 10.10;
+    Shadows: Directional shadows will present shadow acnee when using a custom projection matrice and a very large frustum (20k+)
+    Unity crashes sometimes after deleting asset files from project folder
+    [Billboard][LOD] Unity crashes when picking deleted Speedtree Billboard LOD level
+    [GL] [Windows] Unity crashes or hangs with no respond on moving and undocking tabs
+    [MonoDevelop] "..UnitTestTextEditorExtension not found.." error message appears when user open script in MonoDevelop
+    [Skinning] Skinning broken on Mac
+    [Windows][MT] Unity crashes after mass placing SpeedTrees on terrain
+
+Features
+
+    Graphics: Graphics jobs can now be enabled (see player settings) for a potential performance boost. Currently in experimental status due to unknown project-dependent side effects.
+    Web: WebPlayer support has been removed
+
+Changes
+
+    Scripting: Renamed onSceneLoaded to sceneLoaded, onSceneUnloaded to sceneUnloaded and onActiveSceneChanged to activeSceneChanged to be compliant with naming conventions
+
+Improvements
+
+    Installer: DownloadAssistant will warn users if they try to install components which require Unity, without selecting UnityEditor component
+    Installer: WindowsEditor Installer will install Release Notes internet shortcut to the windows start menu
+    Particles: Added option to select exactly which UV channels the Texture Animation Module is applied to
+    Particles: Support choosing a random start frame in the Texture Animation Module
+    Substance: A FreezeAndReleaseSourceData() method was added to the ProceduralMaterial class. This renders the ProceduralMaterial immutable and releases some of the underlying data to decrease the memory footprint. To release even more of the underlying data, it is necessary to call Resources.UnloadUnusedAssets() afterwards. Once frozen, the ProceduralMaterial cannot be cloned, its ProceduralTextures cannot be rebuilt, nor its inputs be set.
+
+Fixes
+
+    Android: Support OpenGL ES 3.0 on Vivante GPUs
+    Animation: Fix import of humanoids when root object rotation is not identity. Mostly single root 3DSMAX models
+    Core: Fix for prefabs not updating the root order property modification under certain circumstances.
+    Editor: Fix scene view crash if internal scene view camera is disabled
+    Editor: Show a warning in camera inspector when it wants deferred but is set to ortho
+    Editor: [PlayerSettings] After changing Graphics API some UI elements do not respond correctly
+    Graphics: DX12: Implemented support for ShadowSamplingMode.
+    Graphics: Filter out duplicate graphics APIs in PlayerSettings.SetGraphicsAPIs
+    Particles: Ensure no garbage is generated when using some script commands
+    Particles: Fix case of scale not being applied correctly to AABB in the TrailRenderer
+    Particles: Fix crash when mesh is missing inside player (eg a default mesh is used)
+    Particles: Fix error message when particles have zero velocity and start inside a collider
+    Particles: Fix particle shader preview to display a flat plane instead of a sphere
+    Particles: Fix stretch particle bounds to avoid culling errors
+    Particles: Fixed mesh double scaling issues
+    Particles: Fixing collision events to ensure correct events are sent to correct gameobjects
+    Particles: Give subemitters better default names, based on their context (birth, death etc)
+    Particles: LimitVelocityOverLifetime module shouldn't allow negative values
+    Particles: Max Collision Shapes option cannot be negative
+    Particles: Reverse 3D rotation direction, for consistency with existing 1D rotation
+    Scripting: Debug.Log won't consume memory when StackTraceLogType is None
+    Substance: Fixed corner cases of outputs not being impacted by any input not being generated
