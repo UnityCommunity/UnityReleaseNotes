@@ -1,0 +1,267 @@
+5.4.0b2 Release notes
+System Requirements Changes
+
+    Webplayer no longer supported and will be removed
+    iOS will require 7.0 or higher (dropping 6.0)
+
+Known Issues
+
+    Creating a scene from the Project Browser's 'Create' menu currently crashes Unity. Use the 'New Scene' option from the main menu instead.
+    Fallback from Deferred to Forward when rendering lightmapped objects with mixed-mode light - can be fixed by introduction of baked shadow mask for lightmapped objects
+    GPU Instancing: When drawing meshes with instancing shaders by Graphics.DrawMesh, Unity fails to render with correct mesh.
+    Legacy Animation: Changes to the lights in 5.3 have caused an issue so that it currently is not possible to animate lights using the Legacy animation system. Fix arrived in 5.3, and is being forward ported soon.
+    Saving a scene on OSX might throw the error in the console: "TLS Allocator ALLOC_TEMP_THREAD..". Happens only on OSX El Capitan (10.11.1). Doesn't happen on OSX 10.10;
+    WebPlayer build is not removed. Expect its removal in a future beta.
+
+Features
+
+    2D: 9-Slice sprites.
+    Asset Import: Support importing models with more than 100,000 objects
+    GI: Light Probe Proxy Volumes
+    This component allows using more than one light probe sample for large dynamic objects (think large particle systems or important characters). This will sample probes into a 3D texture and use that in the shader.
+        Requires shader model 4 (DX11+/PS4/XB1/GLCore).
+    GI: Occlusion of the strongest mixed mode light is stored per light probe
+    Graphics: Basic GPU Instancing Support
+        Use GPU instancing to draw a large amount of identical geometries with very few draw calls.
+        Works with MeshRenderers that use the same material and the same mesh.
+        Only needs a few changes to your shader to enable it for instancing.
+        Set per-instance shader properties from script via MaterialPropertyBlock.
+        Supported on Windows DX11/DX12 with SM 4.0 and up. Other platforms will be supported later.
+    Graphics: Fast texture copies via Graphics.CopyTexture.
+    Graphics: Texture Array support, seeTexture2DArray class.
+    IAP: Cloud catalog support
+    A 'useCloudCatalog' boolean has been added to UnityEngine.Purchasing.ConfigurationBuilder. When set, Unity IAP will fetch your catalog of products for sale from the Unity cloud. Catalog is configured via the Unity Analytics dashboard.
+    iOS: Add URL schemes player setting
+    OSX: Editor enabled retina support (text and some icons only)
+    Particles: Trigger Module
+    Physics: Overlap recovery, used to depenetrate CharacterControllers from static objects when an overlap is detected. When activated, the CharacterController module will automatically try to resolve the penetration, and move the CharacterController to a safe place where it does not overlap other objects anymore.
+    Shaders: Uniform array support
+        Uniform arrays can be set by new array APIs on MaterialPropertyBlock.
+        The size of an array is lifted to 1023.
+        The old way of setting array elements by using number-suffixed names is deprecated.
+    Substance: Substance: ProceduralMaterials are now supported at runtime on Windows Store/Phone platforms
+    Windows: Added speech recognition APIs under UnityEngine.Windows.Speech. These APIs are supported on all windows platforms as long as they're running on Windows 10: Windows Editor, Windows Standalone and Windows Store
+    Windows Store: Realtime global illumination now works when using Windows 10 SDK
+    Windows Store: UnityWebRequest now supported for all SDKs
+
+Backwards Compatibility Breaking Changes
+
+    Android: WebCam no longer works on Gingerbread devices
+    DX12: Introduced a new native plugin interface - IUnityGraphicsD3D12v2 . The old interface will not function anymore due to differences in internal graphics job submission.
+    Editor: Deprecated UnityEditor.ShaderUtil.ShaderPropertyTexDim; use Texture.dimension.
+    GI: Deprecated Light.actuallyLightmapped, use Light.isBaked and Light.bakedIndex instead. Baked Light got unique index, instead of the flag "actuallyLightmapped"
+    Graphics: Further deprecated Material(String) constructor - this will now always create a material with the error shader and print an error, in editor and player. It will be completely removed in a future Unity version.
+    Playables: refactored API so that Playables are struct instead of classes. Making the API allocation-less in c#.
+    Scripting: Added two new script errors in the editor for catching calls to the Unity API during serialization. See "Scripting Serialization" page in the manual for more details.
+    Scripting: To facilitate a memory optimization, UnityEngine.Object.GetInstanceID() is no longer thread safe.
+    Web: WebRequest interface was promoted from UnityEngine.Experimental.Networking to UnityEngine.Networking. Unity 5.2 and 5.3 projects that use UnityWebRequest will have to be updated.
+
+Changes
+
+    Android: Assets - Disable texture streaming for Android
+    Android: Removed native activity implementation. An activity with the same name based on a regular Activity is still in place for backwards compatibility reasons.
+    Android: UnityPlayerNativeActivity and UnityPlayerProxyActivity has been deprecated and will print warnings to the logcat if in use.
+    Audio: Streamed audio clips are no longer preloaded. This is done to reduce the number of open file handles in scenes referencing a large number of streamed clips. Except for a slight increase in playback latency the behaviour is not affected.
+    Audio: Updated FMOD to 4.44.56
+    DX12: Disabled client/worker mode as a preparation step for pure threading (-force-gfx-mt now does nothing for DX12).
+    DX12: Enabled GPU profiler in single-threaded mode (-force-gfx-direct).
+    Editor: Editor will warn opening a project from any version not matching the projects matching last version string saved in information. This means even 5.4.0b1 to 5.4.0b2, or 5.4.0f3 to 5.4.0p1
+    Physics: Fix for Character Controller Physics causing capsule to be thrown in the air when exiting another collider
+    Samsung TV: Added Ignore BG Alpha Clear checkbox to Resolution section of Samsung TV player settings. This will disable the clearing of the alpha value for the background fill allowing for blending between Unity's render layer and the layer behind.
+    Shaders: Internal shader for computing screenspace cascaded shadows was moved into Graphics Settings. If you were overriding it before by just dropping it into the project -- now need the custom one via Graphics Settings.
+    Shaders: Removed support for EXT_shadow_samplers on non-iOS OpenGL ES 2.0 platform. Almost no devices outside of iOS have it, so there's no point in having larger shaders for that.
+    Terrain: Now terrain objects created in the scene will be properly renamed to avoid using the same name.
+    Terrain: When different TerrainData are used for Terrain and TerrainCollider component on one GameObject, a warning message is shown and a button to help fix the situation.
+
+Improvements
+
+    2D: Added tessellation detail control to SpriteEditor
+    Android: Added template for ProGuard obfuscation on exported project
+    Android: Application name now supports non-alphanumeric characters and spaces
+    Android: Converted some fatal error messages to be presented on screen rather than printed to the logcat
+    Android: Enhanced robustness of Location input
+    Animation: Improved Animation event performance for repeat calls to the same events on components
+    Audio: Added virtualization of audio effects. For audio sources that are virtual because they have been culled due to low audibility or priority attached effect components or spatializers are now bypassed too in order to save CPU. The new behaviour is on by default but can be turned off in the audio project settings.
+    Audio: Audio clip waveform preview now displays the actual format used for compression when the default format isn’t available on a certain platform.
+    Audio: Fixed audio clip waveform preview rendering sync issues after import and improved the way the waveforms are being rendered to be more dynamic and reveal more detail.
+    Cache Server: Cache server: Improved the cache server so that it can properly handle scenarios when assets with missing references are being read.
+    Compute: Add DispatchIndirect function (similar to DrawProceduralIndirect - dispatching compute shader with parameters sourced from ComputeBuffer)
+    Compute: Improve error handling for compute shaders
+    Compute: Revamp API of hidden counters on ComputeBuffers to be more sane. Now optionally reset when bound, and can be explicitly set via SetCounterValue
+    Core: Add more profiling information to the PersistentManager
+    Core: Improved job execution. Spawn worker threads based on the number of logical processors instead of physical cores.
+    DX12: Introduced -force-d3d12-stablepowerstate command line parameter. Use it when profiling the GPU.
+    Editor: Added a warning if there are still managed threads running after exiting play-mode. The editor only stops all managed play-mode threads when entering play-mode and recompiling scripts.
+    Editor: Always show the scene headers in the Hierarchy (also when only having one scene) to prevent confusion when loading and unloading scenes in play mode (scene headers was popping in and out). Also it makes it possible to see what scene is loaded in OSX fullscreen mode.
+    Editor: Fixed the title of the Script Execution Order inspector
+    Editor: In play mode the DontDestroyOnLoad scene will only be shown if it has game objects
+    GI: Added Lightmapping.realtimeGI and Lightmapping.bakedGI editor APIs
+    GI: Atlassing would generate atlases with wasted space when scaling down objects.
+    GI: Fixed a problem where we would always recompute Final Gather even if the result was in the cache.
+    GI: Improved mixing of realtime and baked shadows - removes shadow from the back-facing geometry, preserves bounce and contribution of other baked lights
+    GI: Store BakeEnlightenProbeSetJob results in hashed file to speed up rebaking of light probes.
+    GI: Upgraded to Enlighten 3.03
+    GI: Use HDR color picker for ambient color instead of color plus ambient intensity.
+    Graphics: Added mechanism to tweak some unity shader defines per-platform per-shader-hardware-tier. Currently it is exposed only to scripts: see UnityEditor.Rendering namespace, specifically UnityEditor.Rendering.PlatformShaderSettings for tweakable settings and UnityEditor.Rendering.EditorGraphicsSettings for methods to get/set shader settings. Please note, that if settings are different for some tiers, shader variants for ALL tiers will be compiled, but duplicates will be still stripped from final build.
+    Graphics: Added TextureDimension enum, and Texture.dimension property.
+    Graphics: Allow setting a slice of 3D/2DArray as a render target (Graphics.SetRenderTarget depthSlice argument).
+    Graphics: LOD: Reduced render batch breaking overhead due to LOD fading.
+    iOS: Use new Game Center APIs when possible
+    Physics: Added 'OneWayGrouping' property to PlatformEffector2D to group contacts.
+    Physics: Allow point editing in Inspector for Edge/PolygonCollider2D.
+    Scripting: Added new yield instruction: WaitForSecondsRealtime.
+    Scripting: Improved SendMessage performance for repeat calls to the same message on components
+    Scripting: ScriptUpdater asks whether to automatically update once per project session (i.e, a different project gets open or unity is restarted)
+    Shaders: #pragma target 3.5, 4.5, 4.6 are accepted.
+        3.5 - minimum version for texture arrays (DX11 SM4.0+, GL3+, GLES3+, Metal)
+        4.5 - minimum version for compute shaders (DX11 SM5.0+, GL4.3+, GLES3.1+)
+        4.6 - minimum version for tessellation (DX11 SM5.0+, GL4.1+, GLES3.1AEP+)
+    Shaders: Added shader #pragma to allow easy/cheap variants of shaders across different tiers of hardware in the same renderer without needing keywords (e.g. iPhone 4 and iPhone 6, within gles)
+    Shaders: Extended Standard Shader UI, new options to disable specular highlights, reflections and to pack Smoothness into the alpha channel of the Albedo texture
+    StackTrace: Deprecated Application.stackTraceLogType, use Application.SetStackTraceLogType/GetStackTraceLogType instead.
+    StackTrace: For StacktraceLogtype.None only the message will be printed (without file name or line number).
+    StackTrace: You can now set stacktrace log type in PlayerSettings for various log types.
+    Windows Store: System.operatingSystem will add '64 bit' postfix if target device has 64 bit CPU, more information in the docs.
+    Windows Store: Added bluetooth capability to player settings
+    Windows Store: Added UnityEngine.Ping class.
+    Windows Store: In player settings visual asset images are now edited using object fields
+    Windows Store: PDBs will now be included in the installers for "Release" players too (debug and master players already had PDBs included)
+
+Fixes
+
+    AI: Agent was reporting no path when moving over OffMeshLink.
+    AI: Disable expanding the navmesh clipping hull beyond the collected list of affected polygons - could cause t-junctions.
+    AI: Fix issue where agents area cost settings were overwritten with global cost settings - when doing NavMeshAgent.CalculatePath.
+    AI: Navmesh carving would sometimes collapse degenerate triangles in a way that could affect other polygons.
+    AI: Prevent rare access of garbage memory of last node in navmesh bv-tree.
+    Android: Ensure device detected by the editor is online
+    Android: Mute audio if audio focus is lost
+    Android: Tegra 2 - application no longer crashes if UnitySendMessage is called during initialization
+    Animation: Animation Window: Overridden virtual methods are now listed as potential Animation Event targets.
+    Animation: Disabled play/record/key/... buttons on Animation window when viewing objects with optimized hierarchy
+    Animation: Fix crash when changing OverrideController on Animator with no Avatar
+    Animation: Fix import of humanoids when root object rotation is not identity. Mostly single root 3DSMAX models
+    Animation: Fixed a bug causing an offset between Set and Get of Animator.bodyPosition
+    Animation: Fixed a bug where auto keys at time 0 for rotation curves were slightly off
+    Animation: Fixed a case where animation events would be queued up when fireEvents is set to false
+    Animation: Fixed a case where copying transitions between state machines without copying destination would crash
+    Animation: Fixed an error in the inspector when selecting multiple files
+    Animation: Fixed an issue where animation events would be significantly slower when an object has a lot of components
+    Animation: Fixed an issue where euler angles were being shown differently in 5.3 than in 5.2
+    Animation: Fixed an issue where rotation keys created through the inspector defaulted to Quaternion curves instead of Euler curves.
+    Animation: Fixed Animator.CrossFade failing when already crossfading
+    Animation: Fixed AnimatorController vs AnimatorControllerPlayable not being reset the same way when modified.
+    Animation: Fixed AnimatorControllerPlayable.GetParameter crash
+    Animation: Fixed another issue where animation events would be significantly slower when an object has a lot of components
+    Animation: Fixed broken Avatar Configure Tool when changing tabs with invalid Avatar
+    Animation: Fixed crash when changing scripts while in play mode.
+    Animation: Fixed crash when deleting AnimatorController asset
+    Animation: Fixed current time line getting broken in the AnimationWindow during resize of the window
+    Animation: Fixed error message when adding color animation
+    Animation: Fixed LayersAffectMassCenter with ControllerPlayable
+    Animation: Fixed NullReferenceException in Animation window when deleting the GO that is played
+    Animation: Fixed numerical issues in next/previous frame scrubbing of animation window.
+    Animation: Fixed Play/Pause/Step Buttons not turning red when entering AnimationWindow recording
+    Animation: Fixed Unable to drag&drop sprite in a game object with multiple bindings available
+    Animation: Removed the animator property "enabled" from the list of animatable properties in the animation window.
+    Asset Loading: Asset Loading: Fixed possible crash when loading multiple asset bundles simultaneously
+    AssetBundles: AssetBundles: Loading AssetBundles via WWW outside of playmode now works correctly.
+    Audio: Audio Low Pass Filter didn't work on Audio Listener
+    Audio: AudioMixer.GetFloat() / SetFloat() did not work unless Unity was restarted.
+    Audio: Fixed random mixup between internal direct and reverb signal connections which could cause AudioSources to interfere and become silent under certain conditions.
+    Audio: Large numbers of streaming audio clips caused crashes in batch mode.
+    Audio: Microphone.IsRecording(null) was returning true even when no devices were available.
+    Audio: Native audio plugin SDK - Fixed dspbuffersize having a value of 0 in when default buffer size settings are selected.
+    Audio: Preloaded sounds didn’t allow calling GetData in Start().
+    Audio: Project browser wasn’t updating after a change had been applied in the AudioImporterInspector.
+    Audio: Sounds marked as Play On Awake were not shown in audio profiler.
+    Compute: Better error messages when creating compute buffers to pinpoint the problem
+    Compute: Don't dispatch a program that uses >8 UAVs on platforms that don't support that (ie. D3D11 before 11.1 etc), and print a warning on import that this won't work
+    Compute: Fixed bugs on HLSL to GLSL compute shader translation with atomic ops.
+    Core: Fix crash when deleting child-object when prefab connection is lost
+    Core: Fix deletion order of depending components
+    Core: Fix for prefabs not updating the root order property modification under certain circumstances.
+    Core: Fix for silent asset overwrite when importing a package via "openfile" (aka double-click)
+    Core: Fix Issues with import of '~' folders (ignored folders)
+    Core: Fix not being able to return license
+    Core: Fixed asset importer error when calling AssetDatabase.Refresh() during import of assembly
+    Core: Fixed issues with ScritableObjects added as subobjects to assets
+    Core: Fixed memory corruption in enlighten scene mapping
+    Core: Return error messages for invalid locationPathName parameter values for BuildPipeline.BuildPlayer
+    Editor: Copying a directory onto itself will no longer incorrectly recurse.
+    Editor: Fix editor freeze when picking in scene view with a lot of overlapping game objects
+    Editor: Fix for null errors when dragging in prefabs into scene view
+    Editor: Fix null ref configuring Avatar
+    Editor: Fix warning when deleting an open scene in the assets folder and then saving the scene from the hierarchy windows
+    Editor: Fixed a Mac-only crash when importing some textures.
+    Editor: Fixed camera preview sometimes not taking manually overriden projection matrix into account
+    Editor: Fixed scenes containing prefab instances becoming dirty on load
+    Editor: Improved selected object wireframe overlay look when MSAA is used
+    Editor: Prevent crash when closing Unity with detached Asset Store window
+    GI: Fix crash when making object lightmap static
+    GI: Fix fallback to non-directional lightmaps on SM2.0 hardware
+    GI: Fixed mixed mode shadows do not render with "Directional Specular" lightmapping mode for non-static objects.
+    GI: Fixed orientation of skybox when computing ambient probe on Windows and Linux.
+    Graphics: Fix crash trying to set shader name on shader that failed to compile
+    Graphics: Fix crash when calling Texture.Compress for large textures
+    Graphics: Fixed an issue with Texture2D.LoadImageIntoTexture() -> Texture2D.Apply() not generating mipmaps if the Texture2D object didn't have actual mipmaps previously.
+    Graphics: Fixed Crunch texture compression artifacts caused by integer overflow
+    Graphics: Fixed material file content is non-deterministic in Editor - order of properties in a '.mat' file changes
+    Graphics: Fixed potential problem capturing frames in RenderDoc
+    Graphics: Fixed shadow artifact when no shadow caster is in the view frustum.
+    Graphics: Prevent spam of D3D11 warning messages setting resource names
+    Graphics: RenderTextures that have IsCreated==false will now consistently render black if bound, instead of undefined results.
+    IL2CPP: Fix NavMesh stripping issue
+    IL2CPP: Fixed an issue which caused "callback cannot take parameters" error message if there was a DLL in the project that inherited from animation state machine classes, but project did not use animation.
+    IMGUI: IMGNullReferenceException in plugin crashes Unity at GUIStyle::Draw
+    iOS: Don't duplicate AdSupport in plugin inspector
+    iOS: iOS/OSX: Fix text rendering performance regression
+    Multiplayer: Networking: Fixed lobby issue where it would reject new players when there was still one slot left.
+    OpenGL: Fix for non-working binary shader cache with OpenGL ES 2
+    OSX: Menu bar in standalone player no longer blocks the main player loop from updating
+    Particles: Faster mesh data caching, plus memory usage optimization
+    Particles: Fixed bug with scripted particle emission API
+    Physics: Ensure that animating a Joint2D property always updates the joint immediately.
+    Physics: Ensure that auto-configuration properties for Joint2D update the joint immediately.
+    Physics: Ensure that buoyancy forces take into account the Rigidbody2D gravity-scale.
+    Physics: Ensure that when recalculating contacts for an Effector2D, all relevant Rigidbody2D are woken.
+    Physics: Fix crash when setting a frequency of zero on the TargetJoint2D.
+    Physics: Fixed an issue where a static trigger collider would not report a contact when moved.
+    Physics: Stop TargetJoint2D crashing when using a Kinematic Rigidbody2D.
+    Player: Checking/unchecking the 'Windowed' checkbox will no longer reset the screen resolution.
+    Plugins: Fixed issue with Android plugins, some of the were treated as folder plugins, for ex.,Assets/Plugins/Android/SimpleJarPlugin.java
+    Plugins: Native plugins will correctly initialize their settings on import and this will be reflected in meta file.
+    Scripting: Fix crash on FieldInfo.SetValue and FieldInfo.GetValue when field is not defined on target object specified
+    Scripting: GetHashCode() on UnityEngine.Object derived classes no longer changes when the object is destroyed.
+    Scripting: Prevent an ExecutionEngineException in System.Reflection.MonoProperty::GetterAdapterFrame when Mono AOT or IL2CPP is used with the .NET 2.0 profile.
+    Shaders: Do not overwrite alpha if opaque surface shader deferred pass writes to occlusion.
+    Shaders: Don't create depth buffer temporary textures created by GrabPass.
+    Shaders: Fix PBS surface shader compilation when Occlusion output is not present.
+    Shaders: Fix standard shader artifacts caused by precision problems on OpenGL ES 3 mobiles
+    Shaders: Fixed UTF8 BOM in compute shader include files not being understood properly.
+    Shaders: Fixed very small or very large default shader property values not being serialized correctly.
+    Shaders: Overwrite diffuse alpha channel in opaque shader before finalGBufferModifier is applied.
+    Shaders: Reimport compute shaders from the same folder when .cginc is modified, just like regular shaders are.
+    Shaders: _CameraDepthTexture is now preserved across calls to RenderWithShader()
+    SpeedTree: Fixed performance regression when lots of Tree components present in the scene.
+    Terrain: Fixed crash when using SpeedTree wind with SpeedTree trees painted on terrain.
+    Terrain: TerrainData marked as DontSave now won't crash the Editor on quit.
+    TreeEditor: TreeBaked textures are no longer tinted to current fog color.
+    UI: Added a delay to calling UpdateRectTransform when Canvas is created. An update changed the behavior prior to 5.2 which will cause issues for many users who have nested canvas that are created using instantiate as the RectTransform was updated before they could re-parent the Canvas. With a delay we maintain the previous behavior and also keep the original fix.
+    UI: Added fix so that the placeholder text is enabled when the InputField is deactivated and the text is empty.
+    UI: Added validation and character limit to the set of the InputField text property.
+    UI: Fixed a bug in Unity Editor's DelayedTextField where it was loosing edit progress when moving focus to a checkbox or dropdown.
+    WebGL: WebGL: Fix input y coordinates being off-by-one
+    Windows: Windows Standalone: Input.touchSupported will return a correct value.
+    Windows Store: Fixed antialising when calling Screen.SetResolution on Universal Windows 10 Apps
+    Windows Store: modify template sources while still in StagingArea
+    Windows Store: Fixed a rare error message "unknown type xxx detected. Using reflection to gather its type information." message when yielding IEnumerators in Coroutines on .NET scripting backend.
+    Windows Store: Fixed on screen keyboard occasionally not opening
+    Windows Store: Fixed rare error "Incorrect hashcode" which sometimes could cause a crash
+    Windows Store: Fixed unity players not loading on "Windows N" versions.
+    Windows Store: Fixed WinRTLegacy stream replacements unreliability with large data
+    Windows Store: MainPage background color will now be set to match the splashscreen background color.
+    Windows Store: RunInBackground option will be respected when application window looses focus, and if enabled, the application will keep updating. Note: if application window is minimized it will be still paused, because OS suspends the application.
+    Windows Store: Screen.resolutions will return a valid value.
+    Windows Store: Unity will no longer report xbox one controllers as "Xbox 360 controllers".
+    Windows Store: WebCamera will correctly continue working after minimizing/maximizing application
