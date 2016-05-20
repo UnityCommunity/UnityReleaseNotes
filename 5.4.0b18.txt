@@ -1,0 +1,70 @@
+5.4.0b18 Release Notes (Delta since b17)
+Known Issues
+
+    In deferred rendering, lightmapped objects affected by mixed-mode lights will fallback to forward rendering.
+    Shadows: Directional shadows will present shadow acne when using a custom projection matrix and a very large frustum (20k+)
+    Unity crashes when calling various methods on TerrainData with boundary values
+    VR: Image effects do not currently work with single pass rendering.
+    VR: Some built-in shaders do not currently work with single pass rendering resulting in wrong transformations in right eye. Workaround is to manually include the shaders in your project.
+    Windows Store: Unity APIs which use multidimensional arrays as parameters don't work on UWP when .NET Native compilation is enabled (for ex., Master config). For ex., TerrainData.SetHeights. This includes all Unity versions where UWP is supported. The bug has been logged with Microsoft.
+    [2DRectMask] After changing state of 2DRectMask scene has to be reloaded for changes to take an effect
+    [Android/Audio] App with audio hangs on start if audio disabled in Project Audio settings
+    [Android] Shader fails in OpenGLES 3.0 on Adreno 306 when comparing fragment position with uniform
+    [GL] [Windows] Unity crashes or hangs with no respond on moving and undocking tabs
+    [iOS] Crash with 'gpus_ReturnGuiltyForHardwareRestart' when running GLES2/3 on A9 & A9X devices
+    [iOS][Metal] Performance degradation in 5.4 with some custom shaders
+    [SinglePassStereo] Deferred rendering + spot and point lights stereo discrepancy
+
+Features
+
+    DX12: Added support for multi-display rendering.
+
+Improvements
+
+    Analytics: Added missing fields to the hwstats report.
+    Android/IL2CPP: Full debug version of IL2CPP libraries are now stored in Temp/StagingArea/Il2Cpp/Native.
+    Android/IL2CPP: Stripping of symbols and debug info is now enabled by default. Development builds still have symbols, which makes for a slightly larger binary.
+    Cluster Rendering: Improvements to the cluster networking, including stability improvements while using cluster input.
+    Documentation: Improved the docs for Graphics.DrawMesh
+    Particles: Added implicit conversion operators when setting MinMaxCurve with constants. This allows "myModule.myCurve = 5.0f;" syntax. Added the same support for MinMaxGradient when using one color.
+
+Fixes
+
+    Android: Buildpipe: change to no longer make use of preview SDK tools installed, in order to avert "Failed to re-package resources" errors in the console.
+    Android: Buildpipe: Fixed AAPT errors on project export.
+    Android: Buildpipe: Fixed AAR plugin and resource issues on exported projects.
+    Android: Fixed case of immersive mode switching off on some KitKat devices when pressing volume buttons.
+    Asset Management: Fixed case of Compress Assets On Import setting being ignored when switching platforms.
+    Editor: Fixed issue whereby the launcher could crash on exit.
+    Editor: Fixed NullReferenceExceptions that could be triggered when multi-selecting in the inspector.
+    Editor: Launcher cosmetic changes: adjusted header element separation and project list UI.
+    Editor: Launcher cosmetic changes: adjusted title font weight.
+    iOS: Change to not install Unity plugin unnecessarily. Previously this caused killing of Xcode whenever the previous build was done with different version of Unity.
+    iOS: Change to use remote notifications API only if they are used. This fixes a warning when submitting to iTunes Connect.
+    Scripting: Fixed issue where GetComponent() throws an exception if called from constructors or deserialization.
+    UI: Change to assign default font to text/button text created in the editor when playing. Previously labels were empty in such cases.
+    UI: Change to only process mouse input if there is a mouse present within the StandAloneInputModule.
+    UI: Change to reemitt during the repaint loop, due to world space canvasses not using cameras to render. This fixes a case of UI Elements becoming invisible after scrolling "Graphics" option for the element.
+    UI: Change to shield Selectable in case of a null EventSystem.current, fixing case of NullReferenceException being thrown when Changing InteractableStates while Deactivating EventSystem.
+    UI: Fixed deselection of selectable when set to not-interactable.
+    UI: Fixed incorrect alpha threshold implementation.
+    UI: Fixed incorrect content validation when assigning text.
+    UI: Fixed issue that was causing the first line of text to include the ascent offset scaled by line spacing.
+    UI: Fixed issue were LayoutComplete() was called instead of GraphicUpdateComplete() after the GraphicUpdate loop.
+    UI: Fixed issue where MovieTextures would not have the texel size set.
+    UI: Fixed issue where vertical alignment was set to TOP if the line height was less than the text extents.
+    UI: Fixed issue where we would get OOM crash if borders are larger than drawable rect.
+    UI: Fixed issue whereby pressing up in an empty textfield would index the first char, causing an out of range exception.
+    UI: Fixed issue with blurry text when centering text and pivot set to 0.5 and width/height non-power-of-2.
+    UI: Fixed issue with crash due to dirty renderer being in the dirty list after being destroyed.
+    UI: Fixed NaNs introduced in font calculations when the font reports its size as 0.
+    UI: Fixed toggle group assignment use to re-register the toggle during onDisable().
+    UI: Fonts now report a proper descent value which means we can the calculate bottom extent independent of internal leading.
+    UI: Removed functions from onValidate() that cause incorrect behaviour:
+        Set does nothing as serialized property has already overwritten the value by this point.
+        PlayEffect can cause other items to go invisible.
+    UI: Strip \n,\t from InputField text's new value (rather than the old one) when in single line mode.
+    UI: World space canvas now emits to each camera in the scene instead of directly to the world.
+    Windows Store: "Short names" for tiles can now be up to 40 characters long (instead of 13 as was the case previously).
+    Windows Store: Fixed an assert happening during mesh compression.
+    Windows Store: Fixed case of Build & Run not working for Universal 8.1 solution.
