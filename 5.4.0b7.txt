@@ -1,0 +1,64 @@
+5.4.0b7 Release Notes
+Known Issues
+
+    After expand/collapse Unity Editor window looks corrupted. If you maximize/minimize/click on windows in Editor they'll return to normal state.
+    Fix regression issues when opening scenes in play mode
+    Graphics: with the new jobs enabled, reflection probes might render incorrectly in rare cases.
+    In deferred rendering, lightmapped objects affected by mixed-mode lights will fallback to forward rendering.
+    Samsung TV: Fixed shader compilation crash on NT14U TVs
+    Shadows: Directional shadows will present shadow acnee when using a custom projection matrice and a very large frustum (20k+)
+    Unity crashes sometimes after deleting asset files from project folder
+    VR: Single-Pass-Stereo causes some lighting problems
+    [Billboard][LOD] Unity crashes when picking deleted Speedtree Billboard LOD level
+    [GL] [Windows] Unity crashes or hangs with no respond on moving and undocking tabs
+    [Skinning] Skinning broken on Mac
+    [Windows][MT] Unity crashes after mass placing SpeedTrees on terrain
+
+Improvements
+
+    VR: Dynamically switch to headset's audio output / input driver (Oculus SDK 1.0+)
+    VR: Mask invisible pixels so GPU time is not wasted (Oculus SDK 1.0+)
+
+Fixes
+
+    Animation: Added AnimationClipPlayable.applyFootIK
+    Animation: Added better error messaging and handling for for AnimationCurves with invalid data.
+    Animation: Fix memory leak in AnimatorOverrideController
+    Animation: Fixed a bug where the animation window would try to access a deleted animator component and cause a crash
+    Animation: Fixed an issue where AnimationPreview objects would get grabbed by FindGameObjectWithTag
+    Animation: Fixed an issue where Changing culling modes during runtime would not take effect correctly
+    Animation: Fixed an issue where imported keyframes would overlap and get sorted in the wrong order
+    Animation: Fixed an issue where the ModelImporterClipAnimation inspector would not show properly when he Avatar Mask was empty
+    Animation: Fixed Animation recording being broken in some cases.
+    Animation: Fixed animation window not updating to selection when out of focus or when just opened
+    Animation: Fixed AnimationClipImporter inspector for Generic clips
+    Animation: Fixed AnimationClipPlayable.duration so that it returns the length of its AnimationClip
+    Animation: Fixed curve selection loss in curve editor when move keys in dopesheet editor.
+    Animation: Fixed dopesheet keyframe manipulation not registered.
+    Animation: Fixed inconsistencies in dopesheet editor and curve editor framing
+    Animation: Fixed long Animator.Update not playing all Events/ExitTimes
+    Animation: Fixed loss of animation window selection when selecting child game objects.
+    Animation: Fixed offset when drag&dropping sprites in animation window.
+    Animation: Fixed property added in recording mode to read-only clip
+    Animation: Fixed text editing overlay remaining active in animation window when losing focus
+    Animation: Fixed unresponsive animation window when zoomed out beyond a certain level
+    Animation: Implemented API for tangentMode in AnimationUtility
+    Animation: Optimized AvatarMask inspector.
+    Animation: Root motion not applied on single object
+    Animation: Rotation value changes on play mode a little bit
+    Animation: Unity hardcrashes when importing blender rigify model
+    Multiplayer: Disabled host migration on WebGL clients (they can't become host)
+    Multiplayer: Disallow sending NetworkConnection object in commands
+    Multiplayer: Fixed issue where SyncLists didn't use the configured channel
+    Multiplayer: Fixed issue with ClientScene.objects list increasing after every host migration
+    Multiplayer: Fixed issue with OnStartAuthority being called twice on player with local authority on host
+    Multiplayer: Minor improvement to network manager HUD ('connecting' state and cancel button)
+    Multiplayer: SyncList now sends updates only when a value assignment changes the current value
+    Particles: Disable size/rotation properly when toggling 3D in the editor
+    Particles: Disabling unused UI options
+    Particles: Fixed crashes with null curves and gradients
+    Particles: Fixed culling when using SetParticles in standalone
+    Particles: Fixed debug plane visualization
+    Particles: Improve mesh particle error message, when buffers re full
+    Particles: Preserve stopEmitting parameter when becoming visible (culling fix)
+    Particles: Support radius in Trigger Module
