@@ -1,0 +1,63 @@
+5.4.0b5 Release Notes
+Known Issues
+
+    After expand/collapse Unity Editor window looks corrupted. If you maximize/minimize/click on windows in Editor they'll return to normal state.
+    Bug reporter crashes if it's opened from Finder/Explorer
+    Changing the active graphics API in the Editor while a Canvas is in the scene will crash the Editor. As a workaround, open only a new, empty scene before changing graphics API.
+    Crash of Standalone player when character with SkinnedMeshRenderer is on the scene
+    In deferred rendering, lightmapped objects affected by mixed-mode lights will fallback to forward rendering. Plan to fix this in the future by introducing baked shadow masks.
+    Saving a scene on OSX might throw the error in the console: "TLS Allocator ALLOC_TEMP_THREAD..". Happens only on OSX El Capitan (10.11.1). Doesn't happen on OSX 10.10;
+    Shadows: Directional shadows will present shadow acnee when using a custom projection matrice and a very large frustum (20k+)
+    Unity crashes sometimes after deleting asset files from project folder
+    [Billboard][LOD] Unity crashes when picking deleted Speedtree Billboard LOD level
+    [GL] [Windows] Unity crashes or hangs with no respond on moving and undocking tabs
+    [MonoDevelop] "..UnitTestTextEditorExtension not found.." error message appears when user open script in MonoDevelop
+    [Skinning] Skinning broken on Mac
+    [Windows][MT] Unity crashes after mass placing SpeedTrees on terrain
+
+Features
+
+    Graphics: Added [ImageEffectAllowedInSceneView] attribute for Image Effects. This will copy the Image effect from the main camera onto the Scene View camera. This can be enabled / disabled in the Scene View effects menu.
+    VR: Optimized Single-Pass Stereo Rendering available in Player settings
+
+Improvements
+
+    Editor: Added EditorSceneManager.DetectCrossSceneReferences API
+    Scripting: Improved Instantiate() performance.
+    UI: Begin work on improving performance of MaskUtility functions
+    UI: UI now sets the texelSize for use in custom shaders
+    VisualStudio: Stop using COM to launch VisualStudio for a better immediate feedback experience
+    Windows Store: Improved deserialization performance when using .NET scripting backend
+
+Fixes
+
+    Editor: Fixed when dragging a second scene to Hierarchy the first scene would auto expand
+    GI: Fix fallback to non-directional lightmaps on SM2.0 hardware
+    Graphics: Fixed null reference exception being thrown when setting null to mesh triangles/indices
+    Graphics: Fixed problem of being able to set syncUploadBufferSize below 2 which leads application to crash on startup
+    MonoDevelop: Disabled Git, Subversion and NUnit add-ins by default. Fixes issue with being unable to write to newly created scripts
+    MonoDevelop: Fixed issue with MonoDevelop showing "��u" symbols in document view after using "Save As"
+    MonoDevelop: OSX: Fixed issue with MonoDevelop not working when copied to case-sensitive partition
+    MonoDevelop: Show hint in breakpoints dialog that explains exceptions list is generated from currently selected project
+    Scripting: GetTransform<>() invoked from a constructor or field initializer could crash Unity.
+    Shaders: Fix DX11 shader disassembly not showing correctly in the editor UI for 'show compiled code'.
+    UI: All struct value types now use iEquatable to prevent memory allocations
+    UI: Changed Canvas scaler to only scale the XY and not the Z of the transform
+    UI: Fix for 1/2 pixel offset not working on screen-space camera canvases
+    UI: Fix issue where setting canvas scaller to zero would cause a out of memory exception
+    UI: Fixed issue where text glyphs would be truncated if any texture filtering occured.
+    UI: Fixed issue where UnityEvent wouldn't allow the removeal of events after reload
+    UI: Fixed issue with Masking when enabling and disabling graphics
+    UI: If the mask is disabled we should use the baseMaterial instead of the masking material
+    UI: If the UI shader is not found the default "pink" shader will be used
+    UI: Make sure FontUpdateTracker get called for tracking fonts changed in the inspector
+    UI: Make sure InputEvents are sent when IME composition strings are updated in Windows Standalone.
+    UI: Prevent null list from geting passed as a parameter for VertexHelper functions
+    UI: Remove special case ascent calculation for non-dynamic fonts
+    UI: The UI batching grid size is not deterministic based on canvas/ element size.
+    UI: UI overlay canvas's will now always be drawn ontop in the scene view.
+    UI: Use GetRayIntersectionAll in Physics2DRaycaster to get more accurate results.
+    UI: When updating rectTransform data make sure comarisons are against old value not the set value
+    VR: Exposed Camera.targetEye to script for Virtual reality Applications.
+    VR: Fix Screen Orientation on GearVR applications.
+    VR: Fixed Splash Screen Aspect ratio issues for VR Applications.
