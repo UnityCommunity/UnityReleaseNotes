@@ -1,0 +1,56 @@
+5.4.0b17 Release Notes (Delta since b16)
+Known Issues
+
+    Crash in ::RenderGameViewCameras:: after overflowing Width or Height fields of the Game view resolution window
+    In deferred rendering, lightmapped objects affected by mixed-mode lights will fallback to forward rendering.
+    Shadows: Directional shadows will present shadow acne when using a custom projection matrix and a very large frustum (20k+)
+    Unity crashes when calling various methods on TerrainData with boundary values
+    Using OpenVR + Vive + Outdated Oculus Utils = Crash. Users are advised to update their Oculus Utils.
+    VR: Image effects do not currently work with single pass rendering.
+    VR: Some built-in shaders do not currently work with single pass rendering resulting in wrong transformations in right eye. Workaround is to manually include the shaders in your project.
+    Windows Store: Unity APIs which use multidimensional arrays as parameters don't work on UWP when .NET Native compilation is enabled (for ex., Master config). For ex., TerrainData.SetHeights. This includes all Unity versions where UWP is supported. The bug has been logged with Microsoft.
+    [Android/Audio] App with audio hangs on start if audio disabled in Project Audio settings
+    [GL] [Windows] Unity crashes or hangs with no respond on moving and undocking tabs
+    [iOS] Crash with 'gpus_ReturnGuiltyForHardwareRestart' when running GLES2/3 on A9 & A9X devices
+    [iOS][Metal] Performance degradation in 5.4 with some custom shaders
+    [SinglePassStereo] Deferred rendering + spot and point lights stereo discrepancy
+
+Features
+
+    Web: GamePerf service integration. You can now track your exceptions from the wild by enabling this in the services window.
+    Windows 10: Added support for gsync and freesync on Windows 10 "Redstone" on DirectX 11 (for the Windows Store player only) and DirectX 12 (for both the Standalone player and the Windows Store player).
+
+Backwards Compatibility Breaking Changes
+
+    Physics: Changes to avoid Physics transform drift by not sending redundant Transform updates.
+    Physics: Changes to reject Physics Meshes if they contain invalid (non-finite) vertices.
+
+Changes
+
+    Physics: API changes:
+        Renamed Cloth.useContinuousCollision to Cloth.enableContinuousCollision and Cloth.solverFrequency to Cloth.clothSolverFrequency.
+        Exposed Cloth.enableTethers.
+    Physics: API changes:
+        Renamed Physics.solverIterationCount to Physics.defaultSolverIterations and Rigidbody.solverIterationCount to Rigidbody.solverIterations.
+
+Improvements
+
+    Particles: It is now possible to read MinMaxCurve/MinMaxGradient in script, regardless of what mode it is set to. Previously it would give an error message in some modes.
+    Physics: Exposed Rigidbody.solverVelocityIterations and Physics.defaultSolverVelocityIterations to help stabilize bounce behavior on impacts.
+    Physics: Physics job processing is now only done on the high priority job stack to avoid interference from other systems.
+    Substance: Changes to warn the user when an input of a BakeAndDiscard ProceduralMaterial is being set at runtime.
+
+Fixes
+
+    Physics: Fixed errors reported by Cloth Inspector when an object with a cloth component is selected.
+    Substance: Fix to avoid re-generating ProceduralMaterials twice when switching color space.
+    Substance: Fixed case of "Mismatched LayoutGroup.Repaint" error message appearing in console when assigning a ProceduralMaterial to a mesh.
+    Substance: Fixed case of baked ProceduralTextures being serialized without their baked data.
+    Substance: Fixed case of GetProceduralXYZ returning 0 when used with an input's label instead of its identifier.
+    Substance: Fixed case of normal maps textures being incorrectly processed when used as image inputs to a ProceduralMaterial.
+    Substance: Fixed case of ProceduralMaterials being stuck in "Generating..." state when leaving playmode, as they are being computed
+    Substance: Fixed crash in VisibleIf expression evaluation, caused by looking up an input by label instead of by identifier.
+    Substance: Fixed crash when undoing a modification of the shader assigned to a ProceduralMaterial.
+    Substance: ProceduralTextures being cached to disk/flash now have their size correctly taken into account when querying Caching.spaceOccupied.
+    Substance: Speeded up the processing of BakeAndDiscard materials when loading scenes.
+    VR: Fixed issue whereby using [Deferred Rendering + MSAA + Image Effect - blur] would render a black screen.
