@@ -1,0 +1,89 @@
+5.2.4f1 Release notes
+Features
+
+    iOS: Add support for Apple Pencil through Touch and Input APIs.
+
+Improvements
+
+    Physics: Added 'OneWayGrouping' property to PlatformEffector2D to group contacts.
+    Unity Ads: Update to Unity Ads 1.5.4.
+    VR: Asynchronous Loading during Splash Screen to reduce load times.
+    VR: Optimized Oculus to start CPU work for next frame while rendering the current frame.
+
+Fixes
+
+    2D: Optimisations in shader performance targeting non-ETC1 platforms. (728361)
+    AI: Fixed NavMeshAgent being unable to pass certain edges in navigation mesh. (717360)
+    Android: Android 6.0 - Ask for any dangerous permission on startup. (739831), (732504)
+    Android: Fixed NullReferenceException on x86 devices running Android 5.0 or newer.
+    Android: Fixed OBB deployment on Android 6.0 and some older devices. (734408)
+    Android: Fixed querying for custom permissions on Android Marshmallow. (750227)
+    Android: Fixed VRAM calculation on devices with 4GB or more RAM.
+    Android: Marshmallow - Added the possibility to disable the permission dialog by adding metadata to the activity.
+    Android: Reset key press on resume. (719645)
+    Android/IL2CPP: Fixed an issue whereby the shared library on IL2CPP-built apk did not load and caused DllNotFoundException. (736110)
+    Animation: Fixed crash when deleting AnimatorController asset.
+    API Updater: Fixed crashing when checking for obsolete API in assemblies referencing unity extensions. (734221)
+    AssetBundles: Loading an uncompressed AssetBundle with CreateFromMemory causes a crash, fixed. (698667)
+    Audio: Fixes issue when modifying exposed parameters in AudioMixer loaded from asset bundle. (734258)
+    Core: Fixed Asset Importer error when calling AssetDatabase.Refresh during import of assembly. (730559)
+    Editor: Fixed error message given when picking game objects with children set as visible. (729010)
+    Editor: Force reimport all models to ensure that generated lightmap UVs are consistent across platforms. (739787, 745698)
+    Graphics: Enabled rendering to cube map faces with multisample AA. (730570, 648624)
+    Graphics: Fixed incorrect stripping of vertex streams in certain situations when a mesh has a mixture on lightmapped and non-lightmapped shaders; e.g. the vertex colour stream was previously being incorrectly stripped. (683178, 725562)
+    Graphics: Fixed performance regressions due to shadow rendering jobs.
+    IL2CPP: Allow the [Preserve] attribute to correctly prevent stripping of a method in a nested type. (738356)
+    IL2CPP: Avoid compiler error due to duplicate FieldInfo definition.
+    IL2CPP: Avoid stack overflow crash due to large allocation with alloca. (739685)
+    IL2CPP: Correctly initialize the metadata for default parameter values that are obtained via reflection. (745793, 737565)
+    IL2CPP: Fixed ExecutionEngineException being thrown on System.Reflection.MonoProperty::GetterAdapterFrame. (737529)
+    IL2CPP: Fixed race condition during cleanup of threadpool threads. (738232)
+    IL2CPP: Prevent generated C++ code from including a header file that was not generated when the type which could have been generated in that header is used only in an attribute applied to an assembly. (737996)
+    IL2CPP: Properly handle additional, subtraction, and multiplication when the type of the left argument is smaller than the type of the right argument and the result will not fit in the type of the left argument and the result is stored across an IL block. (745691)
+    IL2CPP: Provide proper managed stack traces when the C++ compiler inlines method calls. (739956)
+    IL2CPP: Treat assemblies mentioned in the link.xml file as roots for code conversion, but not as roots for code stripping. This corrects a regression in build size on iOS. (749728)
+    iOS: Added workaround for iOS launch screen asset catalog bug. (736683, 739007)
+    iOS: Build Unity runtime with bitcode. For now bitcode is supported only in il2cpp non-development builds.
+    iOS: Don't show simulators when doing regular build. (742801)
+    iOS: Fixed an issue with newer Xcodes refusing to link simulator builds that previously worked fine. (748014)
+    iOS: Fixed release target being set to 4.0 when setting minimum iOS version to 9.0. (741993)
+    iOS/IL2CPP: Avoid duplicate data files in iOS packages. (746329)
+    iOS/IL2CPP: Set default stack size on iOS to 1MB to match Mono behavior. (733799)
+    License: Fixed license activation problems caused by updating Windows 10.
+    Mecanim: Added type check when firing events with Object parameters. (738428)
+    Mecanim: Fixed Animator.Play not working on 1st frame when enabling GameObject. (732739)
+    Mecanim: Fixed blending that was different when swapping OverrideController at runtime. (734681)
+    Mecanim: Fixed crash when enabling an Animator on an object that was disabled then re-enabled. (737437)
+    Mecanim: Fixed error when adding transition. (736520)
+    Mecanim: Fixed events being called when state is not playing. (727746)
+    Mecanim: Fixed speed being not applied correctly when manually updating Animator. (737582)
+    Mono: Preserve non-volatile XMM registers across calls on 64-bit Windows during JIT compilation. (691466)
+    OpenGL: Work around array buffer access crash.
+    Physics: Ensure that OnCollisionEnter2D is always called if a contact starts and ends during a single physics update. (742572)
+    Physics: Ensure that Physics2D OverlapAreaXXX checks are consistent with OverlapBoxXXX checks. (727734)
+    Physics: Fixed an issue where a static trigger collider would not report a contact when moved. (752059)
+    Physics: Fixed an issue where collision/trigger callbacks would not report if constantly modifying a Collider2D (that caused it to be regenerated). (752764)
+    Physics: Fixed NullReferenceException in the editor when dragging a Rigidbody2D in the scene whilst it is deleted. (740256)
+    Samsung TV: Center cursor before locking and then ignore mouse motion event while cursor is locked.
+    Scripting: OnTransformChildrenChanged message is now correctly sent to both old parent and new parent. (688317, 713431)
+    UI: Fixed a performance issue with fonts rebuilding. (735927)
+    UI: Fixed color conversion in BatchGenerator when using Linear color space. (730457)
+    UI: Fixed issue when instantiating and re-parenting canvases and prefabs. (736161, 742081)
+    UI: Fixed issue where nested canvas wouldn't update its children elements rendering position if moved.
+    UI: Fixed memory leak when destroying Canvas. (750109)
+    UI: Fixed the issue with deleting a world canvas during play when paused. (727793)
+    VR: Fixed a crash when trying to toggle showDeviceView to false before first Update. (749329)
+    VR: Fixed an issue where Oculus was starting while building the standalone player while Virtual Reality Supported is true. (748988)
+    VR: Fixed an issue where showDeviceView was not caching between runs in the Editor. Now forces to true on play. (750510)
+    VR: Fixed Issue loading the Oculus SDK on the first time running when starting a new project.
+    WebGL: Fixed heavy memory consumption when downloading asset bundles using WWW.LoadFromCacheOrDownload. (725862)
+    Windows Phone 8.0: Fixed regression with System.IO classes. (745932)
+    Windows Standalone: Fixed Unity Crash on Application.Quit with MultiTouch.
+    Windows Store Apps: Fixed .NET native invalid IL warnings. (729793)
+    Windows Store Apps: Fixed Assembly-CSharp* project debugging in Universal Windows 10 apps, breakpoints should work now. (745716)
+    Windows Store Apps: Fixed FileStream occasionally failing when writing large data. (745355)
+    Windows Store Apps: Fixed same files referenced by Assembly-CSharp and Assembly-CSharp-firstpass projects. (746296)
+    Windows Store Apps: Make explicit call UnityPause(1) to pause player until explicitly unpaused via UnityPause(0). (736611)
+    Windows Store: Fixed Unity producing invalid Visual Studio project files if Windows 10 SDK 10.0.10586.0 is installed (749600)
+
+Revision: 98095704e6fe

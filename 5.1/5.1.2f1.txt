@@ -1,0 +1,195 @@
+5.1.2f1 Release notes
+Improvements
+
+    Analytics: Added cloudProjectId to hwstat.
+    Android: Audio - Enabled OpenSL for GearVR.
+    Animation: Group material color channel curves. Removing one curve will automatically remove other channel curves of the same color property.
+    Documentation: Docs for Audio / VR / UNet updated.
+    Editor: Informative message will be shown in the material inspector when the material property block values are used.
+    Graphics: Added options for opaque object sorting control, see Camera.opaqueSortMode.
+    iOS/IL2CPP: Load embedded resources in memory-mapped files so that the memory used by those embedded resources is marked as constant.
+    Terrain: Expose TerrainData.SetHeightsDelayedLOD and Terrain.ApplyDelayedHeightmapModification to allow users to achieve high frame rates while doing interactive terrain editing.
+    Windows Editor Installer: Use dism.exe to install .net framework5, for a more silent experience when using /S silent installer option.
+    Xbox One: Unity now builds with the June 2015 XDK. You must have the June XDK installed on your PC and use the matching or later recovery on your console.
+
+Changes
+
+    2D: SpriteRenderer will have light and reflection probes turned off by default. They can still be turned on manually.
+
+Fixes
+
+    (699578) - 2D: Fixed the issue where it was unable to set Sprite mode to multiple.
+    (701438) - Animation: Animating properties of the material with the custom shader does not cause error on the first play in editor.
+    (699383) - Animation: Reject avatar creation when the skeleton is missing intermediary bones.
+    (665246) - Animation: Remove relative material property blocks when the animator component is being removed.
+    (706635) - Asset Loading: Ignoring hidden dll files.
+    (690156) - Asset Management: Now allow prefab instances with a missing prefab template to be reparented.
+    (670070) - Audio: Audio clip "Force to Mono" now has an option for applying normalization after downmix.
+    (705599) - Audio: Fixed: FSBTool crashed during audio import on Windows XP / N platforms and very short audio files.
+    (694539) - CacheServer: Asset bundle names are not properly imported from metafiles.
+    (702628) - Deployment Management: Fixed crash when selecting 'Scripting Backend' in standalone Player Settings.
+    (670391) - DX11: Don't spam refCount==0 error messages when some 3rd party tools hook into DX11.
+    (703205) - DX11: Fixed non-native resolution fullscreen being too dark when in Linear color space.
+    (686697) - Editor OSX: Fixed custom cursor getting set back to default arrow when used in the editor.
+    (686697) - Editor OSX: Fixed games setting the cursor to null wouldn't take affect in the editor.
+    (692047) - Editor: Removed MSVCRT dependency for WebGL build.
+    (705649) - Editor: Search correct 32/64bit program files on windows for diff tools.
+    (none) - Editor: Texture3D sizes up to 2048 are now allowed (previously the limit was 1024).
+    (none) - GearVR: Removed log spam about user profile.
+    (705573) - GI: Fixed intermittent crash related to realtime lightprobes.
+    (none) - GLES: Fix for TC Particles package from the Asset Store.
+    (699694) - GLES: Fixed crash when using multithreaded renderer and using shader that uses vertex colors when the mesh data doesn't contain vertex colors.
+    (705269) - GLES: Fixed shader compiler crash for some shaders that use scalar pixel shader inputs, and other issues.
+    (696397) - GLES: Fixed standard shader rendering issues with Mali GPUs.
+    (707361) - GLES: Fixed tessellation shaders when multiple texcoords are packed into one vec4.
+    (none) - GLES: Workaround for Adreno 4xx driver bug where binary shaders would break if the shader program contains geometry shaders.
+    (700474) - Graphics: Fixed a bug when loading single channel JPEGs using Texture2D.LoadImage.
+    (698775) - Graphics: Fixed issue in Texture2D.LoadImage when loading indexed PNG images that contain an alpha channel.
+    (689087) - iOS: Added a limit for iOS acceleration event queue.
+    (681384) - iOS: Added additional Japanese fallback font.
+    (699574) - iOS: Added iOS Thai font for 8.2.
+    (701425) - iOS: Added support for Xcode 6.3.2.
+    (704699) - iOS: Added support for Xcode 7 beta.
+    (689410) - iOS: Allow to append builds made with different scripting backend.
+    (705241) - iOS: Don't add header files to il2cpp Xcode project.
+    (699907) - iOS: Don't include managed dll files in il2cpp build.
+    (710126) iOS: Fixed a regression which caused appending builds with native plugins to fail
+    (710818) iOS: Fixed a regression which disables appending builds in folders more than one level away from the project folder
+    (702900) - iOS: Fixed stuck "Launch screen type" setting.
+    (682882) - iOS: Include iOS Xcode API documentation.
+    (685439) - iOS: Lightmapped objects with legacy shaders lit with realtime light in legacy deferred no longer render incorrectly.
+    (695118) ,(701548) - iOS/IL2CPP: Added support for PreserveAttribute to prevent classes, methods, fields and properties from being stripped in IL2CPP.
+    (705724) - iOS/IL2CPP: Allow Type.GetType(string) to return a proper value on 32-bit ARMv7 builds.
+    (708137) - iOS/IL2CPP: Avoid boxing of value types during null checks in generic code.
+    (700507) - iOS/IL2CPP: Avoid deadlock during UnloadUnusedAssets.
+    (691607), (667147) - iOS/IL2CPP: Corrected an exception during code conversion which has the error message "Invalid global variables count" when converting some UnityScript assemblies.
+    (704018) - iOS/IL2CPP: Ensure that GetCurrentMethod returns the proper value, even when the generated native method is inlined.
+    (none) - iOS/IL2CPP: Fix embedded resources.
+    (695179) - iOS/IL2CPP: Fixed a crash which occurred when Ldvirtftn opcode was used on a non-virtual method.
+    (691404) - iOS/IL2CPP: Fixed a rare case when bytecode stripper would incorrectly strip wrong overloaded generic virtual method.
+    (697860) - iOS/IL2CPP: Fixed codegen issue when using a field type a struct that has no instance fields.
+    (696986) - iOS/IL2CPP: Fixed ConstructorInfo.Invoke() returning null for Nullable types.
+    (694436) - iOS/IL2CPP: Fixed IL2CPP generated code in if (...) block if the condition operand was an IntPtr.
+    (694436) - iOS/IL2CPP: Fixed IL2CPP generated marshaling code for marshaling IntPtr into any other primitive type.
+    (702879) - iOS/IL2CPP: Fixed marshaling arrays of structs marked with [Out] attribute.
+    (696745) - iOS/IL2CPP: Generate correct C++ code for the IL add opcode with pointers in unsafe C# code.
+    (699644) - iOS/IL2CPP: Handle 'void' type parameter.
+    (706613) - iOS/IL2CPP: Handle invalid IL generated by UnityScript compiler for delegates.
+    (698589) - iOS/IL2CPP: iOS/IL2CPP: Correct RPC implementation for the UnityEngine.Networking namespace.
+    (696187) - iOS/IL2CPP: Prevent a C++ compiler error in generated code about an undeclared identifier with the test "Unused local just for stack balance".
+    (702203) - iOS/IL2CPP: Prevent a C++ compiler error in generated code which happens when a pointer is assigned a value which is a uintptr_t in converted unsafe C# code.
+    (691077) - iOS/IL2CPP: Prevent a crash in the NetworkManager initialization when the Stipping Level option is not set to Disabled.
+    (702696) - iOS/IL2CPP: Prevent a runtime exception with IL code in an enumerator's MoveNext method when the enumerator's return type is a constrained generic type.
+    (693259) - iOS/IL2CPP: Prevent AES encryption types from being incorrectly stripped when they are used.
+    (703294) - iOS/IL2CPP: Prevent an exception during code generation when the default value of a field is not the same type as the field.
+    (695319) - iOS/IL2CPP: Prevent an intermittent crash on ARM64 when an live object is incorrectly reclaimed but the garbage collector.
+    (697757) - iOS/IL2CPP: Prevent the exception: "System.ArgumentException: enumType is not an Enum type." from occurring for a generic type used with an enum type argument.
+    (704069) - iOS/IL2CPP: Prevent the player build process from using older generated C++ source files from a previous build.
+    (708137) - iOS/IL2CPP: Speed up generic method calls on value types.
+    (705860) - iOS/IL2CPP: The Preserve attribute can now be used in the managed code for an assembly to preserve all of the code in an assembly.
+    (705860) - iOS/IL2CPP: The preserve attribute can now be used with the assembly element in a link.xml file to preserve all of the code in an assembly.
+    (691008) - iOS/IL2CPP: When compiling scripts for the player, appropriate UnityEngine.UI.dll will be referenced now.
+    (704998) - License: Added network timeout for all pending operations.
+    (704271) - License: Clear error message once valid serial is entered.
+    (700738) - License: Fixed an issue with Operating System ID changing on Windows 10.
+    (702313) - License: License activation staying stuck in Updating or Connecting screen.
+    (704270) - License: Replace generic invalid serial message with more meaningful message
+    (706183) - Linux: Fixed key release regression.
+    (none) - Mecanim: Fixed assert when using Optimize Game Object on object that are parented.
+    (none) - Mecanim: Fixed continuity in FixedTime transition with ExitTime.
+    (none) - Mecanim: Fixed crash when using AnimatorController in asset bundles.
+    (697582) - Merge Tool: Fixwd merging of scenes/prefabs with out of order objects.
+    (700533) - MonoDevelop: Fixed issue with Attach button in attach to process dialog not responding to clicks.
+    (673868) - MonoDevelop: Fixed Unity crash when inspecting enum value in MonoDevelop debugger.
+    (699556) - MonoDevelop: Fixed Unity crash when using the debugger to inspect a property that only has a getter that returns a struct. E.g. Sprite.bounds.
+    (701421) - Networking: Added missing check for NetworkIdentity on NetworkManager object.
+    (699613) - Networking: Added missing error message for more than 32 SyncVars in a NetworkBehaviour script.
+    (692633) - Networking: Added missing error message for multiple NetworkManagers in a scene.
+    (697809) - Networking: Added missing validation for invalid method signatures on network methods.
+    (693234) - Networking: Added missing validation for SyncVars of invalid types.
+    (697118) - Networking: Adding missing error message for using network custom attributes in non NetworkBehaviour derived scripts.
+    (701760) - Networking: Fix for allowing multiple network components on the same game object.
+    (697682) - Networking: Fix for ClientRpc call failing when called on a base class.
+    (698103) - Networking: Fix for ClientRpc calls being invoked out of order on localClient.
+    (696932) - Networking: Fix for ClientRpc calls not being invoked for scene objects on a local client.
+    (697824) - Networking: Fix for exception when sending a game object component as an argument to RPC calls.
+    (696579) - Networking: Fix for foldouts in NetworkManager inspector not saving state.
+    (none) - Networking: Fix for garbage at the end of broadcast messages.
+    (697502) - Networking: Fix for implementing Update() in a class derived from NetworkManager causing client connection callbacks to not be called.
+    (none) - Networking: Fix for IsAcksLong flag doesn't work.
+    (697754) - Networking: Fix for isServer still being true after server was stopped.
+    (701235) - Networking: Fix for not being able to detect idle connections.
+    (697730) - Networking: Fix for setting MaxConnection to zero causing exception in NetworkManager.
+    (697102) - Networking: Fix for SyncVars not working with script inheritance.
+    (698321) - Networking: Fix for UNetWeaver exception generating an exception when SyncListStruct used directly without a derived class.
+    (698732) - Networking: Fix for unserializating NetworkIdentity references failing on a dedicated server.
+    (none) - Networking: Fixed - localdiscovery doesn't work on osx and ios.
+    (704949) - Networking: Fixed the problem with host which was added removed and added back. Last add will finish with error - cannot open socket.
+    (none) - Networking: Fixed the problem with long acks.
+    (701313) - Networking: Fixed UNetWeaver exception when processing large projects, also improved speed with large projects.
+    (697117) - Networking: NetworkTransform now auto-detects CharacterController and pick the correct sync method when added to a game object.
+    (577228) - Physics 2D: Ensure that both friction and bounce are updated when the PhysicsMaterial2D is set on a Collider2D from script.
+    (705901) - Physics 2D: Ensure that Rigidbody2D interpolation or extrapolation do not modify the Transform Z position.
+    (703846) - Physics 2D: Fixed a child Rigidbody2D not correctly updating its position/orientation when it's using interpolation and the parent transform changes.
+    (683964), (696095) - Physics 2D: Fixed various One-Way behaviour issues in PlatformEffector2D.
+    (702907) - Physics 2D: MotorSpeed on SliderJoint2D is now in meters/sec (linear motor) not degrees/sec (not angular motor).
+    (697547) - Physics 2D: Restore the Rigidbody2D linear-velocity after a Rigidbody2D.MovePosition has completed.
+    (701932) - Physics 2D: Rigidbody2D constraints are now based upon the center-of-mass and not the body position.
+    (701202) - Physics 2D: Stop crash if 2D effector is needed but there is none.
+    (697637) - Physics 2D: Stop NullReferenceException when editing PolygonCollider2D.
+    (699169) - Physics: Fixed a crash when trying to report a MeshCollider error while the MeshCollider's SharedMesh was null.
+    (685107) - Physics: Fixed an issue in PhysX where a capsule would fail to collide with a triangle mesh.
+    (441764) - Physics: Fixed an issue in PhysX where capsule-capsule collision detection would erroneously fail when the capsules' axes were almost aligned.
+    (698701), (698702) - Physics: Fixed HingeJoint SetMotor, SetLimits, SetSpring only being set correctly if the said properties was already enabled.
+    (697543) - Physics: Fixed issue in PhysX where PhysX would hang on certain Android devices.
+    (705471) - Physics: Fixed problem in PhysX that would cause SphereColliders to bounce when rolling over the triangles of a MeshCollider.
+    (697849) - Physics: HingeJoint now correctly measures the hinge angle regardless of the initial rotation between the two hinged bodies.
+    (686576) - Revert baked lightmap texture compression quality from best back to normal. Speeds up compositing step.
+    (none) - Samsung TV: Resolved security issue that allowed for arbitrary code execution.
+    (none) - SamsungTV: Fixed security false-positive. The 2013 and 2014 TVs can now be deployed to successfully.
+    (none) - Script Editors: Generate and open solution when External Script Editor is set to Xamarin Studio.
+    (693537) - Serialization: Disallow EditorOnlyPlayerSettings custom properties usage without initialization
+    (none) - Shaders: Fixed broken constant buffer info on OpenGL ES compute shaders with multiple kernels
+    (705485) - Shaders: Fixed GLSL/Metal translation of shaders that use all uppercase SV_TARGET semantic.
+    (670391) - Shaders: Fixed GLSL/Metal translation of shaders that use non-uppercase SV_Position semantic.
+    (704497), (704501) - Shaders: Fixed resource binding regression breaking TC Particles asset store package.
+    (none) - Shaders: Increased timeout for shader import time processing; helps with complex compute shaders.
+    (676585) - Substance: Fix hang/crash when entering playmode with the Profiler window open.
+    (none) - Tizen: Added docs about native plugins on Tizen.
+    (none) - Tizen: Added Tizen to the default platforms list.
+    (none) - Tizen: Fixed plugin loading.
+    (689600) - UI: Number of batches created for UI scene back down to 5.0 number.
+    (697556) - Unified GL: Fix for DX11-style Depth-of-Field image effect: fix boolean variable handling in shader compiler.
+    (none) - Unified GL: Fix for shader errors when swizzles were incorrectly applied to scalar values.
+    (697556) - Unified GL: Fixed a crash when current and pending framebuffers have different attachment counts.
+    (707761) - Update Checker: Wait for Home Window to be closed before checking for updates
+    (none) - VR: Don't update the head pose until Camera has latched the reference frame.
+    (702042) - VR: Enabling / disabling virtual reality support in the editor nolonger affects standalone players.
+    (704263) - VR: Fix issue where GUI could be inadvertently flipped.
+    (none) - VR: Fix issues with VRSettings.loadedDevice
+    (709060), (703989) - VR: Fix rendering issues when camera parent is scaled.
+    (none) - VR: Fixed anti aliasing.
+    (none) - VR: Fixed aspect ratio of game view and standalone window.
+    (705638) - VR: Fixed GearVR crash with Android Personal Edition.
+    (none) - VR: Fixed linear lighting.
+    (706852) - VR: Fixed upgrade issue from 5.1.1 which could result in VR loss of functionality.
+    (none) - VR: Reset camera-to-origin pose on scene load to prevent gross error.
+    (none) - WebGL: Fixed an issue using System.IO.Compression.DeflateStream API.
+    (none) - WebGL: Fixed error messages when refreshing or unloading the page.
+    (none) - WebGL: Fixed WWW Downloads failing if they take longer then 5 seconds.
+    (none) - WebGL: Prevent a runtime error due to the NetworkManager and MasterServerInterface not being correctly stripped.
+    (704102) - Windows Phone 8: Fixed crash when building from Editor.
+    (694021) - Windows Phone 8.1: Fixed simulator build.
+    (703879) - Windows Phone: Fixed build failure when using certain classes from System.Net namespace.
+    (none) - Windows Store Apps: Fixed a rare crash at boot when reading AppxManifest.xml.
+    (693303) - Windows Store Apps: Fixed extended splash screen sizing on wp8.1 and scaled WSA.
+    (709350) - Windows Store Apps/Windows Phone: Fix rare build failure while copying plugins.
+    (none) - Windows Store Apps/Windows Phone: Fix Universal apps build, when project name contains whitespaces
+    (702282) - Windows Store Apps/Windows Phone: Fixed an issue with connecting to server using UNet.
+    (670992) - Windows Store Apps/Windows Phone: Fixed serialization when inheriting from class from another assembly with internal field
+    (699656) - Windows Store Apps/Windows Phone: Fixed variable synchronization between WinRT and Mono players (UNet).
+    (695285) - Xbox One: Disabled standard splash screen on Xbox One, which was showing up as a blank grey screen after the initial OS load splash screen.
+    (690152) - Xbox One: Fixed a bug that could cause game chat to fail when more than two players are involved.
+    (none) - Xbox One: Socket descriptions now require template to function (as of April XDK). The editor GUI has been updated to make templates mandatory for all socket descriptions.
+    (none) - Xbox One: The auto-added port for script debugging now implements a template, and works again. It will also get auto-added if you specify to auto-connect the profiler.
+

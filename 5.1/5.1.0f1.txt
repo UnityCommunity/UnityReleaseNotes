@@ -1,0 +1,392 @@
+5.1.0f1 Release notes
+Features
+
+    New multiplayer networking feature introduced, see the manual and UnityEngine.Networking namespace in the script reference for details. This includes low level API (transport layer) and a higher level API with many features to help implement multiplayer functionality in games. Cloud based relay service can be used to get past NAT restrictions, and a simple matchmaking service can be used for game/host discovery. To configure the services go to https://multiplayer.unity3d.com. The current RakNet based multiplayer system will be deprecated but still functional in this release.
+    New network components and NetworkBehaviour base class for network aware scripts:
+
+description
+
+    New NetworkManager to control and configure multiplayer games:
+
+description
+
+    Added integrated support for Oculus Rift in Editor and Standalone Players, see the Manual and UnityEngine.VR namespace script reference for details Once Virtual Reality is enabled in Player Settings, pressing play in the editor will show your game view on the Rift. It is recommended to "Maximize on Play" the game view and run the Oculus Rift in Extended mode in order to achieve the smoothest rendering. Be sure to remove any previous Oculus plugins and assets from your project, or update to the latest version that supports 5.1.
+        VR optimization: Render shadows only once and share between eyes.
+        VR optimization: Cull once for both eyes.
+        Support for Oculus 0.6.0-beta runtime
+
+description
+
+    New HDR Color Picker
+        Improves the Standard shader workflow for changing the emission color property.
+        The emission color can now be animated from the animation window.
+        Using scripting API to change emission will now be reflected in the shader gui.
+        Color Presets now also support HDR colors. Saving a HDR color will overlay a lowercase 'h' on the preset swatch.
+        Color property fields can now be customized with the ColorUsageAttribute (show/hide alpha value, is HDR)
+        Added Hex color field
+
+description
+
+    Graphics: Crunch texture compression format on platforms which support DXT. This is a lossy compression that is both small on disk/download and compressed (DXT1/DXT5) for the GPU.
+
+description
+
+    Graphics: Experimental support for OpenGL 4.5 and ES 3.1 on Windows. Use -force-glcore, -force-gles(20|30|31|31aep) arguments to enable. This enables testing OpenGL ES 3.1 features on desktop. Note: no GL4 support on Mac or Linux yet.
+        Graphics: OpenGL ES 3.1 support on Android
+        New graphics levels (OpenGL ES 3.1, OpenGL ES 3.1 + AEP)
+        Compute shaders
+        Geometry shaders
+        Tessellation shaders
+        Advanced blend modes
+        Note: OpenGL ES 3.0/3.1 uses a new shader compiler backend; see Changes below.
+    New runtime assertion library under UnityEngine.Assertions namespace. The library provides a set of methods for setting assertions in your code.
+        The method calls will be conditionally compiled out from non-developer’s builds.
+        The conditional compilation is controlled by UNITY_ASSERTION define.
+        Defines DEBUG and TRACE are now also defined for non-developer’s builds.
+        A wrapping library providing extension methods is also available under UnityEngine.Assertions.Must namespace.
+    Unity Analytics: new, built-in Analytics functionality introduced (currently in “Preview”), under the UnityEngine.Analytics namespace.
+        Basic Integration can be completed by inserting a unique ProjectId into “Cloud Project Id” in PlayerSettings.
+
+description
+
+    The ProjectId is a unique identifier that links your Editor project with the data on your Analytics dashboard, and is generated during the Basic Integration process.
+        Go to http://analytics.unity3d.com to get started with Basic Integration, as well as access the relevant documentation and integration instructions.
+        Additionally, the library provides methods to track Monetization, Custom Events, and User Attributes (otherwise known as Advanced Integration options).
+
+description
+
+    Note: 4.x and 5.0 Editor users can still use Analytics by integrating the downloadable SDK package. For 5.1 users, adding the plug-in should not result in errors, nor will it result in duplicate data, but we still advise that you remove the old plug-in assets.
+    Home Window Login integration. You can now login or work offline using the home window or command-line arguments.
+
+description
+
+    Home Window License integration. You can now validate your serial and activate your copy of Unity using the new 5.1 json licensing API through the home window.
+
+description
+Backwards Compatibility Breaking Changes
+
+    Animation: Change the behaviour for humanoid controller with generic clip animating a human transform. Before the generic animation for the Human transform had a higher priority than the human animation. Now the Human animation always have the highest priority for humanoid rig overriding any generic animation for this transform, you should see a warning in the inspector if such case is detected with the name of the faulty animation clip and which transform is affected.
+    Physics: Modifying the HingeJoint Limit, Motor, Spring properties will no longer automatically enable the them. You now need to explicitly set HingeJoint.useLimit, useMotor, useSpring.
+    XboxOne: Unity is now built with the April 2015 XDK. You will need to install the April 2015 XDK on your PC and use the same or later recovery on your console.
+
+Changes
+
+    Animation: Added warning message for transitions without any condition. Those transitions are ignored.
+    Animation: Animator.speed can only be negative when the recorder is enabled. Now when the recorder is offline we do clamp the speed to 0 to avoid negative speed.
+    Animation: Transitions now have a fixed duration by default. Before Transition duration was in normalized time.
+    Animation Window: Dope sheet editor uses Command instead of Control for toggle-selecting on Mac OS
+    Animation Window: Double-clicking a key in the curve editor now selects the whole curve. Double-clicking part of the curve still creates a new key at this position
+    Editor: Incremental naming of instantiated GameObjects to use format: MyName, MyName (1), MyName (2)
+
+description
+
+    Editor: Renamed and added new GizmoType enum values to be more explicit about how they work with selection hierarchy. See the docs.
+    Editor: Ensure GameView is un-maximized on Editor start up.
+    GI: Auto baking is now disabled by default in 2D projects.
+    GI: Change the "continuous baking" label to something shorter and better. Is now "Auto" with a tooltip added.
+    GI: When hard shadows are selected baking will use a directional spread of 0 and a point radius of 0. Also, the UI for spread/point are disabled when shadows are not set to soft.
+    Graphics: Deprecated player settings useDirect3D11, targetGlesGraphics, targetIOSGraphics properties. Use SetGraphicsAPIs and friends.
+    Graphics: LOD fade mode is now assigned to the whole LODGroup as None, Cross-fade or SpeedTree.
+    Graphics: Make Material(string) constructor script API obsolete with a warning. Support for creating fixed function shaders at runtime will be removed in the future.
+    Input: Default binding for 'Fire3' in new projects changed from Left Cmd to Left Shift, for benefit of Windows user experience.
+    iOS: By default iOS builds now only support Metal & OpenGL ES 2.0. If you need OpenGL ES 3.0, you can specify that under player settings.
+    Networking: The NetworkView component from the old network system was marked as deprecated.
+    Physics: Enabling the HingeJoint Motor overrides the spring, if the spring was enabled. If the motor is again disabled the spring will be restored. This restores Unity4 functionality.
+    Physics: HingeJoint MinBounce and MaxBounce are replaced by a single 'bounciness' for both limit ends. The new bounciness will be set to the largest of the old MinBounce and MaxBounce.
+    Physics: New HingeJoint initialization fixes target angle being measured incorrectly.
+    Shaders: OpenGL ES 3.0+ will use a new shader compiler backend. Based on HLSL + HLSLCrossCompiler + glsl-optimizer. This enables compute shaders on ES3.1 and other modern features. Existing Cg/HLSL compute, geometry and tessellation shaders can be used via automatic translation as well as with direct GLSL snippets. Note: Memory layout rule differences between DX and GL must be taken into account on the buffer data uploads.
+    Substance: Substances are now supported in both 32b and 64b iOS simulator builds.
+    Terrain: TerrainData.alphamapTextures is now exposed to script.
+    Version Control: Allow edit of imported/native asset with respect to meta/asset file being checked out
+    WebGL: Memory size is now written to the generated HTML to make it easier to change it without rebuilding the player.
+    WebGL: Player Settings UI is now consistent with other platforms.
+    WebGL: Static batching is now disabled by default to improve build sizes.
+    WebGL: Switch audio format used to AAC.
+
+Improvements
+
+    Android: Apply DeviceDefault theme if available, respect user's theme
+    Android: Improved soft input dialog
+    Android: New Sensor/rotation code that tries to figure out 'reversed rotation devices'
+    Animation: Added Animator.CrossFadeInFixedTime and Animator.PlayInFixedTime to support fixed time manual transitions.
+    Animation: Added AnimatorController.GetBehaviours() API function to simplify how user can query their behaviour on the asset
+    Animation: Added dragging controls on the time bar and on the background of the blending in the transition inspector
+    Animation: Added options "Add Motion", "Add Blend Tree" and "Delete" to contextual menu for blend tree
+    Animation: Allow animator window to be locked
+    Animation: Deleting a layer that has other layers synchronized on itself will also delete all the dependent layers (with a prompt)
+    Animation: Do not allow scene objects in AnimatorController's Motion ObjectField
+    Animation: Exposed ApplyBuiltinRootMotion to script
+    Animation: Retargeting import warnings are removed from the console and are now available in the model importer warning foldout. This will simplify the submission process for Animation Clip to the asset store.
+    Animation: Transition can now be copy pasted
+    Animation: Transition duration can now be specified in absolute time
+    Animation: You can now control your AnimatorState.speed/mirror/cycleOffset at runtime with controller's parameter
+    Animation Window: Copy-pasting keyframes in animation window curve view and between clips.
+    Animation Window: Curve editor supports range selection with shift-click
+    Animation Window: Curve editor supports toggle selection with command-click (control-click on Windows)
+    Animation Window: Direct editing of key values in curve editors. Use Enter/Return or context menu to start editing selected keys, Tab to switch between fields, Enter/Return to commit, and Escape to cancel editing
+    Animation Window: Dope sheet editor supports Control-click as well as right-click on Mac OS
+    Animation Window: Dragging a curve no longer loses the current selection
+    Animation Window: Keyframe selection is synced between dopesheet and curve view.
+    Animation Window: Lock button that locks the selection to currently selected clip and Animator.
+    Animation Window: Slightly increased the clickable radius for keyframes in the curve editor
+    Animation Window: When creating new clip from animation window, default to previously used path
+    BuildPipeline: There will be fewer differences between the exported data files from subsequent builds of your project when using the same version of Unity. For best results, close Unity and delete your project's Library folder before making an important build.
+    Curve Editor: Wrap mode enum popup modified to appear as a little gear, which fits nicely in the margin without being cropped.
+    Documentation: Show "construct type" for class/struct/interface
+    Editor: Added extensive support for copy/pasting colors: Copy/paste from focused color field, from context menu for color field, from color picker (with no text selected) and from hex field.
+    Editor: Adding an icon to an EditorWindow title is now exposed by using the GUIContent 'titleContent' property (the old string 'title' is now obsolete)
+    Editor: Create sprite animation clip from project window context menu.
+    Editor: Improved grid in Scene View. Eliminates the popping and inconsistent draw distance of the old grid, and also draws grid lines smaller than one unit (10th of a unit, 100th of a unit and so on) when sufficiently zoomed in. New grid shading makes it possible to have grid lines more dense in close parts of the grid without the parts further away being too dense.
+    Editor: Introduced CreateAssetMenu attribute. Apply it to ScriptableObject-derived types to cause them to show up automatically in the Assets/Create menu.
+    Editor: Introduced HelpURL attribute, for setting custom documentation URL for user-authored classes.
+    Editor: Simple expression evaluator for all number fields. Supports + - / * % ( ) operators. This means that all number fields can be used as a calculator.
+    FrameDebugger: Shader blend, depth and raster states will be shown for draw calls.
+    GI: Final gather was moved into a separate stage. This allows the indirect baking stage to apply visibility aware upsampling to the indirect lightmap before final gather is applied for better quality.
+    GI: Reduce the amount of GI related information that is written to the log file
+    Graphics: Add CommandBuffer.DrawProcedural and DrawProceduralIndirect.
+    Graphics: Added a way to specify graphics APIs explicitly in player settings (defaults to "automatic" for each platform). For example, you could specify you only want to support Metal+ES2 in iOS builds, or only DX11 (without DX9 fallback) on Windows builds etc. This replaces the "Use DX11" and "Target iOS/GLES Graphics" settings.
+    Graphics: Added SetPixels32/GetPixels32 to Texture3D.
+    Graphics: Command Buffers can be set on Lights, see LightEvent enum and Light.AddCommandBuffer.
+    Graphics: Performance improvements on DX11 when many non-batchable objects are in view.
+    Importer: Added warning foldout to keep trace of all import warning in the ModelImporter animation tab.
+    Math: Rect(Vector2, Vector2) constructor overload added
+    Miscellaneous: Resolution.ToString() implemented
+    MonoDevelop: Including MonoDoc XML files for showing C# Intellisense tooltips in MonoDevelop
+    Physics: Add motion constraints to Rigidbody2D
+
+description
+
+    Physics: Added HingeJoint BounceMinVelocity. When bounciness is enabled this is the minimum impact velocity which will cause the joint to bounce. Setting this very low, like zero, will cause the joint to never stop bouncing. This can lead to jittering and performance problems. Setting this very high will cause joint to never bounce.
+    Physics: Optimized performance of ‘OnTriggerStay’ messaging.
+    Physics: Rigidbodies connected to a HingeJoint will now automatically be woken up when the joint is updated.
+    Plugin Inspector: You can now select multiple plugins and change compatible platforms. Note - you cannot yet change per platform settings if multiple plugins are selected.
+    Profiler: Change ms markers in timeline view to use same label style which makes it also properly visible in both skins.
+    Profiler: Don't show FPS for every ms marker along the x axis in the timeline view - only for the last one.
+    Profiler: Fix unaligned labels for ms counts in current frame.
+    Scripting: Added Vector2.Reflect function.
+    Serialization: Extended SerializedFile size limit to 4GB
+    Shaders: Support VFACE in surface shader inputs; just use a float variable with VFACE semantic.
+    SpeedTree: A new importer setting "Animate Cross-fading" is added to SpeedTree assets. With this option on (by default), the dithering LOD transition between mesh/billboard and billboard/culled will be animated by time. This should make the trees look better in most of the scenarios.
+    SpeedTree: Now wind animation will not be interrupted if the tree gets out side of the view.
+    SpeedTree: Tree casts shadow when in cross-fading to billboard
+    Texture2D: Add Texture2D.GetRawTextureData() API
+    UI: Allow dragging anchors outside of bounds of parent when holding down Ctrl (Cmd on Mac) - the same key that disables snapping. This makes it easier to author screen transitions that support multiple resolutions, since content can be animated to move a distance that's a percentage of the screen width or height.
+    UI: Changed default blink rate and widget range of InputField caret to match the new frequency behavior.
+    Version Control: CheckoutIsValid now accept a CheckoutMode
+    Version Control: Collapse assets and their .meta files in versioning window when they have the same state
+    WebGL: Made "Explicitly Thrown Exceptions Only" mode much faster and be the default setting
+    WebGL: Support Input.touches and Input.acceleration
+    Windows Store Apps: Copy pasting will also work outside the application.
+    Windows Store Apps: Exposed Rendering path in Player Settings
+    Windows Store Apps: Refactored App.xaml.cs and MainPage.xaml.cs, it's easier now to add additional XAML pages to the project
+    XboxOne: Added functions to XboxOnePLM (GetActivationUri, GetActivationTileId, GetActivationArguments) to retrieve cached values. We still recommend listening to OnActivationEvent in your Start() frame, and processing them that way, but this provides an alternative for last-provided values.
+    XboxOne: Added support for XMA audio format
+    XboxOne: IPv6 lookup and DNS support added for C# code.
+    XboxOne: Lightmap files are now split up per level and put in separate chunks in the package manifest.
+    XboxOne: More comments have been added to the default package manifest.
+    XboxOne: Worker threads created by Unity's core systems (Physics, AI) will no longer run on cores 0 and 1, which are reserved for the Rendering thread and Unity's main thread respectively. This will be a performance gain in most cases by avoiding thread context switches.
+
+Fixes
+
+    2D: Added Vector2.down and Vector2.left properties
+    2D: Always default to use "Rect" tool if project started as a 2D project.
+    2D: Always prompt user to apply unapplied texture setting before opening up Sprite Editor Window.
+    2D: Apply button now work correctly between sprite editor window and sprite inspector.
+    2D: Avoid editing/deleting a polygon collider point while panning the scene view.
+    2D: Do not display sprite mesh wireframe in scene view under any circumstances
+    2D: Double Clicking on a Sprite will not ignore External Tools prefs now.
+    2D: Fixed occasional crashes while building on 'Repacking sprite aliases'
+    2D: Fixed some edge cases that will result in odd shape during sprite editor's automatic slicing.
+    2D: Fixed Corrupted Sprites in Sprite Packer for iOS and Android
+    2D: Fixed error appeared if Sprite was sliced only for 1 slice
+    2D: Height and Width of a sprite rect in Sprite Editor Window will no longer be 0.
+    2D: Losing focus in Sprite Editor will now always show Apply/Revert popup.
+    2D: Material field from SpriteRenderer no longer behaves as array type.
+    2D: Revert button will reset value correctly in sprite editor window.
+    2D: Scene View picking always picks the visually top-most for different SortingLayers and z-depths
+    2D: Show both original and atlas format in the preview for packed sprite sheet.
+    2D: Slicing by grid in Sprite Editor Window will now limit the input values to the size of the texture.
+    2D: Sprite Atlas will no longer produces errors at low resolutions
+    2D: Sprites now generate Preview Images in the Inspector when using object field
+    2D: Undo will not undo applied Sprite Editor Window changes.
+    2D: Using trim button in Sprite Editor window will correctly enable Apply/Revert button.
+    Android: Buildpipe - detect plugin errors when package names differ only by cases
+    Android: Fix for spaces being replaced with underscores in app titles
+    Android: Input - Fix axis stuck on Android TV after hiding keyboard
+    Animation: Adding a new curve to an AnimationClip with AnimationClip.SetCurve now update correctly the animation length
+    Animation: Fixed a bug where callbacks called indirectly from ApplyOnAnimatorIK would reset the animator memory and cause a crash
+    Animation: Fixed animator controller window title
+    Animation: Fixed Animator exception (m_IsVisibleInScene && IsInScene()) == m_IsVisibleInScene) when disabling a game object with a disabled mesh renderer
+    Animation: Fixed copy paste of Animator State with StateMachineBehaviour , StateMachineBehaviour instances were not cloned correctly
+    Animation: Fixed crash when a StateMachineBehaviour disables his own animator component
+    Animation: Fixed CycleOffset range for animator state, valid range is between 0 and 1
+    Animation: Fixed direct blendtree editor slow down when there is too much motion
+    Animation: Fixed duplicated parameter in blend tree of blend tree
+    Animation: Fixed Livelink of AnyStateTransitions
+    Animation: Fixed transitions disappearing when importing a project from 4.x
+    Animation: Fixed update issue with Animator parameter window when going into playmode. Parameter list in the window was not updated anymore.
+    Animation: Fixes crash when disabling animator in OnAnimatorMove
+    Animation Window: Disable renaming items in animation window add property popup
+    Animation Window: Dragging sprite(s) to empty clip
+    Animation Window: Editing tangents in dopesheet context menu will save changes and handle undo correctly
+    Animation Window: Fixed an issue where keys on some curves were harder to click than others
+    Animation Window: Keyframe of missing sprite no longer has weird visual offset in the dopesheet
+    Animation Window: No more errors when changing to curve tab with sprite animation
+    Animation Window: Prevent dragging other object types to Sprite curve
+    Animation Window: Record mode is correctly cancelled when non-animated object is selected or new scene is created
+    Asset Loading: Always build the manifest AssetBundle and return the AssetBundleManifest object.
+    Asset Loading: Throw exception when calling Resources.LoadAll with null path.
+    Asset Management: Fix the crashes when saving with deleted gameobject
+    Asset Management: Unity packages now include .meta files for folders, allowing plugin settings for OS X native plugins to be transferred correctly
+    Asset Store: Fix download progress for packages larger than 2GB
+    Core: Fixed some memory leaks in the Editor and Players.
+    Editor: Breaking prefab instance through the menu "GameObjects->Break prefab instance" can now be undone
+    Editor: Calling Undo.RecordObject on editor objects no longer dirties the scene.
+    Editor: Clear old main menus on OSX
+    Editor: Do not change selection when duplicating while dragging
+    Editor: Fix crash when two inspector windows are open
+    Editor: Fix cubemap preview icons showing as white textures in Project Browser and Object Picker.
+    Editor: Fix DecoratorDrawers being shown twice for properties with custom PropertyDrawers that call into the default PropertyField implementation.
+    Editor: Fix default cursor appearing during editor startup on OSX
+    Editor: Fix Float Fields not accepting Infinity correctly
+    Editor: Fix GUIStyle errors on import (delay GUIStyle initialization to OnGUI).
+    Editor: Fix layers popup showing in the top left of the window and not below layers button.
+    Editor: Fix player settings window accessing non-initialized property.
+    Editor: Fix text fields content switch between build settings in some cases.
+    Editor: Fix undo of reset position/rotation/scale
+    Editor: Fixed crash when attempting to add the same component twice to a GameObject in the Editor
+    Editor: Fixed warning when dragging'n'dropping a mesh onto a GameObject
+    Editor: Make Android and iOS splash screen separate settings (no longer shared)
+    Editor: Plugin inspector - set ARMv6 Android plugins incompatible to avoid collisions
+    Editor: Scene View will no longer have tint applied when entering play mode.
+    Editor: Update m_GUIDToPath when moving asset to path name with different case.
+    Editor: Update menu items when assemblies are loaded in the editor
+    Editor: Update ShaderGUI for MaterialEditor when shader changes
+    Editor: Use IntField instead of FloatField for Sprite Editor
+    Fix issue where UnityEvents would lose their target function on assembly rebuild
+    Fix null reference on EventTrigger component when accessing delegates list. Some situations could cause it to not be initialized.
+    GI: Fix temporary visual glitch caused by missing atlas textures when a new lighting build is switched in when in auto lighting mode.
+    GI: Fix temporary visual glitch caused by missing UVs when a new lighting build is switched in when in auto lighting mode.
+    Graphics: Fixed AfterDepthTexture and AfterDepthNormalsTexture command buffers to be executed after the texture is set as a shader property.
+    Graphics: Fixed crash in a case where particle system would not have a valid mesh
+    Graphics: Fixed crash in Instantiate(Mesh) when static batching is used for the Mesh
+    Graphics: Fixed crash where MeshCombiner would not allocate enough indices
+    IMGUI: Fixed NullReferenceException when calling GUI.BeginScrollView with 7 arguments
+    iOS: Fixed duplicate property value removal in certain Xcode projects
+    iOS: Fixed Xcode project supported platforms and SDKs settings
+    Lightmapping: Fixed race condition crash in lightmap bake when converting .exr files.
+    Linux: Fix applying vsync and antialiasing changes without changing quality level
+    Linux: Fix OS version check when lsb_release isn't present.
+    Linux: Support more standard screen resolutions
+    Merge Tool: Handle regression in 5.0.1 introduced by stripped prefabs
+    Merge Tool: Fix auto fallback spec file detection
+    OSX: background image used for mac installer packages has been increased in size
+    OSX: Fix "Default is native resolution" setting.
+    OSX: Fix resolution update race when resizing window.
+    OSX: Prevent idle sleep while the player is active
+    Prevent accidentally moving multiple times when navigating UI with keyboard or controller by introducing a repeat delay to the StandaloneInputModule. This is similar to the delay before the repeating events that OSes have.
+    Profiler: Fix lockup in editor, if left in background with the profiler open
+    Profiler: Fix receive buffer error and hang connection when transferring large chunk of profiler's data
+    ReflectionProbes: Buttons "Bake All Reflection Probes" in Lighting window and Reflection Probes inspector should behave correctly now.
+    Scripting: Fix plugin verification crash on reload/shutdown
+    Scripting: Fix potential crashes on Webplayer
+    Serialization: Fix crash when loading text serialized scene with >32k components
+    Serialization: Reapplied part of non-deterministic material serialization fix, but without increasing memory usage during building
+    Shaders: Add warning when using SV_POSITION in vertex shader inputs on DX11, and improve error message.
+    Shaders: Fix standard shader cutout rendering being wrong when rendering with shader replacement.
+    Shaders: Fixed #pragma target and #pragma exclude_renderers parsing with trailing comments.
+    Shaders: Fixed HLSL log10() translation into OpenGL/Metal platforms.
+    Shaders: Fixed shader compilation warnings not being shown if there are no compilation errors.
+    Shaders: Fixed that surface shaders vertex color field had to actually be called "color" (now just COLOR semantic is enough, like the docs always said).
+    Substance: Fix hang in ProceduralMaterial::Clean().
+    Substance: Fix crash when assigning a shader that does not cause outputs to be generated (e.g. Unlit/Color) to a ProceduralMaterial.
+    Substance: Fix 'path != ""' assert when live-previewing a Substance from the Asset Store.
+    Substance: Global Illumination flags are now correctly handled by ProceduralMaterials.
+    Substance: Fix console spam related to the absence of '_MainTex' shader property.
+    Terrain: Fixed an issue where painting terrain features while holding down the right mouse button could lock the view tool.
+    Terrain: Fixed crash on creating terrain with large heightmap resolution by script
+    Terrain: Fixed crash when terrains are neighbored and drawHeightmap is set to false
+    Terrain: Terrain brush no longer intercepts mouse events if the mouse cursor doesn't intersect with any terrain.
+    UI: Caret on InputField now blinks at proper frequency.
+    UI: Clamp setting canvas group alpha between 0-1 on API call
+    UI: Destroying a RectTransform that is queued to for a layout rebuild would freeze unity.
+    UI: Fix for issue with EventSystem and multiple sorting layers.
+    UI: Fix handling of the lastSelectedGameObject field on EventSystem. We don't use it so mark it obsolete.
+    UI: Fix instantiating a prefab containing a Selectables will not throw console errors.
+    UI: Fix issue where the pointer click world position/normal may not be properly associated with the event if multiple modules or hits are present.
+    UI: Fix Mac-only crash during Canvas sorting.
+    UI: Fix nested masking not getting the correct stencil value and failing
+    UI: Fix regression where deactivated UI components did not disappear.
+    UI: Fixed bug that multiple Layout Group components on the same GameObject was not prevented even though it is not supported.
+    UI: Fixed bug which caused caret to no longer appear in InputField after game object was deactivated and reactivated.
+    UI: Fixed crash when opening a scene with a deleted prefab canvas object.
+    UI: Fixed division by zero bug in GridLayoutGroup.
+    UI: Fixed events being blocked by disabled UI elements
+    UI: Making input field respect vertical alignment.
+    UI: Only do cut, copy, paste, and select all if holding down just Ctrl (Cmd on Mac), not if additional modifier keys are also held down. This prevents these actions from happening when intending to type characters that use Ctrl (Cmd on Mac) as part of the key combination.
+    UI: Prevent out of range exception that happened in InputField under certain circumstances due to an unwanted recursive call.
+    UI: Properly handle deselection if the current hovered object is destroyed.
+    Version control: Fix 'show in explorer' context menu
+    WebGL: Correctly show warning that building for WebGL is not supported in 32-bit editors
+    WebGL: Fix "Unknown Error" being displayed in Firefox at startup
+    WebGL: Fix artifacts in imported AudioClips
+    WebGL: Fix asm.js validation errors
+    WebGL: Fix audio channels being flipped left and right
+    WebGL: Fix AudioListener.volume
+    WebGL: Fix AudioSource.mute
+    WebGL: Fix banding issues in Standard Shader
+    WebGL: Fix build process running out of memory when compiling very large functions
+    WebGL: Fix Doppler effect simulation issues in various browsers
+    WebGL: Fix issue with Color32 serialization which could cause data corruption
+    WebGL: Fix Joystick buttons in WebGL when joystick ID is not specified
+    WebGL: Fix looping of audio
+    WebGL: Fix Marshal.StringToHGlobalUni
+    WebGL: Fix some keys being correctly detected in Chrome
+    WebGL: Fix Unity logo in default template
+    WebGL: Fix usage of custom templates on windows
+    WebGL: Handle gravity in particle systems better when physics module is stripped
+    WebGL: Make Profiler work on Windows
+    WebGL: Make WebGL correctly detect the Command key on OS X
+    WebGL: Memory sizes are now clamped to valid values
+    WebGL: OnApplicationQuit now correctly gets called
+    WebGL: Will now show rendering path UI in WebGL Player settings
+    WebGL: WWW class will correctly report errors
+    WebGL: WWW.progress now correctly reports values between 0 and 1
+    WebGL/iOS: Fix crash in UnusedBytecodeStripper on BoxCollider2D/CircleCollider2D center member access
+    Windows Phone/Store: Fix assembly converter crashing when a type generic class derives from a generic class which has a generic parameter that is array of generic parameters of the derived class (e. g. class Derived : MyBase<string, T[]>).
+    Windows Phone/Store: Fix assembly converter crashing while postprocessing player if non-matching PDB is found.
+    Windows Phone: Fixed anti aliasing for render textures on phones with software navigation buttons.
+    Windows Store Apps/Windows Phone: fix AssemblyConverter failing for structs in other assemblies
+    Windows Store Apps: Added missing targets 'metroplayer', 'wsaplayer' when used with -buildTarget argument.
+    Windows Store Apps: extended splash screen should not be related to composition scale
+    Windows Store Apps: fix build failure when project path contains word "Assets"
+    Windows Store Apps: Fix building and running from directory with Unicode characters in ti.
+    Windows Store Apps: Fix reported log type for exceptions
+    Windows Store Apps: Fixed crash if using an unsupported image effect.
+    Windows Store Apps: Fixed deadlock when resizing window.
+    Windows Store Apps: Plugin folders (for ex., *.bundle) will be ignored and won't cause an error, even if the plugin is selected as compatible with Windows Store Apps.
+    Windows Store Apps: Touch positions will be correctly reported when SwapChainPanel occupies only part of the screen.
+    Windows Store Apps: use XAML Frame and navigation
+    XboxOne: GI files that are part of the mainData will be included in the package manifest.
+    XboxOne: Launch range is now capped to the number of scenes rather than scenes+1.
+    XboxOne: Removed additional null character in persistantDataPath.
+    XboxOne: special characters are removed from Product name, avoiding use of characters the packaging tools don't like.
+    XboxOne: Systems that use a cache now use the console's T: drive.
+
+Known Issues
+
+    Editor: Renaming file-locked assets may lead to lost data.
+    On Windows, using a proxy server will crash Unity when trying to access the Asset Store.
+    Mecanim: Setting AnimatorState.speed to 0 doesn’t pause the animation as expected.
+    Mecanim: Switching runtime AnimatorState.speed from positive to negative break animation continuity.
+    Mecanim: Copy-Pasting StateMachines will not copy the Transitions inside of them.
+    Unity VR
+        Oculus 0.6 runtime is required
+        Mac and Gear VR support coming in 5.1.0 patch 1
+        At this time if you wish to continue using Legacy Oculus plugins in your project we recommend you keep the 'Virtual Reality Supported' checkbox unchecked. In a later release this checkbox will have no impact if a legacy plugin is present.
+        VRSettings.renderScale is non-functional, fixed in 5.1.0 patch 1
+        Apps that use linear lighting won't render. Recommended to use gamma for now.
+        If your app won't launch in VR mode, use command line option "-vrmode oculus"
+        UI: Screen Space - Overlay not supported. Recommended to use Screen Space - Camera or World Space. "Scale With Screen Size" is recommended so UI looks the same on Gear VR.
+        Toggling VRSettings.loadedDevice at runtime crashes, fixed in 5.1.0 patch 1
+

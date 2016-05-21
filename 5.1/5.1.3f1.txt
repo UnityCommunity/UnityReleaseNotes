@@ -1,0 +1,147 @@
+5.1.3f1 Release notes
+Features
+
+    Tizen: Static splash screens are now supported.
+
+Improvements
+
+    Android: Added support for real 16bit RGB565 backbuffer.
+    iOS: Make WWW.text to actually contain error response in case of non-200 status.
+    Physics: Renamed 'CollisionDetectionMode2D.None' to 'CollisionDetectionMode2D.Discrete' (Will be auto-updated).
+    VR: Added an option to allow Cameras to render specifically to left/right eye for stereo 3D.
+    WebGL: Added WebGLInput.captureAllKeyboardInput API to allow web page content to get keyboard input.
+
+Changes
+
+    BlackBerry: SystemInfo.deviceModel now returns a useful model string value instead of a hexadecimal number.
+    Samsung TV: Users are now able to set the system language via SamsungTV.SetSystemLanguage. Users will need to fetch the system language via Samsung's GSP API plugin.
+    Windows Standalone: Player exe is no longer signed, icon and version modifications will no longer have digital signature errors.
+    Xbox One: Unity is now built using the June 2015 QFE 1 XDK. You will need to have this XDK installed on your PC and use the matching or a later recovery.
+
+Fixes
+
+    (709326) - 2D: Fixed spriteRenderer overwriting materials for objects in case of multiple selection.
+    (707880) - 2D: Prevent all editing in Sprite Editor Window during play mode.
+    (none) - Android: Audio - Fixed CPU consumption by FMODAudioDevice thread on GearVR.
+    (none) - Android: Fixed call to ES API without current context.
+    (701873) - Android: Fixed performance regression in Resources.Load.
+    (703999) - Android: Fixed texture compression setting for RGBA textures.
+    (694503) - Asset Loading: Fixed missing references when scene is loaded from an asset bundle which contains multiple scenes.
+    (707079) - AssetBundle: Fixed the crash when a scriptable object is referenced from the scene.
+    (683134) - AssetBundle: Fixed the issue that AssetBundle with packed textures includes source textures in addition to the atlased version.
+    (670282) - BlackBerry: Fixed crash that would happen with some projects on the Passport after consecutive runs.
+    (704009) - BlackBerry: Fixed crash when using Development builds on the STL-001 device.
+    (none) - BlackBerry: Fixed issue that would cause a grey screen to appear between the splash screen and the start of the game.
+    (673296) - Editor: Enabling Script Only Build option will only affect platforms that allow the option.
+    (708787) - Editor: Fixed 'Timestamps and assets out of sync' error when renaming a folder outside of Unity and deleting an asset inside of it.
+    (709495) - Editor: When saving a scene in the Windows editor, the characters from the dynamic fonts would disappear.
+    (707688) - GI: Fixed crash when building lighting.
+    (none) - GI: Fixed issue with baking getting stuck on the bake indirect stage.
+    (690395) - Graphics: Added extra protection against depth buffer in editor windows being accidentally disabled.
+    (693316) - Graphics: Configurable vertex compression to fix lightmap UVs shifting.
+    (697054) - Graphics: Fixed a crash compressing an already compressed texture in script.
+    (678429) - Graphics: Fixed an issue where setting RenderSettings.reflectionIntensity via script had no effect on the scene.
+    (700698) - Graphics: Fixed artifacts in alpha channel of ATC-compressed RGBA textures when using Mac OS X Editor.
+    (679342) - Graphics: Fixed CaptureScreenshot on DX11 when using non-native fullscreen resolution.
+    (691477) - Graphics: Fixed crash calling GetPixels with a 0x0 texture
+    (662018) - Graphics: Fixed swizzling of BGRA32 texture data on D3D11 and Xbox360.
+    (681662) - Graphics: Switching shaders in material inspector should reset material's render queue to default.
+    (701319) - Graphics: When using COLORMASK and D3D9, the mask was not correctly set for MRT render targets.
+    (702323) - IMGUI: Fixed text vertical position shifting during edit when the line height is too big for the box.
+    (697178) - Input / OSX standalone: Mouse buttons are registered when configuring input settings.
+    (704815) - Input: Fixed touch input hanging a Windows application if a second 'touch window' is created in a plugin.
+    (704335) - Inspector Functionality: Fixed component Help buttons on OS X.
+    (701951) - iOS: Added Xcode 6.4 compatibility.
+    (706601) - iOS: Fixed a regression that caused very poor performance of trying to load non-existing system fonts.
+    (709024) - iOS: Fixed crash accesing WebCamTexture videoRotationAngle and videoVerticallyMirrored before it is fully inited.
+    (709063) - iOS: Fixed snapshot creation (when going to background) on pre-ios8.
+    (674706) - iOS/IL2CPP: Allow GetCurrentProcess to work.
+    (none) - iOS/IL2CPP: Allow il2cpp.exe to run when its installation path includes a '#' character followed by a space character.
+    (711284) - iOS/IL2CPP: Allow the AssemblyName::GetPublicKeyToken method to return an array of only eight bytes.
+    (709995) - iOS/IL2CPP: Corrected a problem with the generated C++ code which caused the C++ compiler error: "Member reference base type 'intptr_t' (aka 'long') is not a structure or union" when unsafe C# code was used to index into an array of pointers to structures.
+    (689976) - iOS/IL2CPP: Corrected an intermittent hang which could occur in the garbage collector.
+    (712470) - iOS/IL2CPP: Corrected Marshal.OffsetOf when using enums fields with FieldOffsetAttribute.
+    (712713) - iOS/IL2CPP: Ensure methods needed for enum arrays are converted.
+    (708876) - iOS/IL2CPP: Fixed binary operations using mixed integer types.
+    (770440) - iOS/IL2CPP: Fixed bug in Boo script related to generic interface methods.
+    (689586) - iOS/IL2CPP: Fixed CultureInfo.GetCultures().
+    (none) - iOS/IL2CPP: Fixed marshaling code for IntPtr parameters marked with [Out] attribute.
+    (708527) - iOS/IL2CPP: If "Fast but no Exceptions" is selected, any managed exception which escapes out of managed code will cause the AppDomain.UnhandledException event - to be executed and application will abort (this is the same behavior as the Mono scripting backend).
+    (676797) - iOS/IL2CPP: Implemented the IsTransparentProxy icall, which always returns false.
+    (705751) - iOS/IL2CPP: Implemented the previously unsupported AppDomain::InternalGetDefaultContext and AppDomain::InternalGetContext icalls.
+    (none) - iOS/IL2CPP: Improved performance of 'is' operator, 'as' operator, and casting in some cases.
+    (710797), (705882) - iOS/IL2CPP: Prevent a type T from being stripping if it is used an GenericClass field in a MonoBehavior or ScriptableObject that is already being preserved.
+    (711712) - iOS/IL2CPP: Prevent the following error from il2cpp.exe at conversion time: "Attempting to constrain a value of type 'X' to type 'Y'." for two different types X and Y.
+    (none) - iOS/IL2CPP: Properly look up a type using the Type.GetType(string) method during a case-insensitive search.
+    (none) - iOS/Metal: Fix potential geometry corruption
+    (650630) - Mac OS X Standalone: Fixed stripping of debug symbols in release player builds.
+    (none) - Mecanim: Fixed a bug where a state machine moved to another state machine would disappear.
+    (705342) - Mecanim: Fixed performance regression for AnimationUtility.SetEditorCurve().
+    (none) - Merge Tool: Correctly handle invalid non-unique mapping keys that Unity generates.
+    (none) - Merge Tool: Fixed empty base/right files when falling back and used from cmdline and premerge dests are not set.
+    (none) - Merge Tool: Fixed merge conflict when mine and theirs have both added a component of different type to the same GameObject.
+    (none) - Merge Tool: Fixed the error about non existing merge tool path after falling back to 3rd party merge tool on OSX.
+    (693714) - Metal: Fixed shader translation of matrix+scalar, matrix-scalar, matrix/scalar operations.
+    (693714) - Metal: Fixed some issues with shader translation of matrices with different precision.
+    (none) - Mono: Double traverse object count to avoid stack overflow when freeing huge amounts of objects.
+    (none) - Mono: Fixed monotonic timer overflow to allow usage of timing functions like those in System.Threading with extended uptime.
+    (none) - Networking: Fix for llapi statistic function + new statistic function GetNetworkLostPacketNum().
+    (none) - Networking: Timing service is working now.
+    (none) - OS X: Fixed building on OS X El Capitan.
+    (706330) - OSX standalone: Fixed mouse input and rendering issues after the application is moved to a different screen and is made fullscreen.
+    (704468) - Physics: Fixed 'Physics2D.GetRayIntersectionXXX' methods being affected by 'Physics2D.raycastsStartInColliders'.
+    (703073) - Physics: Fixed an issue where OnTriggerStay would not be called on children in compound colliders.
+    (705148) - Physics: Fixed incorrect depth sorting for results of 'Physics2D.GetRayIntersectionXXX' methods.
+    (692675) - Physics: Fixed WheelCollider not being able to ignore collisions with vehicle body colliders that were added to the already initialised vehicle.
+    (691057) - Physics: Fixed WheelCollider suspension raycasts being unable to ignore intersections with the car’s body the wheel has been attached to, occasionally.
+    (none) - Physics2D: Now 'Infinity' cannot be specified for 2D collider offset.
+    (707400) - Physics2D: Stop Rigidbody2D X/Y Constraints from occasionally moving the body to the world origin.
+    (713073) - Physics2D: Stop trigger-contacts being reported early when using continuous collision detection.
+    (none) - Samsung TV: Added missing Indian character sets to 2015 TV.
+    (none) - Samsung TV: Fixed freetype crash on 2013 TV.
+    (none) - Samsung TV: Fixed issue where UnityAnalytics was initializing improperly.
+    (none) - Samsung TV: Fixed race condition that could cause intermittent crashes when managed threads were being used.
+    (695246) - Scripting: Fixed potential crashes during domain reloads when user code throws NullReferenceException in AppDomain.DomainUnload / AppDomain.ProcessExit events.
+    (643440) - Serialization: Fixed incorrect clamping of LayerMask when set through SerializedProperty.intValue.
+    (711981) - Substance: Fixed crash in iOS/il2cpp builds caused by uninitialized SubstanceSystem.
+    (706380) - Substance: Fixed crash with BakeAndDiscard ProceduralMaterials.
+    (none) - Substance: Using _TexelSize in shaders now works correctly with ProceduralTextures.
+    (none) - Tizen: Fixed an issue with sound stopping when apps are interrupted.
+    (none) - Tizen: Fixed corrupted audio.
+    (none) - Tizen: Fixed errors when building projects that contain spaces in the path.
+    (715415) - Tizen: Fixed issue where Good autorotation orientations were incorrect.
+    (none) - Tizen: Resolve deployment problems on Windows.
+    (693283), (672115) - UI: Fixed issue in UI components Slider, Outline, Shadow & Position as UV1 not updating when their values are animated.
+    (714670) - UI: Fixed Toggle component not updating when animated.
+    (none) - UnityAnalytics: Fixed RemoteConfig restore of int values.
+    (none) - UnityAnalytics: Remote config fix added.
+    (none) - Version Control: Fixed assets version control cache state not being updated after scene reload.
+    (none) - Version Control: Invalidate version control cache on refresh button click in versioning window.
+    (695727) - VR Oculus: Camera Viewport Rect now takes up the appropriate amount of Screen space.
+    (703281) - VR Oculus: Fixed crash when trying to access VRSettings.GetNativePtr while the Oculus HMD was not connected.
+    (none) - VR Oculus: HMD can now be connected to application after it has already started. It can also be disconnected and reconnected during application run time.
+    (none) - VR Oculus: Update to latest oculus dependencies.
+    (none) - VR: Camera transforms now reset when VRSettings.enabled is false or the loadedDevice is set to none. Camera parent transforms are not effected.
+    (713630) - VR: Fixed several VR lifecycle related crashes.
+    (none) - VR: Fixed stereo rendering regression.
+    (none) - VR: Improved MSAA performance by only antialiasing eye textures, not the composited back buffer.
+    (691345) - VR: Reenable vsync when device is disconnected.
+    (none) - VR: Virtual Reality Supported toggle in player settings no longer recreates the Graphics Device. VRSettings defaults to enabled and oculus if Virtual Reality is supported.
+    (714022) - VR: VRDevice.isPresent now returns expected value.
+    (none) - WebGL: Allow Type.GetType(string) and its overloaded methods to work without Exception Support set to Full. IL2CPP: Properly look up a type using the Type.GetType(string) method during a case-insensitive search.
+    (700861) - WebGL: Fixed backspace key navigating away from page in Chrome.
+    (714545) - WebGL: Fixed empty Input.inputString.
+    (705045) - WebGL: Fixed mouse button state after double click.
+    (712636) - WebGL: Fixed UI keyboard inputs.
+    (704235) - WebGL: Fixed WebGL builds of projects with long path names on Windows.
+    (711745) - Windows Store Apps: Application.isMobilePlatform will now return true.
+    (710069) - Windows Store Apps: Fixed incorrectly reported PlayerPrefs corruption after upgrading to Unity 5.1.
+    (710038) - Xbox One: Fixed error for uninitialized player settings
+    (708668) - Xbox One: Fixed instances where Compute Shaders would not compile.
+    (705618) - Xbox One: Fixed spelling errors in ESRB ratings strings in the Player Settings.
+    (701308) - Xbox One: Level and asset files are paired correctly in the auto-generated package manifest.
+    (none) - Xbox One: Mono: Double traverse object count to avoid stack overflow when freeing huge amounts of objects.
+
+Known Issue
+
+WebGL: Building for WebGL on Windows will fail with a "sanity check error". As a workaround, Unity.exe can be launched with Administrator privileges.

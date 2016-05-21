@@ -1,0 +1,247 @@
+5.0.1f1 Release notes
+Improvements
+
+    Android: Added framebuffer clear on devices that would prefer framebuffer discard but don't have the required GLES extension.
+    Android: Added profiling stats for blit to screen and input processing.
+    Android: Joystick input optimization, fixes slowdown on some older devices.
+    Android: Parsing device specific XML font configurations to determine system/fallback fonts in addition to the hard-coded list of font names (in 4.6.4 too).
+    Android: Splash screen is now shown in full screen mode.
+    BlackBerry: Passport device now supports landscape orientation.
+    Bug reporter: Added info about license type.
+    Editor: Android; added ability to configure JDK path in the Editor preferences (in 4.6.4 too).
+    Editor: Android TV; added configuration option for D-pad and gamepad support level.
+    GI: Added pushoff for baked lighting, can be used to fix AO artefacts.
+    GI: Allow higher AO exponent in Lighting window.
+    GI: Don't calculate AO when AO exponent is 0.
+    GI: Fixed inconsistent Enlighten build timings; now it should correspond to wall clock time (unless you move at near speed of light relative to your computer, in which case it might still be wrong).
+    GI: Moved baked tag to the proper place in UI.
+    GI: Output more stats per system and in total: vertex count, face count, chart count and texel count.
+    GI: Removed an unnecessary warning that realtime GI is not supported on PS3 and Xbox360 when finishing a bake in non-continuous mode.
+    GI: Sped up baked lightmap compositing.
+    GI: Spit out timings of the precompute and bake to the Editor log. Timer resets when clearing GI data, exiting continuous mode or cancelling a bake.
+    GI: Take texture transparency into account when calculating AO.
+    GI: Users will now be warned when building scenes with Precomputed Realtime GI ticked on platforms that do not support Realtime GI.
+    Graphics: Shaders now read consistent values across platforms for vertex properties that are missing in a Mesh. We have adopted the OpenGL standard, which is that normals default to (0,0,1) and tangents default to (1,0,0).
+    iOS: Improve launch screen support:
+        Added option to disable launch screen.
+        Added option to display relatively sized image on a specific background.
+    iOS: Short term fix for occasional input stuttering (in 4.6.4 too).
+    iOS/Metal: Defer [CAMetalLayer nextDrawable] until it is actually needed (helps with occasional framerate hiccups) (in 4.6.4 too).
+    Linux: Query Mesa driver for amount of video memory when feasible.
+    Physics 2D: Allow SurfaceEffector2D to control whether friction or bounce is used upon contact.
+    Physics 2D: Allow SurfaceEffector2D to control whether the impulse force is applied to the center-of-mass or contact-point.
+    Physics 2D: Improve PointEffector2D.distanceScale tooltip/documentation.
+    Physics 2D: Joint2D property 'collideConnected' renamed to 'enableCollision' to match 3D physics.
+    Physics 2D: PlatformEffector2D property renames based upon feedback: oneWay->useOneWay, sideFriction->useSideFriction and sideBounce->useSideBounce.
+    Platforms: Unity Professional users can now optionally show the builtin Unity Splash Screen on applicable platforms, in Player Settings.
+    Version Control: Added shortcut to save changeset window.
+    Version Control: Added "delete empty changesets" button.
+    Version Control: Close change window automatically on success.
+    Version Control: New changesets default to expanded now.
+
+Changes
+
+    GI: Disabled unused Xbox360 solver data generation.
+    Input: Changed Input.GetJoystickNames() on Windows to always match names to joystick numbers, similar to most other platforms (in 4.6.4 too).
+    iOS: Default scripting backend is set to IL2CPP on iOS.
+    Terrain: Only textures with Repeat wrap mode can be used as terrain splat textures now.
+    Terrain: Removed 'Override Smoothness' option from terrain settings. A new per-splat smoothness property is available when the splat texture has no alpha channel.
+
+Fixes
+
+    AI: Fixed an issue where using all navmesh area types in mask didn't work.
+    AI: Fixed an issue where warping disabled agents would leak simulated agent.
+    Android: Always enable VSync on Android non-development builds.
+    Android: Build pipeline; fixed AAR manifest merging.
+    Android: Fixed an issue with the multithreaded job system which caused battery drain and bad performance.
+    Android: Fixed Auto target graphics mode on devices which wrongly claim to support OpenGL ES 3.0.
+    Android: Fixed crashes / touch problems when applying ForwardNativeEventsToDalvik to a non-NativeActivity.
+    Android: Fixed immersive mode when returning to activity in Lollipop.
+    Android: Fixed non-hidden status bar and status bar related touch issues.
+    Android: Fixed sensor compensation issue affecting devices when rotated180 degrees.
+    Android: Input - Fixed axis stuck on Android TV after hiding keyboard.
+    Android: Reenabled SSE skinning on x86.
+    Android: Removed some bogus print-outs to the logcat regarding gles_mode and development_player.
+    API Updater: Automatic update from ParticleSystem.CollisionEvent to ParticleCollisionEvent.
+    API Updater: Fixed API updater skipping assemblies in some scenarios.
+    API Updater: Fixed the issue causing crash while checking assemblies for obsolete API usage.
+    Asset Loading: Fixed loading of GI data from an AssetBundle.
+    Asset Loading: Fixed the crash when setting the AssetBundle name in OnPreprocessAudio() callback.
+    Asset Loading: Fixed the issue that streamed scenes don't draw layered UI in canvases correctly.
+    Asset Loading: Fixed the issue whereby streamed scene asset bundles do not allow more than one scene.
+    Asset Loading: Fixed the prefab async loading issue by loading the scripts first.
+    Asset Loading: Fixed the script loading issue when the references are between scripts.
+    Asset Loading: Updated the document to indicate we wanted complete asset paths.
+    Audio: Fixed "Trying to play disposed sound!" error message.
+    Audio: Fixed the "Disable Audio" option, the flag is now correctly used by the standalone player to disable the audio system.
+    Audio: Given AudioImporter overrideSamplerate a default value that makes sense.
+    BlackBerry: Fixed platform lookup from string to be case insensitive.
+    Bug reporter: Fixed issue with submitting files when temp path includes non-ASCII characters.
+    Bug reporter: Fixed the issue causing crash when attaching files on OSX 10.8.5.
+    Bug reporter: Fixed title field validation (the title is now mandatory).
+    Bug reporter: Hidden files are now always included in bug reports.
+    Bug reporter: Make sure the bug reporter triggers from the license error popup.
+    Bug reporter: Updated links to the new Bug Reporter (when it's started from outside the Editor).
+    BugReporter: Send empty subdirectories of directory attachment. Improved filtering of unnecessary subdirectories under Unity project. Can launch when some parts of the engine might not be initialized yet.
+    Deployment Management: Prevent simultaneous launches of Unity loading wrong project.
+    Don't allow AddComponent() calls on object that is currently being destructed (leads to crashes).
+    Editor: "Missing Prefab" placeholders now respects the active state of their parents.
+    Editor: Android - Don't allow to install x86 apk on arm device.
+    Editor: Disable vsync for all views except GameView on OSX.
+    Editor: Fixed an issue where Editor fails to validate serialization layout when building to Windows Store Apps.
+    Editor: Fixed crash when compressing GI cache files with lz4.
+    Editor: Fixed crash when using UnityEditorInternal.InternalEditorUtility.LoadSerializedFileAndForget to load a scene with containing stripped prefab instance objects
+    Editor: Fixed null-ref from SceneView when having a Hierarchy search filter.
+    Editor: Fixed performing Undo on prefab instances where the prefab parent was missing.
+    Editor: Fixed reading very very big scenes with more than 32767 monobehaviours created in Unity prior to Uniy 5.
+    Editor: Fixed the issue producing fatal error when choosing unwritable drive as a GICache folder on OSX.
+    Editor: Fixed undo parenting of prefab.
+    Editor: Necessity of rebuilding .meta files detected incorrectly for projects that contain only directories in Assets/.
+    Editor: OnOpenAsset callbacks are now called for all asset types when doubled clicked in the project browser.
+    Editor: Plugin inspector-set ARMv6 Android plugins incompatible to avoid collisions.
+    Editor: Prefab connection is now broken when rearranging components, even if the components are added to the instance. This enables you to rearrange components on prefab instances without losing the order when saving the scene.
+    Editor: Stripped prefab instance objects are now marked as stripped in the scene file, so the loading code does not try to upgrade objects which would issue wrong warnings and in worst case crashes.
+    Editor: Fixed editor lockup if left in the background and profiler was open.
+    GI: Changing directional mode in lighting tab does not force reflection probe.
+    GI: Clear lightmapping state when wiping the disk cache in order to avoid errors when building lighting.
+    GI: Fixed "Mobile/Unlit (Supports Lightmap)" shader and other fixed function shaders using lightmaps.
+    GI: Fixed rare crash in realtime GI pipeline caused by textures held by worker threads being released too early.
+    GI: Made Gradient ambient mode properly affect realtime and baked GI.
+    GI: Made lightmaps be properly compressed on mobile platforms.
+    GI: Report errors from jobs correctly when run in an external process.
+    GI: Reset the texture filter mode after rendering object preview in lighting window.
+    Graphics: Fixed vertices being lit entirely black on DirectX 11 when normals are missing and the vertex position is (0,0,0).
+    iOS: Added Xcode 6.3 compatibility.
+    iOS: Disabled unnecessary copies of dll files to the Xcode project directory.
+    iOS: Exposed iOSOverrideIPodMusic in player settings.
+    iOS: Fixed a typo in UnityRegisterViewControllerListener().
+    iOS: Fixed an issue with the job system which caused battery drain and bad performance.
+    iOS: Fixed changing from autorotation to enforced screen orientation in case of this orientation being already current.
+    iOS: Report a fake Status: HTTP header for informational purposes.
+    iOS: Show an error on removal of targets in Xcode project.
+    iOS/IL2CPP: Handle 4D arrays.
+    iOS/IL2CPP: Handle delegate invoke with nested delegates where the method which is invoked on the outer delegate is a static method.
+    iOS/Metal: Fixed fixed function shaders with cubemaps.
+    iOS/Metal: Fixed vector_insert_TODO appearing in some shaders.
+    iOS/Metal: Partially fixed performance issue on A7 devices when using Standard shader.
+    Linux: Fixed crash when swapping UI sprites.
+    Oculus: Plugin initialize fixed when GfxDevice had not been Initialized yet.
+    OpenGL: Fixed crash with -force-opengl in Windows Editor when trying to enable DirectX 11 via player settings.
+    Physics 2D: Added 'forceScale' property to SurfaceEffector2D to allow scaling of the impulse force used.
+    Physics 2D: Center-of-mass and Inertia can now be set on a Rigidbody2D component even if it has no Collider2D components attached.
+    Physics 2D: Disabled PlatformEffector2D component now fully disables contact processing.
+    Physics 2D: Fixed console warning of 'm_Effector == effector' when removing an effector inside a prefab.
+    Physics 2D: Fixed PlatformEffector2D so that when stopping inside a collider it doesn't cause a collision for 'one-way'
+    Physics 2D: Stop 2D colliders falling through EdgeCollider2D components.
+    Physics 2D: Stop crash when NULL passed to Collider2D.IsTouching, Physics2D.IsTouching or Physics2D.IsTouchingLayers.
+    Physics: OnJointBreak callback now has correct breaking force magnitude supplied as a parameter.
+    Profiler: Fixed editor slowdown if GPU profiler was enabled when the profiler was stopped or closed
+    Rendering: Now the back buffer is cleared after the resolution is changed from a script in Windows standalone.
+    Samsung TV: Fixed MissingMethodException being thrown when a scene was played that used STV specific APIs.
+    Samsung TV: Fixed UEP signing for 2015 TVs.
+    Scripting: Crash on Newtonsoft.Json.DeserializeObject(string) when serialized type has generic arrays.
+    Scripting: Fixed Application.logMessageReceivedThreaded not being called in main thread.
+    Scripting: Fixed crash when trying to invoking delegate bound to open generic method.
+    Scripting: Fixed infinite loop in NetworkInterface.GetAllNetworkInterfaces()
+    Scripting: Fixed VS / MonoDevelopment project synchronization when "Editor" was the only platform selected in plugins settings.
+    Scripting: Throw DivideByZero exception instead of crashing.
+    Serialization: Fixed crash when reading file references from long property names.
+    Shaders: WPOS semantic works in shaders again (alias of VPOS, i.e. screen position).
+    Sprites: Fixed the issue whereby Unity was doubling the memory needed for the Texture Atlases.
+    Terrain: Base map generation in Linear rendering mode is now done in linear space.
+    Terrain: Fixed a crash when a terrain was using TerrainData with missing textures.
+    Terrain: Fixed an issue where modifying terrain heights would result in an inconsistency between the visual and the collision.
+    Terrain: Fixed visual inconsistency when rendering with base pass.
+    Terrain: Standard terrain shaders now correctly support spot light / point light shadows.
+    Version Control: Set correct changeset description when renaming a changeset.
+    Version Control: Use saved changeset description when submitting.
+    Video: Fixed the issue whereby ogg movie playback skipping frames at beginning and general sync improvement.
+    VR: Fixed GearVR startup crash.
+    WebGL: Fixed deleting characters in text fields.
+    WebGL: Fixed reverting to proper window size when getting out of fullscreen mode.
+    WebGL: Fixed shift-arrow-key in text fields.
+    WebGL: Fixed WWW.audioClip.
+    Windows Standalone: -parentHWND command line argument works again.
+    Windows Store Apps: Fix issue where Unity was trying to locate Microsoft.CSharp.dll when processing some of the plugins, for ex., Facebook.Client.dll.
+    Windows Store Apps: Fixed player when installed to path containing unicode characters.
+    Windows Store Apps: Fixed resource fight on hyperthreading-enabled CPUs which might cause unstable performance on Windows.
+    Windows Store Apps/Windows Phone 8: UnityPlayer pdb files will be present again for Debug/Master configs.
+    Windows Store Apps/Windows Phone 8: When unloading unused assets or switching to another scene, prefabs will be correctly reloaded and won't loose references. Previous behavior was sometimes textures, mono behaviors, etc in prefabs would be lost, this would result for e.g., in textures not showing up in objects instantiated from prefabs.
+    WWW: Fixed incorrect HTTP status 100 when POST data was relatively large.
+    Xbox One: Implemented workaround fix for rendering failure when the console is set to instant-on standby and suspend/resume flow occurs.
+    Xbox One: Lightmap files are now included in the package manifest. They are included as a part of the launch chunk.
+    Xbox One: ReadPixels glitch and performance slowdown: fixed and workaround implemented.
+
+Fixes that shipped in Unity 4.6.4 too
+
+    Android: Fixed back button crash on Samsung devices.
+    Android: Fixed checkjni exception when passing array in JNI at ART.
+    Android: Workaround for animation glitch with onscreen keyboard.
+    IL2CPP / Raknet: Fixed networking RPC call registration not working on IL2CPP backend.
+    iOS: Fixed iPad Mini 3rd gen detection.
+    iOS: Improved Xcode project parser robustness for invalid input.
+    iOS/IL2CPP: Added support for setting thread names on OS X.
+    iOS/IL2CPP: Added support for WebRequest to HTTPS addresses when using the Api Compatibility Level setting of .NET 2.0 Subset.
+    iOS/IL2CPP: Allow the LogInAsync method in the ParseSDK to work correctly.
+    iOS/IL2CPP: Always initialize type information before accessing static fields.
+    iOS/IL2CPP: Assembly.Load() now accepts assembly name in full name format.
+    iOS/IL2CPP: Correct a number of problems related to WebRequest and ThreadPool interaction:
+        Fixed a queuing bug that may lead to WebRequests arriving at the same time and being used incorrectly.
+        Fixed assert "pthread_equal (pthread_self (), m_Handle) && 'Must be called on current thread!'".
+        Fixed deadlock on shutdown if socket polling thread was still waiting for network traffic.
+        Fixed deadlock when socket exits polling stage when I/O pool is at max capacity and worker threads are in wait state.
+        Fixed performance load balancing issue in CullAllPerObjectLights that caused only one job to be run rather than many (occurred when high number of lights and low number of objects)
+        Fixed race condition in static constructor calling.
+        Fixed thread interruption logic incorrectly thinking that another thread was still waiting.
+        Fixed WebRequests getting stuck in socket polling stage when the stage should be skipped.
+    iOS/IL2CPP: Corrected a problem with Delegate.CreateDelegate.
+    iOS/IL2CPP: Corrected the C++ compiler error in generated code: "error: cast from pointer to smaller type 'il2cpp_array_size_t' (aka 'int') loses information"
+    iOS/IL2CPP: Correctly write include definitions for a generic class with a const field.
+    iOS/IL2CPP: Emit the proper metadata for parameters static inflated generics methods.
+    iOS/IL2CPP: Explicitly declare generic types and array types that are created at run-time via Type.MakeGenericType and Type.MakeArrayType in the il2cpp_extra_types.txt file, so that IL2CPP will AOT compile them.
+    iOS/IL2CPP: Fixed a case where having throw statement at the end of a method would cause IL2CPP to crash.
+    iOS/IL2CPP: Fixed the problem with shift operators, resulting in problems with MD5 calculation and crypto, amongst other things.
+    iOS/IL2CPP: Fixed array marshaling when passing an incorrect argument.
+    iOS/IL2CPP: Fixed Array.CopyTo() fast path, which was doing the wrong thing when the source array was a value type and destination array was not.
+    iOS/IL2CPP: Fixed C++ compile error in some cases when using fields with the same name in a class hierarchy.
+    iOS/IL2CPP: Fixed C++ linker error in some cases when using generic method constraints.
+    iOS/IL2CPP: Fixed C++ linker error in some cases when using generic parameters.
+    iOS/IL2CPP: Fixed code generation for delegates having parameters tagged with the Out attribute.
+    iOS/IL2CPP: Fixed conversion error in obscure edge case of method overrides through metadata and signature.
+    iOS/IL2CPP: Fixed crash when calling MethodInfo.ReturnTypeCustomAttributes.GetCustomAttributes on a constructor.
+    iOS/IL2CPP: Fixed crash when System.Console is included in link.xml.
+    iOS/IL2CPP: Fixed deadlock or timeouts when C# code does BeginInvoke+EndInvoke on a worker thread and the pool has only one thread.
+    iOS/IL2CPP: Fixed exceptions thrown by using System.Configuration.ApplicationSettingsBase.
+    iOS/IL2CPP: Fixed IL2CPP crash in some cases when using virtual generic methods.
+    iOS/IL2CPP: Fixed IL2CPP crash when passing null as value to array parameter in custom attribute constructor.
+    iOS/IL2CPP: Fixed issue with String.Intern not always returning the correct string.
+    iOS/IL2CPP: Fixed List.FindAll().
+    iOS/IL2CPP: Fixed MethodInfo.GetBaseDefinition().
+    iOS/IL2CPP: Fixed null reference exception when calling TripleDES.Create.
+    iOS/IL2CPP: Fixed order of properties returned by Type.GetProperties().
+    iOS/IL2CPP: Fixed rare crash when calling Type.GetMethods.
+    iOS/IL2CPP: Fixed single core CPU system resulting in ThreadPool with no threads.
+    iOS/IL2CPP: Handle code generation for an struct which has an array of enums as a field.
+    iOS/IL2CPP: Handle IL code which uses one local variable as an array index more than once, with different values.
+    iOS/IL2CPP: Handle NULL const string values.
+    iOS/IL2CPP: Handle out and ref marshaling of a delegate with a struct that has no instance fields.
+    iOS/IL2CPP: Implemented Assembly.GetName().
+    iOS/IL2CPP: Implemented Assembly.GlobalAssemblyCache so that it always returns false.
+    iOS/IL2CPP: Implemented marshaling of the SafeHandle type.
+    iOS/IL2CPP: Implemented marshaling support for explicit struct layouts.
+    iOS/IL2CPP: Implemented MethodBase.GetMethodFromHandle with two arguments for a non-generic type.
+    iOS/IL2CPP: Implemented missing Marshal.PtrToStructure overload which takes object reference.
+    iOS/IL2CPP: Implemented the use of SizeParamIndex for marshaling.
+    iOS/IL2CPP: Improved support for MakeGenericMethod.
+    iOS/IL2CPP: Implemented marshaling of the System.Runtime.InteropServices.HandleRef type.
+    iOS/IL2PP: Fixed ParameterInfo.Attributes always returned ParameterAttributes.None for parameters.
+    iOS/Metal: Fixed RenderTexture mip-map generation in cases of ReadPixels immediately after drawing.
+    Linux: Fixed the issue which was causing crash with native plugins using STL types.
+    Linux: Hide system cursor when using software cursor.
+    Scripting: Fixed C# compiler generating incorrect IL in some cases for iterator finally blocks.
+    Stripping: Fixed the issue which was making stripping completely disabled for Mono scripting backend.
+    UI: Fixed overriding/inheriting of pixel perfect status in child canvases.
+    Windows Store Apps: Fixed VS solution generation with paths containing unicode characters.
+    Windows Store Apps: Use exception log type for exceptions now.
+    Windows Store Apps/Windows Phone 8: Fixed a memory leak, which was occurring in various places. For e.g., in physics collision callbacks such as OnCollisionEnter(Collision collision).
+

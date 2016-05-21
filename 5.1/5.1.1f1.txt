@@ -1,0 +1,114 @@
+5.1.1f1 Release notes
+Feature
+
+    VR: Gear VR is now supported with Unity VR.
+
+Improvements
+
+    Editor: Added MonoDevelop Solution Properties toggle to External Tools to disable writing of MonoDevelopProperties section to .sln files.
+    Graphics: Added hexadecimal code support to Color (TryParseHexString, ToHexStringRGB and ToHexStringRGBA).
+    Graphics: Added set to gpu skinning parameter in PlayerSettings.
+    Input: Mouse cursor will be confined to rendered area in Windows standalone (when CursorLockMode.Confined is used).
+    iOS/IL2CPP: Lower memory used by IL2CPP executables at runtime by removing unused overhead from memory profiling and making more data constant.
+    Linux: Removed "faulty GPU driver" workarounds for Intel drivers that claim to support OpenGL 3.0+.
+    Mecanim: Show frame number in avatar previewer.
+
+Changes
+
+    Mecanim: AnimatorState runtime speed is now a multiplier apply on the orignal speed rather than an override.
+
+Fixes
+
+    AI: Fixed NavMeshAgent path re-planning (typically after carving) when agents are assigned a path via SetPath.
+    AI: Fixed issue causing spurious error message "ag.remainingDistance >= 0.0f" for agents waiting at OffMeshLinks.
+    AI: Fixed problem with performance when scene constains only idle agents with small radii.
+    Android: Now Application.systemLanguage will return Chinese Traditional or Chinese Simplified instead of just Chinese.
+    APIUpdater: Fixed crash when scripts contains some specific generic type / method usages.
+    APIUpdater: Fixed editor hang updater consent dialog is displayed while user is performing a drag & drop.
+    Audio: If the audio output device fails to init, then init to the null device to prevent crash.
+    Audio: The Disable Audio option now prevents FMOD from initializing and allocating resources which are exclusive on some platforms.
+    CEF: Fixed crash when opening the asset store when no network.
+    Cloud Service: Fix for using another encoding for the url.
+    Editor: Fixed bad scene view performance when lots of light gizmos are drawn.
+    Editor: Fixed: Missing icon in Mecanim Transition inspector.
+    Editor: Profiler GameObject count in scene no longer increases when selecting camera.
+    Editor: Undo for editing capsule collider.
+    Editor: Undo for GameObject > Toggle Active State in main menu.
+    GI: Fixed static lightmap baking on a rectangular terrain.
+    GLES: Fixed crash on Vivante GPUs when using binary shaders.
+    Graphics: Fixed inaccurate screenspace scissoring of lights with large range.
+    Graphics: Fixed assertion when LODGroup is scaled to zero.
+    Graphics: Fixed command buffer RenderTargetIdentifier with RenderTexture argument.
+    Graphics: Fixed regression in handling "external" textures (Texture2D.CreateExternalTexture).
+    Graphics: Fixed rendering issues after native rendering plugin GL.IssuePluginEvent() calls on OpenGL ES platforms.
+    Input: Update mouse position when it is outside of rendered area in Windows standalone.
+    iOS/IL2CPP: Avoid adding includes and methods (for method declaration includes) for types generated to terminate generic type recursion. iOS/IL2CPP: Correct an error in generated code when a constrained generic parameter type is used in a nested lambda expression.
+    iOS/IL2CPP: Correct code generation for a generic type with another generic type as a constraint when the generic parameter for the constraint is a value type.
+    iOS/IL2CPP: Corrected the implementation of the ldvirtftn opcode for types using a constrained generic generic parameter.
+    iOS/IL2CPP: Correctly invoke an action pointing to an extension method.
+    iOS/IL2CPP: Emit memory barriers to ensure the correct acquire and release semantics are enforced for loads and stores of volatile fields.
+    iOS/IL2CPP: Ensure that background threads which are not explicitly joined have their resources freed so that the runtime does not leak thread handles.
+    iOS/IL2CPP: Fixed a crash which occurred during a call to Socket.SetSocketOption with the AddMembership or DropMembership names.
+    iOS/IL2CPP: Fixed managed stack traces.
+    iOS/IL2CPP: Fixed a code generation issue when using static constructors in base generic classes.
+    iOS/IL2CPP: Generate correct C++ code for a generic virtual method which returns an IEnumerator and has a generic constraint defined on the method it overrides.
+    iOS/IL2CPP: Implement embedded resources for IL2CPP.
+    iOS/IL2CPP: Prevent a crash when a thread with a name is finalized.
+    iOS/IL2CPP: Prevent IL2CPP from throwing an exception at conversion time for a generic type deriving from a generic interface.
+    iOS/IL2CPP: Fixed WWWForm.data property getter being extremely slow on IL2CPP.
+    iOS/IL2CPP: Fixed a case where static constructor would not be called if an object is constructed within Unity internally.
+    iOS/IL2CPP: Fixed an issue which sometimes caused IL2CPP to not call static constructors when Unity created class instances from native code.
+    iOS/IL2CPP: Static constructor of base type now gets correctly called if a derived class does not have one when creating an object of a derived type.
+    iOS/Metal: Fixed crash when using preloaded shaders.
+    iOS: Fixed crash on A7 SoC when locking the screen.
+    iOS: Fixed rendering issues when dismissing presenting view controller which overrides orientation constraints.
+    iOS: Fixed simulator crashing on startup due to "Symbol not found: __ZN5metal16g_CurrentEncoderE".
+    iOS: Now Application.systemLanguage will return Chinese Traditional or Chinese Simplified instead of just Chinese.
+    Linux: Fixed nonASCII input regression.
+    Mecanim: Changing AnimatorState runtime speed from positive to negative value should now correctly play the animation clip backward.
+    Mecanim: Fixed AnimatorState.speed with a value of 0 should now correctly pause the animation clip.
+    Mecanim: Fixed broken copy paste.
+    Mecanim: Fixed firing multiple events at 0.
+    ModuleManager: Fixed exception when opening the Module Manager window.
+    OpenGL: Fixed crash when trying to use unified OpenGL GfxDevice on MacOSX.
+    Plugins: Fixed Standalone settings, toggle buttons were showing platforms as disabled while in reality they were enabled.
+    PS3/PS4: Fixed some separate alpha blending shader states not working properly.
+    Samsung TV: Fixed an issue where games launched on the 2014 TVs without using the Unity Launcher would crash.
+    Scripting: Fixed debugger deadlock on OSX.
+    Scripting: Fixed MonoDevelop incorrectly stepping over recursive methods.
+    Scripting: Fixed Unity crash when using newer versions of the soft debugger client in MonoDevelop.
+    Terrain: Fixed occasional incorrect SpeedTree LOD.
+    Tizen: Display software keyboard correctly in landscape.
+    Tizen: Fixed some typed characters not displaying correctly.
+    Tizen: Removed unnecessary texture compression selector in the build window.
+    Tizen: Resolved "Failed to wait on semaphore" errors when script debugging.
+    Tizen: Resolved build failures when various non-alphanumeric are entered into the product description.
+    Tizen: Resolved rendering errors with Landscape Right screen orientation.
+    Tizen: Set the supported screen sizes key in the manifest. Not doing so results in Tizen store rejections.
+    Tizen: Text typed into software keyboard is now displayed.
+    Tizen: Updated product description field to prevent text wrapping issues.
+    Tizen: Video playback is now supported.
+    TreeEditor: Fixed incorrect labels and tooltips.
+    UNET: Client is not sending/receiving packets and does not disconnect.
+    UNet: Fixed an issue whereby NetworkTransform could corrupt SyncVars.
+    UNet: Fixed an issue whereby Network Serializer breaks on some 64-bit values.
+    UNet: Wrong interpolation in NetworkTransform has been fixed.
+    UNet: Added fixes for multiple NetworkClient objects.
+    UNET: Fixed: Memory continuously builds up with uNet server simply activated.
+    UNET: Fixed: Ping from obsolete connection can cause problem with functionality of new connection.
+    UNET: Fixed: Reliable sequenced channel for reused (disconnect then connect) connection stop working.
+    UNett: Fix for bad error message on networked commands.
+    Unified GL: Fixed mobile bloom and mobile blur shaders (and anything else that used array inputs).
+    Unified GL: Fixed VFACE translation. Unified GL: Shader .cginc include files failed to load if the file to be included had UTF BOM. Fixed.
+    VR: Render scale now functions correctly with 0.6 Oculus SDK.
+    VR: Render scale now works in deferred mode.
+    VR: VR.loadedDevice now works at runtime.
+    WebPlugin: Fixed cross-domain policy bypass issue (reported by Jouko Pynnonen of Klikki Oy).
+    XboxOne: Fixed a crash that occurs in the debug player at startup.
+
+Known Issues
+
+    Windows Store Apps: Projects containing white spaces in their names won't build correctly.
+        Workaround: Remove white spaces from the project name.
+
+Revision: 2046fc06d4d8

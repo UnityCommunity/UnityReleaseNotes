@@ -1,0 +1,160 @@
+5.2.1f1 Release notes
+Features
+
+    iOS: iOS9 app slicing support.
+    iOS: iOS9 on demand resource support.
+
+Improvements
+
+    Android: On some devices Screen.dpi returns more accurate values.
+    Editor: Added progress bar while decrypting downloaded Asset Store packages.
+    Graphics: Added overloads to CommandBuffer.SetRenderTarget() to allow specifying a target mip level and cubemap face.
+    Improved ETC1 based policy for grouping of sprites on an atlas.
+    iOS: Added frameworks new in iOS 8.0 to 9.0 to the plugin importer UI.
+    iOS: Added support for iPad launch screens
+    iOS: Exposed option in Player Settings to temporary disable Application Transport Security checks in iOS 9.0.
+    iOS: Now support access to iOS9 data assets within asset catalogs via virtual filesystem.
+    Networking: Added NetworkManager.UseExternalClient() function that allows the NetworkManager to use a client object created externally to the NetworkManager instead of using StartClient(). This was required to use custom NetworkConnection classes with connections made by the NetworkManager.
+    VR: Oculus: Upgraded to 0.7 dependencies.
+
+Changes
+
+    iOS: Use launch screens as primary source for splash images.
+    VR: For Windows Oculus Development, the Oculus 0.7.0.0 runtime is required in order to run in VR mode. Future releases will also require this runtime going forward.
+
+Fixes
+
+    (711225) - 2D : Fixed memory leak when using Sprite object field in custom inspector.
+    (572545) - 2D: Clamp sprite pivot values (-100k to 100k) now instead of accepting any value (including infinity).
+    (722701) - Analytics: Fixed data dispatcher to send data after airplane mode is turned OFF on iOS.
+    (716159) - Android - Fixed fallback to Gamma color space rendering for projects that are configured to use linear rendering.
+    (710244) - Android - Fixed status bar not shown and touch offset on Kitkat+ when using native activity.
+    (705138) - Android: Fixed INTERNET permission on Android even if there are no network calls in the scripts.
+    (678003) - Android: Fixed sensor compensation issue affecting devices when rotated180 degrees.
+    (none) - Android: Removed some egl errors from the log when probing for GLES API level.
+    (717028) - Android: Fixed performance regression when using native rendering plugins.
+    (708088) - Animation: Fixed an issue whereby animation window was still recording when scene was saved.
+    (718709) - API Updater: Fixed crash in AssemblyUpdater when a type had methods with names starting with get_/set_ .
+    (679703) - Asset Loading: Now allow extension dlls to be imported outside of project folder.
+    (719416) - AssetBundle: Fixed the issue that sometimes several AssetBundles would have same internal name.
+    (722104) - Bug Reporter: Fixed email field not being saved on Windows 10.
+    (none) - D3D12: Fixed a crash when using compute buffers.
+    (none) - D3D: Fixed broken positioning of render when upscaling to native desktop resolution.
+    (715666) - D3D: Mouse coordinates no longer go out of bounds when upscaling to desktop resolution.
+    (713782) - Deployment Management: Fixed OSX non development players crash on startup.
+    (712887) - Deployment Management: Include assets inside Resources folder in the build size report.
+    (687656), (693423) - Editor: Added a printed warning to the gameview if there is no fullscreen camera present.
+    (none) - Editor: Fixed 'Access denied' error on Windows when trying to move readonly files.
+    (666743) - Editor: Fixed an issue where calling EditorWindow.GetWindow() too early could cause the editor to crash.
+    (705555) - Editor: Fixed A bug when opening new project threw "Moving file failed" dialog on Mac.
+    (719367) - Editor: Fixed scene view picking when in linear mode.
+    (725519) - Editor: Fixes crash when exiting play-mode with Alphabetical Sort enabled.
+    (704016) - Editor: Made sure blendShapes normals were not imported if None was set in Import Setting.
+    (701240) - Editor: Save correct quality settings when quitting Unity editor during the play mode.
+    (721563) - Editor: Slowdown in Project window with Unity 5.
+    (722655) - GI: Calculate atlas index offset correctly when snapshotting a scene.
+    (714050), (701937) - GI: Fixed the case where GI file not found errors were displayed when upgrading project to Unity 5.2.
+    (718263) - GI: Fixed a crash when moving reflections probes in GI visualisation views.
+    (none) - GI: Fixed loading a LightmapSnapshot.asset with realtime GI data. The issue was introduced in 5.2.0p1.
+    (720748) - Graphics: Fixed global shader property changes done from Light CommandBuffers not affecting later rendering (5.2 regression).
+    (719494) - Graphics: Fixed regression on GetNativeTextureID
+    (689461) - IL2CPP: Added support for access default parameter values via reflection.
+    (717904) - IL2CPP: Allow a cast of T[] to IList (where BaseT is a base class of T) to work correctly.
+    (702684) - IL2CPP: Allow il2cpp.exe to work if a '#' character is in the installation path.
+    (714759) - IL2CPP: Allow WebRequest to work with IPv6 addresses.
+    (705898) - IL2CPP: Corrected a code generation error with the JsonFX library with the error message: "not implemented on non-abstract class".
+    (719084) - IL2CPP: Corrected an error in the negation of a float converted from an unsigned integer.
+    (723439) - IL2CPP: Corrected C++ code generation when a struct inherits from a generic interface.
+    (717058) - Il2CPP: Corrected the behavior of Marshal.OffsetOf for structures with explicit packing.
+    (700792) - IL2CPP: Implemented the correct rounding behavior (banker's rounding) for the Math.Round method.
+    (661630), (690171) - IL2CPP: Implemented the CustomAttributeData.GetCustomAttributes methods for attributes with a default constructor.
+    (722375) - IL2CPP: Prevent a NullReferenceException exception from being thrown in the KeyValuePair ToString method when the value is a reference type.
+    (722433) - IL2CPP: Prevent a used block from being marked as dead during conversion if it is immediately after a try block with an explicit leave opcode.
+    (715013) - IL2CPP: Prevent the exception "MissingMethodException: No constructor found for System.Resources.RuntimeResourceSet::.ctor(System.IO.UnmanagedMemoryStream)" from occurring when the TZ4NET assembly is used.
+    (674706) - IL2CPP: Allow GetCurrentProcess to work.
+    (none) - IL2CPP: Allow il2cpp.exe to run when its installation path includes a '#' character followed by a space character.
+    (690171) - IL2CPP: Corrected a KeyNotFoundException during code generation in the VTableBuilder.GetVirtualMethodTargetMethod method of il2cpp.exe.
+    (712470) - IL2CPP: Corrected Marshal.OffsetOf when using enums fields with FieldOffsetAttribute
+    (712713) - IL2CPP: Ensure methods needed for enum arrays are converted.
+    (715965) - IL2CPP: Fixed assert on socket error.
+    (712929) - IL2CPP: Fixed comparison to Epsilon.
+    (712553) - IL2CPP: Fixed error when using 64-bit Interlocked operations on 32-bit devices.
+    (716138) - IL2CPP: Fixed pinning of structures with ExplicitLayout.
+    (721435) - IL2CPP: Fixed reading pointers with multiple levels of indirection.
+    (718696) - IL2CPP: Fixed unsafe pointer to struct assignment.
+    (721329) - IL2CPP: Fixed various performance issues by doing less type initialization at startup.
+    (676797) - IL2CPP: Implemented the IsTransparentProxy icall, which always returned false.
+    (710797), (705882) - IL2CPP: Prevent a type T from being stripping if it is used an GenericClass field in a MonoBehavior or ScriptableObject that is already being preserved.
+    (716991) - IL2CPP: Speed up retrieving classes by name.
+    (none) - iOS/IL2CPP: Completed the IPv6 implementation.
+    (723961) - iOS: Fixed append regression when certain splash screens are changed after initial build.
+    (704992) - iOS: Fixed path stripping when trailing characters are present
+    (707385) - iOS: Fixed touch screen keyboard when switching between single/multi line.
+    (708549) - iOS: Fixed WWW crash when not keeping reference to instance.
+    (677907) - iOS: Fixed interop of OpenGL ES and Siri overlay
+    (none) - iOS: Fixed iOS 9 side by side multitasking. It will work only if target resolution is native and it's not being overridden via script.
+    (none) - iOS: Fixed multitasking snapshot creation.
+    (709943), (716625), (713488) - iOS: Fixed numerous issues on iOS7 related to restoring app from background.
+    (718387), (720698) - iOS: Fixed system dynamic font support on iOS 9 where only the first font could be read from certain font collections and font substitutes, as identified by the OS, were not handled.
+    (none) - iOS: Fixed WWW not reporting error in some cases (like no networking available).
+    (706367) - Lightmapping: Fixed lightmap UV generation to be identical across platforms.
+    (718896) - Mecanim: Allow SMB function call even when Animator is disabled but updated manually by user.
+    (717680) - Mecanim: Fixed a crash when reimporting animations used in an overridecontroller.
+    (722058) - Mecanim: Fixed a crash when setting an Override Controller with no controller to override.
+    (none) - Mecanim: Fixed memory leak with Animator.
+    (719292) - Mecanim: Fixed null reference when creating transition to an empty state machine.
+    (713552) - Mecanim: Fixed Transition inspector not showing the proper transition.
+    (none) - Mecanim: Fixes crash when having an OnStateMachineEnter on first eval.
+    (719156) - Networking: Fixed scene objects with NetworkTransform not synching.
+    (718027) - Networking: Prevent adding network connections that are not ready as observers.
+    (none) - OpenGL ES: Fixed missing 1x1 mip levels in textures.
+    (708698) - OpenGL: Fixed OSX standalone crash
+    (719654) - OpenGL: Fixed shader compilation error when using GLSL precision qualifier.
+    (708072) - OpenGL: Fixed Unity shader compiler crash when compiling for OpenGL target.
+    (624081) - Particles: Fixed issue causing batched particles drawn after an object with negative scale to flip and become invisible.
+    (714872) - Particles: Fixed issue where moving emitters in the editor would cause them to emit their particles along a trajectory from their start position.
+    (none) - Physics2D: Ensure that 'Infinity' cannot be specified for 2D collider offset.
+    (707400) - Physics2D: Stop Rigidbody2D X/Y Constraints from occasionally moving the body to the world origin.
+    (713073) - Physics2D: Stop trigger-contacts being reported early when using continuous collision detection.
+    (721704) - Physics: Fixed SliderJoint2D motor-speed backwards compatibility prior to 5.1.1p3.
+    (718787) - Plugins: Editor would report incorrectly that native plugin is colliding with itself.
+    (716978) - Profiler: Fixed Rendering detailed stats. Stats for Draw Calls and Total Batches were previously swapped.
+    (699695) - Profiler: Show profiler statistics of manually rendered camera.
+    (704481) - Samsung TV: Fixed "Unknown Platform" error when passing "Samsung TV" to AudioImporter.ContainsSampleSettingsOverride.
+    (717774) - Samsung TV: Fixed issue where Development builds would inappropriately report security errors.
+    (718017) - Samsung TV: Fixed issue where some textures would not display properly on 2013 TVs.
+    (none) - Scripting: GL.IssuePluginEvent(eventID) is now obsolete.
+    (724452) - Shaders: Fixed GrabPass missing game view viewport offset in the editor.
+    (716161) - Shaders: HLSL shader compilation fIxed floating point division by zero by initialising x components of surfIN members to 1.0.
+    (none) - SpritePacker: Prevent Sprite Packing called randomly due to bug in hash Generation.
+    (719252) - Tizen: Fixed crashes on launch of Tizen projects.
+    (none) - Tizen: Fixed Tizen Store certification errors.
+    (none) - Tizen: Implemented an API to retrieve the window handle.
+    (none) - Tizen: Improvements to error messages.
+    (719777) - UI: Fixed crash related to using multiple materials / submeshes on UI elements.
+    (721345), (722086) - UI: Fixed ScrollRect causing immediate child view with LayoutGroup to not get layout callbacks.
+    (684885) - UI: Fixed issue where Selectables (image, toggle, etc) would hold a reference to a sprite when a new scene was loaded. This would lead to the sprite staying in memory even if the reference was not in the new scene.
+    (204016) - UI: RawImage component now uses the same vertex generation code as normal image components fixing a slight vertex offset error.
+    (716209) - Universal Windows Apps: Fixed crash in WebcamTexture.
+    (717274) - Universal Windows Apps: Fixed plugin processing.
+    (712699) - Universal Windows Apps: Splash screen is correctly resized with app window.
+    (715960) - Version Control: Do not use cached status for checking editability in VCS.
+    (none) - VisualStudio - Fixed a bug where VisualStudio could fail to open if it was busy while Unity was trying to open it.
+    (711316) - VR: Fixed point light rendering issue with deferred renderer.
+    (722915), (723184) - VR: Fixed regression with linear lighting and anti aliasing on windows.
+    (none) - VR: Fixed GearVR plugin issue. GearVR builds now render properly.
+    (722122) - VR: GearVR: Fixed gles20 rendering crash.
+    (none) - VR: Overall stability improved.
+    (716227) - Windows Phone 10: Fixed an issue whereby the touchscreen keyboard was not working.
+    (none) - Windows Phone: Fixed RuntimeInitializeOnLoad to support WP8.1.
+    (712688) - Windows Store Apps: App window is correctly activated with independent input source enabled.
+    (710903) - Windows Phone 8: Fixed an issue with build and run for projects with spaces in their names.
+    (720701) - Windows Store Apps: Fixed invalid IL code in UnityEngine.Networking.dll.
+    (none) - Windows Store Apps: UnityEngine.pdb file is installed along UnityEngine.dll.
+    (712019) - WSA/UWP: Hide D3D11 warning D3D11_MESSAGE_ID_SETPRIVATEDATA_CHANGINGPARAMS.
+
+Known Issues:
+
+    Scene view picking in linear color space does not work for DX11 in 2x MSAA (quality: fantastic). The workaround is to set quality to less than "fantastic". This issue will be fixed in a future patch release.
+
+Revision: 44735ea161b3
