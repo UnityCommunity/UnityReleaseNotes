@@ -1,0 +1,142 @@
+5.3.4f1 Release notes
+Improvements
+
+    Android: Audio; don't select OpenSL output if the native device params are too bad for fast path (fixes audio issues on some buggy devices).
+    Android: Buildpipe; updated SDK tools requirements for the Editor.
+    Android: Editor; added Marshmallow to the list of APIs.
+    Android: IL2CPP; use Android NDK x64 on x64 Windows Editor.
+    Android: Soft Input; get rid of hardcoded text color, switch to Light theme.
+    Editor: Added warning dialog if there is any version difference between editor and last project save.
+    Metal: Add -force-metal switch to force Metal rendering on OSX/iOS.
+    OpenGL Core: A whole bunch of fixes, particularly on Macs. See Fixes list below.
+    Scripting: introduced global define UNITY_5_3_OR_NEWER, which can be used for conditionally compile code that is compatible only with Unity 5.3 or newer.
+    Win / OSX Standalone: Add -hideWindow command line option to launch standalone applications with the window hidden.
+    Windows: Added a new command line argument for standalone builds: -window-mode. Options: borderless, exclusive. It lets users override the default fullscreen window behavior.
+
+Fixes
+
+    2D: Changing Rigidbody2D.gravityScale while a Rigidbody2D.MovePosition is in progress now works. (762771)
+    2D: Ensure Joint2D auto-configuration still works if joint is added from script (765870)
+    2D: Ensure that a TargetJoint2D added via script allows collisions with static colliders. (763922)
+    2D: Stop Rigidbody2D with Interpolation being placed at world origin for a single update upon start. (764769)
+    Analytics: Fixed unreliable event sending (especially AppStart) on WebGL. (770316)
+    Android: Added support for Vivante OpenGL ES 3 driver. (738821, 758155)
+    Android: Fixed alignment crash on some Android ARM devices. (768974)
+    Android: Fixed an issue where Ping wouldn't work in release mode. (734124)
+    Android: Fixed black screen or crash during startup on old PVR devices (Samsung Galaxy S I9000). (762875)
+    Android: Fixed bug in Texture.GetPixels for ETC compressed textures. (759195)
+    Android: Fixed rendering artifacts when using native plugins and multithreaded renderer. (772171)
+    Android: Fixed rendering on Vivante GPUs on Android 4.3 and older. (712890, 771890)
+    Android: IL2CPP; fixed build errors on NDK paths with whitespaces. (763447)
+    Android: IL2CPP; fixed crash on second startup after installation. (766698)
+    Android/IL2CPP; prevent a crash in the garbage collector when it attempts to scan a section of memory used for the code that may have been unmapped by the OS. (755201)
+    Animation: Fixed a crash when animating lights using the legacy Animation component. (772260)
+    Animation: Prevent crashes when clips are null for animations extracted from asset bundles whose dependencies have not loaded. (756463)
+    API Updater: Fixed "Sequence contains more than one matching element" crash. (760684)
+    API Updater: Fixed crash upon assembly resolution failures. (743463)
+    Asset Bundles: Only reimport when setting asset bundle name if cache server is connected. (714661)
+    AssetBundles: BuildAssetBundles will switch back to the original active build target when finished. (759142)
+    Audio: Disabled sound manager watch dog. (774356)
+    Core: Fixed an issue asynchronously loading a prefab with a large amount of assets. (771882)
+    Core: Fixed some errors with recently deleted objects (in WWWDelayCall; ClearPersistentDirty call; editor CEF integration).
+    Editor: Don't call OnLevelWasLoaded on the first scene when entering play mode. (759231)
+    Editor: Fix for clustering allocation while navigating. (747856)
+    Editor: Fixed a crash when selecting some prefabs. (766469)
+    Editor: Fixed an issue that made GameObjects disappear from the Editor if they have an associated editor script that made use of DontDestroyOnLoad. (754127)
+    Editor: Fixed an issue when opening a scene from the Project Browser while in playmode it resulted in that scene being loaded even after going out of playmode. (767728)
+    Editor: Fixed misleading texture decompression warning in graphics emulation. (760112)
+    Editor: Fixed startup when Unity is in a path with non-ASCII characters. (765159)
+    Editor: Fixed the issue of GUI.Windows background not being tinted by GUI.colors anymore. (756004)
+    Editor: Fixed the issue of marking scene dirty when creating prefab by dragging from Hierarchy window to Project. (758409)
+    Editor: Fixed the issue of marking the scene dirty when pressing the apply button on a prefab instance. (757027)
+    Global Illumination: Fixed crash in some scene loading scenarios. (768849)
+    Global Illumination: Fixed crash when building lighting with a specific scene setup. (767222)
+    Global Illumination: Fixed light probes not being used anymore in Standalone when a scene without light probes was loaded with Additive mode. (767161)
+    Global Illumination: Fixed multi-scene baking. (751599)
+    Global Illumination: Fully repaint inspectors after baking reflection probes; some previews were not updating before. (663992)
+    Global Illumination: When compositing the directional lightmap removed the clamping on the w-component of the generated pixels.
+    Graphics: Added profiler markers on async texture loading waits.
+    Graphics: Fixed .ogv movie files with stream markers beyond 16kb not imported correctly. (772013)
+    Graphics: Fixed "Trying to reload asset from disk that is not stored on disk" error when non-persistent objects are attempted to be reloaded from disk. (752613)
+    Graphics: Fixed a synchronization problem that was causing texture data not to be properly updated when changing quality settings at runtime. (752613)
+    Graphics: Fixed an issue where GrabPass could get source texture wrongly offset in some cases. (75508, 726067)
+    Graphics: Fixed an issue where setting a material's shader to null would crash the editor. (771292)
+    Graphics: Fixed an issue where TrailRenderer would randomly vanish/flicker. (740580)
+    Graphics: Fixed crash in SetGpuProgramName which could happen when the program isn't supported by the target graphics hardware (found on Android) . (772958)
+    Graphics: Fixed GenerateSecondaryUVs crashes on some meshes.
+    Graphics: Fixed MovieTextures sometimes being black in Mac Standalone (64 or Universal builds). (765928)
+    Graphics: Prevent Projectors from accepting invalid clip planes from a script. (506089, 535548)
+    Graphics/DX11: Fixed compute shader resource hazards found in certain cases when binding the same resource SRV and UAV on pixel and compute shader stages. (542251)
+    IL2CPP: Avoid crash when constructing error message. (770081)
+    IL2CPP: Correctly sort unsigned integers via the Array.Sort method. (774085)
+    IL2CPP: Prevent generated C++ code from failing to compile with errors like "error: use of undeclared identifier 'L_5'" in some cases. (773713, 768010)
+    IL2CPP: Properly marshal formatted classes (762883, 746313)
+    IL2CPP: Properly parse binary text assets. (771835)
+    iOS Metal: Fixed performance regression when doing in-frame clear (GL.Clear or command buffer Clear). (775362)
+    iOS: Fixed redirect for WWW. (723960)
+    Linux: Fixed MSAA in non-upscaled windows, force window recreation when requirements change for player window attributes.
+    Linux/GLCore: Fixed one more instance of render. (775575)
+    Mecanim: Fixed an issue with Animation clip length for bundled clip. (753888)
+    Mecanim: Fixed AnimationClip.SampleAnimation memory leak. (760612)
+    Mecanim: Fixed Animator with statemachine behaviour runtime compile error not firing callback on the right SMB. (756129)
+    Mecanim: Fixed assert when using Animator.MatchTarget.
+    Mecanim: Fixed long start play mode for scene with lots of controller. (769964)
+    Mecanim: Fixed StateMachineBehaviours on layer not being called properly. (765141)
+    Mono: Added IPv6 support on Windows. (767741)
+    Networking: Fixed a crash due to wrong initialization of connection.
+    Networking: Fixed an issue where ack didn't reset with connection resetting which lead to reliable traffic stale. (775226)
+    Networking: Removed annoying "Attempt to send to not connected connection" message. (775222)
+    Networking: Removing "no free events for message" as annoying. (775225)
+    Networking: Send Error: val > 0 on user disconnect, results in memory write violation and editor crash. (754510)
+    OpenGL Core: Fixed twitching and incorrect rendering with skinning and UI components on GLCore + Mac + NVIDIA. (773476, 775275, 767857, 766778)
+    OpenGL Core: Fixed fullscreen mode when not using native resolution and using MSAA on Mac AMD GPUs. (775428, 776470)
+    OpenGL Core: Fixed fullscreen MSAA support with linear color space rendering. (774558, 774216)
+    OpenGL Core: Fixed Graphics API switching to OpenGL. (762687)
+    OpenGL Core: Fixed occasional game view flipping with image effects in the editor. (760196)
+    OpenGL Core: Fixed dynamic geometry performance issues on Mac + NVIDIA.
+    OpenGL Core: Fixed stretched game view with some image effects in Mac editor. (757536, 757866)
+    OpenGL Core: Workaround for Nvidia shader compiler bug on OS X, affecting SSAO shader. (756028)
+    OpenGL Core/ES: Fixed scalar uniform handling in the shader translator. (772167)
+    OpenGL Core/ES: Fixed wrong shader code generation when redirecting variables, was affecting FastBloom shader. (772434)
+    OpenGL Core/ES: Shader compiler, fixed invalid uniform access in certain corner cases. (767343)
+    OpenGL ES: Fixed non-shadowmap depth textures on some devices. (768916)
+    OpenGL: Fixed point size support using GLSL PROGRAM snippets. (763875)
+    Particles: Fixed a culling regression, when particle systems leave the screen and come back. (773673)
+    Particles: Fixed error message due to default bounding box. (767419)
+    Physics: Fixed a PhysX crash issue in PxsCCDContext::updateCCD experienced by some VR applications. (776187)
+    Profiler: Fixed crash when adding data from thread which was started during a frame. (758264)
+    Profiler: Fixed hang when EndSample did not have a matching BeginSample. (770225)
+    Shaders: Added support to the compute shader compiler to handle bools inside structures.
+    Shaders: Fixed Standard shader in some rare cases outputing NaN as pixel shader result. (766806)
+    Shadows: Fixed shadows disappearing for some off-screen shadows casters. (761152)
+    Substance: All inputs are now applied to a ProceduralMaterial on the first RebuildTextures() call after the material's textures have been read from cache. Previously, only the modified inputs were applied.
+    Substance: Fixed Editor freeze upon instantiation of resource. (771650)
+    Substance: Fixed broken detection and assignment of shader keywords resulting in wrong appearance of ProceduralMaterials in scenes when the ProceduralMaterial was not opened in the Inspector (some shader keywords were enabled when they should not).
+    Substance: Fixed cache hashing and management issue which could cause the cache to be considered valid again after having been invalidated (often seen after calling Resources.UnloadUnusedAssets()).
+    Substance: Fixed loading of files with special characters in their paths or names.
+    Substance: Fixed rare crash caused by using the wrong size when uploading ProceduralTextures.
+    Substance: Fixed upgrading UNITY 4.x project data, legacy shaders should now be used for these old projects instead of being incorrectly replaced by the Standard shader. (765510)
+    Tizen: Fixed error about copying whitelists while building on Windows. (773614)
+    UI: Fixed exceptions upon assembly/type resolution failures. (770048)
+    UI: Fixed memory leak where dirty renderers on a disabled canvas would still get added to the dirty list causing crashes on clear. (773533)
+    UI: Fixed sorting issue where gird based depth sorting would fail to recognize overlapping unbatchable items. (770804)
+    UI: Stopped raycast from traversing up the hierarchy when a canvas with override sorting is encountered.
+    UI: Vertical alignment of text sometimes appearing higher than expected. (760753)
+    Unity Ads: Updated to 1.5.6 version (fixes crash on Android 4.1 and earlier).
+    VR: Restart the VR Device if the Oculus Service fails.
+    Wii U: Fixed a crash on secondary error confirmation. (767206)
+    Windows Store: Fixed exported VS project failing to build for non-x86 CPU when there is a managed assembly in the project that's been compiled for x86. (770931)
+    Windows Store/IL2CPP: Fixed game crashing when its name is exactly 20 characters long. (769835)
+    Windows Store/IL2CPP: Fixed intellisense in generated Il2CppOutputProject to be able to correctly resolve Windows 10 headers. (771765)
+    Windows Store/IL2CPP: Fixed failing to build on top of a previous build when target directory is read-only. (766764)
+    Windows Store/IL2CPP: Graphics plugins now work. (770941)
+    Windows Store/IL2CPP: Reduced the amount of linker warnings when building.
+    Windows: Fixed Application.persistentDataPath when Product Name contains invalid path character. (756152)
+    Windows: Fixed unnecessary symbols exported for Windows Standalone Player executable. This was making some Nvidia drivers wrongly pick up integrated GPU instead of discrete one on some systems.
+    XBoxOne/IL2CPP: Allow a call to Guid.NewGuid to work correctly. (769711)
+
+Known Issues
+
+    Windows Store: Build might fail when Visual Assets (tiles, store icons, etc.) are set in player settings. Workaround is to leave them empty and fill in Visual Studio.
+
+Revision: fdbb5133b820
