@@ -1,0 +1,90 @@
+5.3.4p1 Release Notes
+
+Improvements
+
+    Android: IL2CPP - Stripping of symbols and debug info is now enabled by default. Development builds still have symbols which makes for a slightly larger binary.
+    Asset management: Added offset argument to AssetBundle.CreateFromFile and AssetBundle.LoadFromFile methods.
+    Hardware Stats updates information that might change during sessions.
+    iOS: Added a compile flag in the trampoline code in order to allow the user to disable the filtering of emoji characters.
+
+Changes
+
+    Android: IL2CPP - Full debug version of IL2CPP libraries are stored in Temp/StagingArea/Il2Cpp/Native.
+
+Fixes
+
+    (775244) - Fixed access to destroyed window during shutdown.
+    (769833) - Fixed access violation in GUIView::GUIViewWndProc.
+    (none) - Analytics: Fixed a rare crash. Only occurs when analytics is ON and importing a complete project from asset store with analytics OFF.
+    (none) - Android: Fixed blending with background on Unity splashscreen.
+    (765744) - Android: Fixed crash on Nvidia Shield tablet.
+    (none) - Android: fixes value of trackingEnabled
+    (775565) - Animation Window: Added null check to fix Null Reference Exception in Curve Editor.
+    (753270) - Animation Window: Disabled animation sampling of an optimized game object hierarchy in the animation window.
+    (760809, 759069) - Animation Window: Fixed custom components not appearing in the Add Property menu of the Animation Window.
+    (715416) - Animation Window: Fixed selection loss in animation window when pasting key frames.
+    (772668) - Animation: Fixed a bug where creating rotations using the transform manipulator would default to Euler in Legacy Animation.
+    (772668) - Animation: Fixed an issue where rotation curves would be created as Euler curves by default when using the Animation Component.
+    (762952) - Animation: Fixed animation event inheriting from ScriptableObject not getting triggered.
+    (775677) - Animation: Fixed crash when shutting down Standalone app with Script Playables.
+    (775773) - Animation: Fixed error message in console while optimizing animation hierarchy from the inspector.
+    (766898, 758322) - Animation: Fixed issue where Animation was distorted when animated object was scaled and Optimize Game Objects was selected.
+    (768965) - AssetBundles: Added back scene asset bundles compression statistics.
+    (697872, 633905) - Core: Added stacktrace for logging statements and exceptions called on threads.
+    (752626) - Direct3D9: Player loop will now be processed in the background again when the graphics device is lost (Windows are locked, window is minimized, etc.).
+    (763313) - Editor: Added support for resizing the height of the preferences window.
+    (696623) - Editor: Fixed a crash that could happen when animation window is open, and playmode is entered.
+    (764986) - Editor: Fixed changing order of components not getting saved. We now also support undo.
+    (759115) - Editor: Fixed an issue that was causing transformations to be modified when entering and subsequently coming back from play mode.
+    (730559) - Editor: Fixed the asset importer error when calling Refresh() during an assembly import.
+    (775366) - Editor: Fixed WebViewWindow's freed memory access.
+    (769858) - Fixed the error messages when building variant asset bundles.
+    (none) - Fixed whitespaces in Editor Test's template.
+    (697565) - GI: Upgraded to Enlighten3.02p3. Fixes direct lighting getting baked into lightmap.
+    (none) - Graphics: Fixed potential crash in SetGpuProgramName.
+    (775804) - IL2CPP: Correct an intermittent crash when Environment.GetCommandLineArguments is called.
+    (776152) - IL2CPP: Fixed an intermittent crash in the experimental memory profiler.
+    (756912) - IL2CPP: Fixed a rare deadlock during Resources.UnloadUnusedAssets.
+    (759488) - IL2CPP: Fixed an issue with Socket.Select and IL2CPP where a socket could be reported as being in an error state when it should have been reported as being in a write state.
+    (780472) - IL2CPP: Generate C++ code to properly handle circular references for field types in unsafe C# code.
+    (778146) - IL2CPP: Generate proper C++ code for the p/invoke wrapper for a delegate that accepts another delegate as an output parameter.
+    (717343) - IL2CPP: Improved message for PathTooLongException being encountered in IL2CPP.
+    (none) - IL2CPP: Increased maximum heap size.
+    (776087) - IL2CPP: Prevent a compile error in the generated C++ code due to a missing header when we generic exception type is used in a catch statement.
+    (692653) - IL2CPP: Support proper default marshaling of string parameters and return values when the CharSet attribute is provided on a method with a value of Unicode.
+    (732438) - IL2CPP: Throw informative exception when MonoPInvokeCallback delegate type is incompatible with target method signature.
+    (none) - iOS GfxTests: Fixed crash on assertion "sample count 8 not support day device".
+    (732878) - iOS/tvOS: AdSupport is now removed from Default Frameworks and needs to be explicitly selected under Framework Dependencies in Platform Settings if required.
+    (768572) - iOS: Allow third party plugins that use PLCrashReporter library.
+    (771597) - iOS: Ensure asset bundles are not flagged for iCloud backup by default upon download.
+    (763342) - iOS: Fixed GLES error 0x0506 and various graphics corruption when using webcam textures.
+    (776105) - iOS: Fixed incompatible pointer cast warning in trampoline.
+    (777596) - iOS: Made Social.ShowLeaderboardUI to show the leaderboards tab, instead of achievements tab.
+    (767633) - iOS: Pause application on GameCenter dialogs on tvOS.
+    (769085) - JsonUtility: Fixed EditorJsonUtility throwing MissingMethodException
+    (777564) - Linux: Exit with nice message instead of crashing when GPU/driver doesn't meet minimum requirements.
+    (761639) - Mac Editor: Added functionality in order to prevent the processing of folders that contain the ".unity" extension, as this was causing the editor to crash when executing in batch mode.
+    (777945) - Mono: Fixed GC related test instability in OSX Editor.
+    (774970) - Networking: Fixed issue with SyncList change callback where the old value was given there instead of the updated one.
+    (776539) - OpenGL/ES: Fixed GPU profiler on Android for Tegra 2/3/4 devices.
+    (769137) - Physics: Cloth deletes MeshRenderer component when entering playmode fixed.
+    (669622) - Physics: Disabling cloth component doesn't seem to really disable it fixed.
+    (none) - Physics: Fixed an issue for 2D collider: line & ray casting not detecting initial overlapped state.
+    (777591) - Physics: Fixed an issue with Box2D changes slowing the editor down when lots of changes are made without entering play-mode.
+    (769136) - Physics: Fixed cloth issue where adding cloth to an object throws GetLocalizedString error.
+    (758264) - Profiler: Fixed a crash when adding data from thread which was started during a frame.
+    (779965) - SpeedTree: Fixed "GetLocalizedString is not allowed to be called during serialization, call it from Awake or Start instead" error message when using the Tree Editor.
+    (743653) - Tizen: Fixed issue deploying after upgrading to the Tizen 2.4rev4 SDK.
+    (775008) - tvOS: Fixed a bug that caused splash screen properties being not applied.
+    (770115) - tvOS: Fixed build targeting tvOS 9.2 with Xcode 7.3 beta.
+    (762080) - UI: Fixed ArgumentOutOfRange exception sometimes being thrown when editing InputField on mobile.
+    (771326) - UWP: Build & Run will correctly work with Universal Windows 10 Apps.
+    (771541) - UWP: Screen.currentResolution will return desktop resolution when application is in windowed mode.
+    (none) - VisualStudio: Fixed a crash that could sometimes happen when opening Visual Studio.
+    (779968) - Windows Store/IL2CPP: Allow the MapFileParser utility to handle input and output files with paths containing non-ASCII characters.
+    (771883) - Windows Store/IL2CPP: Fixed a crash on windows when using asynchronous socket APIs (.BeginSend/.BeginReceive/etc).
+    (775216) - Windows Store: Assembly-CSharp-firstpass will no longer reference itself.
+    (775592, 775624, 777575, 777580) - Windows Store: Fixed an issue with populating visual assets (tiles, logos, etc.) to Visual Studio solution (correct file names, manifest entries) and check format consistency (JPEG vs PNG).
+    (778905) - Windows Store: Fixed a rare crash at startup related to serialization on debug mode.
+
+Revision: e89f89413a91

@@ -1,0 +1,35 @@
+5.3.4p5 Release Notes
+
+Improvements
+
+    VR: Updated Oculus API and plugin to version 1.3.2. Downloading 1.3.2 OVRPlugin from Oculus is no longer necessary.
+
+Fixes
+
+    (703290, 786195) - Batch mode: Fixed an issue where BuildPlayer calls might cause compilation errors to be logged in subsequent runs.
+    (788555) - D3D11: Fixed exclusive mode window reactivation issues after focus has been lost.
+    (none) - D3D11: Fixed some rare crashes on memory constrained systems (log would contain resource creation failure messages).
+    (775898) - Editor: Now show alert pop over for invalid serial format.
+    (779129) - Graphics: Fixed TrailRenderer showing a gap between current position and the last update.
+    (789905) - IL2CPP: Emit proper C++ code for COM marshaling of methods that have at least one parameter that cannot be marshaled.
+    (786499) - IL2CPP: Generate proper C++ code for the OnSerialize method injected by UNET in classes deriving from NetworkProximityChecker.
+    (787687) - IL2CPP: Generated proper C++ code for assemblies compiled with Visual Studio when a method returning an IntPtr returns an integer value.
+    (785036) - iOS/tvOS: Fixed a regression which caused artefacts when using GLES2 Graphics API.
+    (780329) - iOS: Fixed UnityWebRequest hanging on responses > 64k when using a custom DownloadHandlerScript.
+    (783527) - MemoryProfiler: Added toggle to exclude references in detailed memory dump to reduce memory footprint used.
+    (783433) - Particles: Fixed a crash when using Inherit Velocity Module curves.
+    (766891) - Physics: Provide feedback to allow working around crashes occurring when input meshes contains invalid vertices.
+    (none) - Samsung TV: Enabled a "Show Unity Splash Screen" check box on Samsung TV's PlayerSettings.
+    (776446) - tvOS: Enabled game controller in tvOS on-screen keyboard.
+    (none) - tvOS: Fixed a crash when calling OnDemandResourcesRequest.Dispose() in a coroutine.
+    (749311) - tvOS: Separated tvOS SDK and OS version settings from iOS.
+    (768807) - UI: Fix for child UI elements not being rendered when scaling World Space Canvas from zero.
+    (751798) - UnityWebRequest: Downgrade to HTTP GET on 302 and 303 redirect codes
+    (751794) - UnityWebRequest: Honor negative redirectLimit.
+    (none) - Windows Store: Fixed an exception while marshalling UnityEngine.NavMeshTriangulation.
+    (none) - Windows Store: Fixed marshaling of UnityEngine.HumanDescription, previously the field hasTranslationDoF was not mashaled at all.
+    (786889) - Windows Store: Fixed marshaling of UnityEngine.SplatPrototype, previously fields specularMetallic, smoothness were not marshaled, because of this sometimes terrain would be rendered incorrectly.
+    (none) - Windows Store: Fixed www.error return result, previously it would return only an error code, now it will also contain error message returned by the server.
+    (760215) - Windows: Fixed standalone Windows player position when bigger than primary monitor.
+
+Revision: 83b1f50dd5b8

@@ -1,0 +1,39 @@
+5.3.4p6 Release Notes
+
+Improvements
+
+    Cluster Rendering : Improvement on cluster networking layer and reduced instability while using cluster input.
+
+Fixes
+
+    (788040) - Android: Buildpipe - Don't make use of preview SDK tools installed.
+    (786918) - Android: Buildpipe - Fixed AAPT errors on project export.
+    (765396) - Android: Buildpipe - Fixed AAR plugin and resource issues on exported projects.
+    (779338) - Android: Fixed immersive mode switching off on some KitKat devices when pressing volume buttons.
+    (779877) - Android: Fixed potential crash when using WWW without having Internet permission (also affects use of Unity Analytics).
+    (none) - Android: Fixed potential race condition in atomic access on ARM processors.
+    (689644) - Animation: Fixed scale value getting zeroed when removing scale curve components in AnimationWindow.
+    (762739) - AssetBundles: Fixed Compress Assets On Import setting ignored when switching platform
+    (734216) - AssetBundles: FIxed CreateFromMemory not working with "." in filenames.
+    (790345) - Editor: Fixed New installed Unity command line activation issue.
+    (776528) - iOS: Fixed memory leak when using On Demand Resources.
+    (783713) - MacOSX Editor: Fixed UI text rendering on Radeon HD 4000 series and older AMD GPUs.
+    (763638) - OpenGL: Fixed mislocated fragment shader default float precision. Now also basing the default precision on actual HW capabilities.
+    (784880) - OpenGL: Fixed rendering when Graphics.Blit is being called after WaitForEndOfFrame.
+    (none) - OpenGL: Shader compiler: Added unused global uniform pruning.
+    (780831) - OpenGL: Shader compiler: Avoid temp name collisions.
+    (782514) - OpenGL: Shader compiler: Fixed shader translation bugs.
+    (773226) - Particles: Fixed a case where if OnWillRenderObject renders, it breaks the main scene.
+    (788023) - Particles: Fixed batching issues when using multiple cameras in the same position.
+    (780257) - Physics2D: Fixed a problem where both AreaEffector2D and PointEffector2D scaled-up forces for each additional collider on a rigidbody.
+    (none) - Physics2D: Fixed a problem where constantly changing an Effector2D collider would mean that no contacts were ever processed stopping the effector from working.
+    (754351) - Prefabs: Implemented OnWillSaveAssets callback when applying prefabs.
+    (764711) - UI: Fixed issue with crash due to dirty renderer being in the dirty list after being destroyed.
+    (none) - VR: Fixed an issue with incorrect Render Texture size being used. Most notable with deferred rendering.
+    (none) - VR: VRFocus now respects RunInBackground. Run In Background value of true will now disable rendering if VRFocus is lost.
+    (none) - Wii U: Fixed issues causing known crashes.
+    (none) - Windows Store: Fixed an assert happening during mesh compression.
+    (789538) - Windows Store: Fixed Build & Run for Universal 8.1 solution.
+    (789439) - Windows Store: The maximum amount of characters for short name for tiles will be 40 now.
+
+Revision: 9eb825cf2ca3

@@ -1,0 +1,72 @@
+5.3.4p2 Release Notes
+
+Improvements
+
+    Added device support for iPhone SE and iPad Pro 9.7".
+    AssetBundle: Output the crc value for the manifest asset bundle.
+    IL2CPP: Reduce the binary size and build time for projects which make use of many C# attributes.
+
+Fixes
+
+    (784899) - Android: Audio - Fixed OpenSL output not selected when default buffer size selected.
+    (780958) - Android: Disabled Debug markers on PowerVR Series5 devices.
+    (774052) - Animation: Fixed a crash when importing an animation where a whole curve was corrupted.
+    (779058) - Animation: Fixed a performance issue for AnimatorOverrideController rebind.
+    (771609) - Animation: Fixed an issue where instantiating a prefab with an Animator Component for the first time took longer than the subsequent times.
+    (770045) - Animation: Fixed crash when GameObject with Animator is instantiated in StateMachineEnter/Exit.
+    (767506) - APIUpdater: Fixed AssemblyUpdater crash when verifying WSA / / Windows Phone assemblies.
+    (769880) - APIUpdater: Fixed ScriptUpdater crash when processing Boo / UnityScript containing Hash literals.
+    (762829) - Asset Bundles: Fixed issue where WWW.LoadFromCacheOrDownload would not take into account space on device, and could hang.
+    (768846) - Asset Import: Fixed a crash on fbx import in some rare circumstances.
+    (775822) - AssetBundle: Fixed an issue where unloading an asset bundle with animated objects (legacy animation) during play mode crashes the editor.
+    (756559) - Assets/VCS: Fixed issue where changing date modified on directory meta file caused all files below that directory to be reprocessed. This was also affecting VCS.
+    (776044, 763036) - Audio: Don't try to load any sounds when Unity audio is disabled.
+    (732854) - Audio: Fixed an issue where low Pass Filter didn't work on Audio Listener.
+    (760234) - Cache Server: Upgraded the node.js version used by the Cache Server to version 0.12.7.
+    (766019) - Core: Fixed crash when scaling prefab with mesh that is not read/write enabled.
+    (752733) - Core: When exporting a package with scene's dependencies, check boxes are available next to folder icon.
+    (770155) - Core: WWW.responseHeaders is now a case-insensitive Dictionary, as per https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2.
+    (523691) - Direct3D11: Fixed a deadlock which would occur when trying to restore focus to a minimized standalone player running in Fullscreen Exclusive mode.
+    (766802) - Dynamic Batching: This has been reintroduced for particles, lines and trails.
+    (728634) - Editor: Adjusted the width of the 'Build Settings' window so that it properly display its contents, even if support for some of the players is not currently available.
+    (765466) - Editor: Fixed a crash when locking cursor from constructor or static initializer.
+    (778125, 780607) - Editor: Fixed an issue with dragging a Sprite/Texture2D into the inspector causing a PolygonCollider2D to use it even though it is not dropped on the component editor itself.
+    (709639) - Editor: Fixed an issue that could cause scenes containing prefab instances with driven transforms to immediately become dirty.
+    (781866) - Editor: Fixed an issue where compression wasn't being applied in calls to BuildPipeline.BuildStreamedSceneAssetBundle().
+    (none) - Fixed MovieTexture crash when loading a video with no audio stream.
+    (767110) - GI: Upgraded to Enlighten3.02p4. Fixed a precision issue and out-of-bounds texture access in baking, which could lead to a crash in the Final Gather stage.
+    (728610) - Graphics: Fix for baking a scene with objects added before saving the scene not being included in the result.
+    (767560, 763045) - Graphics: Fixed a crash when building reflection probe data on specific scenes containing Canvas elements.
+    (755421, 766533, 766546, 779696, 756020, 780025) - Graphics: Reflect normal texture encoding in global illumination shader.
+    (767367) - IL2CPP: Generate proper C++ code for a C# class with the StructLayout attribute when its base class does not have a StructLayout attribute.
+    (781439) - IL2CPP: Generate proper C++ code for a method that is marked as both an internal call and a runtime call.
+    (780659) - IL2CPP: Properly handle numeric conversion from an unsigned integer to floating point types in some edge cases.
+    (769666) - Input: Input.mousePosition is no longer clamped to the client area on windows standalone, the last position is kept instead.
+    (none) - iOS/IL2CPP: Prevent unnecessary changes to the timestamps of the libil2cpp headers during a build. This allows incremental builds to work correctly in Xcode.
+    (none) - iOS: Added Xcode 7.3 Build & Run support
+    (730146) - iOS: Allow IPv6 to work on iOS with the .NET 2.0 profile.
+    (771132) - iOS: Fixed a crash when playing a scene in the Editor with an iOS device attached as a Unity Remote.
+    (779738) - iOS: Fixed support for non-native resolutions in GLES 2.
+    (none) - iOS: Restored documentation for RenderTargetSetup.
+    (784075) - Linux: Fixed a crash when stereoscopic mode is requested on non-stereoscopic display.
+    (783842) - Linux: Fixed another crash when supported opengl core version is insufficient
+    (none) - Linux: Fixed an occasional crash when creating texture properties.
+    (776268) - Mono: Make the Personal folder be the same on all profiles. 
+    (765928) - MovieTexture: Restricting black texture fix to OSX 64. Linux 64 did not need it.
+    (781177) - Networking: Fixed problem when transferring data via reliable sequenced QoS channel could lose messages in "bad" network conditions.
+    (773411) - Networking: Fixed problem where Networking.HostTopology.MessagePoolSizeGrowthFactor was ignored.
+    (768030) - Networking: Fixed WebGL client unable to free connections in NetworkServer when using WebSocket.
+    (none) - Particles: Fixed incorrect inspector style on Particle System Renderer Pivot field.
+    (758422) - Physics: Fix for Collision2D.relativeVelocity being reported with incorrect values.
+    (767120) - Resources: Enable warnings for and prevent crashes and memory corruptions when non-assets, or non-unloadable assets are tried to be unloaded through Resources.UnloadAsset in release builds.
+    (none) - Samsung TV: Fixed multiple crashes on the NT14U TV that would prevent games from launching.
+    (780365) - Terrain: Fixed crash when exiting Editor after creating TerrainData with HideAndDontSave flag.
+    (758873) - UI: Fixed dropdown destroy coroutine being started when the component is not active.
+    (none) - UI: Fixed issue with double rendering of canvas on Vive.
+    (none) - UI: Setting Input field text through script will now be validated.
+    (770266) - WEBGL: Fixed SimpleWebServer bug causing 'Uncaught incorrect header check'.
+    (775931) - Windows Store: Fixed Tab key duplication in XAML controls when Unity input is enabled.
+    (781994) - Windows Store: Help SerializationWeaver find references which have Windows SDK specified when building to Universal 8.1.
+    (779136) - Windows Store: Hindi characters will show up correctly, Nirmala UI from Windows fonts will be used.
+    (780971) - Windows Store: Package.appxmanifest for Universal Windows 10 Apps will be produced correctly when protocol for association launching is specified.
+    (781935) - Windows Store: Slightly fix generated Assembly-CSharp* projects to fix "System.BadImageFormatException: Duplicate type with name 'UnityEngine.Internal.$FieldNamesStorage' .. "

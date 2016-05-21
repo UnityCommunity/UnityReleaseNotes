@@ -1,0 +1,47 @@
+5.3.4p3 Release Notes
+
+Improvements
+
+    Windows Store: On IL2CPP scripting backend, Unity players are now shipped as DLLs rather than static libraries. This significantly reduces platform support module installation size as well as decreases generated C++ code linking time.
+
+Changes
+
+    Installer: updated EULA.
+
+Fixes
+
+    (747898) - Android: Fix for EGL_BAD_NATIVE_WINDOW error on resume.
+    (777167) - Android: Fix for syncing to low framerate with vsync off.
+    (784942) - Animation: Fixed a crash related to exposed skeleton.
+    (none) - Documentation: Added missing 'OnJointBreak2D' callback documentation.
+    (730245) - Editor: If a read only file or folder is duplicated, the read only status is no longer duplicated.
+    (769613) - Editor: Fixed an issue where unloaded scenes were removed from hierarchy after exiting playmode.
+    (none) - Editor: Fixed Target Support module download URLs in Build Settings.
+    (663994) - Editor: Files with invalid names can no longer be dragged into a project.
+    (653592) - Global Illumination: Changing Reflection Probe component positioning in the inspector makes realtime probe black.
+    (none) - Global Illumination: Fixed a Reflection Probe baking issue when multiple scenes are used in a project.
+    (774638) - Graphics: Fixed a glitch in crunched compressed non-alpha texture after using sprite packer.
+    (782653) - IL2CPP: Properly handle type casts and check for value type arrays when they are casted to generic collection interfaces.
+    (none) - iOS: Apple Pencil pressure will now be exposed the same way 3D Touch pressure already is.
+    (775710) - iOS: Switching between different input fields will not leave input accessory fields on screen.
+    (764054) - iOS: TouchInputModule and StandaloneInputModule will now handle all touch phases preventing unwanted module switches.
+    (none) - Linux: Don't query displays when running in nographics mode.
+    (764054) - OSX editor: Application.version now returns the application's version. It no longer returns Application.unityVersion.
+    (740604) - UI: Fixed object culling when unparenting from a mask type.
+    (none) - UI: Fixed setting Input Field text when in Decimal/Integer with invalid values.
+    (776918) - Windows Standalone: P/Invoke will work correctly with native libraries which reference other native libraries, if those libraries are located in the same directory.
+    (775344) - Windows Store: Disable Generate C# option when scripting backend is set to il2cpp.
+    (none) - Windows Store: Files located in Assets\Resources won't end up in generated Assembly-CSharp-firstpass project, but will be correctly placed in Assembly-CSharp project.
+    (762780) - Windows Store: Fixed generics related AssemblyConverter failure and give better error messages.
+    (770092) - Windows Store: Fixed incorrect orientation of extended splash screen on Windows Phone 8.1.
+    (781907) - Windows Store: Fixed stacktraces on IL2CPP scripting backend.
+    (none) - Windows Store: Fixed $(OutDir) and $(IntDir) paths for generated IL2CPP Visual Studio solutions which prevented appx bundles to build correctly.
+    (754102) - Windows Store: Correctly generate Visual Studio namespace when product name contains ' symbol. an underscore will be used instead.
+    (none) - Windows Store: Having many generic types in the project no longer makes .NET Native compiler run out of memory.
+    (777878) - Windows Store: RuntimeInitializeOnLoadMethod will work correctly.
+    (773877) - Windows Store: Screen.SetResolution will correctly work on Windows Phone 10.
+    (none) - WindowsDownloadAssistant: Fixed setting VisualStudio 2015 as Unity script editor.
+    (732955) - WindowsDownloadAssistant: Fixed the bug which was freezing installation UI during bad network connection.
+    (784975) - WSA: EventType.ScrollWheel is now properly detected.
+
+Revision: b902ad490cea

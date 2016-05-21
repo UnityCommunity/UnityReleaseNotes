@@ -1,0 +1,74 @@
+5.3.4p4 Release Notes
+
+Improvements
+
+    Asset Management: Introduced AssetDatabase.GetAssetDependencyHash method which returns the hash of all the dependencies of an asset.
+    OpenGL: ComputeBuffer now uses the same data layout as DX whenever automatically translated shaders are used. Therefore no more special layout handling for ComputeBuffer.SetData/GetData is needed based on the graphics API and any such user code should be removed. The only exception is with manually written GLSL shaders. In that case the OpenGL data layout rules must be taken into account.
+
+Fixes
+
+    (767741) - Added support for IPv6 networks in UdpClient::Recieve .
+    (763755) - Android: Fix for GPU skinning on Adreno GPUs.
+    (771542) - Android: Fixed incorrect width/height when changing orientation after changing antialiasing settings.
+    (761744) - Android: Fixed Standard Shader lighting issue caused by half-precision overflow on Mali GPUs.
+    (787491) - Android: Fixed a crash in the Development build for some Android devices with PVR GPUs (e.g. Asus Memo Pad).
+    (751530) - Android: Fixed crash when load scenes intermittently.
+    (777617) - Android: Workarounds for OpenGL ES 3 shader compiler problems on Adreno GPUs.
+    (786873) - Animation: Fixed crash when an animation key tried to activate a gameobject which had animator attached to it.
+    (783821) - Animation: Fixed crash when calling Animator.Update(0) in an AnimationEvent.
+    (774484) - Animation: Fixed an issue where the scale was not working in editor on GameObject with OptmizeGameObject.
+    (747800) - AssetBundles: Fixed a crash while loading asset bundle asynchronously.
+    (782773) - AssetBundles: Fixed a potential crash when decompressing corrupted lzma bundles.
+    (768965) - AssetBundles: Print build size stats also for normal asset bundles.
+    (none) - Compute: Do not log warnings/errors when current build target does not support compute shaders.
+    (738249) - Core: ArgumentCache.TidyAssemblyTypeName is alloc-free if the type name is already clean.
+    (750423) - Editor : Fix for core assemblies not being reloaded after encountering errors in user scripts.
+    (759288) - Editor: Fixed a crash when padding ASTC texture when building from command line.
+    (588531) - Editor: Fixed an inconsistency between visible and hidden meta file modes, where empty folders were recreated in 'visible' mode.
+    (746964) - Editor: Fixed crash on launch if "metadata" folder is deleted before launching.
+    (709059) - Editor: Fixed performance issue in SpriteInspector.
+    (784727) - Editor: Fixed wrong error message when returning license via command line.
+    (782752) - Editor: Improved error messages for unsupported target platform in batch mode.
+    (763231) - Editor: Remove SelectionBase from LOD Group.
+    (none) - Editor: Sped up importing of some Fonts by updating progress bar less often than "crazy often".
+    (664953) - GI: Clamped DynamicGI.indirectScale to allowed range.
+    (662572) - GI: Disabled LightProbeGroup components no longer display visualization in the scene view.
+    (753822) - GI: Fixed errors when using baked lightmaps & multi-scene editing.
+    (743273) - GI: Fixed realtime GI texture coordinates sometimes going wrong on static-batches meshes.
+    (757575) - GI: Fixed some cases of scenes not referencing the correct lighting data asset after bake.
+    (none) - GI: Improved wording of various Enlighten error messages.
+    (753822) - GI: Now properly initialize baked scenes in some code paths to avoid error on console.
+    (769539) - Graphics: Fixed internal profiler for static batching on Android, iPhone and Metro.
+    (765378) - Graphics: Fixed material index not being used when calling Graphics.DrawMeshNow with rotation.
+    (768171) - Graphics: Fixed PackTextures crash if called on a Crunch-compressed texture that is not marked as readable.
+    (775261) - Graphics: Fixed static batching errors when meshes have additional vertex data streams with mismatching vertex count.
+    (766992) - Graphics: Upgrading a shader with a DX11 [annotation] at the start of the file now doesn't crash.
+    (767741) - IL2CPP: Now correctly return the remote end point from a UDP socket receive call in an IPv6 network.
+    (781921) - IL2CPP: Now generate proper code for COM marshaling of a struct that contains a field of type object array.
+    (778668) - iOS: Do not export non-prefixed freetype2 symbols now.
+    (774544) - iOS: Fixed the incorrect ABI for int64 types on iOS.
+    (774685) - iOS: Ensure that our symbols are not overridden by user libraries.
+    (none) - MacDownloadAssistant: Fixed window focus issue after security prompt.
+    (767348) - OpenGL: Fixed a bunch of compute shader structured buffer access corner case issues.
+    (none) - OpenGL: Fixed invalid shader code generation when using gl_PrimitiveID or bitFieldInsert().
+    (none) - OpenGL: Fixed multiple simultaneous append/consume compute buffers usage.
+    (765905) - Particles: Do not restart simulation when becoming visible, and use bigger timesteps, to reduce performance spike.
+    (774931) - Particles: Fixed a crash when material is missing and mesh colors are requested.
+    (757377) - Particles: Fixed a crash when using SubEmitters with separate rotation axes.
+    (496494) - Particles: Fixed culling when using SetParticles.
+    (783433) - Particles: Fixed a crash caused when using Inherit Velocity Module.
+    (776143) - Particles: Fixed an issue where the Material Property Blocks not working with mesh particles.
+    (786032) - Physics2D: Fix to ensure that changing a Collider2D property via the inspector doesn't reset the OnCollision or OnTrigger state back to 'Enter'.
+    (none) - Physics: Ensure that OnTriggerExit2D is not called when changing Rigidbody2D 'isKinematic' property.
+    (766891) - Physics: Provide feedback to allow working around crashes occurring when input meshes contain invalid vertices.
+    (788037) - UI: Fixed Selectable not handling when the EventSystem is null.
+    (none) - Wii U: Added crash fixes, memory efficiency and 16-bit texture support.
+    (784466) - Windows Editor/Standalone: SystemInfo.deviceModel will now report model name and manufacturer.
+    (787522) - Windows Store: Fixed Screen.orientation returning AutoRotation on startup.
+    (785743) - Windows Store: Fixed .NET native compiler crash when using managed plugin that already has an assembly initializer defined. One of such assemblies was "Rewired_Core.dll".
+    (784912) - Windows Store: Fixed a crash when de-serializing a struct with a list or an array inside from an empty json string.
+    (784908) - Windows Store: Fixed building player when there are plugins in the project that are marked "read-only".
+    (755238) - Windows Store: Microsoft .NET compiler will always ouput errors in english ignoring OS region settings, the same way as Mono compiler.
+    (760391) - Windows Store: When building scripts using Microsoft C# compiler on il2cpp scripting backend now identical references are passed to it compared to when using Mono C# compiler. This fixed issues that resulted in compiler errors saying "SupportClass is already defined in another assembly".
+
+Revision: 43a3882ae25c
