@@ -9,3 +9,6 @@ Release Notes - to be used with github search
 - Current and older versions: https://unity3d.com/get-unity/download/archive
 - Beta versions: http://unity3d.com/unity/beta/
 - Patch releases: http://unity3d.com/unity/qa/patch-releases
+
+### View API changes on unity versions
+- http://docs.unity3d.com/ScriptReference/40_history.html
