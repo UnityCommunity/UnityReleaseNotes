@@ -1,0 +1,46 @@
+5.3.5p1 Release notes
+Improvements
+
+    Runtime: During crashes even if the stack walking is aborted with error (RtlLookupFunctionEntry returned NULL function. Aborting stack walk), Unity will display stripped stack trace instead of displaying zero stack frames.
+    (791792) - Windows Store: Expanded UnityEngine.WSA.Cursor.SetCustomCursor, if you pass 0 to this function, it will restore the cursor to arror icon.
+    (792507) - Windows Store: Improved 'NULL != certificate' errors, it will now provide a human readable message why it failed to create a certificate.
+
+Fixes
+
+    (778825) - 2D: Generate sprite mesh correctly for sprite with outline data after changing texture's max size setting.
+    (770093) - Android: Pause choreographer when activity is paused to fix CPU usage of Unity apps when the app is in background.
+    (790261) - Animation: Fix for animation stopping before reaching designated position.
+    (780289) - AssetBundle: Fixed the issue that failed to asynchronously load the object with script that had the same name as other assets in a bundle.
+    (780836, 761626) - AssetBundles: Fixed intermittent crash due to thread-safety issues.
+    (784401) - Editor: Fixed: No auto license updates since Unity 5.1.
+    (784822, 794090, 759483) - Graphics: Fixed some cases of incorrectly "Releasing Render Texture that is set as Camera.targetTexture", resulting in losing Camera.targetTexture - e.g. in case of device resume after sleep on iOS/Android, context-loss on DirectX or changing Emulation Layer in the Editor.
+    (787701) - IL2CPP: Load the stack value as unsigned for the conv.r.un opcode in IL.
+    (789160) - iOS/IL2CPP: Corrected managed stack traces which could have one incorrect frame when a NullReferenceException occurred.
+    (792606) - iOS: Fixed a crash when releasing WebRequest components.
+    (788483) - Samsung TV: UnityEngine.Ping has been fixed and will no longer report permissions issues.
+    (784481) - Scripting: Avoid allocating GC memory during Coroutine iteration.
+    (none) - Substance: Avoid re-generating ProceduralMaterials twice when switching color space.
+    (780071) - Substance: Fxed "Mismatched LayoutGroup.Repaint" error message appearing in console when assigning a ProceduralMaterial to a mesh.
+    (776052) - Substance: Fixed baked ProceduralTextures being serialized without their baked data.
+    (779560) - Substance: Fixed a crash in VisibleIf expression evaluation caused by looking up an input by label instead of by identifier.
+    (781118) - Substance: Fixed a crash when undoing a modification of the shader assigned to a ProceduralMaterial .
+    (762285) - Substance: Fixed GetProceduralXYZ returning 0 when used with an input's label instead of its identifier.
+    (none) - Substance: Fixed normal maps textures being incorrectly processed when used as image inputs to a ProceduralMaterial.
+    (779574) - Substance: Fixed ProceduralMaterials being stuck in "Generating..." state when leaving playmode as they are being computed.
+    (795563) - Substance: frozen ProceduralMaterials can now be cloned. Procedural properties of a cloned frozen ProceduralMaterial cannot be changed anymore, but regular material properties can.
+    (none) - Substance: ProceduralTextures being cached to disk/flash now have their size correctly taken into account when querying Caching.spaceOccupied.
+    (776803) - Substance: Speed up the processing of BakeAndDiscard materials when loading scenes.
+    (none) - Substance: Now warn the user when an input of a BakeAndDiscard ProceduralMaterial is being set at runtime.
+    (774423) - UI: Fixed occasional crashes when modifying elements of non-Overlay Canvases.
+    (790264) - UI: Fixed World canvas not rendering in editor game view.
+    (507878) - Windows Standalone: Launcher will correctly display unicode symbols for input bindings.
+    (none) - Windows Store: Added command line argument -dontConnectAcceleratorEvent, which could help to solve issues with XAML controls used together with Unity.
+    (790408) - Windows Store: Do not overwrite solution file when building on top.
+    (778842) - Windows Store: Fixed DisconnectedException while pluging/unplugin joystick from usb multiple times.
+    (792589) - Windows Store: Fixed an issue where user couldn't enter @ symbol with touch screen keyboard when spanish language is selected.
+    (790319) - Windows Store: Fixed an issue with generics, causing access reduction exception at runtime.
+    (792618) - Windows Store: Fixed Screen.orientation sometimes reporting incorrect value on startup.
+    (786277) - Windows Store: NetworkTransport.ConnectEndPoint will work correctly on UWP (required by secure sockets), note this function will not work on older Windows Store SDKs.
+    (790537) - Windows Store: Workaround a driver bug in Lumia 950, the screen was flickering when navigation bar was spawning or despawning. Basically we replace ID3D11DeviceContext::ClearDepthStencilView (which corrupts stencil buffer somehow) with a full screen quad draw call which clears depth/stencil.
+
+Revision: 04596651afa0
