@@ -1,0 +1,55 @@
+Unity 5.4.0b19 release notes
+Known Issues
+
+    [780112] 2D: After changing state of 2DRectMask scene has to be reloaded for changes to take an effect
+    [776827] Android: Shader fails in OpenGLES 3.0 on Adreno 306 when comparing fragment position with uniform
+    [791158] Android: [Audio] App with audio hangs on start if audio disabled in Project Audio settings
+    Graphics: In deferred rendering, lightmapped objects affected by mixed-mode lights will fallback to forward rendering.
+    [790555] iOS: Crash with 'gpus_ReturnGuiltyForHardwareRestart' when running GLES2/3 on A9 & A9X devices. Next iOS update is expected to fix this.
+    [761024] iOS: [Metal] Performance degradation in 5.4 with some custom shaders
+    [762371] Scene Management: SceneManager.UnloadScene will hang if called from a physics trigger. Workaround is to defer unload. Will not be addressed in 5.4
+    [771032] Terrain: Unity crashes when calling various methods on TerrainData with boundary values
+    VR: In-Development Cinematic Image effects (bitbucket project) do not currently work with single pass rendering. Will not be addressed for 5.4
+    [777766] VR: Splash Screen and single pass rendering has issues
+    [778119] VR: Single Pass rendering: Standard Asset Image Effects do not currently work reliably, a fix is being worked on.
+    [779207] VR: Text Mesh shaders and single pass rendering does not work. Manually including shader will workaround the problem.
+    [747545] Windows: [OpenGL] Unity crashes or hangs with no respond on moving and undocking tabs.
+    [776787] Windows Store: Unity APIs which use multidimensional arrays as parameters don't work on UWP when .NET Native compilation is enabled (for ex., Master config). For ex., TerrainData.SetHeights. This includes all Unity versions where UWP is supported. The bug has been logged with Microsoft.
+
+5.4.0b19 Release Notes (Delta since B18)
+Features
+
+    Editor: Optional "strict mode" when building projects and AssetBundles, which will fail the build if any errors (even non-fatal ones) are reported during the build process.
+    iOS: Added ODR initial install tags support
+
+Improvements
+
+    Android: Symbols for release libraries are now available in PlaybackEngines/AndroidPlayer/Variations/*/Release/Symbols.
+    UI: Added rootCanvas property to Canvas.
+
+Fixes
+
+    [784839] Animation: Fixed a crash when interrupting a transition on a synchronized layer
+    [784131] Animation: Fixed animation event firing even though layer weight is set to zero.
+    [783821] Animation: Fixed crash when calling Animator.Update(0) in an AnimationEvent
+    [778887] Animation: Fixed crash when changing playable controller in animator in game mode
+    [785686] Animation: Fixed curve selection not clearing in dopesheet editor when clicking on editor background
+    [780631] Animation: Fixed game object animated data being duplicated when copy pasting in scene view hierarchy
+    [781950] Animation: Fixed missing keys when pasting on curves with multiples matching properties
+    [777630] Animation: Fixed missing warning when deleting a parameter that is used by a transition from "Any State"
+    [774484] Animation: Fixed Scale not working in editor on GameObject with OptmizeGameObject
+    [778870] Animation: If scaling GO using Vector3 with zero z or Vector2 then its child Rigidbody will have its position multiplied by that vector
+    [786873] Animation: [backport 5.3] Fixed crash when animating visibily of a game object also containing animation in play mode.
+    Deployment Management: Fix to ensure to include streaming asset files in the editor log build report correctly.
+    [778565] Deployment Management: Fixed incorrect size calculation in the editor log build report.
+    Editor: EditorUtility.SetSelectedWireframeHidden state is saved into scenes.
+    [791437] GI: Fixed Light/Reflection probe settings in Renderer sometimes being lost after a project upgrade.
+    [793304] GI: Fixed some cases of null reference exceptions coming out of Lighting window, related to baked object preview.
+    [649006] GI: Improved mixing of directional specular lightmaps with realtime shadows.
+    Graphics: Avoid crash in CommandBuffer.Draw commands if null renderer/mesh is passed.
+    [778188] Graphics: Ensure that we don't set unsupported texture filter or wrap modes
+    [793506] Graphics: Fixed color space switch done via PlayerSettings.colorSpace API not taking effect immediately.
+    [770003] Scripting: Fixed crash triggered by a double cleanup inside coroutines.
+    Shaders: Fixed cases where unsupported LightMode=Meta pass type was wrongly making LightMode=ShadowCaster passes unsupported too.
+    [744588] Shaders: Fixed possible editor scene view picking crash, after reimporting shader with a GrabPass.
+    [799367] WebGL: Correct WebGL build in the Windows editor.
