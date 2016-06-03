@@ -1,0 +1,60 @@
+5.4.0b20 Release Notes (Delta since b19)
+Known Issues
+
+    [788312] [SinglePassStereo] Deferred rendering + spot and point lights stereo discrepancy
+    [780112] 2D: After changing state of 2DRectMask, Scene has to be reloaded for changes to take an effect
+    [776827] Android: Shader fails in OpenGLES 3.0 on Adreno 306 when comparing fragment position with uniform.
+    [800888] Editor: Editor crashes after overflowing both Width and Height fields of Game view resolution window
+    [800900] Editor: Editor doesn't repaint when Services window is docked next to the Inspector
+    [688985] GI: Copying a scene loses the baked lighting.
+    Graphics: In deferred rendering, lightmapped objects affected by mixed-mode lights fallback to forward rendering.
+    [790555] iOS: Crash with gpus_ReturnGuiltyForHardwareRestart when running GLES2/3 on A9 & A9X devices. Next iOS update is expected to fix this.
+    [761024] iOS: [Metal] Performance degradation in 5.4 with some custom shaders.
+    [762371] Scene Management: SceneManager.UnloadScene hangs if called from a physics trigger. Workaround is to defer unload. This will not be addressed in 5.4.
+    VR: In-development cinematic Image Effects (Bitbucket project) do not currently work with single-pass rendering. This will be addressed independently of the 5.4 release schedule.
+    [778119] VR: Single-pass rendering: The following Standard Asset Image Effects do not currently work reliably: CameraMotionBlur, ScreenSpaceAmbientObscurance. A fix is being developed.
+    [778119] VR: Single-pass rendering: The following Standard Asset Image Effects partially work: Blur, CreaseShading, DepthOfField, DepthOfFieldDeprecated, GlobalFog, NoiseAndGrain, ScreenSpaceAmbientOcclusion, Tonemapping. A fix is being developed.
+    [777766] VR: Splash screen and single pass rendering have issues.
+    [779207] VR: Text Mesh shaders and single pass rendering do not work. Manually including the shader will workaround the problem.
+    [747545] Windows: [OpenGL] Unity crashes or hangs with no response on moving and undocking tabs.
+    [776787] Windows Store: Unity APIs which take multi-dimensional arrays as parameters (e.g. TerrainData.SetHeights) do not work on UWP in configurations (e.g. Master config) in which .NET Native compilation is enabled. The bug has been logged with Microsoft.
+
+Improvements
+
+    Audio: Added ability to transition AudioMixer snapshots by scaled and unscaled time.
+    Audio: Moved Preload Audio Data to the platform-specific settings section. The previous location was confusing as it was shown grayed-out in the inspector with a checkmark that depended on all overrides.
+    Audio: SystemInfo now includes supportsAudio info.
+    Particles: Added Undo support when auto re-parenting sub-emitters.
+
+Fixes
+
+    [792351] Android: Fixed an issue where Unity would emit "Unknown event structure (0)" to the log several times per second.
+    [782248] Audio: AudioSource: Fixed issue whereby Doppler Level didn't work when used with custom spatializer plugins.
+    [772946] Audio: Fixed case of component effect appearing disabled on play and getting enabled again after we pause and play.
+    [763036] Audio: Fixed case of Unity crashing when the Disable Audio option was selected in project settings.
+    [784887] Audio: Fixed crash when disabling Component which uses OnAudioFilterRead.
+    Audio: Fixed handling of default DSP buffer size. Previously, once the buffer size was changed to something other than Default latency, changing it back to Default latency had no effect.
+    [781566] Audio: Fixed issue where AudioListener with 2 custom scripts crashed when reinitializing the sound system.
+    [775328] Audio: Fixed issue where the Audio Lowpass Frequency curve moved in the wrong direction in the AudioSource curve view.
+    [771825] Audio: Fixed issue whereby adding an effect in the mixer with bypass effects enabled didn't rechain the component effect back properly.
+    Audio: Fixed issue whereby the memory profiler did not report AudioClip memory correctly. The memory allocated by AudioClips was wrongly accumulated under AudioManager.
+    [792497] Core: Fixed a crash when more that 65535 identically named objects were created.
+    [771132] Editor: Fixed a crash when playing a scene with an iOS device connected as a Unity Remote.
+    [588531] Editor: Fixed an issue where deleted folders are recreated if the meta file is still present in non-source control serialisation modes.
+    [769033, 769504] Editor: Fixed crash when entering or exiting play mode when a GameObject with a missing script reference is present.
+    [796682] Editor: Updated default license and activation host URL for staging and dev environments.
+    [768232] Graphics: Fixed an issue where dynamic batching could produce corrupted geometry when vertex components are compressed.
+    [778659] Graphics: Fixed incorrect normal/tangent generation when dynamic batching is used on a rotated object without a normal/tangent stream i.e. a rotated TextMesh object.
+    [780867] Particles: Fixed sorting issue when using local space particles.
+    [754270] Particles: Start delay is now only applied when the system time is 0.
+    [766769] Runtime: Fix to reduce the overhead incurred by SetSiblingIndex calling OnTransformParentChanged.
+    [790491] Substance: Fixed error when loading package file containing an old version of a substance file.
+    [778027] WebGL: Fixed anisotropic filtering in Safari.
+    [759492] WebGL: Fixed browser lock-up when profiling.
+    [781565] WebGL: Fixed case of blendEquationSeparate shader errors being thrown.
+    [790931, 789543] WebGL: Fixed Command key input issues on OS X.
+    [792856] WebGL: Fixed error message about loading WebGL content from file:// URLs in browsers that don't support this.
+    WebGL: Fixed float RenderTextures in WebGL 2.0 in Chrome.
+    [794353] WebGL: Fixed floating point precision errors, which could result in a variety of errors during play.
+    [782587] WebGL: Fixed point-light rendering on Windows when deferred rendering is enabled.
+    [759286] WebGL: Fixed spot-light rendering on Windows when deferred rendering is enabled.
