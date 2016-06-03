@@ -1,0 +1,67 @@
+5.3.5p2 Release Notes
+
+Improvements
+
+    Android: Symbols for release libraries are now available in PlaybackEngines/AndroidPlayer/Variantions/*/Release/Symbols.
+    GI: Added a version number to the Lighting Data asset. Give the user a nice error message if their Lighting Data is out of date.
+    VR: Updated to version 1.4 of the Oculus API.
+
+Fixes
+
+    (769275) - Android: Fixed an issue where normals are not correctly oriented on some Adreno models.
+    (784822, 792574) - Android: Fixed the case where RenderTexture was released on resume after sleep.
+    (788821) - Android: Workaround for broken texture swizzles on Android 6 Mali GPUs.
+    (779058) - Animation: Another fix for performance issue on AnimatorOverrideController rebind.
+    (780836) - AssetBundle: Fixed the crash when calling AssetBundle.LoadAllAssetAsync() on a streamed scene asset bundle.
+    (768965) - AssetBundles: Added detailed info to print build size stats for normal asset bundles.
+    (778258) - AssetBundles: Check if we support the previous active build target before restoring.
+    (780252) - AssetBundles: Fixed the issue that AssetBundleManifest.GetAllDependencies returned bundle itself as dependency.
+    (786259) - AssetBundles: Fixed the issue that old asset bundles were not removed to free space.
+    (789841) - Editor: Fixed exceptions when dragging non-regular textures (e.g. from DDS files) into scene view.
+    (789493) - Editor: Fix for password not hidden in editor.log.
+    (791288) - Editor: Fixed an issue with script assembly dependencies, which could cause custom windows to be disabled by user script compilation errors.
+    (769033, 769504) - Editor: Fixed crash when entering or exiting play mode while having a GameObject with a missing script reference.
+    (782204) - Editor: Fixed ETC1/AlphaSplit UI option not appearing under TextureImporter > Advanced mode.
+    (776880) - Editor: Fixed exception when renaming script outside of the editor.
+    (789845) - Editor: Fixed regression where switching platforms while using Cache Server could take much longer than previously.
+    (797822) - GI: Fixed ambient probe update when ground and/or equator color changed.
+    (790530) - GI: Fixed some cases of additive scene loading not merging lightmaps properly.
+    (784391) - Global Illumination: Fixed out-of-sync indices of Lightmaps when unloading additively loaded scenes while others are disabled.
+    (736754, 788007) - Graphics: Fixed deferred rendering issue on AMD GPU with OSX.
+    (782095) - Graphics: Fixed GPU Skinning performance issue each time the mesh becomes visible (some buffers were re-created without a good reason).
+    (none) - IAP: Fixed IAP IStoreListener.ProcessPurchase method not being called if Unity IAP was informed of a purchase for a product which was not requested during initialisation.
+    (none) - Inspector: Selecting a scene asset no longer shows "Message" and "Is Warning" fields in the inspector.
+    (711986) - iOS: Don't install Unity plugin unnecessarily. This caused killing of Xcode whenever the previous build was done with different version of Unity.
+    (775240) - iOS: Fixed the alignment of certain ARM64 functions which fixed a warning when building with Xcode.
+    (772570) - iOS: Fixed iOS plugin settings.
+    (790833) - iOS: Fixed crash when Abort was called on UnityWebRequest before downloading had begun.
+    (792062) - iOS: Fixed crash when scrolling multiline input field on some devices.
+    (782592) - iOS: Fixed issue where generating too many WWW requests or UnityWebRequests at once would cause the app to lock up.
+    (774472) - iOS: Quarantine LZ4 symbols. This caused AppStore rejections in any submission that referenced WatchConnectivity.framework .
+    (757618) - iOS: Support building to directory with non-existing parent.
+    (799708) - OpenGL: Fixed broken rendering on GLCore Windows editor.
+    (780820) - OpenGL: Fixed bufinfo op handling.
+    (786278) - OpenGL: Fixed gl_PrimitiveIDIn in geometry shaders.
+    (790740) - OpenGL: Fixed skinning issues on OSX.
+    (783713) - OSX Editor: Fixed UI text rendering on Radeon HD 4000 series and older AMD GPUs.
+    (775210) - OSX: Correctly determine native resolution for full screen applications.
+    (767793) - Prefabs: Fixed an issue with serialising objects with 64 bit file IDs, which could cause prefabs to become corrupt.
+    (none) - Scene Management: Fixed serialization of SceneSetup.
+    (775666) - Scene Management: Prevented adding a scene multiple times to the scene list via click and drag.
+    (784481) - Scripting: Avoid allocating GC memory during Coroutine iteration.
+    (791704) - Shaders: Fixed confusing behavior where Material's render queue would be overriden, when changing a shader on it.
+    (775067, 780644) - Shaders: Fixed crash during shader warmup in some cases.
+    (785905) - Shaders: Fixed crash that sometimes happens after deleting a shader, while materials are still trying to use it.
+    (776808) - Shaders: Fixed HLSL bitcast operations on fixed/half types not always translated into OpenGL/ES properly.
+    (744588) - Shaders: Fixed possible editor scene view picking crash, after reimporting shader with a GrabPass.
+    (794539, 792837) - UI: Fixed crash and flickering issues caused by sorting grid.
+    (764711) - UI: Added missing call to SetParentCanvas at CanvasRenderer::CanvasHierarchyChanged.
+    (782957) - UI: Fixed RectMask2D clipping incorrectly when nested canvases are present.
+    (784422) - UnityWebRequest: CORS request blocked due to x-unity-version header
+    (790610) - UnityWebRequest: Fixed an issue whereby Unity was not responding when trying to quit in headless mode.
+    (none) - VR: Added support for DirectX12 to Oculus VRDevice.
+    (none) - VR: Fixed Oculus VRNode values on the first frame.
+    (none) - VR: GearVR Context creation updated.
+    (774164, 795784) - Windows Store: fixed issues with UnityEngine.Networking when using Unity C# projects
+
+Revision: 3103edb99077
