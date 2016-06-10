@@ -1,0 +1,40 @@
+5.3.5p3 Release Notes
+
+Fixes
+
+    (791273) - AssetBundle: Fixed the issue that AssetBundle.name is empty.
+    (787112) - AssetBundle: Fixed the issue that ScriptableObject data types in asset bundle variants lose references in scenes. -(786943) Compute: Compute: Fixed compute shaders being reimported upon active build target changes more often than they should be.
+    (763848) - Do not allocate during each call to UdpClient::Receive when socket security is not enabled.
+    (780377) - Do not allocate for a MethodInfo.Invoke on a method with no parameters.
+    (791635) - DX11: Fixed rare crash in Texture2D.ReadPixels.
+    (none) - Fixed AOT code generation for Linq.First, Linq.FirstOrDefault, Linq.Last, Linq.LastOrDefault, Linq.Single, and Linq.SingleOrDefault.
+    (761082) - Fixed shader compiler generating invalid metal shaders.
+    (795429) - GI: Cleanup realtime reflection probe pool between level loads.
+    (760728) - GI: Enabled L2 spherical harmonics for light probes and use the correct light probes SH axes and scaling (rebaking light probes required). Makes objects lit by lightprobes match static lightmapped objects. Upgraded Enlighten to SDK-3.02.UN1.50384.
+    (784128) - IL2CPP: Implemented the "Allocated Objects" performance counter in the "Mono Memory" category.
+    (797649) - IL2CPP: Prevent a crash in FieldInfo.GetValue.
+    (741295) - Job Queue: Fixed issue where a deadlock could occur inside the job system in very rare situations.
+    (788714) - Lines/Trails: Fixed the issue where hadow casting line renderers could cause visual glitches.
+    (796226) - Mecanim: Fixed crash in CopyAnimationNodeState.
+    (none) - OpenGL: Fixed possible crash on machines with several different GPUs, if binary shader cache was used from a mismatching GPU.
+    (793476) - Particles: Fixed the issue where calling Stop on offscreen particle systems would instantly destroy them.
+    (793458) - Particles: Fixed culling regression bug when starting particles offscreen.
+    (793747) - Particles: Fixed a regression when stopping particles and moving them offscreen before they die.
+    (793101) - Particles: Fixed the issue where pivot offset on stretched billboard particles was being applied incorrectly.
+    (790480) - Particles: Fixed the issue where pivot offset was incorrectly inverted on the Y axis.
+    (768279) - Physics: Exposed Rigidbody.solverVelocityIterationCount and Physics.solverVelocityIterationCount to help stabilize bounce behavior on impacts.
+    (770290) - Terrain: Fixed a crash when the asset of trees painted on the terrain is deleted from the project.
+    (774962) - Terrain: Fixed an issue where modifying terrain settings in the Inspector didn't properly dirty the scene and might cause potential data loss.
+    (757741) - Terrain: Fixed crash loading corrupted terrain.
+    (771032) - Terrain: TerrainData.heightmapResolution, SetDetailResolution(), alphamapResolution and baseMapResolution now prints warning messages if the supplied argument is out of range.
+    (none) - UnityAnalytics: Fix for Game Observer input touches GC alloc based on forum post. And not send extract appRunning event during scene change.
+    (796163) - UnityWebRequest: [IL2CPP] Fix for app crash when using custom DownloadHandlerScript with preallocated buffer for UnityWebRequest.
+    (786293) - UnityWebRequest: DownloadHandlerScript.CompleteContent is not called
+    (776804) - VCS: Fixed the PlasticSCM connection problems on OSX 10.11 and OSX 10.10.
+    (none) - VR: Audio device no longer switches when an unused usb audio device is removed.
+    (none) - VR: Fixed splash screen hitching during level load on Oculus Rift and Gear VR.
+    (none) - VR: Oculus Plugin Signing for Non-Development builds.
+    (783291) - WebGL: Ensure GC is run after scene load to clear WeakReferences.
+    (792473) - Windows Store: Correctly specify RootNamespace when generating Visual Studio projects for il2cpp backend, fixes Windows Runtime metadata validation test in WACK.
+
+Revision: 4c1fbb057dc3
