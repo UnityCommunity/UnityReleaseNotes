@@ -1,0 +1,85 @@
+5.4.0b21 Release Notes (Delta since b20)
+Known Issues
+
+    [788312] [SinglePassStereo] Deferred rendering + spot and point lights stereo discrepancy
+    [780112] 2D: After changing state of 2DRectMask, Scene has to be reloaded for changes to take an effect
+    [776827] Android: Shader fails in OpenGLES 3.0 on Adreno 306 when comparing fragment position with uniform.
+    [723801] Animation: Editing .anim text file while Unity is running might crash the editor
+    [800888] Editor: Editor crashes after overflowing both Width and Height fields of Game view resolution window
+    [800900] Editor: Editor doesn't repaint when Services window is docked next to the Inspector
+    [784831] Editor: When maximizing the Game window, the scale does not automatically adjust to the increased window size.
+    [799288] GI: Baked transparency regressed in Enlighten 3.03 un2
+    [688985] GI: Copying a scene loses the baked lighting. Workaround is to manually "Build Lighting."
+    Graphics: In deferred rendering, lightmapped objects affected by mixed-mode lights fallback to forward rendering.
+    [790555] iOS: Crash with gpus_ReturnGuiltyForHardwareRestart when running GLES2/3 on A9 & A9X devices. Next iOS update is expected to fix this.
+    [762371] Scene Management: SceneManager.UnloadScene hangs if called from a physics trigger. Workaround is to defer unload. This will not be addressed in 5.4.
+    VR: In-development cinematic Image Effects (Bitbucket project) do not currently work with single-pass rendering. This will be addressed independently of the 5.4 release schedule.
+    [778119] VR: Single-pass rendering: The following Standard Asset Image Effects do not currently work reliably: CameraMotionBlur, ScreenSpaceAmbientObscurance. A fix is being developed.
+    [778119] VR: Single-pass rendering: The following Standard Asset Image Effects partially work: Blur, CreaseShading, DepthOfField, DepthOfFieldDeprecated, GlobalFog, NoiseAndGrain, ScreenSpaceAmbientOcclusion, Tonemapping. A fix is being developed.
+    [777766] VR: Splash screen and single pass rendering have issues.
+    [779207] VR: The default Text Mesh shader does not work in VR. Manually include a copy of the shader to workaround the problem.
+    [776787] Windows Store: Unity APIs which take multi-dimensional arrays as parameters (e.g. TerrainData.SetHeights) do not work on UWP in configurations (e.g. Master config) in which .NET Native compilation is enabled. The bug has been logged with Microsoft.
+
+Features
+
+    VR: Oculus Support for DirectX 12.
+
+Improvements
+
+    Graphics: Added makeNoLongerReadable argument to Texture3D.Apply and Texture2DArray.Apply APIs, to be able to release system memory.
+    Graphics: Added RenderTexture.GetNativeDepthBufferPtr for native code plugins.
+    iOS/tvOS: Change to use relative symlinks for plugins when building to a related folder.
+    Scripting: Added LightShadowsResolution property to scripting API to make it possible to adjust the shadow mapping quality in code at run time on a per-light basis.
+    Shaders: Added ability to exclude shaders from automatic upgrade, by having "UNITY_SHADER_NO_UPGRADE" anywhere in shader source file.
+    Shaders: Engine and built-in shaders use five fewer shader keywords now, leaving more keywords for users. The following keywords are thus removed: SOFTPARTICLES_OFF, HDR_LIGHT_PREPASS_OFF, HDR_LIGHT_PREPASS_ON, SHADOWS_OFF, DIRLIGHTMAP_OFF.
+    VR: Updated to the 1.4 Oculus API.
+
+Fixes
+
+    [789557] Animation: A warning that was erroneously displayed in AnimationClip is now displayed in ModelImporter.
+    [788452] Animation: Fixed a case where adding an IsActive property to a legacy animation would cause a crash when sampling.
+    [783143] Animation: Fixed a crash triggered when playing an AnimatorControllerPlayable with an invalid asset.
+    [766978] Animation: Fixed an issue where an assert would pop when importing animations on a model where the skinned mesh was not on the root joint.
+    [785852] Animation: Fixed an issue where interrupted transitions would cause empty states to continue to output animation.
+    [789784] Animation: Fixed an issue where the transition preview wouldn't reappear when valid parameters were set (after it having disappeared when invalid parameters were set).
+    [789586] Animation: Fixed case of animation clip being invalidated when adding an animation event.
+    [796729] Animation: Fixed case of CullingMode not getting properties applied when changed during playmode in Inspector.
+    [788132] Animation: Fixed case of GetHumanPose crashing when using it with a humanoid avatar with unsupported hierarchy.
+    [778887] Animation: Fixed case of playable not updating when animator controller is already set in animator.
+    [786827] Animation: Fixed case of rotation values set in inspector being restricted to 0-360 degrees when recording animation.
+    [784470] Animation: Fixed case of transition not evaluating when exit time is close to 1.0.
+    [773437] Animation: Fixed crashes in AudioSource.GetCustomCurve.
+    [793808] Animation: Fixed cut letter in the 'Dopesheet' button, in the animation window.
+    [789053] Animation: Fixed issue whereby the Z position of RectTransform couldn't be animated.
+    [780836] Asset Bundles: Fixed crash that could be triggered when calling AssetBundle.LoadAllAssetAsync() on a streamed scene asset bundle.
+    [780356] Asset Management: Fixed crash that could be triggered when undoing the replacement of a transform on a prefab instance.
+    [775644] Asset Management: Implemented delay connecting to the cache server, until the user has finshed entering the cache server IP.
+    (Issue)DX12: Fixed case of DX11 9.x feature level shaders erroneously being treated as supported on DX12.
+    [787114] Editor: EDITOR ONLY: When having multiple scenes open when entering playmode, the active scene is now loaded and activated first, no matter where in the list it is. When exiting playmode the previous active scene is now correctly made the active scene again.
+    [799469] Editor: Fixed crash in the callstack symbolication code that meant Unity could crash while generating crash reports during engine startup and shutdown.
+    [792560] Editor: Fixed gfxsettings when importing from an old unitypackage.
+    [795707] Editor: Fixed issue where in some cases the Editor window title was not reflecting the current graphics emulation setting immediately.
+    Editor: Updated build window to allow case insensitive file extensions.
+    [678975] Graphics: Fixed issue whereby building a player with -nographics would cause some image effects to become disabled in the build.
+    [739115] Graphics: Repeated loading of PNG/JPG images into a Texture2D no longer fails.
+    [741295] Job Queue: Fixed issue where a deadlock could occur inside the job system in very rare situations.
+    [795897] Networking: Fixed issue with SendToAll sending duplicate messages to the local client when hosting.
+    [794384] OpenGL: Work-around for Mac Intel driver crash when trying to use tessellation shaders on a GPU that can't do it.
+    [793886] Shaders: Fixed case of function shaders containing CustomEditors not displaying the correct editor.
+    [792541] Shaders: Fixed issue whereby importing a package containing Player Settings with graphics API settings that differ from the current ones would cause shaders to not work properly.
+    [793168] Shaders: Fixed issue whereby in some cases the [Header] attribute on the shader property UI could cause the next shader property to have the same name as the header text.
+    [782556] SpeedTree: Fixed an issue where billboards didn't scale correctly when batched.
+    [784423] Terrain: Fixed an issue where deleting in-use terrainData while GI is being baked for the terrain would crash the editor.
+    (Issue)Terrain: Fixed an issue where the legacy Soft Occlusion tree shaders didn't work well with images effects that utilize the depth texture.
+    [798018] UI: Fixed issue where multiple webviews were created in UnityConnectEditorWindow.
+    [766769] UI: Reduced overhead incurred by SetSiblingIndex calling OnTransformParentChanged.
+    [483760] Video: Fixed case of MovieTexture hang due to incorrect frame rate discovery.
+    [787993] Video: Fixed case of MovieTexture hang with multi-channel audio.
+    [730528] Video: Fixed case of MovieTexture Incorrect colors.
+    [402608] Video: Fixed case of MovieTexture spurious sound when regaining focus.
+    [715732] Video: Fixed MovieTexture crash when importing large files.
+    [596738] Video: Fixed MovieTexture Unicode support in .mp4/.mov filenames on Windows.
+    [704978] VR: Fixed case of application still updating while Editor is paused (in VR mode).
+    VR: Fixed Culling in left eye for OpenVR applications.
+    VR: Fixed issue with acquiring Correct node values during the first frame for Oculus.
+    Windows Store: Fix to correctly generate RootNamespace inside Visual Studio project if product name contains whitespaces while building with il2cpp scripting backend.
