@@ -1,0 +1,50 @@
+5.3.5p4 Release Notes
+Released: 16 June 2016
+
+Improvements
+
+    Runtime-Other: Added diagnostic option to cmdline arguments -debugallocator [1/2] which helps to identify memory access issues in the engine on Windows and OSX x64 platforms.
+    WebSocket: Improved memory allocation and socket writing procedure (fixed not expected connection closing)
+
+Fixes
+
+    (796242) - Android: Abandon/Request audio focus on pause/resume.
+    (789398) - Android: Audio - Fixed audio latency in GearVR regression.
+    (746248) - Android: Buildpipe - Don't check for passwords if exporting project.
+    (746248) - Android: Buildpipe - Don't merge manifests if exporting project.
+    (781657) - Android: Buildpipe - Remove mdb files from release build.
+    (790236) - Android: Editor - Fixed an issue where it was impossible to push to devices running Android N Preview.
+    (802824) - Android: Fixed the issue of game freezing when changing resolution with Screen.SetResolution.
+    (786289) - Android: Fixed high memory usage of RenderTexture.GetTemporary.
+    (751102) - Android: Fixed a crash related to the main context not being an Activity.
+    (793738) - Android: Fixed an issue where Indonesian and Hebrew weren't properly recognized by SystemInfo.
+    (none) - Android: Fixed deployment to devices with unknown OpenGL ES target.
+    (782985) - Android: JNI - Throw correct exception when method not found by reflection.
+    (696580) - Android: Tegra 2: Application no longer crashes if UnitySendMessage is called during initialization.
+    (795931) - ETC1: Fixed ETC1 variant getting stripped out from android build.
+    (793780) - Fixed an issue where Cache Server failed to validate prefab created from script.
+    (none) - Graphics: Fixed potential memory leak with timesliced realtime reflection probes.
+    (797495) - IL2CPP: Implemented Process.GetCurrentProcess on some platforms and provide a useful error message where it was not possible to implement.
+    (800301) - IL2CPP: Prevented a possible deadlock on PS4.
+    (802618) - IL2CPP: Support IPv6 addresses for LocalEndPoint and RemoteEndPoint properties of the .NET Socket class.
+    (792932) - iOS: Enabled incremental build for il2cpp by default for old projects.
+    (803206) - iOS: Fixed crash when calling WWW.Dispose.
+    (790853) - iOS: Removed unneeded il2cpp files that increase build size.
+    (794783) - Model Importer: Fixed a crash when importing .obj and .fbx files with malformed or duplicate vertex data.
+    (763536) - Mono: Added MD4, SHA384 and SHA512 signature verification to X.509 certificates.
+    (793415) - Mono: Handle marshaling properly of a class with a fixed size array field and a base class with multiple fields.
+    (none) - Multiplayer: Cleaned up the connection containing StateUpdate channel can cause crash.
+    (761566) - Multiplayer: Fixed: Calling NetworkDiscovery.StopBroadcast() and NetworkServer.Reset() crashes editor.
+    (794054) - Multiplayer: NetworkTransport.SetBroadcastCredentials crashes unity.
+    (788808) - Multiplayer: ReliableFragmented channel can drop data.
+    (760104) - Multiplayer: WebSockets: Fixed crash on NetworkClient.SendByChannel call.
+    (774657, 768041, 794455) - OpenGL: Fixed various shader translation (for GLCore/GLES3) issues. Atomic operations on RWByteAddressBuffers, vertex-to-fragment inputs not being float4/half4 sized, geometry shaders where first input is not a SV_POSITION, tessellation shaders that were making some drivers not happy.
+    (707886) - OSX: Fixed icons in batch mode builds.
+    (787233, 793518) - OSX: Fixed infrequent crashes in Screen Selector.
+    (696234) - OSX: Fixed SSL protocol support on 32-bit OSX standalone.
+    (776115) - tvOS: Fixed support for default font of Unity (Arial).
+    (800964) - UnityWebRequest: Hard EXC_BAD_ACCESS crash from AsyncOperation.
+    (none) - UnityWebRequest: Make headers case insensitive, in order to better match RFC 2616 semantics.
+    (791362) - WebSockets: Make Incoming buffer configurable: ConnectionConfig.WebSocketReceiveBufferMaxSize param.
+
+Revision: f55402cb6571
