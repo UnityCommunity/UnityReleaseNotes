@@ -1,0 +1,107 @@
+5.4.0b22 Release Notes (Delta since b21)
+Release Date 20 June 2016
+
+Known Issues
+
+    [788312] There is some stereo discrepency on spotlights and point lights when using deffered rendering.
+    [780112] 2D: After changing state of 2DRectMask, Scene has to be reloaded for changes to take an effect
+    [776827] Android: Shader fails in OpenGLES 3.0 on Adreno 306 when comparing fragment position with uniform.
+    [805547] Editor: Connect window shows in Inspector tab and then Editor crashes on closing.
+    [800900] Editor: Editor doesn't repaint when Services window is docked next to the Inspector.
+    [784831] Editor: When maximizing the Game window, the scale does not automatically adjust to the increased window size.
+    [805864] Editor: [Editor][OSX][Regression] NullReferenceException in PackageImportTreeView after pressing Import button in Asset Store
+    [688985] GI: Copying a Scene loses the baked lighting. Workaround is to manually use "Build Lighting."
+    Graphics: In deferred rendering, lightmapped objects affected by mixed-mode lights fallback to forward rendering.
+    [762371] Scene Management: SceneManager.UnloadScene hangs if called from a physics trigger. Workaround is to defer unload. This will not be addressed in 5.4.
+    VR: In-development cinematic Image Effects (Bitbucket project) do not currently work with single-pass rendering. This will be addressed independently of the 5.4 release schedule.
+    [778119] VR: Single-pass rendering: The following Standard Asset Image Effects do not currently work reliably: CameraMotionBlur, ScreenSpaceAmbientObscurance. A fix is being developed.
+    [778119] VR: Single-pass rendering: The following Standard Asset Image Effects partially work: Blur, CreaseShading, DepthOfField, DepthOfFieldDeprecated, GlobalFog, NoiseAndGrain, ScreenSpaceAmbientOcclusion, Tonemapping. A fix is being developed.
+    [777766] VR: Splash screen and single pass rendering have issues.
+    [779207] VR: The default Text Mesh shader does not work in VR. Manually include a copy of the shader to workaround the problem.
+    [776787] Windows Store: Unity APIs which take multi-dimensional arrays as parameters (e.g. TerrainData.SetHeights) do not work on UWP in configurations (e.g. Master config) in which .NET Native compilation is enabled. The bug has been logged with Microsoft.
+
+Changes
+
+    Scripting: Using GameObject.AddComponent is no longer allowed and will throw an exception. Derive a class from MonoBehaviour and add it instead.
+
+Improvements
+
+    Graphics: Added a property to allow skipping the bounding box recalculation when setting the list of indices or triangles of a Mesh. This is useful for LODs that use a sliding window.
+    Multiplayer: WebSocket: Improved memory allocation and socket writing procedure (fixed case of connection closing unexpectedly).
+    Shaders: Added UNITY_SAMPLE_TEX3D_LOD macro, for consistency with other LOD sampling macros.
+    VR: Added support for the Oculus Rift Remote: it presents itself to the input system as a joystick named "Oculus Remote".
+
+Fixes
+
+    [800268] Animation: Animation event no longer fires twice when the controller is set by script and an instantaneous transition is triggered on the same frame.
+    [800939] Asset Bundles: Fixed crash when building AssetBundles.
+    [722725] Asset Bundles: Fixed issue whereby particle materials would lose reference to textures if loaded from AssetBundles.
+    [785775] Asset Management: Fixed crash at UndoBase::DetermineUndoType when deleting a large number of objects or objects with large sizes.
+    [775982] CacheServer: Fixed issue with wrong CacheServer IP address used when "Check Connectivity" button clicked in Preferences window.
+    [800247] DX11: Fixed rendering into 3D/2DArray render texture mip levels.
+    [440883] Editor: Fix to show correct platform title instead of platform ID.
+    [795182] Editor: Fixed case of Scene.buildIndex being always -1 when in Edit mode.
+    [780900] Editor: Fixed issue where preferences in the Windows registry were not being terminated correctly.
+    GI: Fixed a bug which would cause GI textures to be packed incorrectly.
+    [803086] Graphics: Fixed crash in CommandBuffer.DrawMesh when material is null.
+    [790555, 737693, 794660] iOS: Applied workaround for a9 driver bugs with non-full mipchain vs EXT_texture_storage.
+    [792932] iOS: Enabled incremental build for IL2CPP by default for old projects.
+    [790853] iOS: Fix to remove unnecessary IL2CPP files that increase build size.
+    [776528] iOS: Fixed a memory leak caused by auto-released objects in non-main threads.
+    [777964] iOS: Fixed case of Unity splash screen on standalone player appearing brighter in linear color space on Metal.
+    [794783 , 794786] Model Importer: Fixed a crash when importing .obj or .fbx files with malformed data or duplicate indices.
+    [789572] Multi-display: Fixed issue whereby a Scene would still be displayed in the original monitor, even after changing the primary monitor.
+    [761566] Multiplayer: Fixed issue where calling NetworkDiscovery.StopBroadcast() and NetworkServer.Reset() would crash Editor.
+    [788808] Multiplayer: Fixed issue whereby ReliableFragmented channel could drop data.
+    [788537] Multiplayer: Fixed issue with initial state in SyncListStructs not being handled correctly.
+    [791362] Multiplayer: [WebSockets] Fix to make Incoming buffer configurable: ConnectionConfig.WebSocketReceiveBufferMaxSize param.
+    [760104] Multiplayer: [WebSockets] Fixed crash on NetworkClient.SendByChannel call.
+    OpenGL: Fixed cases of SystemInfo.graphicsMemorySize, graphicsDeviceID and graphicsDeviceVendorID being incorrect on desktop platforms. These now match legacy GL behavior.
+    OpenGL: Fixed issue whereby 3D textures did not have mipmaps in some cases.
+    [702370] OSX: Fix to respect requested framerate in batch mode.
+    [702370] OSX: Fixed excessive CPU usage in batch mode.
+    [707886] OSX: Fixed icons in batch mode builds.
+    [787233, 793518] OSX: Fixed infrequent crashes in Screen Selector.
+    [696234] OSX: Fixed SSL protocol support on 32-bit OSX standalone.
+    [799348] OSX: Fixes for Cinematic Effects (Depth Of Field, Screen Space Reflections, SMAA) on Metal.
+    [782535] Particles: Burst counts are no longer limited to 64K.
+    [775739] Particles: Fix to disable "Speed Range" UI when it is not relevant.
+    [790186] Particles: Fixed case of "Invalid AABB" error messages.
+    [795404] Particles: Fixed issue where assigning a different mesh to Shape Module could cause a crash.
+    [773317] Particles: Fixed issue where automatic culling icon did not work with multiple Particle Systems.
+    [775304] Particles: Fixed issue where collision messages did not work for plane collisions.
+    [798671] Particles: Fixed issue where isVisible was not always correct or not updated by ParticleSystem.Play, depending on camera position.
+    [784875] Particles: Fixed issue where prewarm was ignored when start delay was greater than start lifetime.
+    [769656] Particles: Fixed issue where using large gravity values could cause erroneous error messages.
+    [586201] Particles: Fixed issue with ParticleSystem.Prewarm over-simulating when becoming visible.
+    [790506] Particles: Improved RotationBySpeed module UI and made tooltips more descriptive.
+    [790789] Particles: Scene view Particle count now shows SubEmitter information.
+    [769598] Particles / VR: Fixed issue where stretched particles did not work in VR.
+    Samsung TV: Fixed case where OnMouseDown() was not working on Samsung TV.
+    [794364] Substance: Fixed case of outputs not being generated correctly when changing values too fast.
+    [800401] Text Rendering: Fixed a memory leak and behavior leading to crash in Font::CacheFontForText. This also reduced the amount of unnecessary growth that could occur in the Font texture atlas.
+    [784847] Text Rendering: Fixed a potential crash NativeTextGenerator::InsertCharacter when processing badly formed rich text.
+    [790016] Tizen: Fixed case of TapCount not functioning in Development mode.
+    [790311] Tizen: Fixed issue where projects would hang on the splash screen if a custom splash image was used.
+    [787494] Tizen: Fixed operation of Application.OpenURL when used with mailto: URLs.
+    Tizen: Fixed problem whereby an object would sometimes move to the center of the screen when the device was rotated.
+    [776115] tvOS: Fixed support for default Unity font (Arial).
+    [662320] UI: Change to hide unused bump map tiling editor in UI/Lit/Bumped Shader inspector.
+    [688005] UI: Fix to add unsupported fonts in ' only supported in dynamic fonts.' warning.
+    [790246] UI: Fix to force canvas.position.z to 0 when updating the RectTransform of a screen space canvas.
+    [787872] UI: Fix to prevent Canvas emitting to a preview camera.
+    [787195] UI: Fixed case of Canvas Editor bypassing overrideSorting and sortingOrder setters, missing needed events.
+    [749573] UI: Fixed case of disappearing canvas after a session lock/unlock by forcing application repaint after device reset.
+    [794711] UI: Fixed case of shader UV properties being discarded in graphics material.
+    [790264, 799386, 795880] UI: Fixed case of World Space Canvas not being rendered on render textures.
+    [786986] UI: Fixed case where RectMask2D was clipping nested canvases with overrideSorting.
+    [794038] UI: Fixed infinite ScrollRect elastic movement.
+    [793385] UI: Fixed issue with small UI gittering due to local position-rounding issues.
+    [766771] UI: Fixed NullReferenceException when deleting object with 2D RectMask component from Scene.
+    [793119] UI: Fixed off-by-1 error in InputField.characterLimit when then ContentType is not Standard.
+    [776804] VCS: Fixed PlasticSCM connection problems on OSX 10.11 and OSX 10.10.
+    VR: Fixed splash screen hitching during level load on Oculus Rift and Gear VR.
+    [788011] Windows: Fixed case of custom cursor not working after ~3300 updates to different texture, which could also lead to a crash on opening some standardWindows dialog in the Editor.
+    [797575] Windows: Fixed default behaviour for the native resolution setting: the player will now default to native resolution on the first run when this is enabled.
+    [788684] Windows: Fixed incorrect calculation of the cursor position when not using the primary monitor.
+    [775624] Windows Store: Fixed manifest generation when only StoreLogo scale-100 image is available.
