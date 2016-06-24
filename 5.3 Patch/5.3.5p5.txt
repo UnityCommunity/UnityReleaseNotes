@@ -1,0 +1,46 @@
+5.3.5p5 Release Notes
+Released 23 June 2016
+Fixes
+
+    (none) - Analytics: Fixed a NullReferenceException when stores inform Unity IAP of purchase events without providing metadata for the purchased product.
+    (792351) - Android: Fixed an issue where Unity would emit "Unknown event structure (0)" to the log several times per second.
+    (789840) - AssetBundle: Fixed the error message when accessing the main asset.
+    (none) - Build Pipeline: Updated build window to allow case insensitive file extensions.
+    (747347) - Documentation: Updated documentation for Resources.UnloadAsset to document the 5.x behaviour which is different to 4.6 behaviour.
+    (799469) - General: Fixed crash in the callstack symbolication code that meant Unity could crash while generating crash reports during engine startup and shutdown
+    (none) - GI: Fixed an issue which would caused GI textures to be packed incorrectly.
+    (803088) - GI: Fixed error when baking light probes: "Error adding Enlighten probe set: Failed to allocate probe set."
+    (797235) - GI: Fixed static batching not working when Lightmap Static and Use Light Probes options were both enabled in a Renderer in manual GI mode.
+    (803910) - IL2CPP: Now allow allocation of a pinned GC handle to a null value.
+    (788428) - iOS: Fixed a crash on iOS when 60 fps app is going to background.
+    (none) - iOS: Fixed possible value change for WebCamTexture.size after calling GetPixels() methods.
+    (785021) - iOS: Set correct value in Xcode when "Target minimum iOS version" player setting is set to 9.0.
+    (799572) - iOS: Set missing texel size for WebCamTexture textures.
+    (803795) - License: Fixed broken link to buy Pro version.
+    (803806) - License: Fixed license page alert bar missing issue.
+    (783219) - LOD: Fixed unreachable code warnings when distance == selection.maxDistance.
+    (791362) - Networking: Adding parameter ConnectionConfig.WebSocketReceiveBufferMaxSize (bytes) for manually increasing webSocket buffer and preventing disconnect with log message """"*** sending new, pending truncated **"""".
+    (788877) - Networking: Fixed an issue of different error-messages when setting 65535 and 65537 to m_MaxDefaultConnections in HostTopology.
+    (761566) - Networking: Fixed an issue whereby calling  NetworkDiscovery.StopBroadcast() and NetworkServer.Reset()  crashes editor.
+    (801973) - Networking: Fixed System.Net.NetworkInformation.Ping on recent versions of OSX.
+    (806540, 805897) - OpenGLES: Fixed crash triggered by attempting to set a texture parameters with an uninitialized texture dimension. This was affecting the rendering of the splash screen.
+    (544444) - Particles: Added Undo support when auto reparenting sub emitters.
+    (791794) - Particles: Bounds are not updated after moving whole particle.
+    (772199) - Particles: Fixed an issue where mesh particles are not being scaled when in world space.
+    (489509) - Particles: Fixed collisions not being calculated in-between editor updates.
+    (780867) - Particles: Fixed sorting when using local space particles.
+    (754270) - Particles: Start delay is only applied when the system time is 0.
+    (806089) - Physics: Toggling 'Rigidbody2D.IsKinematic' in the Inspector during play-mode now correctly changes the body-type.
+    (791026, 771710) - Scripting: Fixed deadlock in Editor on re-entering play mode when using ThreadPool.
+    (787136, 801535) - Shaders: Fixed reflection probe box projection not being accurate on large polygons.
+    (790491) - Substance: Fixed an error when loading package file containing an old version of a substance file.
+    (790798) - Terrain: Fixed backlit SpeedTree leaves not being correct in deferred shading.
+    (none) - tvOS: Fixed tvOS player support depending on iOS support native libraries.
+    (790589) - tvOS: Removed "Prepare iOS for recording" from tvOS player settings, which was breaking full screen movie playing.
+    (790264, 799386, 795880) - UI: Fixed World Space Canvas not being rendered on render textures.
+    (790840) - UnityWebRequest: Fixed an issue where UnityWebRequest.error returned inconsistent results after Abort was called.
+    (none) - VR: GearVR no longer renders splash image directly to the HMD's compositor until updated version of Oculus plugin is available.
+    (802122) - VR: Remove black bar from side of game view by correcting for occlusion mask.
+    (786999) - WWW: Fixed potential crash when multiple simultaneous downloads failed.
+
+Revision: 2fb591d65635
