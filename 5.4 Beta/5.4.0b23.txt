@@ -1,0 +1,45 @@
+5.4.0b23 Release Notes (Delta since b22)
+Release Date 28 June 2016
+Known Issues
+
+    [788312] There is some stereo discrepency on spotlights and point lights when using deffered rendering.
+    [780112] 2D: After changing state of 2DRectMask, Scene has to be reloaded for changes to take an effect
+    [805547] Editor: Connect window shows in Inspector tab and then Editor crashes on closing.
+    [800900] Editor: Editor doesn't repaint when Services window is docked next to the Inspector.
+    [805864] Editor: [Editor][OSX][Regression] NullReferenceException occurs in PackageImportTreeView after pressing Import button in Asset Store.
+    [688985] GI: Copying a Scene loses the baked lighting. Workaround is to manually use "Build Lighting."
+    Graphics: In deferred rendering, lightmapped objects affected by mixed-mode lights fallback to forward rendering.
+    [762371] Scene Management: SceneManager.UnloadScene hangs if called from a physics trigger. Workaround is to defer unload. This will not be addressed in 5.4.
+    VR: In-development cinematic Image Effects (Bitbucket project) do not currently work with single-pass rendering. This will be addressed independently of the 5.4 release schedule.
+    [778119] VR: Single-pass rendering: The following Standard Asset Image Effects do not currently work reliably: CameraMotionBlur, ScreenSpaceAmbientObscurance. A fix is being developed.
+    [778119] VR: Single-pass rendering: The following Standard Asset Image Effects partially work: Blur, CreaseShading, DepthOfField, DepthOfFieldDeprecated, GlobalFog, NoiseAndGrain, ScreenSpaceAmbientOcclusion, Tonemapping. A fix is being developed.
+    [779207] VR: The default Text Mesh shader does not work in VR. Manually include a copy of the shader to workaround the problem.
+    [776787] Windows Store: Unity APIs which take multi-dimensional arrays as parameters (e.g. TerrainData.SetHeights) do not work on UWP in configurations (e.g. Master config) in which .NET Native compilation is enabled. The bug has been logged with Microsoft.
+
+Features
+
+    IL2CPP: Android support for IL2CPP is now official (previously 'experimental').
+
+Improvements
+
+    OpenGL: Optimized shader translation for matrix array accessing. This especially improves instancing performance.
+    VR: The Oculus OVRPlugin signature check now happens only for non-development, release builds.
+
+Fixes
+
+    [781657] Android: Added an explicit clear for .mdb files for release builds.
+    [787491] Android: Fixed a crash on PVR devices caused by a driver issue with KHR_debug.
+    [777411] Editor: Fixed crash when registering Transform using Undo.RegisterCreatedObjectUndo.
+    [804750] Graphics: Fixed DepthNormals pass to no longer use very low precision (16bit) depth buffer. It now uses the same depth buffer format as regular rendering.
+    [794054] Multiplayer: Fixed case of NetworkTransport.SetBroadcastCredentials crashing Unity.
+    Multiplayer: Fixed issue whereby cleaning up a connection containing a StateUpdate channel could cause a crash.
+    [776827] OpenGL: Applied workaround for ES3 shader compiler bugs on Adreno 3xx devices.
+    [806089] Physics: Toggling 'Rigidbody2D.IsKinematic' in the Inspector during Play Mode now correctly changes the body type. Previously it had no effect.
+    [803901] UI: Fixed issue with double rendering of world canvas in Editor.
+    [793119] UI: Fixed off-by-1 error in InputField.characterLimit when ContentType != standard.
+    [786986] UI: MaskUtilities fixes:
+        Fix to skip inactive RectMask2D
+        Fixed nested clipping.
+    VR: Fixed file access error when building with Oculus or OpenVR plugins included in the Plugins folder.
+    [802122] VR: Fixed VR scene rendering in Game View to use the correct aspect ratio and not render occlusion mask.
+    VR: VR splash screen images now follow the gaze of the user so that they are always seen.
