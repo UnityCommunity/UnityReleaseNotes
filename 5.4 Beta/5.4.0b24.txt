@@ -1,0 +1,60 @@
+5.4.0b24 Release Notes (Delta since b23)
+Release Date 8 July 2016
+
+Changes
+
+    Editor: Changed License Title from "Unity Pro" to "Unity Plus or Pro".
+
+Improvements
+
+    VR: Updated to Oculus Runtime version 1.5.
+
+Fixes
+
+    [785841] Animation: Fixed applying rotation on RigidBody2D.
+    [803584] Animation: Fixed case of animation being glitchy when 'Optimize Game Objects' option was selected.
+    [802229] Animation: Fixed case of ArgumentNullException being issued when deleting a property in the Animation Window.
+    [802226] Animation: Fixed case of incorrect framing being applied when changing the Curve Editor property selection in the Animation Window.
+    [788662] Animation: Fixed case of playable not updating when an AnimatorController is already set in the animator.
+    Animation: Memory usage improvements.
+    [806648] Editor: Fixed issue where switching user before activating would cause a license activation failure.
+    [805547] Editor: Fixed issue where two (or more) Cef browser windows were instantiated.
+    [789883] Editor: The OnGeneratedCSProjectFiles callback is now triggered as expected when using Visual Studio.
+    [754308] GI: Fixed an issue on iOS and some Android devices where Materials with high Emission would produce banding artifacts when real-time GI was used.
+    [799572] iOS: Fix to set the missing texel size for WebCamTexture textures. This in turn fixes WebCamTexture rendering on UI's RawImage.
+    [785021] iOS: Fixed case of incorrect value being set in Xcode when the "Target minimum iOS version" player setting in Unity was set to 9.0.
+    iOS: Fixed case of possible change in WebCamTexture.size values after calling GetPixels() methods.
+    [788428] iOS: Fixed crash on iOS when an app targeting 60 FPS was being suspended to background.
+    iOS: Incremented the minimum supported iOS version from 6.0 to 7.0.
+    [802534] Metal: Fixed rendering of masked contents on GUI layer.
+    [777966] Physics: Fixed the source of a number of crashes that could occur when setting properties (such as 'connectedBody') of broken Joints during the OnJointBreak callback.
+    [657306] Scripting: Fixed thread safety of TimeZone.CurrentTimeZone and DateTime.Now.
+    [790589] tvOS: Removed "Prepare iOS for recording" from tvOS player settings, which was breaking fullscreen movie playing.
+    [785501] UI: Fixed issue where the last UI element added to a layout group via the Create... menu would be mis-positioned.
+    Windows: Fixed occasional stutter when running with vsync turned off.
+
+Known Issues
+
+    [788312] There is some stereo discrepency on spotlights and point lights when using deferred rendering.
+    [775353] Asset Management: Crash in HandleSetTransformFatherDragAndDrop when dragging a Tree Prefab to the Hierarchy window.
+    [800900] Editor: Editor doesn't repaint when Services window is docked next to the Inspector.
+    [808123] Editor: In some cases, Editor freezes when Scene is opened after switching platform to Android.
+    [804333] Editor: Reverting prefab and pressing undo can result in a crash.
+    [688985] GI: Copying a Scene loses the baked lighting. Workaround is to manually use "Build Lighting."
+    [808616] Graphics: GL.LoadPixelMatrix is broken (VR matrix changes in 5.4, regression). Will be fixed in the next build.
+    Graphics: In deferred rendering, lightmapped objects affected by mixed-mode lights fallback to forward rendering.
+    [805227] Particles: Particles render as trails in some cases.
+    [809364] UI: 9-Sliced images whose sprite has mipmapping can blur if size is too small. Disable mipmapping as workaround
+    [779516] UI: Editing Text with Best Fit enabled causes artifacts to appear.
+    [795877] UI: World space canvas flickers when resizing game view.
+    [778119] VR: Single-pass rendering: The following Standard Asset Image Effects do not currently work reliably: CameraMotionBlur, ScreenSpaceAmbientObscurance. A fix is being developed.
+    [778119] VR: Single-pass rendering: The following Standard Asset Image Effects partially work: Blur, CreaseShading, DepthOfField, DepthOfFieldDeprecated, GlobalFog, NoiseAndGrain, ScreenSpaceAmbientOcclusion, Tonemapping. A fix is being developed.
+    [779207] VR: The default Text Mesh shader does not work in VR. Manually include a copy of the shader to workaround the problem.
+
+To be addressed post-5.4:
+
+    [780112] 2D: After changing state of 2DRectMask, Scene has to be reloaded for changes to take an effect
+    [808080] Asset Management: Editor crashes when replacing Prefab with Alt key pressed.
+    [762371] Scene Management: SceneManager.UnloadScene hangs if called from a physics trigger. Workaround is to defer unload. This will not be addressed in 5.4.
+    VR: In-development cinematic Image Effects (Bitbucket project) do not currently work with single-pass rendering. This will be addressed independently of the 5.4 release schedule.
+    [776787] Windows Store: Unity APIs which take multi-dimensional arrays as parameters (e.g. TerrainData.SetHeights) do not work on UWP in configurations (e.g. Master config) in which .NET Native compilation is enabled. The bug has been logged with Microsoft.
