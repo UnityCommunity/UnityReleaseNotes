@@ -1,0 +1,48 @@
+Release Notes 5.3.5p7
+Release Date 8 July 2016
+
+Fixes
+
+    (767948) - AI: Fixed crash when inspecting NavMeshAgent.pathEndPosition in MonoDevelop.
+    (789870) - Android: Application.temporaryCachePath and Application.persistentDataPath always return external paths starting KITKAT.
+    (796242) - Android: Audio - Fixed an issue where the application would not regain audio focus after a notification.
+    (799652) - AssetBundles: Fixed default compression for WebGL and WebPlayer targets
+    (788521) - Audio: Use of 'Best Performance' DSP buffer size results in crash
+    (804864) - Editor: Fixed an issue causing unnecessary script compilation, and improved compilation error handling
+    (780900) - Editor: Fixed issue where preferences in Windows registry were not being terminated correctly
+    (801482) - Fixed a crash-on-exit related to DirectorManager::OnShutdownBeforeObjectCleanup
+    (761215) - Fixed an issue where Changing culling modes during runtime would not take effect correctly
+    (780356) - Fixed crash when undoing replacement of transform on prefab instance
+    (749008) - GI/MSE: Fixes an issue when switching to lighting settings of a different scene.
+    (725776) - GI: "Error adding system: Data not available." thrown when building specific scene setup
+    (804898) - GI: Updated Enlighten to version 3.02.UN2.51359. Fixes output of incorrect light probe spherical harmonics L2 coefficients in certain situations. This was caused by un-initialized memory.
+    (796528) - IL2CPP: IL2CPP crash caused by incorrectly calculated stack bottom
+    (806644) - IL2CPP: Return the correct value for the HasValue property of nullable types on the stack.
+    (808292) - iOS/IL2CPP: Allow proper managed stack traces for iOS projects build on Unity Cloud Build.
+    (800915, 807370) - iOS: Fix a couple of Metal and Cloud support related small memory leaks
+    (804440) - iOS: Fix leak of thread handles and associated resources in UnityEngine.Ping
+    (805240) - iOS: Fixed apps from hanging when a long running script is triggered from backgrounding
+    (765574, 744380) - iOS: Fixed OnApplicationPause not being called when PlayFullScreenMovie stops/starts
+    (746309) - iOS: Fixed UnityWebRequest.isError being set incorrectly when there is no internet connection
+    (802534) - Metal: Fixed rendering of masked contents on GUI layer.
+    (809347) - Metal: Perform framebuffer clear more effectively
+    (789572) - Multidisplay: Fixed changing primary monitor still opens scene in first.
+    (794660) - OpenGLES: Fixed crash and reflection probes corruption on A9 chipsets (OpenGLES3.0)
+    (804483) - OSX: Add IPv6 support for WWW
+    (796870) - OSX: Fix a crash when -nographics is used without -batchmode
+    (801759) - OSX: Fix rare crashes when using WWW from multiple threads
+    (799420) - OSX: Fixed missing menu bar in Windowed mode OS X mac standalone
+    (none) - Tizen: Fix a problem that is an object moves to the center by force sometimes when device is rotated.
+    (766771) - UI: Fixed NullReferenceException when deleting object with 2D RectMask component from scene
+    (794360) - UI: Fixed race condition between UI system and UI jobs. In rare cases could cause a crash. Added asserts to help identify any future race conditions in the UI system.
+    (none) - VR: GearVR apps render their splash screens directly to the HMD compositor to fix hitching issue
+    (807442) - VR: Only disable rendering for stereo cameras when VR Focus is lost and RunInBackground is true.
+    (807454) - VR: Re-enable rendering when Disabling VR after losing VRFocus.
+    (none) - VR: Reduced delay when returning VRFocus. Should no longer be a static image for a second or two.
+    (804583) - Windows Store: generate code in exported solution to properly setup initial orientations, in order to avoid rotation on startup on Windows 10
+    (802112) - Windows Store: Accelerometer Events will be correctly returned on ARM platforms Case
+    (802990) - Windows Store: Fix System.FormatException in MainPage.xaml.cs Case
+    (804156) - Windows Store: SystemInfo.supportsVibration will return correct value on Windows Phone 8.1/10.0 Case
+    (801998) - Windows Store: WWW.responseHeaders will return STATUS header the same way as other platforms Case
+
+Revision: 27325a5697c6
