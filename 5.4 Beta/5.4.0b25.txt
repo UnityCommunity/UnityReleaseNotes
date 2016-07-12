@@ -1,0 +1,63 @@
+5.4.0b25 Release Notes (Delta since b24)
+Release Date 12 July 2016
+Fixes
+
+    [798901] 2D: Animating the Transform position/rotation when using 'Animate Physics' now correctly uses Rigidbody2D MovePosition/MoveRotation.
+    [798879] 2D: SurfaceEffector2D now correctly calculates tangent velocities for objects with forces opposing the desired surface speed.
+    [802327] Animation: Fixed crash when calling Animator.GetCurrentAnimatorStateInfo during an interrupted transition.
+    [782175] Audio: Fixed issue where an AudioSource created from MovieTexture.audioClip always returned 'time' property as 'Infinity'.
+    Audio: Fixed issue where AudioClip.LoadAudioData had no effect when called after AudioSettings.Reset.
+    Audio: Fixed issue where AudioSource.time was returning NaN values for user-created clips.
+    Audio: Fixed issue where non-persisted audio clips (i.e. clips created through AudioClip.Create) tried to reload after AudioSettings.Reset, which caused error messages.
+    [784933] DirectX: Windowed Direct3D 11 applications will no longer run with their framerate uncapped when minimized.
+    [804676] Editor: Building VR projects when running on case-sensitive file systems will now correctly find the target plugin folders.
+    [776559] Editor: Custom cursor texture is now validated when setting it, fixing issue where custom cursors could look corrupted.
+    [803624] Editor: Fixed a crash when importing a large sprite sheet.
+    [797557] Editor: Fixed crashes in various circumstances when using shaders with too many samplers.
+    [676201] Editor: Fixed issue whereby exiting Play Mode via script from Start did not work.
+    [806160] GI: Fixed source of crash that could happen in GetLightProbeProxyVolumeSample or SampleReflectionProbes.
+    [808304] Graphics: Fixed issue where SyncAsyncResourceUpload would do a busy wait loop, causing a CPU to get pegged unnecessarily.
+    Graphics: SpeedTree: Fixed incorrect rendering when a tree is in dithering on some mobile devices such as iPhone 6.
+    [800915, 807370] iOS: Fixed a couple of minor memory leaks relating to Metal and Cloud support.
+    [801573] iOS: Fixed crash in FMOD_RESULT DSP::release() when AudioManager::CloseFMOD is called several times.
+    [804440] iOS: Fixed leak of thread handles and associated resources in UnityEngine.Ping.
+    [806450] OpenGLES: Fixed crash on some Android applications, which could be triggered by attempting to set a texture parameter with an uninitialized texture dimension. This in turn affected the rendering of the splash screen.
+    [804483] OSX: Added IPv6 support for WWW.
+    [796870] OSX: Fixed a crash when using -nographics without -batchmode.
+    [801759] OSX: Fixed rare crashes when using WWW from multiple threads.
+    [800794] PS Vita: Fixed case of IL2CPP NewGuid returning duplicates.
+    [796528] PS Vita: Fixed IL2CPP crash caused by incorrectly calculated stack bottom.
+    [788521] PS Vita: Fixed issue whereby use of 'Best Performance' DSP buffer size would result in a crash.
+    [792648] Text Rendering: Fixed bug preventing best fit from working when font size 0 specified.
+    [803344] Text Rendering: Fixed case of text occasionally sampling beyond the spacing between adjacent glyphs by adding a default 1 texel padding around all glyphs in dynamic font textures.
+    VCS: Moved the assignment of an identifier from the constructor to the Get method. This stops a C++ method being called during C# constructor and serialization (which is a scripting warning as it is unsafe to do this).
+    [802112] Windows Store: Accelerometer Events are now returned correctly on ARM platforms.
+    [802112] Windows Store: Accelerometer Events are now returned correctly on ARM platforms. Previously, "out of bounds" exceptions could be raised.
+    [804156] Windows Store: Fixed case of SystemInfo.supportsVibration returning an incorrect value on Windows Phone 8.1/10.0.
+    [802990] Windows Store: Fixed System.FormatException in MainPage.xaml.cs.
+    [804156] Windows Store: SystemInfo.supportsVibration now returns correct values on Windows Phone 8.1/10.0.
+    [801998] Windows Store: WWW.responseHeaders now returns the STATUS header (where previously it was dropped), as other platforms do.
+
+Known Issues
+
+    [775353] Asset Management: Crash in HandleSetTransformFatherDragAndDrop when dragging a Tree Prefab to the Hierarchy window.
+    [808123] Editor: In some cases, Editor freezes when Scene is opened after switching platform to Android.
+    [804333] Editor: Reverting prefab and pressing undo can result in a crash.
+    [808187] Editor: Undoing hierarchy leads to m_TransformData.hierarchy == NULL assert followed by a crash.
+    [811570] Editor: Windows Editor is not honoring vsync and running at high frame rate. Will be fixed in the next build.
+    [811532] IMGUI: [Editor][Regression] 'String too long for TextMeshGenerator' is thrown after opening 'About Unity' popup window. Will be fixed in the next build.
+    [805227] Particles: Particles render as trails in some cases.
+    [809364] UI: 9-Sliced images whose sprite has mipmapping can blur if size is too small. Disable mipmapping as workaround
+    [779516] UI: Editing Text with Best Fit enabled causes artifacts to appear.
+    [795877] UI: World space canvas flickers when resizing game view.
+    [811571] VR: Single-pass rendering: The following Standard Asset Image Effects do not currently work reliably: CameraMotionBlur, ScreenSpaceAmbientObscurance. A fix is being developed.
+
+To be addressed post-5.4:
+
+    [780112] 2D: After changing state of 2DRectMask, Scene has to be reloaded for changes to take an effect
+    [808080] Asset Management: Editor crashes when replacing Prefab with Alt key pressed.
+    [688985] GI: Copying a Scene loses the baked lighting. Workaround is to manually use "Build Lighting.". This will not be addressed in 5.4.
+    Graphics: In deferred rendering, lightmapped objects affected by mixed-mode lights fallback to forward rendering.
+    [762371] Scene Management: SceneManager.UnloadScene hangs if called from a physics trigger. Workaround is to defer unload. This will not be addressed in 5.4.
+    VR: In-development cinematic Image Effects (Bitbucket project) do not currently work with single-pass rendering. This will be addressed independently of the 5.4 release schedule.
+    [776787] Windows Store: Unity APIs which take multi-dimensional arrays as parameters (e.g. TerrainData.SetHeights) do not work on UWP in configurations (e.g. Master config) in which .NET Native compilation is enabled. The bug has been logged with Microsoft.
