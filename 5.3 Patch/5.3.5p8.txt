@@ -1,0 +1,24 @@
+Patch 5.3.5p8
+Released: 13 July 2016
+
+Improvements
+
+    Graphics: Documentation for Display API.
+    Lighting: Improved an error message about invalid data when baking probes.
+    Shaders: Removed an outdated comment in UnityStandardCore.cginc
+
+Fixes
+
+    (808817, 805086, 801150) - Android: Fixed clip() in ES3 shaders on some Adreno GPUs.
+    (796182) - Android: Screen.dpi always returns densityDpi now.
+    (798640) - Camera: Stop silently disabling cameras that have non-existing target display set on them.
+    (798576) - Editor: Fixed an issue where the Editor would freeze if the user attempted to import a model without normals when the selected graphics API is OpenGL 2.
+    (785131) - Graphics: Fixed Display.main not always being Display.displays[0] in multi-display configurations.
+    (809864) - IL2CPP/PS4: Corrected the exception "System.Net.Sockets.SocketException: System call failed" which could occur when UDP sockets were used.
+    (809995) - IL2CPP: Corrected an exception during code generation with the NPOI library.
+    (808536) - iOS/IL2CPP: Fixed an error in generated C++ code due to duplicate extern declarations when an extern method in C# is overloaded.
+    (800289) - VCS: Updated VCS plugins from Bitbucket with improved support for IPv6 server connections on Windows and OSX and SSL server connections on Windows, OSX and Linux.
+    (810310) - Windows Store: Fixed enlighten crash on startup when Unity splash was used.
+    (810753) - Windows Store: Fixed an issue where plugins marked for .NET scripting backend were still being used even if building to il2cpp scripting backend or vice versa.
+
+Revision: 4ff20829e874
