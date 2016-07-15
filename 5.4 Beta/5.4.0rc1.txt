@@ -1,0 +1,7 @@
+5.4.0rc1 Release Notes (DELTA SINCE B25)
+Release date 15 July 2016
+
+Improvements
+
+    UI: ETC1 + alpha support for UIImage.
+    UI: Object.Instantiate now takes a optional Transform parent parameter.
