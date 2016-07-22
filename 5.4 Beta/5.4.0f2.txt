@@ -1,0 +1,39 @@
+5.4.0f2 (Release Candidate 2) Release Notes (Delta since F1/RC1)
+Release Date 22 July 2016
+
+Changes
+
+    Android: Screen.dpi always returns densityDpi now
+
+Improvements
+
+    Editor: Added an editor warning whenever a shader with a lot of variants (e.g. Standard.shader) is added to the 'always loaded' list.
+    Lighting: Improved an error message about invalid data when baking probes.
+    Scripting: Added Light.customShadowResolution and QualitySetting.shadowResolution to scripting API to make it possible to adjust the shadow mapping quality in code at run time on a per-light basis.
+    Shaders: Removed an outdated comment in UnityStandardCore.cginc.
+
+Fixes
+
+    [763293] AssetBundles: Fixed AssetBundle.LoadFromFile usage with Application.streamingAssetsPath on Android
+    [798640] Camera: Fixed issue with silently disabling cameras that have non-existing target display set on them.
+    [811990] Editor: Fix deployment of native plugins when building Linux Universal player (existing projects will need to reapply plugin importer settings)
+    [807174] FrameDebugger: Fixed assert 'PPtr cast failed when dereferencing! Casting from Mesh to Renderer!'
+    [814300] Graphics: Fixed a mipmapping bug causing mipmaps to not update in certain scenarios.
+    [785131] Graphics: Fixed Display.main not always being Display.displays[0] in multi-display configurations.
+    [790798] Graphics: Fixed Lambert lighting by removing specular highlight from it. The renderer interprets black specular color as a hint to zero out the specular term.
+    [810551, 810692] Networking: Fixed ReliableFragmented channel stops working after client has disconnected, then reconnects.
+    [805565] Particles: 3D start rotation affects Rotation Over Lifetime module
+    [806920] Particles: GetTriggerParticles returns incorrect value for first few frames running in editor
+    [791082] Particles: Particle system twitches when being moved in the Editor
+    [803866] Particles: Particle.GetCurrentSize3D apply curves only to x if separate axis is not set
+    [521391] Particles: ParticleSystem's inconsistent behavior with Time.timeScale
+    [805843] Particles: Trigger particle with 0 speed fails to know whether they are inside or outside collider
+    [805903] Particles: Trigger radius scale property is not exposed to public API
+    [806580] Shaders: Fixed auto-rename of _Object2World -> unity_ObjectToWorld not working in all cases.
+    [772003] UI: Fix inadvertent interaction with UI when cursor is locked
+    [780185] UI: Fixed buffers not being copied to threads causing the incorrect shader properties to be used and UI flickering to occur.
+    [780112] UI: Fixed nested RectMask2D not updating when enabling/disabling them
+    [794360] UI: Fixed race condition between UI system and UI jobs. In rare cases could cause a crash. Added asserts to help identify any future race conditions in the UI system.
+    [768871] VCS: VCS: Updated VCS plugins from Bitbucket with improved support for IPv6 server connections on Windows and OSX and SSL server connections on Windows, OSX and Linux.
+
+The following are changes and f
