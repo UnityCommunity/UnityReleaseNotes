@@ -1,0 +1,25 @@
+Release Notes 5.3.6p1
+Released: 27 July 2016
+
+Improvements
+
+    VR: Updated to Oculus version 1.6 .
+
+Fixes
+
+    (811596) - Asset Management: Assets added using AssetDatabase.AddObjectToAsset will no longer change their name when the project is saved.
+    (803481, 807275) - AssetBundles: Fixed an issue where calling Resources.UnloadUnusedAssets while loading an AssetBundle with AssetBundleRequest.LoadAssetAsync caused an error & stopped the asset from being loaded properly
+    (812396) - Audio: Fixed a crash when/after building for standalone with empty project with several audio clips.
+    (807653) - IL2CPP: Fixed IPEndPoint on IPv6 network.
+    (791844) - iOS: Fixed an issue where InputField.onEndEdit was called from an active InputField.
+    (815735) - iOS: Names for new iOS devices when selecting Unity Remote device.
+    (759719, 759191, 733920) - Mono: Corrected a number of possible hangs with SSL sockets when the Unity Editor entered and exited the play mode. These hangs often showed up in the AuthenticateAsClient method.
+    (810551, 810692) - Networking: ReliableFragmented channel stops working after client has disconnected, then reconnects.
+    (764330) - OS X: Fixed Screen.currentResolution.refreshRate being always 0.
+    (813872) - Particles: Fixed an issue where playing the scene with more than 270 particle prefabs caused a crash.
+    (none) - Windows Store: Fixed a potential crash on Xbox One when retrieving advertising id.
+    (none) - Windows Store: Fixed a rare deadlock when recursively calling InvokeOnAppThread and InvokeOnUIThread many times
+    (none) - Windows Store: Fixed an assert that happened on startup on Xbox One in debug builds.
+    (808700) - Windows Store: Fixed touch screen keyboard input not working on UWP.
+
+Revision: ef59fdfbd254
