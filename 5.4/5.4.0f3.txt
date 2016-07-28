@@ -1,0 +1,41 @@
+5.4.0f3 Release Notes (Delta since F2/RC2)
+Release Date 28 July 2016 
+
+Fixes (Delta since f2/rc2)
+
+    [815233] Animation: Fixed a crash when previewing animations on models with no avatars.
+    [814501] Graphics: Fix anisotropic filtering setting sometimes being ignored for textures
+    [801677] Graphics: Fixed crashes on very large texture imports (coming to 5.3.x too)
+    [807961] Graphics: Frame Debugger; fixed render target game view visualization regression
+    [817291, 813987] Graphics: GPU Profiler; fixed events like draw calls not showing up or their cost being attributed to wrong sections
+    [815127] Graphics: LightProbes.GetInterpolatedProbe will return the ambient probe if there are no light probes in the scene.
+    [769774] Image Effects: Fixed HistogramCompute implicit vector type truncation warnings
+    [813091] Metal: Fixed crash when iOS device is rotated continously and autorotation is enabled
+    [817041] Rendering: Fixed issue with re-ordering of OnPreRender event and culling data creation.
+    [806751] Shaders: Fixed transparent shader writing into DepthNormals texture, because material sometimes cache RenderType setting (coming to 5.3.x too)
+    Trails/Lines: Fixed crash when using Lines and Trails at the same time
+
+Known Issues
+
+    [814953] Audio: Memory tracking of AudioClip Assets is broken. Clips referenced by the Scene or loaded in background will be tracked under AudioManager instead of the respective clips. This is the temporary trade-off to fix a crash from a threading race condition. A fix is in progress.
+    [817337] Editor: The GPU profiler does not associate draw calls with objects, and displays "N/A" for most of them. A fix is being tested and is due in patch release.
+    [802273] Editor: GPU Profiler does not work with 'Graphics Jobs' enabled. A fix is in progress.
+    [804333] Editor: Reverting prefab and pressing undo can result in a crash.
+    [808187] Editor: Undoing hierarchy leads to m_TransformData.hierarchy == NULL assert followed by a crash.
+    [813805] Graphics: GPU skinning crashes some DX11 drivers when shaders with tessellation were rendering just before it. A fix is being tested and is due in a patch release.
+    [809364] UI: 9-Sliced images whose sprite has mipmapping can blur if size is too small. Disable mipmapping as workaround.
+    [817835] VR: Changing the renderViewport scale results in render texture not scaling correctly on HMD when using single-pass stereo.
+    [817945] VR: In some circumstances player crashes upon headset removal when using single-pass stereo and deferred rendering.
+    [817943] VR: Player crashes on exit when using single-pass stereo and deferred rendering.
+    [811571] VR: Single-pass rendering: The following Standard Asset Image Effects do not currently work reliably: CameraMotionBlur, ScreenSpaceAmbientObscurance. A fix is being developed.
+
+To be addressed separately from 5.4.x
+
+    [688985] GI: Copying a Scene loses the baked lighting. Workaround is to manually use "Build Lighting.". This will not be addressed in 5.4.
+    Graphics: In deferred rendering, lightmapped objects affected by mixed-mode lights fallback to forward rendering.
+    [762371] Scene Management: SceneManager.UnloadScene hangs if called from a physics trigger. Workaround is to defer unload. This will not be addressed in 5.4.
+    [779516] UI: Editing Text with Best Fit enabled causes artifacts to appear. This will not be addressed in 5.4.
+    VR: In-development cinematic Image Effects (Bitbucket project) do not currently work with single-pass rendering. This will be addressed independently of the 5.4 release schedule.
+    [799533] VR: SteamVR does yet not support DX12. This will be coordinated between SteamVR's schedule and Unity's, but it is currently unclear which cycle this will be part of.
+    [807031] VR: SteamVR Unity Native: When you have two "eye" Cameras under head, Unity crashes. Working with Valve to address in the plugin. This will be addressed on SteamVR's schedule.
+    [776787] Windows Store: Unity APIs which take multi-dimensional arrays as parameters (e.g. TerrainData.SetHeights) do not work on UWP in configurations (e.g. Master config) in which .NET Native compilation is enabled. The bug has been logged with Microsoft.
