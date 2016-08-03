@@ -1,0 +1,19 @@
+Release Notes 5.3.6p2
+Release Date 3 October 2016
+
+Fixes
+
+    (814152) - Camera: Fixed an issue where rect was ignored when using SetTargetBuffers.
+    (816585) - Editor: Fixed Cef focus issue caused by multiple webview refreshes.
+    (801677) - Graphics: Fixed crashes on very large texture imports.
+    (805892) - IL2CPP/XBoxOne: Prevent the C++ compiler from crashing while compiling the IL2CPPCompilerCalculateTypeValues.cpp file for some projects. This file was just too large in these cases, so IL2CPP will not generate multiple smaller files instead.
+    (813962) - IL2CPP: Generate C++ code properly now for two structs that contain arrays of each other as fields.
+    (812570) - IL2CPP: Properly marshal delegates when they are fields of a struct.
+    (817335) - iOS: Fixed iOS 10 simulator crash.
+    (816514) - Linux Standalone: Fixed an issue where pressing 'Alt' incorrectly reset Input.mousePosition.
+    (806751) - Shaders: Fixed transparent shader writing into DepthNormals texture, because material sometimes cache RenderType setting.
+    (714707) - VCS: Fixed a problem when moving folders in the project view end up with errors and inconsistent state between local file state and VCS state.
+    (816582) - Windows Store: Gamepads (with UsagePage/Usage 0x0001/0x0005) will correctly connect to an application now. Usually these are device connected via bluetooth. Previously only joysticks (with UsagePage/Usage 0x0001/0x0004) would connect. You can check UsagePage/Usage of the device by right clicking Properties on the device->Hardware->HID-compliant game controller->Properties->Details->Hardware Ids. For ex., gamepads will contain an item "HID_DEVICE_UP:0001_U:0005) . You might need to delete Package.appxmanifest, because there's a new item for HID device.
+    (810622) - Windows Store: When updating Windows Phone 8 application to Windows Phone 8.1/10.0, player prefs will be auto updated if the following condition is met - UnityPlayer.upp file exist, but playerprefs.dat file doesn't exist in LocalFolder.
+
+Revision: 7f388044e2f5
