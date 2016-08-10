@@ -1,0 +1,43 @@
+Release Notes 5.4.0p1
+Release Date 10 August 2016
+
+Improvements
+
+    Linux: Removed 16GB total memory limit.
+    VR: Oculus Plugin updated to version 1.6.
+
+Fixes
+
+    (746248) - Android: Buildpipe - Don't check for passwords if exporting project.
+    (746248) - Android: Buildpipe - Don't merge manifests if exporting project.
+    (811963) - Android: Audio - Fixed glitches on GearVR when Best Latency is selected.
+    (814402, 811236) - Graphics: Fixed image effects being rendered twice when the camera is instantiated from prefab or copying another camera. This issue was player only. 5.4 regression.
+    (809864) - IL2CPP/PS4: Fixed the exception "System.Net.Sockets.SocketException: System call failed" which can occur when UDP sockets are used.
+    (817745) - VR: Fixed possible crash on shutdown.
+    (797965) - Android: Editor - Added a workaround for AAPT sometimes crashing for no good reason.
+    (818044) - WebGL: Fixed compressed build files (.*gz) creation if they already exist.
+    (817335) - iOS: Fixed iOS 10 simulator crash.
+    (820523) - OS X: Fixed HTTPS support for WWW/UnityWebRequest when Mac App Store receipt validation is on.
+    (735709) - Linux: Added fall back to NET_WM_ICON for custom player icon.
+    (810964) - Mono: Properly locate the libMonoPosixHelper.dylib file in the editor on OS X when it is used.
+    (807653) - IL2CPP: Fixed IPEndPoint on IPv6 network.
+    (809995) - IL2CPP: Corrected an exception during code generation with the NPOI library.
+    (808536) - iOS/IL2CPP: Fixed an error in generated C++ code due to duplicate extern declarations when an extern method in C# is overloaded.
+    (818102) - IL2CPP: Renamed the types.h file to be il2cpp-string-types.h to avoid the possibility of is conflicted with a user-defined header file.
+    (816514) - Linux: Don't unnecessarily clear mouse position.
+    (none) - GI: Fixed performance regression of LightProbes.GetInterpolatedProbe API (5.4 regression).
+    (none) - Editor: Fixed the inspector UI for some Renderers where Light Probe and Reflection Probe options were not displayed correctly.
+    (808817, 805086, 801150) - Android: Fix for clip() in ES3 shaders on some Adreno devices
+    (813105) - Animation: Fixed an issue where an assert that couldn't be acted upon was popping in the AvatarMask inspector.
+    (813681) - Animation: Fixed a crash that happened when disabling a gameobject during animation-triggered physics callbacks.
+    (805892) - IL2CPP/XBoxOne: Prevent the C+ compiler from crashing while compiling the IL2CPPCompilerCalculateTypeValues.cpp file for some projects. This file was just too large in these cases, so IL2CPP will not generate multiple smaller files instead.
+    (812570) - IL2CPP: Properly marshal delegates when they are fields of a struct.
+    (813962) - IL2CPP: Generated C++ code properly for two structs that contain arrays of each other as fields.
+    (815722) - IL2CPP: Prevent a stack overflow during code conversion which can occur for mutli-dimensional arrays with generic types.
+    (none) - UnityWebRequest: Fixed memory leak and possible crash when doing mulpiple request using the same object
+    (796508) - WWW: Fixed occasional crashes in il2cpp projects.
+    (813763) - UnityWebRequest: Fixed errors in console when downloading texture.
+    (813805) - DX11: Fixed some drivers crashing when using GPU skinning and tessellation shaders happen to be set up.
+    (772640, 817337) - Profiler: Fixed GPU profiling showing "N/A" for most draw calls, instead of associating with proper objects (5.4 regression).
+
+Revision: e61faee5ea97
