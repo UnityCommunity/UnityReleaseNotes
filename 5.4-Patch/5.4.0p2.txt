@@ -1,0 +1,32 @@
+Release Notes 5.4.0p2
+Release Date 18 August 2016
+
+Improvements
+
+    Core: Added support for loading serialized files stored with versions >= 5.5.0a4
+    DX11: Improved texture upload performance for compressed, floating point ant RGBA32 formats (812350).
+    Networking: Projects using UnityWebRequest from UnityEngine.Experimental.Networking should now be auto-upgraded to use its new location in UnityEngine.Networking.
+    VR: Mac version of the editor can now add OpenVR as a VR platform when targeting the Windows player.
+    VR: Stereo View and Projection Matrices can be set individually through scripting API.
+    VR: Updated Oculus to Version 1.7.
+    VR: Updated OpenVR DLL to version 1.0.2.
+
+Fixes
+
+    (820608) - AI: Fixed an issue where 'Not Walkable' objects close to the ground would not create a hole in the navmesh when baked.
+    (822015) - AI: Fixed an issue where NavMeshAgent remaining distance property would be wrong right after setting the agent destination to the same polygon.
+    (822362) - AI: Fixed an issue where NavMeshAgent would sometimes teleport right after NavMeshObstacle carving.
+    (811880) - Android: Added fix for crash on returning from Handheld.PlayFullScreenMovie.
+    (803481, 807275) - AssetBundles: Fixed an issue where calling Resources.UnloadUnusedAssets while loading an AssetBundle with AssetBundleRequest.LoadAssetAsync caused an error & stopped the asset from being loaded properly.
+    (814152) - Camera: Fixed an issue where rect was ignored when using SetTargetBuffers.
+    (791721) - IL2CPP/Windows Store: Allow non-blocking sockets to work properly on 64-bit builds.
+    (819647, 821614) - IL2CPP: Correct some calls to HasValue on nullable types, which could return true when the nullable does not have a value.
+    (818966) - IL2CPP: Generate proper C++ code for some cases involving array parameters passed by reference.
+    (815185) - UnityWebRequest: Report downloaded bytes for asset bundle and properly report 1.0 progress when finished.
+    (none) - VR: Fixed crash when exiting VR in certain cases where the HMD was detected as not connected on the first frame.
+    (none) - VR: Fixed viewport scale issues with OpenVR.
+    (804577) - Windows Store: Generate code in exported the solution to enter full screen if "Default is full screen" is set in player settings.
+    (804583) - Windows Store: Generate code in exported the solution to setup initial orientation.
+    (817285) - Windows Store: Suppress system overlays by default in il2cpp solutions (make consistent with .NET).
+
+Revision: 38a9e1a3db04
