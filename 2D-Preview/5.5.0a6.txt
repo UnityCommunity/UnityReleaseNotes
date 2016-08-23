@@ -1,0 +1,94 @@
+Unity 2D Experimental Preview Release 2
+Release Date 23 August 2016
+
+What’s New!
+
+    New: CompositeCollider2D component
+        Merges other 2D colliders together if set to do so, forming a composite shape based on these colliders.
+
+[​IMG]​
+
+    New: TileMapCollider2D component
+        Generates 2D collider shapes for a Tile Map.
+        Note: Previous functionality for PolygonCollider2D for Tile Map has been removed. Please use this to generate 2D colliders for the Tile Map.
+
+[​IMG]​
+
+    New: Sprite Atlas
+        A new asset that takes folder(s), texture(s) and individual sprite(s) as input, then pack all sprites in them into an atlas texture with the unified settings.
+        The new packing is parallelised, the time used to pack the similar amount of sprites compared to current Sprite Packer should be shorter.
+        Sprite packing with Packing Tag in texture is still available. Any texture with a packing tag will not be packed into the new Sprite Atlas even if they are included. Remove the packing tag to use the new system.
+        Use this script to convert all your existing packing tag to Sprite Atlas asset and have it automatically populated with folder/texture. Please backup your project before you run it for real.
+
+[​IMG]
+​
+
+    New: Sprite Physics Shape Editor
+        Provides the ability to adjust sprite physics shape in the Sprite Editor Window.
+
+[​IMG]​
+
+    New: Axis Distance Sort
+        Under Edit/Project Settings/Graphics
+            Set the Transparency Sort Mode
+                Default - Sorts based on the Camera mode.
+                Perspective - Sorts based on perspective view.
+                Orthographics - Sorts based on orthographic view.
+                Custom Axis - Sorts based on the given axis set in Transparency Sort Axis.
+        Set the Transparency Sort Axis
+            If the Transparency Sort Mode is set to Custom Axis, renderers in the scene view will be sorted based on the distance of this axis from the camera.
+
+
+Improvements
+
+    Improvement: Sorting Group
+        Sorting Group no longer break batches for other renderers
+
+    Improvement: SpriteRenderer 9-slice Collider2D support
+        BoxCollider2D and PolygonCollider2D collision shape will readjust following 9-slice properties from SpriteRenderer when in Sliced/Tiled mode.
+        Supported Collider2Ds have a ‘Auto Tiling’ toggle to enable/disable collision shape automatic update.
+
+    Improvement: Tile Map
+        Snapping of GameObjects to Grid
+        Hotkeys for Palette
+            B - Paint
+            U - Box Fill
+            I - Pick
+            D - Erase
+            G - Flood Fill
+        Multilayer painting for Tile Map
+        Toggle for selecting Tile Asset from palette
+
+
+Breaking Changes
+
+    Tile Map
+        Tile Map APIs have been changed, please do update your existing scripts.
+        Tile Map APIs have been moved to its own namespace UnityEngine.TileMap.
+        VirtualTiles have been renamed to EditorPreviewTiles.
+        BaseTile has been renamed to TileBase.
+        TileFlags have been renamed.
+            OverrideColor -> LockColor
+            OverrideTransform -> LockTransform
+            OverrideSpawnGameObjectRuntimeOnly -> InstantiateGameObjectRuntimeOnly
+            OverrideAll -> LockAll
+        TileData
+            TileData.gameobject -> TileData.gameObject
+        TileAnimationData
+            TileAnimationData.animationTimeOffset -> TileAnimationData.animationStartTime
+        PolygonCollider2D no longer generates a collider shape for the TileMap. Please use the new TileMapCollider2D instead.
+
+    9-Slice
+        The internal data type that represents 9-slice properties in SpriteRenderer has changed. You will have to reapply your 9-slice properties again after upgrading to Preview 2.
+
+Bugfixes
+
+    Tile Map
+        Fixed crash when camera is set to perspective view and pulled back so that a large area is in view.
+        Fixed bug where paint mode is lost if editor is changed to full screen mode
+        Fixed bug where paint mode cannot be selected unless a Tile Map is selected if Palette is not docked.
+        Fixed error when dragging prefabs, materials or scripts over the Tile Map Palette
+        Fixed bug where Tile Map and instances of Tile Map prefabs does not update across playmode.
+
+    Sorting Group
+        Transform gizmo is no longer stuck at (0, 0, 0) regardless of the position of the sorting group.
