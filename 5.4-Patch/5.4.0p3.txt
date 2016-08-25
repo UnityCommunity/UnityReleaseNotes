@@ -1,0 +1,40 @@
+Release 5.4.0p3
+25 August 2016
+
+Improvements
+
+    Graphics: GPU Instancing: It is no longer an error to use instanced shaders on renderers that don't support instancing (SkinnedMeshRenderer, SpriteRenderer, etc.)
+    Graphics: GPU Instancing: For statically batched MeshRenderers, using instanced shader now will not break static batching. If you want renderers to be instancing batched, please consider disable static batching flag (816786).
+    VR: Oculus GearVR version updated to 1.7.1.
+
+Fixes
+
+    (800914, 802831) - 2D: Fixed assert message "importer.GetNPOTScale() == TextureImporter::kNPOTKeep" showing when creating sprites in Advance mode. Creating sprites now ignores TextureImporter's non power of two settings if the texture is already a power of two.
+    (811963) - Android: Audio - Fixed glitches on GearVR when Best Latency is selected.
+    (811880) - Android: Fix for crash on returning from Handheld.PlayFullScreenMovie.
+    (769505) - Animation: Fixed an issue where having animations with a mixed number of bones in a controller, and having Write Defaults to false would throw errors.
+    (763293) - AssetBundles: Fixed AssetBundle.LoadFromFile usage with Application.streamingAssetsPath on Android.
+    (none) - Core: Added support for loading serialized files stored with 5.5.0a4.
+    (793567) - Editor: Exceptions from PostProcessBuild callbacks now introduce errors to the build.
+    (808080) - Editor: Fixed crash when trying to connect a GameObject to a prefab with no root GameObject set.
+    (793679) - Graphics: Don't re-upload textures to the graphics device when a quality change is requested and the pixel data is unavailable. This applies to textures loaded from asset bundles unloaded with AssetBundle.Unload (false).
+    (791721) - IL2CPP/Windows Store: Allow non-blocking sockets to work properly on 64-bit builds.
+    (819647, 821614) - IL2CPP: Correct some calls to HasValue on nullable types, which could return true when the nullable does not have a value.
+    (818966) - IL2CPP: Generate proper C++ code for some cases involving array parameters passed by reference.
+    (815722) - IL2CPP: Prevent a stack overflow during code conversion which can occur for mutli-dimensional arrays with generic types.
+    (818102) - IL2CPP: Rename the types.h file to be il2cpp-string-types.h to avoid the possibility of is conflicted with a user-defined header file.
+    (369773) - iOS: Building from GUI now uses a project relative path if the location is under the project folder.
+    (790724) - Kernel: Fixed rounding error so Mathf.MoveTowardsAngle always reaches target angle.
+    (735709) - Linux: Fallback to NET_WM_ICON for setting custom player icon.
+    (810289) - Networking: Fixed starting a server cashes on libwebsocket_service_fd.
+    (820523) - OS X: Fixed HTTPS support for WWW/UnityWebRequest when Mac App Store receipt validation is on.
+    (770034) - OSX: Fixed a crash when building for OSX in certain circumstances to do with paths to splash screen and icon.
+    (808187, 790220, 816014) - Prefabs: Fixed some issues and crashes related to undo-ing the creation of prefabs and prefab connections.
+    (none) - Tizen: Fixed a problem with UnityPluginLoad() not working.
+    (780292) - UI: Fixed an issue with OnPointerEnter getting called a second time after a tap finishes a cycle.
+    (none) - VCS: Stop a C++ method being called during C# constructor and serialization (which is a scripting warning as it is unsafe to do this).
+    (806810) - VR: Fixed different particle shader transparency between editor and build when splash screen is active.
+    (801951) - Windows Standalone: Custom image will be correctly shown in screen selector dialog when building to directory with non-english letters.
+    (803319) - Windows Standalone: Fix regression where "touch up" events would be lost when occurring outside window bounds.
+
+Revision: dac96b578024
