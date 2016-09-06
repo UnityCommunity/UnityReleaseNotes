@@ -1,0 +1,47 @@
+5.5.0b2 Release Notes (Delta since b1)
+Released: 5. September 2016
+
+System Requirements Changes
+
+    OSX 10.8 will be dropped (not done as of yet)
+    Samsung TV 2013 and 2014 will be dropped
+
+Known Issues
+
+    Editor: "Unable to load the icon: ..." errors are seen when selecting icon in the inspector. (827458)
+    Editor: Editor is not redrawing when changing to certain layouts (822106)
+    Editor: KeyNotFoundException thrown on adding prefab to scene. (826474)
+    Graphics: Opening a pre-Unity 5.5 project with Unity 5.5 will set it to forward rendering for all tiers (see Graphics settings/Tier settings), even if the previous project was set to deferred rendering. (826486)
+    iOS: il2cpp builds for iOS 8.4.1 crash (823808)
+    Scripting: C# scripts may not get updated by ScriptUpdater in some scenarios (816066)
+    Terrain: Editor hangs for several seconds when painting SpeedTrees in a new project (823603)
+    Terrain: [Raycast][Painting] Sometimes raycast is not working for terrain/brushes rendering is broken in a new project (823920)
+    Windows Store: Building to a folder outside of the project folder fails. (826034)
+    Windows Store: Editor crashes when canceling build when build progress shows "Restoring NuGet packages". (826083)
+
+Changes
+
+    Editor: Enabled redo for selection changes.
+
+Fixes
+
+    Editor: Fix to make foldouts in internal inspectors behave like property fields. (784939)
+    Editor: Fix to make validation for Delete asset menu items more consistent. This for instance prevents the delete option from being displayed when not applicable. (581887)
+    Editor: Fixed case of TextEditor caret position being reset after domain reload. (821758)
+    Editor: Fixed exceptions in corner cases when closing tabs for editor windows. (813333)
+    Editor: Fixed issue that could result in a crash when doing copy/paste between gradient fields. (711487)
+    Editor: Fixed issue whereby the name of a newly-created asset would be displayed in the wrong case occasionally. (536739)
+    Editor: Fixed RenderTexture preview in Mac/Linux editor. (498769)
+    Editor: Re-instated '*' and '?' in the project browser search string splitter list. (771577)
+    Graphics: Fixed a crash in Reflection Probe component when multiple scenes are used (811241)
+    Particles: Fix to allow sub-emitters to use inherited velocity settings for any simulation space. (822070)
+    Particles: Fixed bounding box scaling on world simulated particle systems. (811270)
+    Particles: Fixed horizontal/vertical billboards with pivot offset. Previously the particles would get scaled and flipped in such cases. (746327)
+    Particles: Fixed issue whereby mesh particles with negative scale would get inverted incorrectly with standard shaders. (803265)
+    Particles: Fixed issue whereby state getters would return the wrong value for one-shot systems that had died offscreen. (800868)
+    Particles: Medium quality collisions can now be used with static colliders only. (822417)
+    Particles: Scale is now applied to stretch parameters. (804772)
+    WebGL: Fixed case of cursor staying invisible after being unlocked.
+    WebGL: Fixed line spacing in fonts generated using CreateDynamicFontFromOSFont. (819964)
+    WebGL: Fixed progress reporting work for WebRequest (previously it did not move from 0). (775178)
+    Windows Store: SystemInfo.deviceType now returns Console when application runs on Xbox One, and returns Handheld when it runs on IoT devices (e.g. Raspberry Pi). (827089)
