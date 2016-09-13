@@ -1,0 +1,58 @@
+5.5.0b3 Release Notes (Delta since b2)
+Released: 12. September 2016
+
+System Requirements Changes
+
+    OSX 10.8 will be dropped (not done as of yet)
+    Samsung TV 2013 and 2014 will be dropped
+
+Known Issues
+
+    Editor: "Unable to load the icon: ..." errors are seen when selecting icon in the inspector. (827458)
+    Editor: Editor is not redrawing when changing to certain layouts (822106)
+    Editor: KeyNotFoundException thrown on adding prefab to scene. (826474)
+    Graphics: Opening a pre-Unity 5.5 project with Unity 5.5 will set it to forward rendering for all tiers (see Graphics settings/Tier settings), even if the previous project was set to deferred rendering. (826486)
+    Graphics: Splash Screen: Only drawn for a single frame on STV
+    iOS: il2cpp builds for iOS 8.4.1 crash (823808)
+    Services: No ability to create or link projectID on newly created project. (830392)
+    Terrain: Editor hangs for several seconds when painting SpeedTrees in a new project (823603)
+    Terrain: [Raycast][Painting] Sometimes raycast is not working for terrain/brushes rendering is broken in a new project (823920)
+    VR: HRTF support on HoloLens is malfunctioning.
+    VR: Splash Screen: Drawn in 2D before VR splash screen.
+    Web: WebGL: FileNotFoundException on 2nd build. Workaround: close project, delete Library folder and reopen project. (830448)
+    Windows Store: Building to a folder outside of the project folder fails. (826034)
+    Windows Store: Editor crashes when canceling build when build progress shows "Restoring NuGet packages". (826083)
+
+Features
+
+    Graphics: New Unity splash screen and associated tools. Improvements/changes will be forthcoming during the beta period.
+    Platform: HoloLens support from the Technical Preview has now landed in mainline Unity. Several improvements will be forthcoming during the beta period.
+
+Improvements
+
+    Lines: Added a Texture Mode to the Line/Trail renderers, to control whether the texture repeats or stretches.
+    Windows Store: Assembly C# projects are now generated next to the main solution (in the GeneratedProjects folder).
+
+API Changes
+
+    HoloLens: PhotoCapture: removed the preview mode parameter from PhotoCapture::StartPhotoModeAsync.
+    HoloLens: Spatial mapping component API changes:
+        The "Custom Render Setting" property is now "Render State".
+        The "Custom Material" render setting is now "Visualization".
+        "Custom Material" is now "Visual Material".
+        "volume" property is now "volumeType".
+        "sphereRadiusMeters" is now "sphereRadius".
+        "boxExtentsMeters" is now "halfBoxExtents".
+        "lod" is now "lodType".
+
+Fixes
+
+    Animation: Fixed an issue where objects that should have been culled were still animated. (816950)
+    Graphics: Fixed aniso setting for uploaded textures. (814501)
+    Graphics: Fixed division by zero error in vertex shader when vertex overlaps a light. (776123)
+    Graphics: Fixed incorrect shadow sampling parameters on Metal. (812178, 812180)
+    Lines: Fixed case of LineRenderer setPositions resulting in an "index out of bounds" error. (820738)
+    UnityWebRequest: Fixed case of exception being thrown when loading cached content. (822698)
+    WebGL: Fix to correctly clamp the max value for WebGL Heap size to 2032.
+    WebGL: Fixed case of international keyboard input being processed incorrectly on Firefox. (822669)
+    Windows Store: UnityEvent.Remove listener will work correctly when .Net Native is enabled. Previously events were not removed as expected. (827748)
