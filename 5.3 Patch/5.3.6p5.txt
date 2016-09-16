@@ -1,0 +1,34 @@
+Patch 5.3.6p5
+Released: 15 September 2016
+
+
+Improvements
+
+    iOS: Added iPhone 7 and 7+ entries to the device enum.
+    iOS: Updated Build and Run to work with Xcode 8.
+    VR - Updated Oculus plugin to version 1.8.
+
+Fixes
+
+    (none) - Fixed HoloLens touch injection for flat apps.
+    (none) - Animation: Fixed the OverrideController memory leak.
+    (778656) - Deployment: Enabling free users to access experimental builds.
+    (811241) - GI: Fixed a crash in Reflection Probe component when multiple scenes are used.
+    (812576) - Graphics: Fixed a crash in the Editor when material and shader properties weren't updated correctly.
+    (821208) - Graphics: Fixed a crash that would in some cases happen after Material.CopyPropertiesFromMaterial.
+    (828145) - GUI: Fixed an issue where GUI::DrawTexture appeared darker than GUI::DrawTextureWithTexCoords when in Linear color space.
+    (827851) - Input: Mouse position is now updated but not clamped on windows when outside of game window.
+    (826595) - iOS: Added missing iOSTargetOSVersion enum entries.
+    (824979) - iOS: Corrected the default setting for bitcode on the XCTest target to fix a linker error.
+    (826526) - Mono: Use an IPv4 address (if one exists) before an IPv6 address for .NET remoting connections.
+    (827984) - Mono/IL2CPP: Corrected a rare deadlock in the C# lock implementation.
+    (797793) - OS X: Fixed memory leak in joystick input handling code.
+    (825235) - Shaders: Fixed frac(constant) sometimes being mis-compiled.
+    (none) - Shaders: Fixed shader compiler bug which could have caused errors in GLSL shaders that might crash the GPU on OSX.
+    (822553) - Shaders: Fixed UNITY_APPLY_FOG not working as expected if an expression is passed as fog coordinate.
+    (819470) - UI: Fixed a memory leak caused by IntermediateRenderers not being cleaned up
+    (none) - UI: Fixed a random crash in SyncElement caused by unknown parent canvas
+    (825435) - UI: Fixed an issue with animating canvas properties not applying
+    (821727) - UI: Fixed an issue with Canvas sorting order being incorrect under certain cases
+
+Revision: d64ba7d31ce9
