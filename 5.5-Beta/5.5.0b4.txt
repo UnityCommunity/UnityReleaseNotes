@@ -1,0 +1,61 @@
+5.5.0b4 Release Notes (Delta since b3)
+Released: 19. September 2016
+
+System Requirements Changes
+
+    OSX 10.8 will be dropped (not done as of yet)
+    Samsung TV 2013 and 2014 will be dropped
+
+Known Issues
+
+    Editor: "Unable to load the icon: ..." errors are seen when selecting icon in the inspector. (827458)
+    Editor: Editor is not redrawing when changing to certain layouts (822106)
+    Editor: KeyNotFoundException thrown on adding prefab to scene. (826474)
+    Graphics: Opening a pre-Unity 5.5 project with Unity 5.5 will set it to forward rendering for all tiers (see Graphics settings/Tier settings), even if the previous project was set to deferred rendering. (826486)
+    Graphics: Splash Screen: Only drawn for a single frame on STV
+    Services: No ability to create or link projectID on newly created project. (830392)
+    Terrain: Editor hangs for several seconds when painting SpeedTrees in a new project (823603)
+    Terrain: [Raycast][Painting] Sometimes raycast is not working for terrain/brushes rendering is broken in a new project (823920)
+    VR: HRTF support on HoloLens is malfunctioning.
+    VR: Splash Screen: Drawn in 2D before VR splash screen.
+    Web: WebGL: FileNotFoundException on 2nd build. Workaround: close project, delete Library folder and reopen project. (830448)
+    Windows Store: Building to a folder outside of the project folder fails. (826034)
+    Windows Store: Editor crashes when canceling build when build progress shows "Restoring NuGet packages". (826083)
+
+Improvements
+
+    Graphics: Added cubemap arrays support (CubemapArray C# class). Similar to Texture2DArray, this is a graphics feature that lets the GPU to access a bunch of same size/format cubemaps as a unit, index into them when sampling etc. Cubemap arrays are a desktop/console class feature, supported on DX10.1+/GL4.0+ on PC, and on PS4/XB1.
+
+API Changes
+
+    Asset Pipeline: Added callback events for PackageImport for start, success, failure and cancellation.
+
+Fixes
+
+    Animation: Fixed a crash in the Animation component when playing clips with invalid or unbound curves. (820586)
+    Animation: Fixed a crash that would be triggered during clip import, when passing invalid class IDs to IsDerivedFromClassID. (818668)
+    Animation: Fixed a crash when building a clip with an invalid curve. (818668)
+    Animation: Fixed a crash when deleting a layer with an index smaller than the layer on which other layers are synchronized. (820546)
+    Animation: Fixed a crash when playing and reconnecting playables on the first frame. (820203)
+    Animation: Fixed a crash when setting a null AnimatorController on an Animator. (821384)
+    Animation: Fixed a crash while building SelectorTransitionConstant. (825310)
+    Animation: Fixed an issue where events could be fired more than once when the framerate was exceedingly low. (825132)
+    Animation: Fixed an issue whereby empty clips would be rebuilt repeatedly. (791563)
+    Animation: Fixed case of 1st Importer AnimationEvent not dirtying the importer. (824180)
+    Animation: Fixed case of duplicate euler angle properties on the animation window. (820494)
+    Animation: Fixed case of error message showing in the console when trying to create a new key on a read-only curve. (818180)
+    Animation: Fixed case of move over key in the dopesheet editor not overriding the previous value. (827232)
+    Animation: Fixed crash when changing AnimatorOverrideController during an interrupted transition. (823410)
+    Animation: Fixed crash when manually destroying an AnimatorState. (810871)
+    Animation: Fixed curve preview display on the fbx import inspector. (818738)
+    Animation: Fixed inability to input negative x values in the floating curve editor. (817689)
+    Animation: Fixed InvalidCastException when renaming an animated sprite property in the animation window. (820726)
+    Animation: Fixed issue whereby a keyframe would be created with negative time in the dopesheet editor when double-clicking. (820176)
+    Animation: Fixed StackOverflow exception in the transition inspector, caused by looping transitions. (817057)
+    Animation: Updated hash code for EditorCurveBinding to reduce likelikood of collisions. (816028)
+    Graphics: Fixed case of display renderingWidth and renderingHeight incorrectly returning system resolution values.
+    UI: Multiple display support is fixed and has been re-enabled. (741751)
+    WebGL: Fixed asset bundles memory usage issue at loading time, which would prevent some content from running on 32-bit browsers. (812567, 829765)
+    WebGL: Fixed case of ReadPixels method not working on floating point render textures. (827435)
+    WebGL: Fixed rendering plugin support: previously interface functions for native render plugins were not getting called. (818729)
+    Windows: System resolution or orientation changes are now detected and responded to accordingly (so no longer deform full screen player). (825230)
