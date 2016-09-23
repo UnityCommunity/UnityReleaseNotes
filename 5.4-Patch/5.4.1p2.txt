@@ -1,0 +1,31 @@
+Patch 5.4.1p2
+Released: 22 September 2016
+
+Improvements
+
+    D3D12: Added an error message if trying to ReadPixels from outside the RenderTarget's bounds and return false to ignore the request.
+    Editor: Improved the tooltip message for Light Probes option in Renderer components.
+    Graphics: Improved CPU performance when calling lots of Graphics.DrawMesh API with null MaterialPropertyBlock (829800).
+
+Fixes
+
+    (none) - Analytics: DeviceInfo now matches hwstats data.
+    (822393) - AssetBundle: Fixed the issue that error sometimes happens when LoadAssetAsync and UnloadUnusedAsset is called before prefab is instantiated.
+    (none) - D3D12: Fixed a crash when creating RenderTargetView for 3D RenderTextures.
+    (704234, 807773, 829992, 822715) - Editor: Fixed services tab not getting focused when a service refresh occurs.
+    (820693) - Graphics: Fixed a threading issue causing game view to corrupt or go blank randomly in OSX editor.
+    (none) - Graphics: Fixed Display renderingWidth and renderingHeight incorrectly returning system resolution values.
+    (813052) - Graphics: More prevention against invalid data causing crashes in CommandBuffer.DrawRenderer.
+    (none) - iOS: Fixed App Store submissions with Xcode 8 when phone camera is not being used by game.
+    (809752) - iOS: Fixed an issue where Touch.deltaTime was incorrectly returning zero when device had been on for approximately 30 days or more.
+    (none) - Metal: Improved MSAA support with Image Effects, where previously the framebuffer load operation could have shown black screen instead.
+    (786163) - Textures: Correctly unregister external native textures.
+    (741751) - UI: Multiple display support is fixed and has been re-enabled.
+    (812567, 829765) - WebGL: Fixed asset bundles memory usage at loading time, preventing some content to run on 32-bit browsers.
+    (824400, 794675, 829404) - Windows Store: Correctly reference SDK specific plugins in Universal 8.1 projects.
+    (827446) - Windows Store: Fixed errors from reference rewriter when buidling script with nested generic types as fields.
+    (829141) - Windows Store: Fixed invalid visual studio project generation on IL2CPP scripting backend when project name contains dots.
+    (831144) - Windows Store: Fixed Unity PDB files not getting included into built .appxsym package.
+    (825230) - Windows: System resolution or orientation changes are now detected and responded to accordingly.
+
+Revision: a8ddefd1bf1d
