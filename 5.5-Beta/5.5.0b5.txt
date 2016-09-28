@@ -1,0 +1,30 @@
+5.5.0b5 Release Notes (Delta since b4)
+System Requirements Changes
+
+    OSX 10.8 will be dropped (not done as of yet)
+    Samsung TV 2013 and 2014 will be dropped
+
+Known Issues
+
+    Collab: Windows Only: Unity.exe and project must be installed to a directory with no whitespace.
+    Editor: Editor crashes with empty stack trace when changing platform (System.IO.FileNotFoundException). (835381)
+    Editor: Editor is not redrawing when changing to certain layouts (822106)
+    Editor: Occlusion culling tab leaks memory when scene view is visible. (835378)
+    Editor: [OSX] After Unity crashes when rebaking lighting for Courtyard project, a Unity process is left over and has to be force closed. (834318)
+    Graphics: Opening a pre-Unity 5.5 project with Unity 5.5 will set it to forward rendering for all tiers (see Graphics settings/Tier settings), even if the previous project was set to deferred rendering. (826486)
+    Graphics: Splash Screen: Only drawn for a single frame on STV
+    IL2CPP: IL2CPP Compilation fails in some cases when building a project for Android platform. (830617)
+    IMGUI: Error when opening Shader Forge. (834371)
+    Services: No ability to create or link projectID on newly created project. (830392)
+    Terrain: Editor hangs for several seconds when painting SpeedTrees in a new project (823603)
+    Terrain: [Raycast][Painting] Sometimes raycast is not working for terrain/brushes rendering is broken in a new project (823920)
+    VR: HRTF support on HoloLens is malfunctioning.
+    VR: Splash Screen: Drawn in 2D before VR splash screen.
+    Web: WebGL: FileNotFoundException on 2nd build. Workaround: close project, delete Library folder and reopen project. (830448)
+    Windows Store: Building to a folder outside of the project folder fails. (826034)
+    Windows Store: Editor crashes when canceling build when build progress shows "Restoring NuGet packages". (826083)
+
+Improvements
+
+    Unity Ads: Updated Unity Ads to 2.0.4
+    VR: UnityEngine.VR.InputTracking.GetLocalRotation() and UnityEngine.VR.InputTracking.GetLocalPosition() can now be used to query the position and orientation of Oculus Touch and HTC Vive controllers.
