@@ -1,0 +1,41 @@
+Patch 5.4.1p3
+Released: 28 September 2016
+
+Improvements
+
+    IL2CPP: Added an option to link.xml files to ignore missing assemblies.
+
+Fixes
+
+    (830443) - AI: Fix for regression where a pushed passive NavMeshAgent would sometimes move to its origin after navmesh carving.
+    (755398) - AssetBundles: Fixed high CPU usage while downloading asset bundles.
+    (779052) - Editor: Fixed a crash when registering undo for null object.
+    (821728) - Editor: Fixed an extra erroneous characters in path passed to PostProcessBuild callbacks.
+    (818346) - Editor: Fixed path error when building into the same folder again.
+    (764857) - Editor: JavascriptPackageManager now supports UNC path on Windows.
+    (732717) - Editor: Fixed an issue with [FormerlySerializedAs] not working with scripts assigned to prefabs.
+    (826406) - Graphics: Fix for incorrect calculation of projection matrix on some platforms.
+    (none) - Graphics: Fixed an Assert in AssignProjectorQueuesJob about calling GetRenderJobThreadCount() when not on the main thread. Triggers when running gfx jobs in scenes with projectors.
+    (none) - Graphics: Fixed large delta values in the the motion vector matrix when a camera is enabled after being disabled.
+    (832155) - GUI: Fixed the regressions introduced in 5.4.1f1 and 5.4.1p1 where GUI.DrawTexture & GUI.DrawTextureWithTexCoords appeared lighter in Linear color space.
+    (827851) - Input: Mouse position is now updated but not clamped when outside of game window.
+    (811959, 815928) - iOS: Fixed a crash when killing the app while a WWW Request was in flight.
+    (820863) - iOS: Fixed the appearance of apps freezing when locking/unlocking the device.
+    (773660) - SpritePacker: Fixed an issue where TightRotateEnabledSpritePackerPolicy flipped sprites in playmode.
+    (none) - Tizen: Resolved an error that didn't call OnApplicationQuit() when TaskManager killed the app.
+    (814084) - tvOS: Fixed the issues when menu button was clicked while playing videos.
+    (747529) - tvOS: Fixed the UI to correctly activate tvOS keyboard.
+    (825406) - tvOS: Fixed the issue of UnityEngine.Apple.TV.Remote API not working in editor.
+    (642194) - VCS: Marked some VCS settings as private.
+    (826132) - VR: Removed audio output warning when Unity Audio is Disabled.
+    (818044) - WebGL: Fixed compressed build files (.*gz) creation if they already exist.
+    (814388) - WebRequest: More correctly follow the HTTP Specification for sending POST data during a Redirect.
+    (827748) - Windows Store: UnityEvent.Remove listener will work correctly when .Net Native is enabled.
+    (833091) - Windows: Fixed Unity crashing when initializing UnityEngine.Windows.Speech.KeywordRecognizer with an array that contains null string as one of its items
+    (791722) - WWW/UnityWebRequest: Fixed the issue of handling multiple headers with the same name in server responses.
+
+Known Issue
+
+    2D: Error "Thread::EqualsCurrentThreadIDForAssert(Thread::mainThreadId)" is spammed to console if 'Sprite Renderer' is enabled. This issue will be fixed in the next release.
+
+Revision: 1b587b7935dc
