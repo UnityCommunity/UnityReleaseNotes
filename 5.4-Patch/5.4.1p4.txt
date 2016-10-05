@@ -1,0 +1,32 @@
+Patch 5.4.1p4
+Released: 5 October 2016
+
+Improvements
+
+    Asset Database: Added a new API for getting asset information without loading asset into memory.
+    Graphics: Updated tooltip test for "Box Projection", "Box Offset" & "Box Size".
+    Lighting: Renamed popup menu item from "Default scene parameter" to "Scene Default Parameters".
+    Substance: Improved substance assets processing when switching platforms, upgrading a project and building.
+    tvOS: Added "Require Extended Game Controller" option to player settings.
+
+Fixes
+
+    (819905) - Animation: The Animation preview will correctly display a preview animation when a model is dragged to the preview area.
+    (832271) - Audio: Fixed memory leak when quickly loading and unloading lots of audio assets.
+    (834100, 833996) - Canvas: Fixed a regression introduced in 5.4.0p4 where non-native fullscreen player appeared darker when Canvas was present, in Linear color space.
+    (814282) - Graphics: Fixed the issue of projectors rendering twice if transparent objects are in the scene.
+    (827364) - Graphics: Fixed a rare deadlock that can happen when graphics jobs are enabled.
+    (815783) - IL2CPP: Allow now Monitor.TryEnter to correctly obtain a previously taken lock that has been released, which did not work in some cases.
+    (826624) - IL2CPP: Correct the stack state handling during code conversion for some box opcodes.
+    (834376) - IL2CPP: Removed an unnecessary assert when GC.Collect(1) is called. The call will still have no impact though.
+    (none) - IOS: Fixed an iOS 10 warning for improper use of runloop.
+    (830528) - IOS: Fixed the Remote notification detection code.
+    (830273) - Metal: Fixed grab pass combined with image effects appears darker.
+    (818563) - Metal: Fixed an issue whereby view was not scaling properly when using Screen.SetResolution in fullscreen mode.
+    (822217) - Substance: Fixed an asset import crash.
+    (820301) - Substance: Fixed a crash when switching build platform.
+    (820162) - UAP: Fixed an incorrect language being returned when system language was Spanish(Argentina).
+    (832104) - UAP: Fixed the issue of incorrect resolution being reported when the composition scale changed and the game window was minimized.
+    (818294) - UI: Fixed the Canvas related crash when some elements are being deleted.
+
+Revision: 139dac7766f0
