@@ -1,0 +1,30 @@
+Patch 5.3.6p7
+Released: 7 October 2016
+
+Improvements
+
+    IL2CPP: Added an option to link.xml files to ignore missing assemblies.
+
+Fixes
+
+    (830443) - AI: Fix for regression where a pushed passive NavMeshAgent would sometimes move to its origin after navmesh carving.
+    (824107) - Android: Fixed a crash on Android when using the FrameDebugger.
+    (832271) - Audio: Fixed a memory leak when quickly loading and unloading lots of audio assets.
+    (834100, 833996) - Canvas: Fixed a regression introduced in 5.3.6p4 where non-native fullscreen player appeared darker when Canvas was present, in Linear color space.
+    (748499) - Editor: Fixed the recursive directory copy situation.
+    (779052) - Editor: Fixed a crash when registering undo for a null object.
+    (832155) - GUI: Fixed a regression introduced in 5.3.6p4 and 5.3.6p5 where GUI.DrawTexture & GUI.DrawTextureWithTexCoords appeared lighter in Linear color space.
+    (815783) - IL2CPP: Allownow Monitor.TryEnter to correctly obtain a previously taken lock that has been released, which did not work in some cases.
+    (826624) - IL2CPP: Corrected the stack state handling during code conversion for some box opcodes.
+    (834376) - IL2CPP: Removed an unnecessary assert when GC.Collect(1) is called. The call will still have no impact though.
+    (811959, 815928) - iOS: Fixed a crash when killing the app while a WWW Request was in flight.
+    (none) - iOS: Fixed the run loop mode warning on iOS 10 devices.
+    (820863) - iOS: Fixed the appearance of apps freezing when locking/unlocking the device.
+    (820162) - UAP: Fixed the incorrect language being returned when system language was Spanish(Argentina).
+    (832104) - UAP: Fixed an incorrect resolution being reported when the composition scale changed and the game window was minimized.
+    (803937) - VR: Fixed a crash when an invalid Oculus plugin is used. Throws warning instead.
+    (826132) - VR: Removed an audio output warning when Unity Audio is Disabled.
+    (814388) - WebRequest: More correctly follow the HTTP Specification for sending POST data during a Redirect.
+    (827748) - Windows Store: UnityEvent.Remove listener will work correctly when .Net Native is enabled. Previously events were not removed as expected.
+
+Revision: abe3b84f224e
