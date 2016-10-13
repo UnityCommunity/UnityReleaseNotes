@@ -1,0 +1,40 @@
+5.5.0b7 Release Notes (Delta since b6)
+Released 11. October 2016
+System Requirements Changes
+
+    OSX 10.8 will be dropped (not done as of yet)
+    Samsung TV 2013 and 2014 will be dropped
+
+Known Issues
+
+    Asset Import: Editor crashes when loading scene from Tower Defense Toolkit asset bundle. (838987)
+    Asset Import: Editor freezes/crashes on trying to open scene from "Playmaker Platforming Starter Kit" Asset Store package. (838272)
+    Editor: Editor crashes with empty stack trace when changing platform (System.IO.FileNotFoundException). (835381)
+    Editor: Editor does not redraw when changing to certain layouts (e.g. 2 by 3). (822106)
+    Editor: Occlusion culling tab leaks memory when scene view is visible. (835378)
+    Editor: [OSX] After Unity crashes when rebaking lighting for Courtyard project, a Unity process is left over and has to be force closed. (834318)
+    Graphics: Opening a pre-Unity 5.5 project with Unity 5.5 will set it to forward rendering for all tiers (see Graphics settings/Tier settings), even if the previous project was set to deferred rendering. (826486)
+    Graphics: Splash Screen: Only drawn for a single frame on STV.
+    Services: No ability to create or link projectID on newly created project. (830392)
+    Terrain: Editor hangs for several seconds when painting SpeedTrees in a new project. (823603)
+    Terrain: [Raycast] Sometimes raycast is not working for terrain. (823920)
+    Terrain: [Painting] Brushes rendering is broken in a new project. (823920)
+    VR: HRTF support on HoloLens is malfunctioning.
+    VR: Splash Screen: Drawn in 2D before VR splash screen.
+    Web: WebGL: FileNotFoundException on 2nd build. Workaround: close project, delete Library folder and reopen project. (830448)
+    WebGL: Building Dev player with "Use pre-built Engine" option throws UnauthorizedAccessException for UnityNative.js. (838754)
+    Windows Store: Building to a folder outside of the project folder fails. (826034)
+    Windows Store: Editor crashes when canceling build when build progress shows "Restoring NuGet packages". (826083)
+
+Improvements
+
+    HoloLens: The builtin spatial mapping occlusion shader has been optimized, thus provides higher frame rates.
+    iOS: Added a way for the user to retrieve Game Center authentication error strings.
+    Web: The Accept-Encoding header may now be set via scripting, but note that this is done at users' risk.
+
+Fixes
+
+    Android: Fixed case of audio stutter when launching Android player from a notification on the lockscreen. (818174)
+    Graphics: Fixed issue whereby TransformDirection and InverseTransformDirection operations were affected by scale. (819962)
+    VR: Fixed memory leak caused by stereo cameras still culling while not rendering. (824508)
+    Windows: Fix to prevent the application from crashing if window is resized with zero width or height.
