@@ -1,0 +1,44 @@
+5.5.0b6 Release Notes (Delta since b5)
+Released 4 October 2016
+System Requirements Changes
+
+    OSX 10.8 will be dropped (not done as of yet)
+    Samsung TV 2013 and 2014 will be dropped
+
+Known Issues
+
+    Collab: Windows Only: Unity.exe and project must be installed to a directory with no whitespace.
+    Editor: Editor crashes with empty stack trace when changing platform (System.IO.FileNotFoundException). (835381)
+    Editor: Editor is not redrawing when changing to certain layouts. (822106)
+    Editor: Occlusion culling tab leaks memory when scene view is visible. (835378)
+    Editor: [OSX] After Unity crashes when rebaking lighting for Courtyard project, a Unity process is left over and has to be force closed. (834318)
+    Graphics: Opening a pre-Unity 5.5 project with Unity 5.5 will set it to forward rendering for all tiers (see Graphics settings/Tier settings), even if the previous project was set to deferred rendering. (826486)
+    Graphics: Splash Screen: Only drawn for a single frame on STV.
+    IMGUI: Error when opening Shader Forge. (834371)
+    Services: No ability to create or link projectID on newly created project. (830392)
+    Terrain: Editor hangs for several seconds when painting SpeedTrees in a new project (823603)
+    Terrain: [Raycast][Painting] Sometimes raycast is not working for terrain/brushes rendering is broken in a new project. (823920)
+    VR: HRTF support on HoloLens is malfunctioning.
+    VR: Splash Screen: Drawn in 2D before VR splash screen.
+    Web: WebGL: FileNotFoundException on 2nd build. Workaround: close project, delete Library folder and reopen project. (830448)
+    Windows Store: Building to a folder outside of the project folder fails. (826034)
+    Windows Store: Editor crashes when canceling build when build progress shows "Restoring NuGet packages". (826083)
+
+Improvements
+
+    Graphics: GPU Instancing: Added support for Android with OpenGL ES 3.0 or newer. Note however that GPU instancing support is disabled for Android devices that have the Adreno GPU with only OpenGL ES 3.0, because of driver issues.
+    Graphics: GPU Instancing: Added support for Metal.
+    Graphics: Metal: Switched the shader backend to HLSLcc.
+    Graphics: Multi-scene occlusion culling now works correctly. Culling data has been extracted to a separate asset, and can be baked / reloaded with multi-scene setups. Note that the data is stored relative to the active scene, and is loaded correctly when loading any scene or group of scenes that reference it.
+    HoloLens: The tracking loss screen now renders at ~60 FPS (previously ~40 FPS).
+    Occlusion Culling: Unity now supports multi-scene occlusion culling. Scenes built concurrently will be computed as expected.
+    WebGL: Reduced the size of release builds by stripping away duplicate functions.
+
+Fixes
+
+    Animation: Fixed a bug where deactivating a GameObject with an attached Animator could cause a crash. (822232)
+    Scripting: Fixed crash relating to construction of a generic Dictionary via reflection. (829757)
+    Scripting: Fixed crash when calling 'AppDomain.Load(byte[], byte[])' in a non-development player. (827833)
+    Substance: Fixed crash when selecting a ProceduralMaterial after switching build platform. (820301)
+    Substance: Fixed occasional ProceduralMaterial asset import crash. (822217)
+    Substance: Fixed SubstanceImporter.ExportBitmaps generated file names.
