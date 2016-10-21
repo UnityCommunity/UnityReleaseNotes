@@ -1,0 +1,59 @@
+5.5.0b8 Release Notes (Delta since b7)
+Released 20 October 2016
+System Requirements Changes
+
+    OSX 10.8 will be dropped (not done as of yet)
+    Samsung TV 2013 and 2014 will be dropped
+
+Known Issues
+
+    Asset Import: Editor crashes when loading scene from Tower Defense Toolkit asset bundle. (838987)
+    Asset Import: Editor freezes/crashes on trying to open scene from "Playmaker Platforming Starter Kit" Asset Store package. (838272)
+    Editor: Editor crashes with empty stack trace when changing platform (System.IO.FileNotFoundException). (835381)
+    Editor: [OSX] After Unity crashes when rebaking lighting for Courtyard project, a Unity process is left over and has to be force closed. (834318)
+    Graphics: Opening a pre-Unity 5.5 project with Unity 5.5 will set it to forward rendering for all tiers (see Graphics settings/Tier settings), even if the previous project was set to deferred rendering. (826486)
+    Services: No ability to create or link projectID on newly created project. (830392)
+    Terrain: Editor hangs for several seconds when painting SpeedTrees in a new project. (823603)
+    VR: HRTF support on HoloLens is malfunctioning.
+    VR: Splash Screen: Drawn in 2D before VR splash screen.
+    Web: WebGL: FileNotFoundException on 2nd build. Workaround: close project, delete Library folder and reopen project. (830448)
+    WebGL: Building Dev player with "Use pre-built Engine" option throws UnauthorizedAccessException for UnityNative.js. (838754)
+    Windows Store: Building to a folder outside of the project folder fails. (826034)
+
+Improvements
+
+    Animation: Implemented Reset for BlendTrees.
+    Editor: Unity now treats quotes in the .exe path as the Windows command line does.
+    Graphics: Improved in-editor graphics emulation:
+        Metal setting added, used by default on iOS/tvOS (instead of previous GLES2.0 setting).
+        OpenGL ES 3.0 setting added, used by default on Android (instead of previous GLES2.0 setting).
+        WebGL 1 and WebGL 2 settings added; WebGL1 used by default on WebGL (instead of previous GLES2.0 setting).
+        Shader Model 4 setting added, available on Standalone/WindowsStore.
+    Particles: Improved the Particle System curve editor: it now supports wrap modes and improved selection and editing of keys.
+    Terrain: Terrain LOD pre-computation is optimized and now runs faster (specifically, TerrainData.SetHeights and setting the size property are faster now).
+    Unity Ads: Updated Unity Ads to v2.0.5. Fixed crashes related to calling user-defined callbacks from outside the main Unity thread.
+
+API Changes
+
+    Terrain: Added TerrainChangedFlags for use with the OnTerrainChanged message.
+    Terrain: Added TerrainData.bounds for retrieving the local bounding box of terrain heightmap data.
+
+Fixes
+
+    Animation: Added warning icon in animator controller to inform user that a base layer with humanoid motion should preferably not have an avatar mask. (823794)
+    Animation: Fixed an issue where Animator.SetTrigger was not forwarded to all AnimatorControllers in a playable graph. (823880)
+    Animation: Fixed an issue where deleting an Override controller that was previously set as the runtime controller was resetting the animator stateMachine.
+    Animation: Fixed case of an invalid Playable leak message being displayed. (826047)
+    Animation: Fixed case of leaking animation clips in Animation Component. (826304)
+    Animation: Fixed case of nested property game object name not showing in the animation window when selecting from the project folder. (823679)
+    Animation: Fixed case of vertical scrollbar jamming in the animation window. (830247)
+    Animation: Fixed crash when calling Animator.Play on a disabled GameObject during playback. (812440)
+    Animation: Fixed crash when triggering a newly created animation clip at runtime. (824596)
+    Animation: Fixed issue whereby read-only animation clip selection was modifiable in the animation window. (828250)
+    Animation: Fixed problem that occurred when blending between two additive clips when some properties are animated in one of the clips but not the other. (828199)
+    Build Pipeline: The build target path is now stored as a relative instead of an absolute path. This resolves some building issues, such as path errors when building to external folders or subfolders. (818346)
+    Graphics: Fixed billboard batching when rendering a large number of billboards. (836486)
+    Graphics: Fixed bug in GLSL shader translation that crashed gpu on OSX.
+    Graphics: Fixed case of Shader.SetGlobalVector/SetGlobalMatrix and CommandBuffer equivalents not being able to set some of the global properties (the "built-in" ones).
+    Terrain: Fixed asserts when rendering a terrain of zero size. (832184)
+    Terrain: Fixed crash triggered when neighboring terrain resolutions didn't match. Now neighboring will be disabled and a warning message will be printed. (821794)
