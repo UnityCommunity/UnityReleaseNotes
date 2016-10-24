@@ -1,0 +1,23 @@
+Patch 5.3.6p8
+Released: 24 October 2016
+
+Improvements
+
+    VR: Update Oculus to version 1.9 .
+
+Fixes
+
+    (821680) - Cache Server: Fixed an issue where cache serve could crash due to unhandled EEXIST error when creating directory.
+    (832996) - D3D11: Take into account ColorSpace (linear/gamma) when capturing screenshots.
+    (834633) - IL2CPP: Use the no-strict-overflow flag to compile generated C++ code on gcc and clang based compilers so that we match the integer overflow behavior of C#.
+    (720704) - Shaders: Fixed some cases of inout struct variables with COLOR semantic members wrongly translating into GLES2.0.
+    (803901) - UI: Fixed the issue with double rendering of world canvas in the Editor.
+    (none) - VR: Fixed a crash at startup on GearVR if Focus is lost very close to the time or the app starting.
+    (none) - WebGL: Fixed Code Blob memory leak.
+    (759492) - WebGL: Fixed browser lock-up when profiling.
+    (775178) - WebGL: UnityWebRequest.downloadProgress now returns the actual progress as opposed to 0.
+    (none) - WebRequest: Allow empty headers as that is in general valid.
+    (825429) - WebRequest: Allow setting Accept-Encoding header from scripting at users own risk.
+    (none) - Windows: Added safety check when receive new window size with zero values, make minimum value 1, otherwise functions like CreateDepthStencilView will fail.
+
+Revision: c04dd374db98
