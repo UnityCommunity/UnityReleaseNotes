@@ -1,0 +1,49 @@
+Unity 5.5.0b9
+Released: October 25, 2016
+
+5.5.0b9 Release Notes (Delta since b8)
+System Requirements Changes
+
+    OSX 10.8 will be dropped (not done as of yet)
+    Samsung TV 2013 and 2014 will be dropped
+
+Known Issues
+
+    Asset Import: Editor crashes when loading scene from Tower Defense Toolkit asset bundle. (838987)
+    Asset Import: Editor freezes/crashes on trying to open scene from "Playmaker Platforming Starter Kit" Asset Store package. (838272)
+    Editor: Editor crashes with empty stack trace when changing platform (System.IO.FileNotFoundException). (835381)
+    Editor: [OSX] After Unity crashes when rebaking lighting for Courtyard project, a Unity process is left over and has to be force closed. (834318)
+    Services: No ability to create or link projectID on newly created project. (830392)
+    Terrain: Editor hangs for several seconds when painting SpeedTrees in a new project. (823603)
+    Terrain: Significant performance degradation for certain existing projects containing terrain data, when imported into 5.5. (818706)
+    VR: HRTF support on HoloLens is malfunctioning.
+    VR: Splash Screen: Drawn in 2D before VR splash screen.
+
+Changes
+
+    Editor: It's not allowed to build in linear color space on platforms that don't support it
+    HoloLens: HoloLens low latency API has been re-instated
+
+Improvements
+
+    Animation: Import avatar improvements: A warning is now degenerated when importing avatar configurations with hierarchies that do not match properly. These configurations will continue to work, but do need to be updated with a proper avatar configuration. This update also includes improvements to the default auto-mapping.
+    Game Performance: Added option to prevent exceptions occurring Play mode in the editor from being reported to the Game Performance service.
+    Shaders: When shader compilation fails and the reason is unknown show the error output from the platform shader compiler in the error message.
+
+Fixes
+
+    Android: Fixed a crash when quitting an application on older Android devices (835383)
+    Editor: Fix clicking Player Settings button in Build Settings window not giving focus to inspector (720992)
+    Editor: Fix icon tab in PlayerSettings doesn't stay open (831307)
+    Editor: Fixed crash when trying to emulate shader model 2. (828845)
+    Editor: Nullify RECT in case GetClientRect fails so we don't have trash in RECT. (825082)
+    Graphics: Prevent RendererScene modifications from inside OnPreRender callbacks, similar to other callbacks. (829694)
+    OpenGL: Fixed Asserts appearing after using brush color picker for choosing color and saving scene in the new project. (824452)
+    Shaders: Added support for parsing errors from #error in a shader. (824020)
+    Shaders: Fixed Metal depth output to be always float.
+    Shaders: Fixed shader compiler crash when writing to depth output (830427)
+    Standalone: Fixed invalid linear rendering check while using batch mode -batchmode -nographics (832083)
+    WebGL: Fix building with use pre-built unity engine option (838754)
+    WebGL: Fixed AudioSource.time to report correct values
+    WebGL: Fixed profiler crash (834578)
+    Windows Store: Fix crash when UWP application throws exception through managed/native boundary (775702)
