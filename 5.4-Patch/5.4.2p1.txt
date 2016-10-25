@@ -1,0 +1,45 @@
+Patch 5.4.2p1
+Released: 24 October 2016
+
+
+improvements
+
+    Graphics: When graphics jobs are enabled added an Assert to detect recursion e.g. a graphics job runs inside another graphics jobs.
+    Unity IAP: Support transaction receipt logging for all store platforms.
+    VR: Update Oculus to version 1.9 .
+
+Fixes
+
+    (823935) - 2D: Fixed an issue with UV rounding errors when using the OverrideGeometry method on sprites.
+    (none) - Android: Added "Mute Other Audio Sources" option to Android player settings in editor.
+    (825442) - Android: Buildpipe - Fixed splitting files for OBB.
+    (807983) - Android: By default lower volume of the background audio instead of muting it.
+    (826201) - Android: Return internal temporary cache and persistent data paths when external paths are unavailable.
+    (822232) - Animation: Fixed a bug where deactivating a GameObject with an attached Animator might cause a crash.
+    (832996) - D3D11: Take into account ColorSpace (linear/gamma) when capturing screenshots.
+    (819770) - Editor: Fixed a crash when deleting GameObject with ScrollView component.
+    (819900) - Editor: Fixed drag'n'drop a shader onto a material not setting the correct shader keywords but choosing the shader from the material UI shader drop down would set them correctly.
+    (815720) - Editor: TargetInvocationException error no longer appears when importing Windows Store Apps plugins.
+    (828380) - Graphics: Fixed GPU instancing not working with procedurally generated meshes.
+    (829694) - Graphics: Prevent RendererScene modifications from within OnPreRender callbacks, similar to other callbacks.
+    (834633) - IL2CPP: Use the no-strict-overflow flag to compile generated C++ code on gcc and clang based compilers so that we match the integer overflow behavior of C#.
+    (none) - iOS: Fixed run loop mode warning on iOS 10 devices.
+    (819351) - MAC OS X: Fixed Codesigning for Editor Build to prevent firewall from asking multiple times for permission.
+    (819813) - OpenGL: Prevent Windows editor crash when opening old project that had legacy OpenGL selected.
+    (833783) - Rendering: Fixed incorrect batching of Renderers with different PropertyBlocks.
+    (819962) - Scripting: Fixed TransformDirection and InverseTransformDirection operations being affected by scale.
+    (766144) - Scripting: Fixed a crash on Invoke(null, …).
+    (833425) - Shaders: Fixed a potential crash when calling GetShaderSettingsForPlatform on Windows.
+    (720704) - Shaders: Fixed some cases of inout struct variables with COLOR semantic members wrongly translating into GLES2.0.
+    (828454) - Shaders: Added fixes to tessellation shader compilation on OpenGL and OpenGL ES.
+    (none) - Tizen: Added Showing loading indicator in Tizen.
+    (833452) - tvOS: Added support for top shelf wide image.
+    (none) - UnityAnalytics: Fixed an invalid userId issue on WebGL.
+    (825429) - UnityWebRequest: Allow setting Accept-Encoding header at users own risk.
+    (775178) - WebGL: UnityWebRequest.downloadProgress now returns the actual progress as opposed to 0.
+    (none) - WebGL: Fixed Code Blob memory leak.
+    (829648) - Windows Store Apps: Location services can be enabled or disabled while the app is still running.
+    (835218) - Windows Store Apps: Player preferences are no longer lost between game sessions.
+    (none) - Windows: Added safety check when receive new window size with zero values, make minimum value 1, otherwise functions like CreateDepthStencilView will fail.
+
+Revision: fe0fe6301f5e
