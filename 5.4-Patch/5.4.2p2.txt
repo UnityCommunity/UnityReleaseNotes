@@ -1,0 +1,45 @@
+Patch 5.4.2p2
+Released: 28 October 2016
+
+Improvements
+
+    IL2CPP: Android - improved building performance.
+    iOS : Exposed ReplayKit streaming APIs to user scripts.
+
+Bugs
+
+    (818174) - Android: Fixed a case of audio stutter when launching Android player from a notification on the lockscreen.
+    (826047) - Animation: Fixed erroneous "Playable was not Disposed" being displayed.
+    (824009) - Asset Bundles: Fixed the assetBundle property of AssetBundleCreateRequest so that it stalls instead of returning null when the bundle is not yet ready
+    (808412) - Collaborate: Fixed a bug where double-click on "Show differences" icon for a local change in Collaborate toolbar cause a crash.
+    (832097) - Editor: Fixed an issue with addition of duplicate references of auxiliary platform-specific editor DLLs to editor C# project.
+    (793204](https://issuetracker.unity3d.com/product/unity/issues/guid/793204/)) - Editor: Fixed the errors when capturing screen or sending images to remote.
+    (807375) - Editor: Fixed the icon quality regression caused by unnecessary scaling step.
+    (814484) - Editor: Improved performance of SetParent in deeply nested UI panels.
+    (832292) - Graphics : Updated shader macros to support lod + sampler variations for texture cubes and arrays.
+    (808298) - Graphics: Fixed a crash in CommandBuffer.DrawRenderer because of a NULL or inactive camera.
+    (825082) - Graphics: Nullify RECT in case GetClientRect fails so we don't have trash in RECT.
+    (840596) - IL2CPP: A call to GetCurrentMethod in a generic method should return the generic method definition, not the inflated generic instance method.
+    (837974) - IL2CPP: Fixed generated C++ code not compiling when calling Math.Abs on an unsigned integer.
+    (838259) - IL2CPP: Return an empty array from GetGenericArguments when it is called on a MethodInfo object from a non-generic method. Previously the runtime incorrectly threw an assert in this case.
+    (820692) - iOS: Fixed a performance regression by resizing the constant pool adaptively on Metal.
+    (820885) - iOS: Fix a race condition when changing resolution on startup on Metal.
+    (820938) - iOS: Fix bug in retrieving of certain values of IScore larger than 32 bits.
+    (808537) - iOS: GameCenterPlatform.ShowLeaderboardUI now shows the specific leaderboard when requested (note, the symptoms are still observable on iOS 8.4 and 9.x due to a bug in the OS itself).
+    (801369) - iOS: ILeaderboard.LoadScores now does callback if SetUsersFilter is called.
+    (815816) - Kernel: Fixed local scale of duplicate game object not matching original local scale of game object if parent has rotation set.
+    (829178) - OSX: Fixed a crash on startup when OpenGL2 is used.
+    (825180) - Particles: Don't allow prewarm on non-looping systems.
+    (833513) - Particles: Fixed a crash when using uninitialised curves.
+    (837680) - Particles: Fixed an issue when rendering during OnPreRender using RenderWithShader.
+    (819881) - Particles: Prevent restarting particle system when parent transform moves in the editor.
+    (833737) - Physics 2D: Ensure that BoxCollider2D.Cast correctly detects a multi-edge EdgeCollider2D.
+    (820300) - Physics 2D: Ensure that BoxCollider2D/PolygonCollider2D with large vertex but small area is created correctly.
+    (830078, 819705) - Shaders: Fixed some cases of unsupported shader variants leading to a crash.
+    (829326, 818524) - Trails: Fixed an occasional TrailRenderer crash when using Clear script API.
+    (826310) - UI: Fixed an issue where the Disabled Trigger animation was triggered on hovering over a Button when this was not Interactable.
+    (834148) - UnityWebRequest: DownloadHandlerAssetBundle will become done once download finishes.
+    (834583) - UnityWebRequest: Fixed a crash when downloaded asset bundle had zero size.
+    (837783) - Windows: Fixed potential lock when in fullscreen exclusive mode and minimising/maximising screen.
+
+Revision: d258db53ba1a
