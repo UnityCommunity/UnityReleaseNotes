@@ -1,0 +1,37 @@
+Unity 5.5.0b10 release notes
+Released: November 1, 2016
+
+5.5.0b10 Release Notes (Delta since b9)
+System Requirements Changes
+
+    OSX 10.8 will be dropped (not done as of yet)
+    Samsung TV 2013 and 2014 will be dropped
+
+Known Issues
+
+    AI: Error on importing asset store packages containing ProjectSettings, with message: "Package corrupted, deduced GUID exists but at different destination path, refusing import" (837480)
+    Asset Import: Editor crashes when loading scene from Tower Defense Toolkit asset bundle. (838987)
+    Asset Import: Editor freezes/crashes on trying to open scene from "Playmaker Platforming Starter Kit" Asset Store package. (838272)
+    Editor: [OSX] After Unity crashes when rebaking lighting for Courtyard project, a Unity process is left over and has to be force closed. (834318)
+    Terrain: Editor hangs for several seconds when painting SpeedTrees in a new project. (823603)
+    Terrain: Significant performance degradation for certain existing projects containing terrain data, when imported into 5.5. (818706)
+
+Changes
+
+    Graphics: Updated shader macros to support lod + sampler variations for texture cubes and arrays.
+
+Improvements
+
+    Graphics: Shader.globalMaximumLOD is now restored after exiting playmode.
+    HoloLens: The Visual Tracking Loss Screen will now always be displayed when visual tracking has been lost.
+    VR: Updated the native plugin support for VR devices. Plugins in user projects override native VR plugins when used.
+
+Fixes
+
+    CacheServer: Fixed error thrown in certain circumstances while creating sub-directories. (820297)
+    CacheServer: Fixed leak of file descriptor and a continual allocation issue. (774264)
+    Editor: Fixed case of RenderTexture inspector missing ARGB4444 and determining ARGB1555 incorrectly. (832867)
+    Editor: Fixed input reset in editor when iOS device without Unity Remote is selected. (832368)
+    Graphics: Introduced check to verify that camera is still valid to render after OnPreRender callback. (826844)
+    iOS: Fixed issues with Input.touchPressureSupported incorrectly reporting false. (834172)
+    Launcher: Fixed Account Help link in launcher. Now points to Account Help instead of Unity general help. (784432)
