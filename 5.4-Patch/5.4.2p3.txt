@@ -1,0 +1,28 @@
+Patch 5.4.2p3
+Released: 2 November 2016
+
+Improvements
+
+    iOS: Exposed EditorUserBuildSettings.iOSBuildConfigType in public API.
+    User profile markers in scripts now show in platform profilers even when the Unity profiler is not running.
+
+Fixes
+
+    (832837) - Animation: Fixed a crash when receiving null property modification in animation recording.
+    (835544) - Animation: Re-enabling playback/recording in play mode.
+    (844785, 841067) - AssetBundles: Fixed a deadlock when decompressing lzma bundle when stream had incompressible data.
+    (774264, 820297) - CacheServer: Fixed creation of directories and an issue while sending file and socket was closed.
+    (819150) - Collab: Fixed a crash with collab toolbar.
+    (826244) - Graphics: Texture2D.ReadPixels no longer reads from the wrong location on iOS/Metal when reading a section of an image.
+    (842538) - IL2CPP: Correctly marshal an out array of structures which uses the LPStruct marshaling directive.
+    (840534) - Mono: Prevent GetHostEntry from throwing a SocketException on Windows when the machine is not connected to any network.
+    (827122, 804744) - Multiplayer: Fixed a crash with StartAsClient.
+    (790431, 785347, 771860, 836170, 827884) - Multiplayer: Fixed the issues concerning disconnect and error handling.
+    (761588, 820982, 773323) - Multiplayer: Fixed weaver error handling of not supported types.
+    (756572, 737241, 775248) - Multiplayer: Fixed weaver generation of Serialize and Deserialize functions.
+    (765145, 840314, 710625, 730779) - Shaders: Fixed some cases where surface shader writing to o.Occlusion would not sample the texture with correct UVs.
+    (833647) - UnityWebRequest: Fixed redirect to a relative URL.
+    (none) - VR: Fixed issue with Oculus causing Controller Input to fail for bumpers.
+    (838737) - Windows Store: Fixed incorrect instanceID for component when cloning object with component contained in a struct inside list.
+
+Revision: 466fe82d1f51
