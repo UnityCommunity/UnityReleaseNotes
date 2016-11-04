@@ -2,7 +2,7 @@
 Release Notes - to be used with github search
 
 ### Examples
-- Search for VR changes : https://github.com/UnityCommunity/UnityReleaseNotes/search?q=VR&type=Code
+- Search for most recent VR changes : https://github.com/UnityCommunity/UnityReleaseNotes/search?o=desc&q=VR&s=indexed&type=Code
 - Search with bug #: https://github.com/UnityCommunity/UnityReleaseNotes/search?q=753822
 
 ### Where to download old/beta/patch Unity versions?
