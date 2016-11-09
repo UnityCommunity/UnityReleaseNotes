@@ -1,0 +1,24 @@
+Patch 5.4.2p4
+Released: 9 November 2016
+
+Fixes
+
+    (845815) - Animation: Fixed an issue where Legacy animations could not be previewed.
+    (830110) - Asset Pipeline: Fixed a regression where AssetDatabase.SaveAssets won't save changes made to a prefab inside OnPostprocessAllAssets.
+    (none) - Audio: Fixed a panning issue with spatialized sounds.
+    (829898) - Build player: Reverted the change, which saved relative paths for build target but introduced issues for targets that needed to browse for folders instead of files (webGL, etc).
+    (824011) - Editor: Fixed a crash in RectTransform because it would send messages on the loading thread.
+    (none) - Graphics: Fixes a memory leak when using the GI visualizers in the scene view.
+    (832368) - IOS: Fixed an input reset in editor when iOS device without Unity Remote is selected
+    (834172) - IOS: Fixed issues with iOS Input.touchPressureSupported incorrectly reporting false.
+    (839037) - iOS: Build and Run now doesn't clean Xcode project for Append builds.
+    (836165) - Mac Editor: Fixed a crash when using Build and Run for iOS projects.
+    (843181) - Mac Editor: Fixed editor hanging if app was already running in Xcode 7.x when using Build and Run.
+    (819998) - OpenVR: Fixed a crash in certain conditions when checking if device is available.
+    (818159) - OpenVR: VRDevice.isPresent now works correctly when HMD is occluded from base stations.
+    (819092) - Shadows/Lights: Fix for dark lightmap when changing sun shadow strenght in mixed mode.
+    (829379) - VR: Fixed a crash when switching between VR mode and non-VR mode with image effects applied.
+    (817835) - VR: Fixed VRSettings.renderViewportScale when single-pass stereo rendering is enabled.
+    (821570) - Windows Store: Fixed a crash in multi scene system caused by internal managers being garbage collected.
+
+Revision: e59bdccd995f
