@@ -1,0 +1,67 @@
+Unity 5.5.0b11
+Released: November 9, 2016
+
+5.5.0b11 Release Notes (Delta since b10)
+System Requirements Changes
+
+    OSX 10.8 will be dropped (not done as of yet)
+    Samsung TV 2013 and 2014 will be dropped
+
+Known Issues
+
+    Asset Import: Editor crashes when loading scene from Tower Defense Toolkit asset bundle. (838987)
+    Asset Import: Editor freezes/crashes on trying to open scene from "Playmaker Platforming Starter Kit" Asset Store package. (838272)
+    Deployment Management: Various issues with plugin / dll management, which will be fixed in the next 5.5.0 build.
+        The build intermittently fails to include OVRPlugin when building for Android.
+        Unity fails to load internal dll due to it being on an Unknown architecture. (845439)
+    Editor: Runtime error/crash after closing project in Play mode when gameobject was selected (848110)
+    Editor: [OSX] After Unity crashes when rebaking lighting for Courtyard project, a Unity process is left over and has to be force closed. (834235)
+    Terrain: Editor hangs for several seconds when painting SpeedTrees in a new project. (823603)
+    Terrain: Significant performance degradation for certain existing projects containing terrain data, when imported into 5.5. (818706)
+    VR: Holographic Emulation dlls fail to load; resulting in inability to perform Remoting or Simulation.
+
+Changes
+
+    Platform Profiler: User profile markers in scripts now show in platform profilers even when the Unity profiler is not running.
+    tvOS: Added support for top shelf wide image.
+    VR: Oculus Touch Controllers and Oculus Remote now present themselves as standard joysticks.
+    VR: OpenVR controllers now present themselves as standard joysticks.
+
+Improvements
+
+    Collaboration: Bug fixes, UI improvements.
+    Shaders: Improved exception messages when passing invalid arguments to the ComputeShader constructor.
+    VR: GUI elements now work with single-pass stereo rendering
+
+API Changes
+
+    Graphics: Added array property getters (e.g. GetFloatArray) for Material, MaterialPropertyBlock and Shader class.
+    Graphics: Added bool SystemInfo.usesReversedZBuffer to be able to know if the Z is currently reversed.
+    Graphics: Added List overloads for array property setters for Material, MaterialPropertyBlock, Shader and CommandBuffer class.
+    Graphics: Added List overloads for Graphics.DrawMeshInstanced.
+    Graphics: Added property getters (e.g. GetGlobalFloat) for Shader class.
+    Particles: Exposed the Maximum Particle Timestep (maximumParticleDeltaTime) to the public API.
+
+Fixes
+
+    Animation: Fixed an issue where an invalidly configured Humanoid rig with Optimize Game Objects would cause the configure button to disappear. (827514)
+    Animation: Re-enabled recording in editor play mode. (835544)
+    Editor: Fixed a crash when importing a grayscale image as single channel with low quality setting. (831768)
+    GI: Fixed case of GI being overridden by bad values from cache after using meta pass for emission. (741304)
+    Graphics: Fixed incorrect standard shader self-shadowing when using parallax+alphatest. (631592)
+    Graphics: Fixed issue where instantiating non-readable texture crashes Unity on Texture2D::AwakeFromLoad. (843287)
+    Graphics: Metal: Fixed broken view scaling / rendering when changing resolution from script. (818563)
+    Graphics: Metal: Implemented adaptive size on constant buffer pool. (820692)
+    iOS: Fix to adapt font fallback order to Korean and Chinese locales where applicable. (821645)
+    iOS: Fix to enable native remote notification APIs when only the device identifier API is used. (830528)
+    iOS: Metal: Fixed a race condition leading to a crash when changing resolution on startup. (820885)
+    Mono: Fix to prevent floating point operations from returning incorrect values when a managed debugger is attached. (836825)
+    Particles: Fix to hide unncessary properties in the Renderer Module when using "None" render mode. (831193)
+    Particles: Fixed bug where world collision didn't work when the particle system was scaled on the vertical axis. (765535)
+    Particles: Fixed case of custom LineRenderer animation vertexes being inverted occasionally. (832043)
+    Particles: Fixed issue where setting Particle.rotation3D had no effect on a particle rotation in some cases. (828869)
+    Particles: Fixed issue whereby a child sub-emitter could not be rotated and emitted in one direction only. (781282)
+    Particles: Fixed issue whereby disabled sub-emittor particles weren't cleared. (829208)
+    tvOS: Fixed UI to correctly activate tvOS keyboard. (747529)
+    UI: Fixed crash in RectTransform, triggered because it would send messages on the loading thread. (824011)
+    Windows Store: Fixed cases where the Editor profiler would sometimes fail to connect to an application running on a remote device (e.g. Windows Phone). (833525)
