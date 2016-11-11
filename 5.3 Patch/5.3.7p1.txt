@@ -1,0 +1,19 @@
+Patch 5.3.7p1
+Released: 11 November 2016
+
+Fixes
+
+    (818174) - Android: Fixed case of audio stutter when launching Android player from a notification on the lockscreen.
+    (807983) - Android: Fixed an issue whereby the projects without audio stopping the external audio sources.
+    (824009) - Asset Bundles: Fixed the assetBundle property of AssetBundleCreateRequest so that it stalls instead of returning null when the bundle is not yet ready.
+    (829898) - Build player: Reverted the change, which saved relative paths for build target but introduced issues for targets that needed to browse for folders instead of files (webGL, etc).
+    (837783) - Graphics: Fixed potential lock when in fullscreen exclusive mode and minimising/maximising screen.
+    (840596) - IL2CPP: A call to GetCurrentMethod in a generic method should return the generic method definition, not the inflated generic instance method.
+    (845666) - IL2CPP: Fixed stacktraces on iOS when Link Time Optimization (LTO) was enabled in the build.
+    (838259) - IL2CPP: Return an empty array from GetGenericArguments when it is called on a MethodInfo object from a non-generic method. Previously the runtime incorrectly threw an assert in this case.
+    (836165) - Mac Editor: Fixed a crash when using Build and Run for iOS projects.
+    (843181) - Mac Editor: Fixed editor hanging if app was already running in Xcode 7.x when using Build and Run.
+    (840534) - Mono: Prevent GetHostEntry from throwing a SocketException on Windows when the machine is not connected to any network.
+    (821570) - Windows Store: Fixed a crash in multi scene system caused by internal managers being garbage collected.
+
+Revision: a26d44cae81c
