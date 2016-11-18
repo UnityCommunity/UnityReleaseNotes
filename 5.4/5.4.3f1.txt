@@ -1,0 +1,106 @@
+Unity 5.4.3
+17 Nov, 2016
+
+Release notes
+Improvements
+
+    IL2CPP: Android - improved building performance.
+    iOS: Exposed EditorUserBuildSettings.iOSBuildConfigType in public API.
+    IOS: Exposed ReplayKit streaming APIs to user scripts.
+    Unity IAP: Support transaction receipt logging for all store platforms.
+    Profiler: User profile markers in scripts now show in platform profilers even when the Unity profiler is not running.
+    VR: Update Oculus to version 1.9.
+
+Fixes
+
+Also includes relevant fixes from Unity 5.3.7.
+
+    2D: Fixed an issue with UV rounding errors when using the OverrideGeometry method on sprites. (823935)
+    Analytics: Fixed an invalid userId issue on WebGL.
+    Android: Added "Mute Other Audio Sources" option to Android player settings in editor.
+    Android: By default lower volume of the background audio instead of muting it. (807983)
+    Android: Fixed a case of audio stutter when launching Android player from a notification on the lockscreen. (818174)
+    Android: Return internal temporary cache and persistent data paths when external paths are unavailable. (826201)
+    Animation: Fixed a bug where deactivating a GameObject with an attached Animator might cause a crash. (822232)
+    Animation: Fixed a crash when receiving null property modification in animation recording. (832837)
+    Animation: Fixed an issue where Legacy animations could not be previewed. (845815)
+    Animation: Fixed erroneous "Playable was not Disposed" message being displayed. (826047)
+    Animation: Re-enabling playback/recording in play mode. (835544)
+    Asset Bundles: Fixed the assetBundle property of AssetBundleCreateRequest so that it waits instead of returning null when the bundle is not yet ready (824009)
+    Asset Bundles: Fixed a deadlock when decompressing LZMA bundle when stream had incompressible data. (844785, 841067)
+    Asset Pipeline: Fixed a regression where AssetDatabase.SaveAssets won't save changes made to a prefab inside OnPostprocessAllAssets. (830110)
+    Audio: Fixed a panning issue with spatialized sounds.
+    Build player: Reverted the change, which saved relative paths for build target but introduced issues for targets that needed to browse for folders instead of files (WebGL, etc). (829898)
+    CacheServer: Fixed creation of directories and an issue while sending file and socket was closed. (774264, 820297)
+    Collab: Fixed crashes with collab toolbar. (819150, 808412)
+    Editor: Fixed an issue with addition of duplicate references of auxiliary platform-specific editor DLLs to editor C# project. (832097)
+    Editor: Fixed drag'n'drop of shader onto a material not setting the correct shader keywords. (819900)
+    Editor: Fixed errors when capturing screen or sending images to remote. (793204)
+    Editor: Fixed icon quality regression caused by unnecessary image scaling step. (807375)
+    Editor: TargetInvocationException error no longer appears when importing Windows Store Apps plugins. (815720)
+    Editor: Fixed Codesigning for Mac Editor to prevent firewall from asking multiple times for permission. (819351)
+    Graphics: Fixed a crash in CommandBuffer.DrawRenderer of a particle renderer when current camera is null. (808298)
+    Graphics: Fixed GPU instancing not working with procedurally generated meshes. (828380)
+    Graphics: Fixed a memory leak when using the GI visualizers in the scene view.
+    Graphics: Fixed incorrect batching of Renderers with different MaterialPropertyBlocks. (833783)
+    Graphics: Fixed a potential crash when calling GetShaderSettingsForPlatform on Windows. (833425)
+    Graphics: Prevent scene modifications from within OnPreRender callbacks, similar to other callbacks. (829694)
+    Graphics: Texture2D.ReadPixels no longer reads from the wrong location on iOS/Metal when reading a subsection of an image. (826244)
+    Graphics: Fix for dark lightmap when changing sun shadow strength in mixed lighting mode. (819092)
+    Graphics: Fixed editor crash when opening old project that had legacy OpenGL2 selected. (819813, 829178)
+    Graphics: Fixed an occasional TrailRenderer crash when using Clear script API. (829326, 818524)
+    IL2CPP: A call to GetCurrentMethod in a generic method should return the generic method definition, not the inflated generic instance method. (840596)
+    IL2CPP: Correctly marshal an out array of structures which uses the LPStruct marshaling directive. (842538)
+    IL2CPP: Fixed generated C++ code not compiling when calling Math.Abs on an unsigned integer. (837974)
+    IL2CPP: Return an empty array from GetGenericArguments when it is called on a MethodInfo object from a non-generic method. Previously the runtime incorrectly threw an assert in this case. (838259)
+    iOS: Build and Run now doesn't clean Xcode project for Append builds. (839037)
+    iOS: Fix a race condition when changing resolution on startup on Metal. (820885)
+    iOS: Fix bug in retrieving of certain values of IScore larger than 32 bits. (820938)
+    iOS: Improved performance by resizing the constant buffer pool adaptively on Metal. (820692)
+    iOS: Fixed an input reset in editor when iOS device without Unity Remote is selected. (832368)
+    iOS: Fixed issues with iOS Input.touchPressureSupported incorrectly reporting false. (834172)
+    iOS: Fixed a crash when using Build and Run for iOS projects. (836165)
+    iOS: Fixed editor hanging if app was already running in Xcode 7.x when using Build and Run. (843181)
+    iOS: GameCenterPlatform.ShowLeaderboardUI now shows the specific leaderboard when requested (note, the symptoms are still observable on iOS 8.4 and 9.x due to a bug in the OS itself). (808537)
+    iOS: ILeaderboard.LoadScores now does callback if SetUsersFilter is called. (801369)
+    Kernel: Fixed local scale of duplicate game object not matching original local scale of game object if parent has rotation set. (815816)
+    Multiplayer: Fixed a crash with StartAsClient. (827122, 804744)
+    Multiplayer: Fixed issues concerning disconnect and error handling. (790431, 785347, 771860, 836170, 827884)
+    Multiplayer: Fixed weaver error handling of not supported types. (761588, 820982, 773323)
+    Multiplayer: Fixed weaver generation of Serialize and Deserialize functions. (756572, 737241, 775248)
+    Particles: Don't allow prewarm on non-looping systems. (825180)
+    Particles: Fixed a crash when using uninitialised curves. (833513)
+    Particles: Fixed an issue when rendering during OnPreRender using RenderWithShader. (837680)
+    Particles: Prevent restarting particle system when parent transform moves in the editor. (819881)
+    Physics: Fixed interpolation of rigid bodies that was losing accuracy over time. That may have led to interpolated bodies moving in a jittery way after hours of gameplay. (843507)
+    Physics: Ensure that BoxCollider2D.Cast correctly detects a multi-edge EdgeCollider2D. (833737)
+    Physics: Ensure that BoxCollider2D/PolygonCollider2D with large vertex but small area is created correctly. (820300)
+    Scripting: Fixed a crash on Invoke(null, …). (766144)
+    Scripting: Fixed TransformDirection and InverseTransformDirection operations being affected by scale. (819962)
+    Scripting: Prevent GetHostEntry from throwing a SocketException on Windows when the machine is not connected to any network. (840534)
+    Shaders: Added shader macros to support LOD + sampler variations for cubemaps and texture arrays. (832292)
+    Shaders: Fixes to tessellation shader compilation on OpenGL and OpenGL ES. (828454)
+    Shaders: Fixed some cases of unsupported shader variants leading to a crash. (830078, 819705)
+    Shaders: Fixed some cases where surface shader writing to o.Occlusion would not sample the texture with correct UVs. (765145, 840314, 710625, 730779)
+    Tizen: Added loading indicator in Tizen.
+    tvOS: Added support for top shelf wide image. (833452)
+    UI: Fixed an issue where the Disabled Trigger animation was triggered on hovering over a Button when this was not Interactable. (826310)
+    UI: Fixed a crash in RectTransform because it would send messages on the loading thread. (824011)
+    UI: Fixed a crash when deleting GameObject with ScrollView component. (819770)
+    UI: Improved performance of SetParent in deeply nested UI panels. (814484)
+    VR: Fixed a crash when switching between VR mode and non-VR mode with image effects applied. (829379)
+    VR: Fixed issue with Oculus causing controller input to fail for bumpers.
+    VR: Fixed VRSettings.renderViewportScale when single-pass stereo rendering is enabled. (817835)
+    VR: VRDevice.isPresent now works correctly when HMD is occluded from base stations in OpenVR. (818159)
+    VR: Fixed a crash in certain conditions when checking if device is available in OpenVR. (819998)
+    WebRequest: DownloadHandlerAssetBundle will become done once download finishes. (834148)
+    WebRequest: Fixed a crash when downloaded asset bundle had zero size. (834583)
+    WebRequest: Fixed redirect to a relative URL. (833647)
+    Windows Store: Location services can be enabled or disabled while the app is still running. (829648)
+    Windows Store: Player preferences are no longer lost between game sessions. (835218)
+    Windows Store: Fixed a crash in multi scene system caused by internal managers being garbage collected. (821570)
+    Windows Store: Fixed incorrect instanceID for component when cloning object with component contained in a struct inside list. (838737)
+    Windows: Prevent some cases of invalid window sizes causing D3D surface creation to fail. (825082).
+    Windows: Fixed potential lock when in fullscreen exclusive mode and minimising/maximising screen. (837783)
+
+Revision: 01f4c123905a
