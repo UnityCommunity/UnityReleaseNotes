@@ -1,0 +1,65 @@
+Unity 5.5.0f1 (Release Candidate 1)
+Released: November 22, 2016
+
+5.5.0f1 Release Notes (Delta since b11)
+System Requirements Changes
+
+    OSX 10.8 support is deprecated and will be dropped in the near future. OSX 10.9 and above is therefore recommended.
+    Samsung TV 2013 and 2014 support will be dropped in the near future.
+
+Known Issues
+
+    Asset Import: Crash at "AssetBundleLoadFromAsyncOperation::TryToLoadAndInitializeAssetBundle" when AssetBundle is created incrementally (849633)
+    Asset Import: Occlusion Culling: Unity editor will crash when reading a scene with occlusion culling from asset bundle. (846853)
+    Editor: Opened Editor crashes after some period of inactivity (851796)
+    Editor: Play mode performance regression. (848131)
+    Editor: [OSX] After Unity crashes when rebaking lighting for Courtyard project, a Unity process is left over and has to be force closed. (834235)
+    iOS: Application.Unload () crashes on iOS when screen is being touched (852055)
+    Scripting: MonoDevelop doesn't stop on breakpoint for C# scripts. (851079)
+    UI: Undocked windows are placed behind the main window after assembly reload. (846877)
+    VR: Occlusion mesh artifacts on Oculus when using Single Pass Stereo. (850170)
+
+Backwards Compatibility Breaking Changes
+
+    Core: Using Object.Instantiate(Object, Transform) will now use the Object position as the local position by default. This is a change from the 5.4 behaviour, which used the Object position as world.
+
+Changes
+
+    GI: Deprecated the directional specular lightmap mode in Unity 5.5, since it will disappear in Unity 5.6 (as part of the lighting modes functionality).
+
+Improvements
+
+    Android: Added "Mute Other Audio Sources" option to Android player settings in the editor (shared with iOS).
+    Android: Enabled TLSv1.1 and TLSv1.2 for JellyBean and KitKat devices.
+    Android: Enhanced big.LITTLE core detection. This fixes core detection on Parker.
+    GI: Improved the additive loading error thrown when scenes have different lightmapping modes (made it more user friendly).
+
+API Changes
+
+    Texture Importer: Added GetAutomaticFormat API method to Texture Importer.
+
+Fixes
+
+    Android: Change to lower the background audio volume by default (instead of muting it), when running a game on the device. (807983)
+    Android: Fixed input issues after tapping the splash screen. (825716)
+    Android: Fixed startup crash on Adreno when protected graphics memory is used. (832025)
+    Animation: Fixed an issue where Legacy animations could not be previewed. (845815)
+    Asset Import: Fixed case of blender file import not working (this is a port of the fix for https://fogbugz.unity3d.com/f/cases/778562, present in 5.4). (843299)
+    Collaboration: Fixed issue where closing the collaboration restore confirmation window by pressing 'X' would still restore it. (830209)
+    Collaboration: Various bug and UI fixes.
+    Documentation: Android - Added a warning to the raw JNI interface description.
+    Editor: Fixed case of blank/grey webviews in the main window under macOS 10.12.1. (842708)
+    Editor: Fixed WebViewWindowPrivate::OnLoadEnd crash related to Collab Toolbar usage. (840217)
+    Graphics: Disabled instancing for renderers that use lightprobes or lightmaps, in order to optimize GPU performance. (843125)
+    iOS: Fixed touch input latency issues on iOS 10. (817056)
+    Launcher: Fixed Asset importing issues when creating new project from launcher. (837516)
+    Particles: Added missing animation bindings.
+    Particles: Fixed case of shape module single material index property cutting off when inspector was narrow.
+    Particles: Fixed issue where particle sub module parent was set incorrectly.
+    Physics: Fixed a memory leak that occured when applying animated non-uniform scaling to a MeshCollider. (828570)
+    Physics: Fixed a TerrainCollider crash that could be triggered when a capsule collided with an edge whose shared triangles had a hole material. (822486)
+    Physics: Fixed bug where MeshRenderer would occasionally miss a transform update from an interpolated kinematic Rigidbody. (822406)
+    Scene Manager: Fixed crash that could occur when user unloads a scene immediately after starting an asynchronous load of the scene. (842396)
+    SpeedTree: Fixed incorrect detail blending at branch seams.
+    Terrain: Fixed incorrect scaling of billboards when trees are rescaled using SetTreeInstance. (849011)
+    VR: Fixed rendering issues when using the global fog standard asset in VR. (815914)
