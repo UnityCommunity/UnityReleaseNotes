@@ -1,0 +1,44 @@
+Patch 5.4.3p1
+Released: 24 November 2016
+
+Improvements
+
+    Lighting: Added more information to the additive loading error message e.g. The loaded level has a different lightmaps mode than the current one. Current: Directional. Loaded: Directional Specular. Will use: Directional.
+    macOS/iOS/tvOS: Allow developers to use Xcode's manual signing paradigm by specifying a provisioning profile in Player Settings
+    VR: Updated Oculus to version 1.10
+
+Fixes
+
+    (833396) - AI: Fix for an error when calling Warp and enabling a disabled NavMeshAgent. Errors in console: "!InCrowdSystem" and "!handle.IsValid()".
+    (793711) - Asset Import: Fixed an issue where deleting asset labels manually from .meta files would not be picked up by the editor.
+    (845859) - Asset Pipeline: Fixed regression where cache lz4 compression was not being performed for uncompressed AssetBundles.
+    (832578) - Audio: Fixed the issue which prevented streaming audio loading on 32-bit Apple devices which were upgraded to iOS 10.
+    (824962) - Editor: Fixed editor focus when multiple light probes have been selected.
+    (814160) - Editor: Fixed the logType passed to LogCallback in the event of an unhandled exception.
+    (833866) - Editor: Tweaked the output of the generated Visual Studio solution file to better match Visual Studio standard format to fix problems opening Unity generated projects with Rider GUI.
+    (834258) - Graphics : Added additional error checking for compute buffers to catch invalid size and stride earlier to give a better error message.
+    (none) - Graphics: DX12 optimisation to reduce number of calls to CopyDescriptors.
+    (832595) - Graphics: Fixed a crash when switching scenes whilst reflection probes are updating.
+    (728648) - Graphics: Fixed a crash when baking lightmaps in scenes with multiple terrains.
+    (840141) - Graphics: Fixed Camera.SetReplacementShader renders objects affected by projectors even when the tag does not match.
+    (839035) - Graphics: Fixed a crash when using dynamic batching.
+    (821028) - Graphics: Fixed multiple lights not rendering when in deferred mode and using gfx jobs.
+    (none) - Graphics: Fixed a rare situation which could lead to a deadlock when running with graphics jobs enabled.
+    (769758) - Graphics: Fixed selection of objects in Scene View if the scene contains reflective water.
+    (817524) - Graphics: Improved transparency support on meshes with multiple materials.
+    (843813) - Graphics: Skip rendering of default reflection in Deferred when the reflection not set.
+    (817056) - iOS: Fixed touch input latency issue for iOS 10.
+    (847976) - Linux: Fixed the shutdown crash.
+    (829943) - Networking: Calling NetworkTransport.GetCurrentRTT causes editor crash when use WebSockets is enabled.
+    (831101) - Networking: CRC Mismatch on Wii U (Big Endian Issue?).
+    (830108) - Networking: Fixed: Enabling WebSockets in NetworkManager maxes out a CPU core.
+    (839116) - Networking: WebSockets client doesn't support multiple connections.
+    (849084) - Particles: Fixed occasional crash when using external forces module.
+    (850947) - Serialization: Fixed a rare issue where prefab references from scene objects would be show as missing when using text serialization.
+    (842364) - UI: Fixed an issue whereby disabling parent canvas allowed child canvas to render.
+    (845448) - UI: Fixed Sprite Packer not packing sprites with ETC1 when compressing sprites for android
+    (846096) - UI: Fixed threading problem when computing bounds which could lead to an infinite loop in the UI system.
+    (835538) - UWP : Fixed problem where incorrect GUID was being used in generated .csproj files.
+    (847985) - Windows Store: Fixed an issue in building with C# projects enabled when dependency existed between them.
+
+Revision: 00292ff31167
