@@ -1,0 +1,24 @@
+Patch 5.3.7p2
+Released: 25 November 2016
+
+Improvements
+
+    macOS/iOS/tvOS: Allow developers to use Xcode's manual signing paradigm by specifying a provisioning profile in Player Settings.
+    VR: Updated Oculus to version 1.10.
+
+Fixes
+
+    (832578) - Audio: Fixed an issue which prevented streaming audio loading on 32-bit Apple devices which were upgraded to iOS 10.
+    (814160) - Editor: Fixed the logType passed to LogCallback in the event of an unhandled exception.
+    (833866) - Editor: Tweaked the output of the generated Visual Studio solution file to better match Visual Studio standard format to fix problems opening Unity generated projects with Rider GUI.
+    (832595) - Graphics: Fixed a crash when switching scenes whilst reflection probes are updating.
+    (769758) - Graphics: Fixed selection of objects in Scene View if the scene contains reflective water.
+    (849701) - IL2CPP: Fixed a crash that could occur in the player when a virtual method was called on a value type and that value type implemented an interface which had an overload of that virtual method.
+    (849072) - IL2CPP: Implemented the array SetValue method for arrays of nullable types.
+    (847838) - IL2CPP: Prevented a compiler error in generated C++ code when calling Interlocked.CompareExchange from some managed code.
+    (845174) - IL2CPP: Prevented a stack overflow exception in the player at run time when an infinitely nested generic method is used.
+    (845448) - UI: Fixed Sprite Packer not packing sprites with ETC1 when compressing sprites for android.
+    (846096) - UI: Fixed threading problem when computing bounds which could lead to an infinite loop in the UI system.
+    (721071) - UI: Fixed Transparency not being applied to UI Elements if ETC1 compression is used combined with having specified a Packing Tag.
+
+Revision: c7f50ac202bd
