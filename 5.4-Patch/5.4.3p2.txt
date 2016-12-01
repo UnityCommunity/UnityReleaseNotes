@@ -1,0 +1,27 @@
+Patch 5.4.3p2
+Released: 30 November 2016
+
+Improvements
+
+    Shaders: Increased the number of allowed shader keywords to 256 (up from 128). Optimized related parts of the code, so it's often actually faster now.
+
+Fixes
+
+    (844606) - Android: Fixed crash on some devices when multiple sprite objects are in scene.
+    (821909) - Collab: Auto Refresh is no longer force enabled even after Collab is turned off.
+    (800613) - Deployment Management: Report build-time-generated streaming resources, such as texture atlases, at the correct size in the build report.
+    (827803) - Graphics: Fixed Rendering.CommandBuffer crash when drawing meshes.
+    (849701) - IL2CPP: Fixed a crash that can occur in the player when a virtual method was called on a value type and that value type implements an interface which had an overload of that virtual method.
+    (851098) - IL2CPP - Android: Fixed an issue whereby compiler/linker error output were not captured.
+    (849072) - IL2CPP: Implemented the array SetValue method for arrays of nullable types.
+    (847838) - IL2CPP: Prevented a compiler error in generated C++ code when calling Interlocked.CompareExchange from some managed code.
+    (845174) - IL2CPP: Prevented a stack overflow exception in the player at run time when an infinitely nested generic method is used.
+    (846956) - IL2CPP: Support managed stack traces on Android now.
+    (840773, 849280) - IOS: Fixed an issue of freezes related to ARM atomics.
+    (852363, 814365, 823587) - iOS: Fixed several crashes with regards to WWW and WebRequest.
+    (801761) - Prefabs: Fixed an issue where a prefab instance could be incorrectly marked inactive when first loading a scene.
+    (850350) - Scripting: Fixed MonoDevelop build errors when building UnityScript and Boo projects.
+    (847853) - WebGL: Fixed crash when user writes a file using custom ArrayBuffer
+    (822480) - Windows Store: Fixed duplicate assembly warning when building Universal 8.1.
+
+Revision: 81dd4868cb4c
