@@ -1,0 +1,37 @@
+Patch 5.4.3p3
+Released: 7 December 2016
+
+Fixes
+
+    (825170) - Android: Fixed a pause-resume incorrect behaviour in certain circumstances.
+    (845646) - Android: Input.backButtonLeavesApp = true now exits gracefully.
+    (824462) - Android: The platform setting for Android plugins now defaults to "Android" instead of "Any Platform".
+    (668043, 837519) - Asset Pipeline: Fixed an issue where asset and timestamp maps could get out of sync.
+    (853619) - Build Pipeline: VR Splash Screen texture will no longer be included when building a project for a non-VR platform.
+    (791434) - Core: Fixed hangs in the job system when running on certain platforms with a low number of cores e.g. older Windows Phones, UWP dual core machines.
+    (842708) - Editor: Fixed case of WebViews appearing blank in Editor main window on MacOS 10.12.1 (Sierra).
+    (846989) - Graphics: Fixed a crash during shutdown when using the DX9 graphics API.
+    (840897) - Graphics: Fixed a problem with objects not rendering after resolution changes or entering/exiting fullscreen when using DX9 graphics API.
+    (836815) - Graphics: Fixed case of Lighting preview windows not rendering correctly on Macs with retina displays.
+    (830217) - Graphics: Fixed crashes when using Compute Buffers from scripts which get garbage collected. Added a user warning to show if a Compute Buffer has not been released manually by the user.
+    (820587) - Lighting: Fixed a problem with reflection probes updating during runtime even when "Refresh Mode" was set to "Via Scripting".
+    (834235) - Lighting: Fixed crash when building lighting on specific projects and scenes.
+    (840641) - Lighting: Fixed lighting variation from lightprobes caused by the rendering order of objects and the "Light Probes" property on the objects.
+    (842783) - Physics: Ensure that 2D effector targets are limited to dynamic bodies only and do not allow the consideration of kinematic body types (performance improvement only).
+    (836589 - Profiler: Fixed issue where taking detailed memory snapshot did not work in some circumstances.
+    (825418) - Shaders: Automatically upgrade any shaders using unity_SpecCube1, to fix unity_SpecCube1 related shader compile errors after a project upgrade.
+    (825408) - Shaders: Fixed crash when compiling very complex surface shaders. Optimised the memory usage during surface shader compilation.
+    (844355) - Shaders: Fixed a shader compiler crash for shaders which had extra "}" tokens in them.
+    (840181) - Substance: Fixed case of emission shader parameter not being properly set on import when emission global illumination is set to realtime.
+    (829162) - Substance: Fixed issue where ProceduralTexture inspector preview would sometimes show invalid size and format.
+    (818122) - UI: Fixed crash when deleting objects.
+    (840177) - Substance: Fixed case of SubstanceArchive inspector unselecting ProceduralMaterials after being renamed.
+    (842999) - Substance: Fixed crash when loading a substance with corrupted data.
+    (821319, 837935) - UI: Fixed cases where UI elements didn't render immediately and sometimes not at all after reparenting elements.
+    (819300) - UI: Fixed jittery movement when scrolling ScrollRect.
+    (850018) - UnityWebRequest: Fixed issue where escaped characters in URL would get unescaped.
+    (826626) - UnityWebRequest: Fixed case of incorrect Content-Type request header for multipart form data in POST requests.
+    (851921) - UnityWebRequest: Fixed case of POST requests not working with empty data.
+    (657131) - VCS: Fixed null reference exception after resolving an asset (e.g. prefab) whilst the asset is selected and displaying in the inspector.
+    (845179) - VR: Fixed crash when checking for Stereo VR Device during build.
+    (824508) - VR: Fixed a memory leak when using a canvas and VRFocus is lost.
