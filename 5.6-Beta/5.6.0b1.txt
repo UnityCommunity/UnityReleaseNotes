@@ -1,0 +1,276 @@
+5.6.0b1 Release Notes (Delta since a6)
+Released 13 December 2016
+
+Known Issues
+
+    Animation: Crash when previewing clip in AW. (851483)
+    Animation: Selecting a curve preset in the Importer generates error (854799)
+    Animation: [CurveEditor] Dragging keyframes after shift selection gives erroneous results. (857435)
+    Animation: [CurveEditor] Pasting keys in curve editor pastes all keys instead of selected keys. (859125)
+    Asset Pipeline: Referencing UnityEditor.iOS.Extensions.Xcode throws exception after reimporting assets. (778581)
+    Editor: Handles in the scene view are incorrectly offset by 2 points (856685)
+    Facebook: Build settings window becomes unresponsive when switching to Facebook platform (845601)
+    Facebook: Null reference exception after launching editor with Facebook module installed (845743)
+    Facebook: Player settings are missing when Facebook module is installed (845604)
+    GI: On new projects, graphic settings are not initialized correctly, so realtime GI and shadows are missing. Workaround is to save and re-start Unity. (858159)
+    Particles: Crash when a particle system is sub-emitter of more than one other particle system. (857065)
+
+Features
+
+    Player: Native Daydream integration as a VR target for Unity VR applications.
+
+Changes
+
+    Scripting: The behaviour for ISerializationCallbackReceiver.OnAfterDeserialize has changed when using Instantiate and UnityEditor.PrefabUtility.CreatePrefab. Previously the callback was invoked twice: once before the object was fully deserialized (internal references not yet updated) and once after the object was fully deserialized (internal references are updated). In Unity 5.6 and above, SerializationCallbackReceiver.OnAfterDeserialize is only invoked once, after the object is fully deserialized, when using Instantiate and UnityEditor.PrefabUtility.CreatePrefab.
+
+Improvements
+
+    IL2CPP: Generated C++ code will now contain annotations of original C# source code, as long as PDB/MDB files acompanying the C# source code are present on the machine at conversion time.
+    Particles: The UI for Custom Vertex Streams has been redesigned to allow greater flexibility over what data to send to the shader, and to add more control over how it is packed into the TEXCOORD channels.
+
+API Changes
+
+    Graphics: Added SystemInfo.maxCubemapSize API, analogous to SystemInfo.maxTextureSize. (852309)
+    Physics: Exposed Physics.ClosestPoint. Computes the point on the surface of a given Collider that is closest to a specified location.
+    Physics: Exposed Physics.ComputePenetration. Computes the minimal translation required to separate the two given Colliders. Doesn't require the Colliders to be placed at the given pose prior to the test, so is useful for writing custom character controllers.
+
+Fixes
+
+    Editor: Fixed keyboard input when there are multiple GameViews open. (767109)
+    Editor: Holding CTRL/ALT no longer stretches the Game View when zooming it with the scroll wheel. (851617)
+    WebGL: Fixed capturing of mouse moved events from web page. (831631)
+    WebGL: Fixed issues relating to reading into floating point textures.
+
+The following are changes and fixes to 5.6.0 features and regressions...
+Fixes
+
+    Editor: Fixed case of graphics settings using incorrect default editor. (852403)
+    Editor: Fixed issue where the local cache server did not work if there were spaces in the path to the Unity Editor executable.
+    Editor: Fixed NulllReferenceException triggered when preview window is undocked. (846156)
+    IL2CPP: Added support for managed stack traces on Android. (846956)
+    IL2CPP: Corrected managed stack traces when Xcode 8 is used to build on iOS with link-time optimization enabled. (845666)
+    IL2CPP: Fix to prevent a compiler error in generated C++ code when calling Interlocked.CompareExchange from some managed code. (847838)
+    IL2CPP: Fix to prevent a stack overflow exception in the player at run time, when an infinitely nested generic method is used. (845174)
+    IL2CPP: Fixed case of EventTrigger not working on WebGL builds. (839233)
+    IL2CPP: Fixed case of raycaster sometimes being stripped when using IL2CPP. (848670)
+    IL2CPP: Fixed source of a crash that could occur in the player, when a virtual method was called on a value type and that value type implemented an interface which had an overload of that virtual method. (849701)
+    IL2CPP: Implemented the array SetValue method for arrays of nullable types. (849072)
+
+5.6.0b1 Release Notes (Full)
+Features
+
+    2D: Sorting Group:
+        Sorts a group of renderers (for instance, a character made up of a bunch of sprite renderers) as a whole without any interleaving of other renderers.
+    2D: Sprite Editor Window now supports Sprite outline editing to control Sprite mesh generation.
+    Animation: Added tracking of Animator State Machine view positions
+    Compute:
+    Facebook: Added "Facebook" as a new Build target. This lets you publish you builds to Facebook using either WebGL or the Facebook Gameroom Windows app.
+    Graphics: Added physically based rendering material validator. Albedo and Specular values can be validated against acceptable ranges. Albedo values can also be validated against user defined luminance ranges.
+    Graphics: Added support for Metal Compute (iOS/macOS).
+    Graphics: HDR MSAA anti-aliasing support. Using HDR rendering and MSAA anti-aliasing with forward shading now works as expected!
+    Graphics: Support for DrawMeshInstancedIndirect, where draw arguments are supplied from a ComputeBuffer.
+    Graphics: Support for Procedural Instancing, where instance data is supplied via a custom source in the shader, rather than from Constant Buffers.
+    Graphics: Vulkan rendering backend added for Android, Linux and Windows. It is not used by default just yet; drag to the top of graphics API list in Player Settings to use it.
+    Physics: Added new CompositeCollider2D component providing the ability to merge together BoxCollider2D & PolygonCollider2D colliders.
+    Physics: Physics Debug Visualization.
+        Designed to provide a "ground truth" for what is going on in our physics middleware and to quickly find the corresponding Colliders in the Unity scene.
+        Also serves as a profiling tool as it can hide all sleeping Rigidbodies as well as show all concave MeshColliders.
+    Player: Native Daydream integration as a VR target for Unity VR applications.
+    Video: VideoPlayer compoonent and VideoClipImporter asset importer. They replace MovieTexture and its importer (available with a legacy control). The workflow audio platform support and scripting API will get improvements in the next aplhas
+
+Changes
+
+    Android: Buildpipe - Removed AnyCPU option from .so files in Plugin inspector.
+    Editor: Building in linear color space is no longer allowed for platforms that don't support it.
+    Graphics: Refactored camera render ordering code. When a scene is rendered it now figures out which cameras can share the same render target. The rules for this are:
+        Same display.
+        Are we in VR (implicit shared target).
+        They share the same viewport.
+        They all have or do not have a depth buffer. These cameras are then split into a 'stack' that is rendered based on depth ordering into a shared texture. The texture will have the most 'common' settings from the cameras in the stack:
+        If any camera wants MSAA it will be an MSAA buffer.
+        If any camera wants HDR it will be a HDR buffer.
+        If there are any deferred cameras in the stack MSAA will be disabled (MSAA is not compatable).
+    Graphics: Removed MSAA from back buffer on MOST devices / platforms. Much like HDR, MSAA generally now requires a render texture. This is implicitly supported via the render stack mechanism. If you require MSAA the target that will be rendered to will have MSAA enabled (so long as deferred is not used in the stack). On iOS and Android we still allow MSAA BB as these platforms have a large number of no image effects games and we want to avoid the extra blit.
+    Linux / SteamOS: Switched window management and input handling from X11 to SDL2 on Linux / SteamOS.
+    Scripting: Script serialization errors that were introduced in Unity 5.4 but did not always throw a managed exception, now always do so in Unity 5.6.
+
+    Scripting: The behaviour for ISerializationCallbackReceiver.OnAfterDeserialize has changed when using Instantiate and UnityEditor.PrefabUtility.CreatePrefab. Previously the callback was invoked twice: once before the object was fully deserialized (internal references not yet updated) and once after the object was fully deserialized (internal references are updated). In Unity 5.6 and above, SerializationCallbackReceiver.OnAfterDeserialize is only invoked once, after the object is fully deserialized, when using Instantiate and UnityEditor.PrefabUtility.CreatePrefab.
+
+    Shaders: Shader compilation now stops on the first error.
+    Windows Store: D3D is now the default build type when building for Universal 10 SDK.
+
+Improvements
+
+    2D: Axis Distance Sort:
+        Added CustomAxis to TransparencySortMode of Camera to allow users to sort renderers against a preferred axis instead of just by depth from the camera.
+    2D: Refactored the internal storage of Sprite data to a more flexible storage structure. This is the precursor to new 2D features coming down the pipelne. Note that textures will therefore be re-imported on opening an existing project in Unity 5.6 for the first time.
+    Android: Added support for managed stack traces on Android with IL2CPP.
+    Animation: Added a 3rd spine bone, UpperChest, to humanoid rig.
+    Animation: Added tracking of Animator State Machine view positions
+    Animation: Disabled auto-framing of AnimatorController when selecting states or transitions
+    Animation: Performance improvements for selection and keyframe manipulation in Curve Editor.
+    Compute: Added ability to setup & dispatch compute shaders from CommandBuffers. See new CommandBuffer functions: SetCompute*Param, DispatchCompute, CopyCounterValue.
+    Compute: ComputeShader inspector lists kernels, and compiled code shows disassembly on DX11. UNITY_VERSION macro is passed while compiling compute shaders, just like for regular shaders.
+    DX12: Reduced system and video memory usage.
+    Editor: Added interface support to Selection.GetFiltered.
+    Editor: Editor's game view window will fully support touches on Windows when touch screen is available (for ex., Surface Pro). Functions like Input.GetTouch should therefore start working.
+    Editor: Graphics device arguments now persist when relaunching editor.
+    Editor: Window layouts are now serialized as text.
+    GI: Added rgb9e5 float texture format for precomputed realtime GI on all supported platforms. This format can be interpolated without artifacts. Unsupported platforms will fall back to RGBM encoding and can still have banding from interpolation.
+    GI: Added to ReflectionProbe: defaultTexture, defaultTextureHDRDecodeValues, textureHDRDecodeValues.
+    GI: Enlighten SDK upgraded to version 3.07. This should provide precompute time reductions, which will be especially noticeable in the CalculateSystemDependencies step as well as other steps which perform ray-tracing.
+    GI: Updated default shadow near plane offset.
+    GI: usesRevertedZBuffer is now exposed to SystemInfo.
+    Graphics: Added CommandBuffer functions: SetViewport, SetViewMatrix, SetProjectionMatrix, SetViewProjectionMatrices.
+    Graphics: Added RenderQueue.GeometryLast enum value.
+    Graphics: Added SystemInfo.graphicsUVStartsAtTop property.
+    Graphics: CommandBuffer API improvements:
+        More CommandBuffer APIs: CopyTexture, EnableShaderKeyword, DisableShaderKeyword.
+        CommandBuffer.GetTemporaryRT got an enableRandomWrite argument.
+    Graphics: HDR rendering supports R11G11B10 float formats in addition to FP16. This can be configured in Graphics Settings per platform & tier.
+    IL2CPP: Generated C++ code will now contain annotations of original C# source code, as long as PDB/MDB files acompanying the C# source code are present on the machine at conversion time.
+    Particles: Custom Data can now be configured via the Inspector using a new Module, instead of exclusively via Script.
+    Particles: Gradient Editor now supports HDR colors when used in the Custom Data streams.
+    Particles: Huge performance improvement for particle collision against 2D Colliders.
+    Particles: Improved overlap solver for particle collision against 2D Colliders.
+    Particles: The UI for Custom Vertex Streams has been redesigned to allow greater flexibility over what data to send to the shader, and to add more control over how it is packed into the TEXCOORD channels.
+    Physics: 2D contacts are now shown in the Inspector 'Info' rollout for Collider2D and Rigidbody2D.
+    Physics: Added a non-allocating way to retrieve contacts per Collider2D or Rigidbody2D using Physics2D.GetContacts (), Collider2D.GetContacts () & Rigidbody2D.GetContacts ().
+    Physics: Complete rewrite of internal 2D contact processing providing a more robust and reliable reporting of contacts.
+    Physics: New ContactFilter2D, allowing physics queries to filter by layer mask, Z depth, normal angle and trigger inclusion.
+    Physics: Provision of non-allocating overloads that use the new ContactFilter2D for Linecast, Raycast, BoxCast, CircleCast, CapsuleCast, OverlapPoint, OverlapCircle, OverlapBox, OverlapArea, OverlapCapsule, GetContacts & IsTouching.
+    Profiling: Added Profiling.Recorder API for retrieving timings from builtin Profiler labels.
+    Shaders: HLSLPROGRAM shader snippet support. Same as CGPROGRAM, with one difference: HLSLSupport.cginc and UnityShaderVariables.cginc includes are not added automatically.
+    Shaders: Preprocessor macros SHADER_STAGE_VERTEX, SHADER_STAGE_FRAGMENT, SHADER_STAGE_DOMAIN, SHADER_STAGE_HULL, SHADER_STAGE_GEOMETRY, SHADER_STAGE_COMPUTE are defined when compiling each shader stage.
+    Shaders: The .hlsl file extension is now recognized in the same way as .cginc one (included into generated IDE projects, opened same way from the editor).
+    Terrain: Terrain Inspector now remembers the last selected brush shape.
+    Terrain: Terrain LOD pre-computation is optimized and now runs faster (specifically, TerrainData.SetHeights and setting the size property are faster now).
+    VR: Attached VR/AR devices will now add their remote resolution to the Game View sizes dropdown in the Editor.
+    Web: In UnityWebRequest, response code and headers are now available to scripts as soon as they are downloaded. Previously they were accesible only after the whole download was complete.
+    Windows Store: Significantly reduced the size of Windows Store support installers.
+
+API Changes
+
+    Asset Pipeline: Added new API methods AssetDatabase.GetImplicitAssetBundleName and AssetDatabase.GetImplicitAssetBundleVariantName, which dynamically compute the name of the AssetBundle and AssetBundle Variant that a given asset belongs to.(834008)
+    Graphics: Added array property getters (e.g. GetFloatArray) for Material, MaterialPropertyBlock and Shader classes.
+    Graphics: Added Graphics.ConvertTexture function, for copying between textures of different sizes/formats.
+    Graphics: Added List overloads for array property setters for Material, MaterialPropertyBlock, Shader and CommandBuffer classes.
+    Graphics: Added List overloads for Graphics.DrawMeshInstanced.
+    Graphics: Added property getters (e.g. GetGlobalFloat) for Shader class.
+    Graphics: Added SystemInfo.maxCubemapSize API, analogous to SystemInfo.maxTextureSize. (852309)
+    Graphics: Added to CommandBuffer: SetGlobalDepthBias, BeginSample, EndSample functions.
+    Physics: Added minMoveDistance property to CharacterController script API.
+    Physics: Exposed Physics.ClosestPoint. Computes the point on the surface of a given Collider that is closest to a specified location.
+    Physics: Exposed Physics.ComputePenetration. Computes the minimal translation required to separate the two given Colliders. Doesn't require the Colliders to be placed at the given pose prior to the test, so is useful for writing custom character controllers.
+    Terrain: Added TerrainChangedFlags for use in OnTerrainChanged message.
+    Terrain: Added TerrainData.bounds for retrieving local bounding box of the terrain heightmap data.
+
+Fixes
+
+    AI: NavMesh is now merged correctly when scenes are merged using the SceneManager API. (800869)
+    Android: Editor: Enabled Undo for Android TV Banner. (672169)
+    Android: Fixed audio stutter when launching Android player from a notification from the lockscreen. (818174)
+    Android: Fixed incorrect delta position and delta time calculation (815918)
+    Android: Pressing back button with Input.backButtonLeavesApp = true now exits app gracefully instead of killing process. (845646)
+    Animation: Added warning icon in the animator controller to inform user that a base layer with humanoid motion should preferably not have an avatar mask. (823794)
+    Animation: Enable 'ordered interruptions' in the transition inspector if source state is AnyState. (808387)
+    Animation: Fixed a bug where deactivating a GameObject with an attached Animator might cause a crash. (822232)
+    Animation: Fixed an issue where an invalidly configured Humanoid rig with Optimize Game Objects would cause the configure button to disappear. (827514)
+    Animation: Fixed an issue where animating the Z position of a RectTransform using the Animation Component would not move the Image. (829159)
+    Animation: Fixed case of AnimationEvent not being fired on lower FPS. (812917)
+    Animation: Fixed case of de-optimization of game object hierarchy messing up transform values. (838015)
+    Animation: Fixed case of erroneous bounds being calculated for SkinnedMeshRenderer when optimizing game object. (829264)
+    Animation: Fixed case of OnStateExit callback not firing for interrupted transitions. (826180)
+    Animation: Fixed case of sprite preview not refreshing when changing animation clip in the animation window. (839872)
+    Animation: Fixed crash when receiving a null property modification in animation recording. (832837)
+    Animation: Fixed erroneous animation clip range when changing sample rate. (835553)
+    Animation: Fixed erroneous euler value for first frame when recording animation in the animation window. (839885)
+    Animation: Fixed issue where GetNextAnimatorStateInfo was inaccurate when transitionning to self. (834693)
+    Animation: Fixed issue where the Backspace/Delete key did not work in the avatar configuration transform inspector. (837655)
+    Animation: Fixed performance issues in dopesheet editor with large keyframe selection. (834557)
+    Animation: Fixed precision error when drag-and-dropping the blend value (i.e. the red ruler) in a BlendTree. (803678)
+    Animation: Re-enabled recording in editor play mode. (835544)
+    Asset Import: Fixed an issue where deleting asset labels manually from .meta files would not be picked up by the editor. (793711)
+    Asset Import: Fixed crash in ReplacePrefab when target gameobject was destroyed in OnWillSaveAssets. (829453)
+    Asset Pipeline: Fixed a regression where AssetDatabase.SaveAssets wouldn't save changes made to a prefab inside OnPostprocessAllAssets. (830110)
+    Audio: Fixed issue which prevented streaming audio loading on 32-bit Apple devices which were upgraded to iOS 10. (832578)
+    Build Pipeline: VR Splash Screen texture will no longer be included when building a project for a non-VR platform. (823167)
+    Editor: Arguments into MakeBezierPoints are now validated. Previously invalid arguments coult result in a crash. (835775)
+    Editor: Find Reference in Scene now works on packed sprites. (805431)
+    Editor: Fix for issue where ScriptUpdater would corrupt scripts containing invocations to Mesh.Optimize(). (827796)
+    Editor: Fix for issue where ScriptUpdater would crash or fail to update code in NGUI AssetStore package. (833958)
+    Editor: Fix to denormalize animation curve presets when loading. (800805)
+    Editor: Fixed a crash when calling Lightmapping.BakeMultipleScenes from game code in the editor. (837091)
+    Editor: Fixed an issue where GameObjects could not be dragged from the Hierarchy view while the view is filtered. This prevented (among other things) creation of prefabs by dragging an object from the Hierarchy to the Project view. (813000)
+    Editor: Fixed an issue with built-in window layouts where default game view scale on retina was incorrect. This only affects cases where default layouts were missing. (838720)
+    Editor: Fixed ArgumentOutOfRangeException triggered when closing tabs in dock area. (840151)
+    Editor: Fixed bug causing script execution order to be incorrectly set when removing a preceding script from the list and the text field is active. (778802)
+    Editor: Fixed case of AnimationCurve preview in Inspector not being up-to-date after stopping play mode. (817999)
+    Editor: Fixed case of editing keyframe values in curve editor affecting alignment of subsequent labels. (829228)
+    Editor: Fixed case of Handles.DrawCamera() affecting camera rect in game view. (834204)
+    Editor: Fixed case of overflow text being clipped in Preferences window. (714757)
+    Editor: Fixed case of Player Settings not getting focus on inspector when opened from the Build Settings window. (720992)
+    Editor: Fixed case of undoing collider handle changes exiting edit mode. (837844)
+    Editor: Fixed hardware cursor not automatically updating in game view when changed from Player Settings inspector on OS X. (718766)
+    Editor: Fixed incorrect handle placement for OcclusionPortal in scene GUI after undo.
+    Editor: Fixed incorrect indentation of TextAreaDrawer. (804863)
+    Editor: Fixed insertion marker positioning in BuildSettings window. (839855)
+    Editor: Fixed issue where Handles.Button would capture a right click but would not release it, resulting in non-responsive scene view. (527425)
+    Editor: Fixed issue where the timeline time scrubber in AnimatorStateTransition inspector did not release hotControl when a mouse up event occurred outside the control rect. (834214)
+    Editor: Fixed issue whereby it was not possible to undo changing application icon. (672169)
+    Editor: Fixed issue with ScriptUpdater fully qualifing member access in some scenarios. (838681)
+    Editor: Fixed keyboard input when there are multiple GameViews open. (767109)
+    Editor: Fixed MissingReferenceException when deleting a child particle system while ParticleSystemWindow is open.
+    Editor: Holding CTRL/ALT no longer stretches the Game View when zooming it with the scroll wheel. (851617)
+    Editor: Reduced heap allocations when rotating view in Scene window. (828286)
+    Editor: Renamed 'Preload shaders' to 'Keep loaded shaders alive' since that is what the option does does. Also added a * to said option and to 'Preloaded Assets' since they are shared.
+    Editor: The correct color is now used for "Shaded Wireframe" mode in scene view. (836408)
+    Editor: Visual indication/feedback is now always shown when attempting to save Scene while in playmode. (568837)
+    Graphics: Fixed issue where instantiating a non-readable texture would crash Unity at Texture2D::AwakeFromLoad. (843287)
+    IL2CPP: Added support for C# exception filters. (831493)
+    iOS: Fixed support for Movie textures on simulator.
+    Particles: Added Undo support for action of creating a sub-emitter.
+    Particles: Fixed alignment of sub-emitter + button. (826058)
+    Physics: Deleting a Collider2D now triggers an OnCollisionExit2D or OnTriggerExit2D appropriately. (637042)
+    Physics: Fixed an issue where create was being called when shared mesh was set on disabled object. (835703)
+    Physics: Fixed issue where a Collider2D contact did not trigger a collision/trigger callback. (681844, 729084)
+    Physics: Fixed issue where cloth actor was still updated by physx, despite being asleep. (841299)
+    Physics: Resizing a Collider2D now results in collision/trigger callbacks if other Collider2Ds enter/exit the collider being resized. (773735, 822612)
+    Player: Fixed case of incorrect language being returned when system language was Spanish(Argentina). (820162)
+    SceneManager: Fixed issue whereby GetSceneManagerSetup would silently ignore untitled scenes. (827525)
+    SceneManager: Fixed issue whereby SceneManager was not initialized when OnEnable was called for editor windows during editor startup. (825237)
+    SceneManager: Scenes are now marked Loaded when sceneLoaded is invoked. (818573)
+    Scripting: Emit warning when adding a ScriptableObject to an asset if class name does not match file name. (829259)
+    Scripting: Fixed issue where operator != for Mesh, Rect, Quaternion, Vector2, Vector3 and Vector4 would incorrectly return false if either side contained a NaN value.
+    Scripting: Improve unhelpful "iterator==end" error message when reading serialized metadata. (833245)
+    Scripting: OnDisable is now called on shutdown for scriptable object assets.
+    Shaders: UI-DefaultFont shader is no longer in the list of "always included shaders" in graphics settings by default (it is not needed by UI). (784192)
+    Terrain: Fixed an issue where swithcing between tree painter and other painting tools caused the wrong brush texture to be used. (840337)
+    Terrain: Fixed an issue where terrain brush was not rendered if terrain transform position has a Y value greater than 50. (852049)
+    Terrain: Fixed buggy behaviors when mutiple terrain inspectors are present. (836778, 847863)
+    UI: DockArea position is now calculated correctly, which fixes issues with canvas sizing. (819960)
+    UI: Fix to prevent two 'Aspect Ratio Fitter' components from being set on one object. (792793)
+    UI: Fixed blurry text when width and height are set to uneven numbers. (826409)
+    UI: Fixed case of animation lagging, caused by an uninitialized member variable. (821319)
+    UI: Fixed crash caused by the use of GetComponent inside the ToString method. (828981)
+    UI: Fixed crash in RectTransform, triggered because it would send messages on the loading thread. (824011)
+    UI: Fixed issue where a child of a mask which has a disabled mask would not mask correctly. (829416)
+    UI: Fixed issue where RT cameras would not emit a UI element unless there was another camera present. (827532)
+    UI: Fixed issue with incorrect parameter order when calculating scrollRect offset. (827908, 829518)
+    UI: Fixed memory leak caused by disabled objects not getting removed from the render queue. (819470)
+    UI: Fixed performance issue in FontUpdateTracker. (Note that the case number referenced isn't fully fixed yet, but the performance issue is.) (794089)
+    VR: Added support for restoring the device render and viewport scales after unplugging the device and plugging it back in. (795561)
+    VR: Fixed a crash in the Editor that was triggered by setting the VRSettings.enabled flag to true. (836878)
+    Web: WWW.size will now report AssetBundle size when loading from cache. (693430)
+    WebGL: Fix to correctly report AudioSource time when doppler effect changes pitch. (817986)
+    WebGL: Fixed capturing of mouse moved events from web page. (831631)
+    WebGL: Fixed issues relating to reading into floating point textures.
+    Windows: Fix to ensure that Input.GetKeyDown(KeyCode.SysReq) will now work corrrectly. (332558)
+    Windows: Fixed issue where Application.systemLanguage would return the region language and not the UI language that the user is using. (820871)
+    Windows: Fixed player deployement to network path. (842379)
+    Windows: UWP fixes:
+        Fixed issue where WWW would throw away response headers when server returns 401.
+        Improved WWW consistency with the Editor. (815255)
+    Windows Store: Fixed case of incorrect resolution being reported when the composition scale changed and the game window was minimized. (832104)
+    Windows Store: Fixed cases where Editor profiler was sometimes failing to connect to an application running on remote device (e.g. Windows Phone). (833525)
+
