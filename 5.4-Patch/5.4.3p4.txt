@@ -1,0 +1,29 @@
+Patch 5.4.3p4
+Released: 16 December 2016
+
+
+Improvements
+
+    (757055) - Graphics: Added support for feature level 11.1 on D3D11/D3D12. This brings native support for RGB565, ARGB4444 and ARGB1555 RenderTexture formats.
+
+Fixes
+
+    (856822) - Editor: Fixed a rare crash in the BuildReport system when building standalone data.
+    (840591) - Game Performance: Fixed a potential crash on player exit if Game Performance Service is enabled.
+    (853627) - Graphics: Added Material.SetBuffer with nameID overload.
+    (851359) - Graphics: Fixed a crash when deleting a Shader that was used by some Materials in the scene.
+    (849344) - Graphics: Fixed a crash when using Material.SetColor and similar functions with some built-in Unity variable names.
+    (851689) - Graphics: Fixed memory leak when instantiating materials (e.g. via renderer.material).
+    (836947) - Graphics: Fixed a rendering bug when grab pass was used with forward rendering and graphics jobs are enabled.
+    (none) - IL2CPP: Emit proper C++ for unsafe methods that cast a void pointer to a type pointer and access a field from that type.
+    (851793) - IL2CPP: Fixed a runtime crash when trying to call interface methods on integral pointers in unsafe contexts. Issues seemed to only show up when code was built outside of Unity with the Microsoft .NET compiler.
+    (856410) - IL2CPP: Prevent a stack overflow in the player runtime when metadata for an infinitely nested recursive generic type used (like the FullName of that type).
+    (763240) - iOS: Fixed Module Registration and Code Stripping for builds using the Mono scripting backend.
+    (814493) - iOS: Fixed an issue where the keyboard could lose focus when rotating the device
+    (828762) - iOS: Fixed audio ducking when background applications sound were muted after running Unity application.
+    (852363) - iOS: Fixed crash(es) in WWWConnection.
+    (none) - Metal: Improved handling of transparent rendering after post-opaque image effects when using MSAA.
+    (849681) - OpenGL: Fixed image mask when running in upscaled fullscreen mode.
+    (824508) - VR: Fixed a memory leak when using a canvas and VRFocus is lost.
+
+Revision: 4dfc8d4040f2
