@@ -1,0 +1,38 @@
+Patch 5.5.0p2
+Released: 16 December 2016
+
+Improvements
+
+    (757055) - Graphics: Added support for feature level 11.1 on D3D11/D3D12. This brings native support for RGB565 and ARGB1555 RenderTexture formats. Note that this does not render correctly for ARGB4444 which will be fixed in one of the future releases.
+
+Fixes
+
+    (854739) - Android: Fix auto-rotation on Android 4.1 and older.
+    (849972) - Audio: Fixed FSBTool crashing when importing OGG files with non-standard sample rates.
+    (830217) - Compute: Don't let GC dispose of ComputeBuffers. Added a warning for the user to release it manually.
+    (840151) - Editor: Fixed ArgumentOutOfRangeException triggered when closing tabs in dock area.
+    (843280) - Editor: Fixed s crash when baking occlusion. This also fixed a crash in rare cases at the end of occlusion baking if your scene contains portals.
+    (none) - Editor: Stopped the first probe being rendered multiple times when drawing the light probe visualization gizmo.
+    (840591) - Game Performance: Fixed a potential crash on player exit if Game Performance Service is enabled.
+    (853627) - Graphics: Added Material.SetBuffer with nameID overload.
+    (851359) - Graphics: Fixed a crash when deleting a Shader that is used by some Materials in the scene.
+    (849344) - Graphics: Fixed a crash when using Material.SetColor and similar functions with some built-in Unity variable names.
+    (851689) - Graphics: Fixed memory leak when instantiating materials (e.g. via renderer.material).
+    (none) - Graphics: Fixed OpenGL color space support on Windows (WGL_EXT_colorspace detection).
+    (836947) - Graphics: Fixed rendering bug when grab pass is used with forward rendering and graphics jobs are enabled.
+    (none) - HoloLens: Fixed a crash in Editor when terminating Remoting App during an active Holographic Remoting session.
+    (848237) - HoloLens: Improved error reporting when failing to load PerceptionRemotingPlugin.dll (used by Holographic Remoting).
+    (none) - IL2CPP: Emit proper C++ for unsafe methods that cast a void pointer to a type pointer and access a field from that type.
+    ([856410]](https://issuetracker.unity3d.com/product/unity/issues/guid/856410/)) - IL2CPP: Prevent a stack overflow in the player runtime when metadata for an infinitely nested recursive generic type used (like the FullName of that type).
+    (763240) - iOS: Fixed Module Registration and Code Stripping for builds with the Mono scripting backend.
+    (852363) - iOS: Fixed crashes in WWWConnection.
+    (857032) - Metal: Fixed a crash on startup on some iOS devices.
+    (810267) - Multiplayer – WebGL: Error creating/requesting Network matches on WebGL.
+    (849681) - OpenGL: Fixed image mask when running in upscaled fullscreen mode.
+    (852264) - Shaders: Fixed UNITY_VERSION macro not being setup in surface shaders.
+    (none) - Shaders: Improved support for handling backslash includes within shaders.
+    (829120) - Standalone: Fixed the incorrect display labels when using more than 2 monitors.
+    (824508) - VR: Fixed a memory leak when using a canvas and VRFocus is lost.
+    (858763) - VR: Unity 5.5 VR Camera Strobing between head poses once game is built.
+
+Revision: 8c0fafe44827
