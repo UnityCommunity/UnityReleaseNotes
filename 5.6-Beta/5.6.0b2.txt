@@ -1,0 +1,69 @@
+Unity 5.6.0b2
+Released: December 20, 2016
+
+5.6.0b2 Release Notes (Delta since b1)
+Known Issues
+
+    Animation: Crash when previewing clip in AW. (851483)
+    Animation: Selecting a curve preset in the Importer generates error (854799)
+    Asset Pipeline: Referencing UnityEditor.iOS.Extensions.Xcode throws exception after reimporting assets. (778581)
+    Editor: Handles in the scene view are incorrectly offset by 2 points (856685)
+    GI: On new projects, graphic settings are not initialized correctly, so realtime GI and shadows are missing. Workaround is to save and re-start Unity. (858159)
+    iOS: Rendering orientation is incorrect if orientation is overridden in Start() in your project’s first scene.
+    Particles: Crash when a particle system is sub-emitter of more than one other particle system. (857065)
+    VR: [Daydream] Deadlock issue when quitting an app, where the app may still execute for up to 3s after it goes away. (861469)
+    VR: [Daydream] iOS is not supported with the current native integration but will be available in an upcoming beta release.
+    VR: [Daydream] The unity define that is used to mark Daydream support is incorrectly defined as UNITY_DAYDREAM instead of UNITY_HAS_GOOGLEVR. (861741)
+    VR: [Daydream] There is a tiling bug in the Pixel Snapdragon GPU driver that appears when post-processing effects are used. Unlike 5.4, 5.6 currently runs post processing image effects all the time, so the tiling issue will be more noticeable. This will be fixed in a future driver update that Google will ship as an OTA update for affected devices.
+    VR: [Daydream] There is no native controller integration yet. For controller use please use the Unity SDK provided by Google.
+    VR: [Daydream] You may notice that your Daydream VR display may be dimmer than other VR devices. This is by design as a means of prolonging battery life while in VR.
+
+Features
+
+    Editor: (As also mentioned under API Changes) Exposed the following custom handle classes in UnityEditor.IMGUI.Controls: BoxBoundsHandle, CapsuleBoundsHandle, SphereBoundsHandle.
+
+    Editor: Interactive handles for editing primitive collider types in the scene view now all use the same logic:
+        Dragging a handle expands the size only on that side.
+        Holding pins the center in place.
+        Holding scales the shape uniformly.
+
+    These changes apply to BoxCollider, CapsuleCollider, SphereCollider, BoxCollider2D, CapsuleCollider2D, and CircleCollider2D
+    Editor: TreeView IMGUI Control, which can display hierarchical data that can be expanded and collapsed. Additionally it lets you create list views and multi-column tables for Editor tools.
+
+    GI: Added Light modes, which replace mixed mode lighting and provide flexible ways to merge baked and realtime shadows. As part of this:
+        Added ability to bake shadowmasks.
+        New Lighting window layout.
+        Added Light Explorer window.
+
+    Please see the 5.6 upgrade guide for details.
+
+Improvements
+
+    GI: Enlighten SDK upgraded to version 3.07p1. This should provide precompute time reductions, which will be especially noticeable in the CalculateSystemDependencies step as well as other steps which perform ray-tracing. Additional details:
+        An issue has been fixed in baking when using Final Gather which would result in wrong lighting when using transparent materials.
+        An issue has been fixed in baking when using Final Gather which would result in it ignoring the 'backface behaviour type' material property.
+        Fixed issue that prevented baked light masks working in conjunction with transparency textures.
+        Fixed a bug resulting in wrong lighting for SSD objects when using probes with non-default axes or SH coefficient orders.
+        When baking direct probe lighting, the per-light option to disable direct lighting is no longer ignored.
+    Graphics: Added cube array texture support to OSX Metal.
+    Particles: Full support for multiple selection and editing of Particle Systems.
+    VR: Added single-pass stereo support for Gear VR (using GL_OVR_multiview).
+
+API Changes
+
+    Animation: Added AnimatorOverrideController.GetOverrides and AnimatorOverrideController.ApplyOverrides. (752095)
+    Animation: Added to AvatarMask: AddTransformPath, RemoveTransformPath.
+    Animation: Deprecated AnimatorOverrideController.clips. (752095)
+    Animation: Moved AvatarMask from UnityEditor.Animations to UnityEngine.
+    Editor: (As also mentioned under Features) Exposed the following custom handle classes in UnityEditor.IMGUI.Controls: BoxBoundsHandle, CapsuleBoundsHandle, SphereBoundsHandle.
+
+Fixes
+
+    Animation: Fixed an issue where animator with animate physics would teleport objects. (847015)
+    Animation: Fixed AnimatorControllerPlayable memory leak.
+    Animation: Fixed bug in BlendTree thresholds recomputation. (777936)
+    Animation: Fixed problem where animation events were not being fired properly by Playables. (847874)
+    Animation: Removed parameter filter when user adds a new animator controller parameter. (847134)
+    iOS: Build flags are now prefixed with $(inherited) in Xcode project to improve compatibility with CocoaPods.
+    Playables: Fixed a crash where UnloadUnusedAssets would unload Animation Clips used by AnimationClipPlayables. (854615)
+
