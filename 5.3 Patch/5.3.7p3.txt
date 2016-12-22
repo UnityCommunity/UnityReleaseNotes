@@ -1,0 +1,22 @@
+Patch 5.3.7p3
+Released: 21 December 2016
+
+Fixes
+
+    (853979) - Build Pipeline: VR Splash Screen texture will no longer be included when building a project for a non-VR platform.
+    (791434) - Core: Fixed an issue which was causing hangs in the job system when running on certain platforms with a low number of cores e.g. older Windows Phones, UWP dual core machines.
+    (851359) - Graphics: Fixed a crash when deleting a Shader that is used by some Materials in the scene.
+    (836815) - Graphics: Fixed the issue of Lighting preview windows not rendering correctly on Mac's with retina displays.
+    (851689) - Graphics: Fixed memory leak when instantiating materials (e.g. via renderer.material).
+    (853532) - iOS: Added Taiwanese language support.
+    (814493) - iOS: Fixed an issue where the keyboard could lose focus when rotating the device.
+    ([828762(https://issuetracker.unity3d.com/product/unity/issues/guid/828762/)) - iOS: Fixed background applications sound muting after running unity application.
+    (852363, 814365, 823587) - iOS: Fixed several crashes with regards to WWW and WebRequest.
+    (677623) - iOS: Fixes language support to differentiate between traditional and simplified Chinese.
+    (801761) - Prefabs: Fixed an issue where a prefab instance could be incorrectly marked inactive when first loading a scene.
+    (850350) - Scripting: Fixed MonoDevelop build errors when building UnityScript and Boo projects.
+    (847853) - WebGL: Fixed crash when user writes a file using custom ArrayBuffer.
+    (855881) - Windows Store Apps: Fixed Unity C# projects when there was dependency among them.
+    (856362) - Windows Store: Fixed a rare hang when alt tabbing during level load.
+
+Revision: 53544b1200e7
