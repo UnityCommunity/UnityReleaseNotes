@@ -1,0 +1,46 @@
+Patch 5.5.0p3
+Released: 22 December 2016
+
+Improvements
+
+    Shaders: During shader compilation if an unknown/unhandled error occurs append the unknown/unhandled error message to the shader compiler error message. This gives some context on what might be wrong in the shader.
+
+FIxes
+
+    (none) - Ads: Fixed cloud build issue.
+    (835453) - Android: First scene is now loaded asynchronously while the splash screen is displayed.
+    (none) - Animation: Renabled StateMachine multithreaded evaluation.
+    (none) - Audio: Changed default behaviour of native spatializer plugins to only load at start for the Editor. Platforms now load when requested only.
+    (853250) - Cache Server: Fix for 'last resource used' behaviour; a file that it requested from the cache server will have its LRU state refreshed and its lifetime extended.
+    (859728) - Editor Login Window: Fixed an issue related to the 'Remember Me' functionality.
+    (860626) - Graphics: Fixed a crash when calling Graphics.Blit(null, destination).
+    (844799) - Graphics: Fixed an issue where grab pass could cause lighting to break on translucent objects in a scene.
+    (800796, 851897, 825951) - HoloLens: Fixed resume-from-suspend bugs that would occasionally crash the app or not render anything.
+    (857296) - IL2CPP: Now allow the Unity Ads engine integration to correctly build with Android on IL2CPP..
+    (853532) - iOS: Added Taiwanese language support.
+    (855467) - Particles: Calling Destroy() with particle system object in IEnumerator Start() could cause a crash
+    (858235) - Particles: Fixed crash in CopyFromArrayAOS when calling Emit(position, velocity, size, lifetime, color).
+    (856877) - Particles: Fixed error in TLS Allocator ALLOC_TEMP_THREAD when simulating particle system.
+    (none) - Particles: Fixed rare memory overwrite which would have caused problems (crashes) in random areas eg memory managers.
+    (856871) - Particles: Game crashes when new particles are spawned using deprecated Emit method
+    (856224) - Particles: Particle System Lights Module would not generate lights if particle positions were modified by script.
+    (852817) - Particles: Particle System Renderer wouldn't allow rendering using multiple materials.
+    (846516) - Particles: Particle System subsequent Sub Emitter inherit properties were overridden with the first inherit property.
+    (851712) - Particles: ParticleSystem editor was using incorrect handle matrix when scaling mode was set to Hierarchy.
+    (850638) - Particles: Unity could crash in EmitterStoreData function when a Particle System was "aligned to direction" during Play mode.
+    (858816) - Physics: Fixed interpolation of Rigidbodies causing position and rotation to be inaccurate when accessed via Transform from within FixedUpdate.
+    (848718) - ReplayKit : Fixed a crash when creating objects from broadcasting start callback.
+    (833159) - ReplayKit : Fixed ReplayKit.StartBroadcasting not pausing the app.
+    (none) - Shaders: Bunch of bug fixes in translating shaders from HLSL to GLSL/Metal
+        Crash fix on partial precision parsing.
+        Added support for missing texture gather ops and sample count query.
+        Fixed bugs in swapc, SM5 variant of shift ops, atomic compare exchange, texture array coord translation, texture array element index rounding, texel fetch swizzle and GLSL extension handling.
+    (861611) - Tizen: Fixed the deploying failure problem.
+    (855646) - UnityWebRequest: Fixed the issue of a request continuing execution after exiting playmode, resulting in high CPU usage.
+    (834072) - VR: OpenVR app built and run with d3d12 crashes on start.
+    (852569) - VR: Switching stereo rendering during playback causes rendering issues.
+    (859650) - Windows Store: Building project for Windows Store targeting Windows 10 SDK now works when only VS2017 is installed.
+    (854650) - Windows Store: Fixed the issue of UnityWebRequest not working in Master builds.
+    (859389) - Windows Store: Generated VS project now builds once again when targeting ARM with IL2CPP scripting backend.
+
+Revision: 84ad46be53aa
