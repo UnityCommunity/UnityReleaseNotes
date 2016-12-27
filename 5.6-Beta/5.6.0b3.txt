@@ -1,0 +1,66 @@
+Unity 5.6.0b3
+Released: December 23, 2016
+
+5.6.0b3 Release Notes (Delta since b2)
+System Requirement Changes
+
+    Android minimum version supported updated to 4.1 (JellyBean).
+
+Known Issues
+
+    2D: 2D sprite cannot be dragged to the scene view if project is created in 3D. (863887)
+    Animation: Problems with Animator in 5.6.0b3 after upgrading project from 5.5.0p3 (864062)
+    Animation: [Animation window] Playback head is not moved when key is selected (864048)
+    Asset Pipeline: Referencing UnityEditor.iOS.Extensions.Xcode throws exception after reimporting assets. (778581)
+    Editor: Handles in the scene view are incorrectly offset by 2 points (856685)
+    GI: Compositing process gets stuck while building lighting (863964)
+    iOS: Rendering orientation is incorrect if orientation is overridden in Start() in your project’s first scene.
+    Particles: Crash when a particle system is sub-emitter of more than one other particle system. (857065)
+    Particles: Particle system glitch with some mesh types. (863967)
+    Scripting: API Updater Internal error "Recursion detected while updating scripts (assembly index: 4)" is thrown when updating scripts. Note that this occurs when importing some 5.4 projects directly into 5.6 beta. One workaround is to do an intermediate import/save into 5.5. (863941)
+    Scripting: API Updater start is delayed when a project is imported from Asset Store and user is forced to update APIs manually. (863995)
+    VR: [Daydream] Deadlock issue when quitting an app, where the app may still execute for up to 3s after it goes away. (861469)
+    VR: [Daydream] iOS is not supported with the current native integration but will be available in an upcoming beta release.
+    VR: [Daydream] There is a memory leak when you exit and re-enter VR mode. This leak is on the native Google VR code and Google is actively working on fixing this. (859281)
+    VR: [Daydream] There is a tiling bug in the Pixel Snapdragon GPU driver that appears when post-processing effects are used. Unlike 5.4, 5.6 currently runs post processing image effects all the time, so the tiling issue will be more noticeable. This will be fixed in a future driver update that Google will ship as an OTA update for affected devices.
+    VR: [Daydream] There is no native controller integration yet. For controller use please use the Unity SDK provided by Google.
+    VR: [Daydream] You may notice that your Daydream VR display may be dimmer than other VR devices. This is by design as a means of prolonging battery life while in VR.
+
+Features
+
+    2D: SpriteRenderer: added support for 9-slice Sprite rendering.
+    IL2CPP: Added support for Windows Runtime when targeting Windows Store and Xbox One players with .NET 4.6 API Compatibility Level (Check manual at Scripting -> Scripting Tools -> IL2CPP -> Windows Runtime for more information).
+    VR: Initial Vulkan support for OpenVR.
+
+Changes
+
+    Android: Minimum supported Android API incremented from 9 (gingerbread) to 16 (jellybean).
+    Shaders: Removed glstate_matrix_mvp, glstate_matrix_modelview0, glstate_matrix_transpose_modelview0 and glstate_matrix_invtrans_modelview0:
+        Warning messages are printed on detection of uses of UNITY_MATRIX_MVP and UNITY_MATRIX_MV.
+        In order to use these matrices, use UNITY_MATRIX_MVP and friends instead (as you should be doing already).
+        But note! - for better performance, always prefer UnityObjectToClipPos and UnityObjectToViewPos if you are transforming vertices into clip space and view space respectively.
+        Since now we have unified the transforming path, #pragma force_concat_matrices is obsolete.
+        Our tests show an improvement in CPU performance and a degradation in GPU performance. The difference, however, is only noticeable when vertex load is very high.
+
+Improvements
+
+    Android: Moved Android splash image to a Java implementation so that it is displayed quicker during engine loading.
+    Graphics: Frame Debugger improvements:
+        Ctrl+Click on texture properties pops up a larger preview, just like the Standard shader UI does. This is also useful for viewing cubemap textures.
+        ComputeShader dispatches now shows the compute shader, kernel and dispatch size used.
+        The Shader properties tab is now the default one (instead of mesh preview).
+        The Shader properties view now shows the ComputeBuffer properties that are used.
+
+API Changes
+
+    GI: Exposed baked ambient occlusion (ao), indirectAO and directAO to scripting API.
+    Graphics: Added integer (Shader.PropertyToID) overloads to Material.SetTextureScale & SetTextureOffset. (766076)
+
+Fixes
+
+    Animation: Fixed bug in the ModelImporter animationclip automatic naming. (768723)
+    Editor: Fixed issue where it was not possible to check out only the asset file in Inspector if the meta file was already checked out (and vice-versa). (717021)
+    GI: Fix to ensure that scenes are ordered correctly, to patch in their lightmaps into the common LightmapSettings. (812486)
+    Graphics: Frame Debugger: shader property values originating from MaterialPropertyBlocks are now displayed properly.
+    Graphics: Frame Debugger: temporary render textures are now kept alive longer while frame debugger is active, for less confusing shader property display.
+    Kernel: Json serialisation now supports correct parsing of NaN and +/-Inf. (829753)
