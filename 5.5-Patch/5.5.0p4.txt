@@ -1,0 +1,55 @@
+Patch 5.5.0p4
+Released: 11 January 2017
+
+Fixes
+
+    (858785) - Analytics: Fixed occasional windows editor crash on shutdown.
+    (827110) - Android: Disabled fence sync on poor performing drivers.
+    (855603, 859268) - Android: Fixed a crash when reloading or resuming scene which uses WebCamTexture.
+    (848830) - Android: Fixed an exception when trying to build to a non-existent path.
+    (845080) - Android: Fixed an issue where pausing during the splash screen would cause sprites to be black.
+    (855612) - Android: Gradle build and project export now support icon override.
+    (803872) - Android: Post process now executed before app is pushed to device.
+    (855545) - Animation: Fix for a crash using Resources.UnloadUnusedAssets with Animators caused by orphaned references.
+    (858208) - AR: Fixed a crash when exiting play mode during a Holographic Simulation session.
+    (848920, 858080, 860956) - Asset and Scene Management: Fixed a bug where importing multiple native DCC source files resulted in the contents of imported prefabs randomly switching places.
+    (849875) - Collab: Fixed an issue whereby the collab toolbar continued to have 'sign in' button even after signing in from the collab tool bar.
+    (859350) - Editor: Fixed an editor crash when switching platforms on a command line build.
+    (none) - Editor: Fixed local cache server not working if there were spaces in the path to the Unity Editor executable.
+    (858043) - Editor: Fixed Sprite Editor not always grid slicing fully black sprites correctly.
+    (793891) - Editor: Fixed launching Unity getting stuck on a grey screen for a minute or longer when your internet connection is bad.
+    (834243) - Editor: Fixed the issue that personal user is able to skip a mandatory survey.
+    (857504) - Editor: Fixed the splash screen 'Preview' button showing the NoiseModule preview texture.
+    (828286) - Editor: Reduced heap allocations for each frame when rotating the scene view in the editor.
+    (849376) - Graphics: Fixed a bug when importing Alpha8 textures which didn't import them as a single channel texture.
+    (852116) - Graphics: Fixed a crash during texture importing if the import failed.
+    (853722) - Graphics: Fixed a crash during texture importing if the texture format wasn't supported by the platform.
+    (825464) - Graphics: Fixed console error generated when using WWW.movie to create a movie texture.
+    (767034) - Graphics: Fixed errors spamming the console when performing GPU profiling on a DX11 Standalone build.
+    (none) - Graphics: Fixed the GPU Profiler in standalone mode.
+    (732380) - Graphics: Stopped rendering projectors twice if there is any transparent object visible to the camera.
+    (849356) - Graphics: Stopped the texture importer ignoring pure white Alpha channels by default. It is now a user option to choose to ignore it.
+    (810286) - iOS: Fix 2nd stage splash on iPhones with landscapeRight orientation
+    (856989) - iOS: Fixed crash in application:openURL:sourceApplication:annotation due to missing null check with Facebook SDK.
+    (831195) - iOS: Removed extra offset in constraint in default launchscreens.
+    (851764) - Lighting: Only clear the lighting progress bar when lighting is in progress. Stops lighting system accidentally closing other (non-lighting) progress bars.
+    (867312) - Metal: Fixed a memory leak when loading scene.
+    (807091) - Multiplayer: Fixed hostmigration sync issue.
+    (853316, 826931) - Multiplayer: Made sure isLocalPlayer works as expected on OnDestroy.
+    (none) - Networking: Skip proxy check when using the "file://" protocol on Windows.
+    (828188) - Physics: Display message in Inspector for Rigidbody2D when auto-mass is used on a Prefab or an inactive object.
+    (829769) - Physics 2D: Ensure that Rigidbody2D interpolation is reset if the Transform rotation is changed.
+    (715922) - Physics 2D: Fixed some 2D polygon outlines that were almost collinear causing collision detection problems.
+    (764734) - Shadows: Fixed a memory leak and assert when shadows are cast from lights with specific properties and in a specific scene setup.
+    (857270) - Substance: Fixed a crash when compressing small non-square textures to ETC with 'fast' quality.
+    (none) - Test: Corrected CHECK_EQUAL parameter and added another check for validation call count.
+    (856733) - UI: Fixed a curve preview cache not updating preview if curve data had changed but not the bounds.
+    (845756) - UI: Fixed a NullReferenceException when changing font to none.
+    (861467) - VCS: Don't attempt to connect to a Perforce server if any of the following parameters are unset: Server, User or Client.
+    (none) - VR: Fixed the usage of VRSettings.renderViewportScale in Camera's OnPreCull so that it was not a frame latent on all supporting SDKs. Fixed issues with Valve's Renderer adaptive quality feature.
+    (858634) - VR: Y-Axis Range For VR Controllers now match XBox controllers
+    (759286, 782587) - WebGL: Disabled deferred rendering on webgl1.0.
+    (850383) - WebGL: Fixed build with improperly tagged plugins
+    (none) - WebGL: Fixed Content-Length header field for local web server response that caused some audio files to have .duration == inf or zero. This was not reproducible with the normal workflow but could occur with a specific asset store plugin for webgl audio streaming.
+
+Revision: 2f9c3a0f4141
