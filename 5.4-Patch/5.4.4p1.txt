@@ -1,0 +1,51 @@
+Patch 5.4.4p1
+Released: 13 January 2017
+
+Improvements
+
+    Documentation: Android - Added warning to raw JNI interface description.
+
+Fixes
+
+    (none) - Analytics: Fixed an issue where transaction events could send the wrong value for "amount" on the WebGL platform.
+    (776003) - Android: Enabled TLSv1.1 and TLSv1.2 on JellyBean and KitKat devices.
+    (none) - Android: Enhanced big.LITTLE core detection - specifically fixed core detection on Parker.
+    (832025) - Android: Fixed startup crash on Adreno when protected graphics memory was used.
+    (none) - Android: Fixed an issue where ApplicationModeVR would threw an error in the log file.
+    (712890) - Android: Fixed UI flickering issue that was affecting specific Vivante devices.
+    (842286) - Android: OBB - Fixed loading performance regression and split APK not running without OBB.
+    (803872) - Android: Post process is now executed before app is pushed to device.
+    (856259) - Android: Updated JNIBridge to fix Bundle class regression in API 21.
+    (855546) - Animation: Fix for a crash using Resources.UnloadUnusedAssets with Animators caused by orphaned references.
+    (none) - Animation: Re-enabled StateMachine multithreaded evaluation.
+    (853251) - Cache Server: Fix for 'last resource used' behaviour; a file that it requested from the cache server will have its LRU state refreshed and its lifetime extended
+    (824020) - Editor: Fixed a crash for D3D platforms if shader compilation did not return any compiled shader data ie, a shader contained #error pre-processor directive.
+    (834243) - Editor: Fixed an issue that personal user was able to skip a mandatory survey.
+    (none) - Editor: PVRTexTool updated to 4.17 (SDK version 16.2@4273839).
+    (none) - Editor: Removed old editor assemblies when reimporting assets.
+    (844799) - Graphics: Fixed an issue where grab pass could cause lighting to break on translucent objects in a scene.
+    (825464) - Graphics: Fixed console error generated when using WWW.movie to create a movie texture.
+    (767034) - Graphics: Fixed errors spamming the console when performing GPU profiling on a DX11 Standalone build.
+    (823371) - Graphics: Fixed the GPU Profiler to work in the MacOS Editor using the GLcore graphics API. Can only profile a single game window whilst it is in play mode.
+    (732380) - Graphics: Stopped rendering projectors twice if there was any transparent object visible to the camera.
+    (834663) - iOS: Add missing iPod touch 6th gen enumeration.
+    (853532) - iOS: Added Taiwanese language support.
+    (786207) - iOS: Document settings are shared across iOS and tvOS.
+    (810286) - iOS: Fixed 2nd stage splash on iPhones with landscapeRight orientation.
+    (814079) - iOS: Fixed a full screen video player crash on simulator.
+    (831195) - iOS: Removed extra offset in constraint in default launchscreens.
+    (850332) - Metal: Fixed a memory leak when loading scene.
+    (807091) - Multiplayer: Fixed hostmigration sync issue.
+    (826931, 853316) - Multiplayer: Made sure isLocalPlayer worked as expected on OnDestroy.
+    (none) - Networking: Skip proxy check when using the "file://" protocol.
+    (848718) - ReplayKit : Fixed a crash when creating objects from broadcasting start callback.
+    (833159) - ReplayKit : Fixed ReplayKit.StartBroadcasting not pausing the app.
+    (none) - Shaders: Bugfixes in shader translation from HLSL to GLSL - Fixed a crash on HLSLcc partial precision parsing. - Fixed bugs in swapc, SM5 variant of shift ops and GLSL extension handling.
+    (764734) - Shadows: Fixed a memory leak and assert when shadows were cast from lights with specific properties and in a specific scene setup.
+    (855646) - UnityWebRequest: Fixed a high CPU usage issue when a request was continuing execution after exiting playmode.
+    (861468) - VCS: Don't attempt to connect to a Perforce server if any of the following parameters are unset: Server, User or Client.
+    (none) - VR: Fixed usage of VRSettings.renderViewportScale in Camera's OnPreCull so that it was not a frame latent on all supporting SDKs. Fixed issues with Valve's Renderer adaptive quality feature.
+    (none) - WebGL: Fixed Content-Length header field for local web server response that caused some audio files to have a duration of infinity or zero. This required an asset store plugin for webgl audio streaming and was not reproducible using other web servers.
+    (862888) - Windows Store: UnityWebRequest now works in master builds.
+
+Revision: 84eca32fb10b
