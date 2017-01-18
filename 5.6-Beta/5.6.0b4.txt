@@ -1,0 +1,61 @@
+Unity 5.6.0b4
+Released: January 17, 2017
+
+5.6.0b4 Release Notes (Delta since b3)
+System Requirement Changes
+
+    Android minimum version supported updated to 4.1 (JellyBean).
+
+Known Issues
+
+    2D: 2D sprite cannot be dragged to the scene view if project is created in 3D. (863887)
+    Animation: Problems with Animator in 5.6.0b3 after upgrading project from 5.5.0p3 (864062)
+    Asset Pipeline: Referencing UnityEditor.iOS.Extensions.Xcode throws exception after reimporting assets. (778581)
+    GI: Compositing process gets stuck while building lighting (863964)
+    iOS: Rendering orientation is incorrect if orientation is overridden in Start() in your project’s first scene.
+    Particles: Crash when a particle system is sub-emitter of more than one other particle system. (857065)
+    Particles: Particle system glitch with some mesh types. (863967)
+    Scripting: API Updater Internal error "Recursion detected while updating scripts (assembly index: 4)" is thrown when updating scripts. Note that this occurs when importing some 5.4 projects directly into 5.6 beta. One workaround is to do an intermediate import/save into 5.5. (863941)
+    Scripting: API Updater start is delayed when a project is imported from Asset Store and user is forced to update APIs manually. (816066)
+    VR: [Daydream] iOS is not supported with the current native integration but will be available in an upcoming beta release.
+    VR: [Daydream] There is a memory leak when you exit and re-enter VR mode. This leak is on the native Google VR code and Google is actively working on fixing this. (859281)
+    VR: [Daydream] There is no native controller integration yet. For controller use please use the Unity SDK provided by Google.
+    VR: [Daydream] You may notice that your Daydream VR display may be dimmer than other VR devices. This is by design as a means of prolonging battery life while in VR.
+
+Features
+
+    Particles: Added new Shape Module controls to support non-randomized particle emission.
+    Particles: Redesigned Burst Emission to support 8 bursts, and added burst repeat parameters.
+
+Improvements
+
+    Graphics: Frame Debugger now shows the reason why a draw call can't be batched with the previous one.
+    Graphics: GPU Instancing: a new workflow is implemented. In short, you can now simply check the "Enable Instancing" checkbox on most of the Materials, including those using Standard shaders.
+        "#pragma multi_compile_instancing" line now is no longer needed in surface shaders. Instancing variants are automatically generated for surface shaders, unless you explicitly specify "noinstancing" in "#pragma surface" line.
+        Standard and StandardSpecular also have "#pragma multi_compile_instancing" built-in.
+        A new checkbox "Enable Instancing" is added to the Material inspector and it must be checked if you want objects rendered with this material to be instanced.
+        SpeedTree assets now prints an error prompting you to regenerate the materials for enabling this checkbox.
+        Please note that all existing projects that utilize instancing need to enable this checkbox if the material is intended to be used for instancing, including those for DrawMeshInstanced.
+        When building to players, instancing variants of a shader are stripped away if no material using this shader enables instancing. You can have a global stripping control in Graphics settings.
+    Graphics : "-gpu" command line argument is now supported in the Windows Store player
+    OSX: OSX: Add support for retrieving GPU memory size on Metal
+    Shaders: Optimized in-editor experience for shaders with potentially massive variant counts (order of "millions"). Importing and first-time compiling them is much faster now.
+    Terrain: A warning box will be shown if you try to assign a texture that is not imported as normal map to the normal map slot of the terrain material.
+    Windows Store: C++ source code plugins can now be included directly from generated Visual Studio solution as the directory they are in is included to include directories and the DLL they get compiled in now gets linked to the final game executable on il2cpp scripting backend
+    Windows Store: Significantly the time postprocessing player step takes when building project on IL2CPP scripting backend
+    Windows Store: Unity now uses prebuilt MapFileParser when building generated C++ code on IL2CPP scripting backend, rather than building it on your machine on the fly
+
+API Changes
+
+    Editor: Added IDisposable Handles.DrawingScope struct for cleaner pushing/popping of Handles.matrix and Handles.color
+    SceneManager: EditorSceneManager now has a number of new events that developers can add delegates to. They are: newSceneCreated, sceneOpening, sceneOpened, sceneClosing, sceneClosed, sceneSaving and sceneSaved
+
+Fixes
+
+    Editor: enabled in preferences. (775353)
+    Editor: Fix an issue where prefab creation would break is user had "Verify Saving Assets" (834347)
+    Editor: Fixed issue where attempting to create an editable copy of a font from the Inspector would not work (857155)
+    Editor: Fixed issue where Canvas size would change when moving the Game View (851777)
+    SpeedTree: Fixed an issue where modifying the scene in edit mode could cause SpeedTree trees to play wind animation. (830097)
+    SpeedTree: Fixed an issue where SpeedTree billboards had z-fighting when affected by mutiple forward lights. (840206)
+    Terrain: Fixed an issue where adding a 5th texture to a terrain with custom material would result in an assertion. (845404)
