@@ -1,0 +1,15 @@
+Patch 5.4.4p2
+Released: 25 January 2017
+
+Fixes
+
+    (852307) - Android/IL2CPP: Prevent a crash which could occur with the use of OnAudioFilterRead callbacks on krait CPUs.
+    (836697) - Android: Identified unaccounted spikes in profiler.
+    (857203) - Deployment Management: Corrected a behaviour on Windows where using -logfile on batch mode with an emptry string would cause the output to go to stdout, consistent with all other platforms.
+    (780168) - Editor: Fixed Gizmos only being displayed for the first camera in the Game View.
+    (828288) - IOS: Fixed an issue where the ReplayKit API might be reported as available on unsupported devices.
+    (829753) - Kernel: JSON serialisation now supports correct parsing of NaN and +/-Inf.
+    (none) - Purchasing: Fixed a bug where a duplicate transaction could fail without calling the failure callback.
+    (861828) - UnityWebRequest: Fixed the proxy support so that debugging tools like Fiddler work.
+
+Revision: 53da848b487a
