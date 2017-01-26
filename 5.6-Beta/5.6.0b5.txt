@@ -1,0 +1,59 @@
+Unity 5.6.0b5
+Released: January 26, 2017
+
+Unity 5.6.0b5 release notes
+5.6.0b5 Release Notes (Delta since b4)
+System Requirement Changes
+
+    Android minimum version supported updated to 4.1 (JellyBean).
+
+Known Issues
+
+    2D: 2D Sprites cannot be dragged to the Scene view if the project is created in 3D. (863887)
+    2D: Opening sprite editor after importing any package crashes editor (873335)
+    Animation: Problems with Animator in 5.6.0 beta after upgrading project from 5.5.0p3 (864062)
+    Editor: Editor crashes when selecting objects in hierarchy. Can be worked around by deleting Assets/Prefabs/Trees folder. (837840)
+    GI: Compositing process gets stuck while building lighting. (863964)
+    iOS: Rendering orientation is incorrect if orientation is overridden in Start() in your project’s first Scene.
+    Particles: Game crashes occur during Play mode when a Particle System is a sub-emitter of more than one other Particle System. (857065)
+    Particles: Particle System glitch with some Mesh types. (863967)
+    Scripting: An API Updater internal error "Recursion detected while updating scripts (assembly index: 4)" is thrown when updating scripts. Note that this occurs when importing some 5.4 projects directly into 5.6 beta. One workaround is to do an intermediate import/save into 5.5. (863941)
+    VR: [Daydream] iOS is not supported with the current native integration, but will be available in an upcoming beta release.
+    VR: [Daydream] There is a memory leak when you exit and re-enter VR mode. This leak is on the native Google VR code and Google is actively working on fixing this. (859281)
+    VR: [Daydream] There is no native controller integration yet. For controller use, please use the Unity SDK provided by Google.
+    VR: [Daydream] You may notice that your Daydream VR display is dimmer than other VR devices. This is by design, as a means of prolonging battery life while in VR.
+
+Features
+
+    2D: Enabled BoxCollider2D & EdgeCollider2D Edge Radius Feature.
+    Android: Added target API level option to Android Player Settings in the Unity Editor.
+    Particles: Added new Shape Module controls to support non-randomized particle emission.
+    Particles: Redesigned Burst Emission to support 8 bursts, and added burst repeat parameters.
+
+Improvements
+
+    Asset Import: Significant performance improvements to DXT1, DXT5, BC4 and BC5 texture compressors, resulting in faster asset imports. Fixed cross platform determinism of DXT1, DXT5, BC4 and BC5 compressed textures. We now get the same compressed texture regardless of the platform they're compressed on.
+    Audio: (As also mentioned under API Changes) AudioClip is now always loaded on a separate thread, resulting in improvements to Scene loading time. This is because the rest of the Scene can be loaded while Audio Clips are decompressed. AudioClip.loadInBackground is now obsolete and no longer used.
+    Shaders: Added ability to disable shader pass per-material, see Material.SetShaderPassEnabled.
+
+API Changes
+
+    Audio: (As also mentioned under Improvements) AudioClip is now always loaded on a separate thread, resulting in improvements to Scene loading time. This is because the rest of the Scene can be loaded while Audio Clips are decompressed. AudioClip.loadInBackground is now obsolete and no longer used.
+    Editor: Handles.DrawCapFunction (and associated Handles functions expecting it) is now obsolete, and generates warning messages.
+    Graphics: Added Matrix4x4.LookAt function.
+    Scripting: Added new non-allocating accessors to Mesh. These accessors write into a user-specified List<T>. The new accessors are GetBindposes, GetBoneWeights, GetColors, GetIndices, GetNormals, GetTangents, GetTriangles, and GetVertices (also being back-ported to 5.5.x).
+
+Fixes
+
+    Android: Fix to correctly repackage assets from aar files when building on Windows. (852039)
+    Editor: Fixed case of harmless errors being thrown when extra extension DLLs like UnityEditor.iOS.Xcode.dll are used in the project. (778581)
+    Editor: Fixed issue when appending onto iOS builds when Unity version contains special characters (such as dashes).
+    Editor: OcclusionPortal component now supports multi-edit
+    Graphics: Fixed a path issue when loading GI data. (858292)
+    Graphics: Fixed light probes visualisation in linear rendering. (862215)
+    iOS: A warning is now issued when CameraDepthTexture uses the wrong sampler type. (786455)
+    iOS: A warning is now issued when SV_POSITION is used as input in vertex shader. (809737)
+    iOS: Scripting profiler memory info is only available on development player configurations. The scripting profiler will now report when memory information is not available. (769072)
+    Shaders: Fixed Editor crash on Windows when viewing a Material using a shader which contains a pre-processor #error token. (824020)
+    Web: Fixed case of harmless 'Coroutine continue failure' error being thrown when stopping a WWW coroutine. (780200)
+    Web: Fixed case of UnityWebRequest not working in Editor when not in play mode. (859924)
