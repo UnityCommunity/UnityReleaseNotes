@@ -1,0 +1,63 @@
+Patch 5.5.1p1
+Released: 31 January 2017
+
+Improvements
+
+    Android: Gradle export now supports custom template
+    Android: Gradle export troubleshooting added
+    Graphics: Added new APIs: Mesh.GetIndexStart and Mesh.GetIndexCount.
+    Tizen: Added a button to the deployment target window to refresh the target list.
+
+Changes
+
+    Tizen: Remove the Tizen 2.3 minimum OS option. 2.4 is now the only accepted OS version. Users must update their devices to Tizen OS 2.4.
+
+Fixes
+
+    (852307) - Android/IL2CPP: Prevent a crash which can occur with the use of OnAudioFilterRead callbacks on krait CPUs.
+    (none) - Android/Metro: Fixed the issues preventing the Application.Unload API from functioning correctly.
+    (856650) - Android: Gradle export should now work with SDK version > 6.0.
+    (854535 ) - Android: Gradle export -Fixed colliding package name for unity-android-resources
+    (869582) - Animation: Fixed a crash when setting Animator.updateMode when no AnimatorController is set.
+    (860366) - Animation: Fixed edit key overriding key frames in curve editor.
+    (862004) - Asset Bundles: Fixws intermittent freeze that could occur when calling AssetBundle.LoadAssetAsync multiple times in a single frame.
+    (871730) - Cache Server: Fixed the custom port missing for the remote option.
+    (none ) - Editor: Fixed light probe rendering in LookDev HDRIs. Previously it could go wrong depending on the lighting panel parameters set for the project.
+    (862005) - Graphics: Fixed crash in occlusion culling when loading multiple scenes.
+    (860775 ) - HoloLens: Fixed a crash that occurs on device when downloading files with WWW.
+    (867606) - IL2CPP: Allow the build to succeed when the .NET 4 TargetFrameworkAttribute attribute is used in an assembly.
+    (863806) - IL2CPP: Correct an error in UnusedBytecodeStripper2 related to UnityEngine.RenderTexture that can occur during some project builds.
+    (828288) - iOS: Fixed an issue where the ReplayKit API might be reported as available on unsupported devices
+    (796649) - iOS: Fixed orientation requests from the app getting out of sync with iOS orientation.
+    (829753) - Kernel: Json serialisation now supports correct parsing of NaN and +/-Inf.
+    (none ) - Lighting: Fixed baked light map visualisation shading mode in the Editor.
+    (861293) - LineRenderer: fixed gaps when values are repeated
+    (864043) - LineRenderer: Fixed issue where setting endColor failed if using different number of color/alpha keys
+    (847798 ) - Mono: Correct an invalid C# compiler error with generic types in compiler generated code (like lambdas and enumerators). The error from the C# compiler often includes this text: "There is no boxing or type parameter conversion from..."
+    (836770) - Networking: Fixed issue where unspawn handler was not properly invoked during object cleanup (like in NetworkManager.StopClient())
+    (864122) - Particles: Fixed "TLS ALLOCATOR ALLOC_TEMP_THREAD" error messages
+    (862777) - Particles: Fixed crash in LightsModule when destroying systems
+    (862897) - Particles: Fixed crash in ParticleSystem.Emit()
+    (856842) - Particles: Fixed issue where distance-based emission was not working
+    (862352) - Particles: Fixed issue where particle bounding boxes could become corrupted, resulting in "Invalid AABB" messages
+    (861347, 863060 ) - Particles: Fixed issue where sub-emitters were causing memory leaks
+    (862976) - Particles: Fixed issue where switching Render Mode could cause rendering artifacts
+    (868648) - Particles: Fixed rare crash when using the Trail Renderer and Multithreaded Rendering is enabled.
+    (862921) - Particles: Fixed rotation bug with mesh particles
+    (864208) - Particles: Fixed TrailModule crash when enabling trails and using ParticleSystem.SetParticles
+    (861409](https://issuetracker.unity3d.com/product/unity/issues/guid/861409/)) - Particles: Stretched billboards could apply scale twice if using Speed Scale
+    (859436) - Particles: Texture Animation could skip frames and display invalid data
+    (none ) - Physics 2D: Optimize the CapsuleCollider2D component intersection tests for speed and accuracy.
+    (none ) - Purchasing: Fixed a bug where a duplicate transaction could fail without calling the failure callback.
+    (none ) - Scripting: Added the following non-allocating accessors to Mesh. These accessors write into a user-specified List. The accessors are GetBindposes, GetBoneWeights, GetColors, GetIndices, GetNormals, GetTangents, GetTriangles, and GetVertices.
+    (856507) - Shaders: Fixed shader compilation error when compiling certain surface shaders using WorldNormalVector from INTERNAL_DATA e.g. shadow pass variations.
+    (810571) - Splash Screen: Fixed an issue where the splash could be truncated by a first scene taking a long time to load
+    (872286 ) - Tizen: Change the minimum API level to Tizen 2.4 in PlayerSettings.
+    (869995 ) - Tizen: Fix a NULL referencing while exiting the game.
+    (834785) - Tizen: Improve error when failing to discover a deployment target.
+    (none ) - Tizen: Improvements to emulator deployment.
+    (none ) - Tizen: SystemInfo.processorFrequency now returns proper values.
+    (869964) - TrailRenderer: Fixed visual artifacts when manually enabled during Play mode
+    (861828) - UnityWebRequest: fix proxy support, so that debuggers like Fiddler work.
+
+Revision: d7332d2a7307
