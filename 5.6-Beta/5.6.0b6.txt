@@ -1,0 +1,92 @@
+Unity 5.6.0b6
+Released: February 1, 2017
+
+5.6.0b6 Release Notes (Delta since b5)
+
+System Requirement Changes
+
+    Android minimum version supported updated to 4.1 (JellyBean).
+
+Known Issues
+
+    2D: 2D Sprites cannot be dragged to the Scene view if the project is created in 3D. (863887)
+    Android: When MuteOtherAudioSources option is disabled and there's no READ_PHONE_STATE permission, the Unity application running on Android 5.1 or older devices may not mute itself during an incoming phone call. This might cause rejections when submitting to Samsung app store.
+    Animation: Problems with Animator in 5.6.0 beta after upgrading project from 5.5.0p3 (864062)
+    Editor: Editor crashes when selecting objects in hierarchy. Can be worked around by deleting Assets/Prefabs/Trees folder. (837840)
+    Editor: Editor will not start on Windows 7 (without VisualStudio 2013 installed). Workaround is to install "Microsoft Visual Studio Community 2015". (876231)
+    GI: Compositing process gets stuck while building lighting. (863964)
+    GI: Progressive Lightmapper: crashes on certain scenes during the bake when instances are moved (depending on timing). Fix coming soon.
+    Particles: Game crashes occur during Play mode when a Particle System is a sub-emitter of more than one other Particle System. (857065)
+    Scripting: An API Updater internal error "Recursion detected while updating scripts (assembly index: 4)" is thrown when updating scripts. Note that this occurs when importing some 5.4 projects directly into 5.6 beta. One workaround is to do an intermediate import/save into 5.5. (863941)
+    VR: VRSettings.renderViewportScale renders sections of the screen oddly at values <1 (851282)
+    VR: [Daydream] iOS is not supported with the current native integration, but will be available in an upcoming beta release.
+    VR: [Daydream] There is a memory leak when you exit and re-enter VR mode. This leak is on the native Google VR code and Google is actively working on fixing this. (859281)
+    VR: [Daydream] There is no native controller integration yet. For controller use, please use the Unity SDK provided by Google.
+    VR: [Daydream] You may notice that your Daydream VR display is dimmer than other VR devices. This is by design, as a means of prolonging battery life while in VR.
+
+Features
+
+    Editor: Windows: All Visual Studio installs are now shown in the External Script Editor list.
+    Editor: Windows: Visual Studio 2017 installs with the Unity workload are now detected automatically and added to the External Script Editor list.
+    GI: Progressive Lightmapper (experimental): a robust path-tracing-based lightmapper with progressive updates. It provides baked lightmaps and light probes, presents the first output quickly and iteratively improves it over time.
+        Global illumination calculated at lightmap resolution.
+        No dependency on Enlighten.
+        Back to normal requirements wrt. lightmapping UVs: non-overlapping UVs with small area and angle errors, and sensible padding between the charts.
+        Texels visible in the scene view are calculated first.
+        ETA provided in the progress bar.
+
+Improvements
+
+    Editor: Improved the performance of the Hierarchy View in the Profiler Window.
+    GI: The Enlighten solve type is now set to match the current lightmaps mode instead of always solving directional lightmaps. This is an optimization for Realtime GI with non-directional mode.
+
+API Changes
+
+    Animation: Added GetKeyLeftTangentMode, GetKeyRightTangentMode and GetKeyBroken to the AnimationUtility API.
+    Asset Import: Added RecalculateTangents method to Mesh.
+    Build Pipeline: Added 'SetApplicationIdentifier' and 'GetApplicationIdentifier' methods to PlayerSettings. These allow you to set the 'Bundle Identifier' (Apple platforms) / 'Package ID' (Android & Tizen) separately for each platform.
+    Build Pipeline: Changed 'Application.bundleIdentifier' to 'Application.identifier' and 'PlayerSettings.bundleIdentifier' to 'PlayerSettings.applicationIdentifier'. These now apply to the active target only (Use PlayerSettings.SetApplicationIdentifier to set it for any platform).
+
+Fixes
+
+    Android: Fixed auto-rotation on Android 4.1 and older. (853151)
+    Android: Fixed crash that would occur when instantiating a prefab with SkinnedMeshRenderer.UpdateWhenOffscreen enabled. (869402)
+    Animation: Added shift lock-axis when using the box tool in the curve editor.
+    Animation: Added validation for invalid Synchronized layer configuration. (852149)
+    Animation: Corrected the default Transition Duration with empty states. (853292)
+    Animation: Fix to clear curve editor selection after changing clip frame rate to avoid selection box ghosting.
+    Animation: Fixed an issue when playing back recorded interrupted transitions. (863214)
+    Animation: Fixed an issue where Runtime Animation Events added to a Legacy clip wouldn't be played. (858511)
+    Animation: Fixed animation import with custom frame rate. (791385)
+    Animation: Fixed AnyState progression when changing state machine.
+    Animation: Fixed case of animation window not refreshing after undo. (863869)
+    Animation: Fixed case of interrupted transition on humanoid resulting in bad poses. (861266)
+    Animation: Fixed case of Motion properties not being available on some platforms. (783535)
+    Animation: Fixed crash in the animation window when starting playback on invalid optimized game object hierarchy. (865057)
+    Animation: Fixed crash in the importer. (861392)
+    Animation: Fixed crash when loading invalid animator setups with OptimizeGameObject on and no avatar. (858677)
+    Animation: Fixed Crash when setting avatar type in AssetPostprocessor.OnPreprocessAnimation. (861392)
+    Animation: Fixed issue where keyframe flip manipulations could cause error messages.
+    Animation: Fixed issue where the "Samples" field would still be editable when selecting a read-only clip in animation window. (850424)
+    Animation: Fixed issue where the Create Animation button didn't work for legacy animation components with null animation clips. (863925)
+    Animation: Fixed key pasting issues in Curve Editor. (859125)
+    Animation: Fixed locked inpsector issue when entering Avatar Configuration. (858947)
+    Animation: Fixed log error shown when adding a new keyframe for the position property in RectTransform. (854795)
+    Animation: Fixed log error shown when changing the curve preset in the curve editor window for the model importer. (854799)
+    Animation: Fixed naming of new clips added in ModelImporter. (768723)
+    Animation: Fixed single key ripple manipulation in the curve editor and the dopesheet editor.
+    Animation: Fixed source of vertical and horizontal flips when using Box Tool with tangents set to Infinity. (849656)
+    Animation: Humanoid transforms are now stored before entering animation mode and restored when exiting animation mode.
+    Animation: Property renaming in the animation window now renames to full path instead of last game object.
+    Animation: The AnimationWindow now uses delayed int field for frames and samples.
+    Graphics: Added support for combining lightmapped meshes using Mesh.CombineMeshes. (821775)
+    IL2CPP: Fixed a crash with advertisingIdentifier in iOS Simulator. (869305)
+    iOS: Added missing icon slots for Spotlight and Settings. (815299)
+    iOS: Fix to hide the 'Picture in Picture' button in the movie player when played using Handheld.PlayFullScreenMovie. (739557)
+    iOS: Fixed inability to change Launch Screen Mode in Player Settings. (869283)
+    OSX: Fixed case of DNS resolution taking very long when not resolved in UnityWebRequest and WWW. (825679)
+    Particles: Fix to include light ranges in particle bounding box, in order to avoid lights popping in/out at camera edges. (860441)
+    Particles: Fixed issue where deactivating the SubEmitter module makes SubEmitter particles stop previewing in the Scene view upon any change. (764588)
+    Particles: Fixed previewing issues when Particle Systems are used in LOD Groups. (700523)
+    Particles: The component Reset button now resets Renderer Module settings. (715605)
+    Particles: Updated the tooltip comment to make it clear that Texture colors are not read when using Mesh Shape Modes. (860694)
