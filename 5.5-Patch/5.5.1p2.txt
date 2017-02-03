@@ -1,0 +1,36 @@
+Patch 5.5.1p2
+Released: 3 February 2017
+
+Improvements
+
+    Virtual Reality: Updated to Oculus runtime version 1.11
+
+Fixes
+
+    (854214) - Android: Fixed an incorrect behaviour with Application.persistentDataPath.
+    (none) - Android: Fixed readback from float RenderTexture into half float Texture.
+    (none) - Android: Play audio from background applications at the original volume when it is not muted.
+    (865057) - Animation: Fixed crash in animation window when starting playback on invalid optimized game object
+    (849656) - Animation: Fixed vertical and horizontal flips using Box Tool with tangents set to Infinity.
+    (846853) - Asset Bundles: Fixed a crash when loading a scene with occlusion culling from an asset bundle in editor play mode.
+    (none) - Asset Importing: Significant performance improvements to DXT1, DXT5, BC4 and BC5 texture compressor, resulting in faster asset imports.
+    (865507) - Audio: Fixed a WACK certification failure in UWP player builds using the Microsoft HRTF audio spatializer.
+    (840009) - Cache Server: Fixed an issue when building, an unreachable cache server was reported as a warning not an error and did not cause the build to fail.
+    (none) - Cloudbuild Analytics: Fix for iOS and Android crash when all services are OFF.
+    (857206) - Deployment Management: Corrected the behaviour on Windows where using -logfile on batch mode with an emptry string would cause output to go to stdout, consistent with all other platforms.
+    (857507) - Editor: Disallow setting DontSave on a transform unless it is already set on the GameObject.
+    (824020) - Editor: Fixed a crash for D3D platforms if shader compilation did not return any compiled shader data ie, a shader contained #error pre-processor directive.
+    (836737) - Graphics: Don't render the screen space depth buffer if nothing requires it ie screenspace shadows are disabled.
+    (866230) - Graphics: Fixed large objects lit by a directional light self shadowing in editor when player was set to android.
+    (861445) - Graphics: Fixed a crash that occurred when loading models from AssetBundles with Tangents set to Calculate Legacy.
+    (874227) - IL2CPP: Allow the Unity Ads engine integration to work properly on iOS builds that are archived and uploaded to TestFlight.
+    (none) - Physics 2D: Ensure that a PhysicsMaterial2D can be reassigned to a Collider2D.
+    (871727) - Physics 2D: When turning on Rigidbody2D.simulated, the body position/rotation should be synchronized to the current Transform.
+    (857087) - UI: Fixed miscoloured mesh when this was created with CanvasRenderer.SetMesh, passing an array of Color objects to Mesh.colors.
+    (814290) - Virtual Reality: Fixed inconsistency in game view between Singlepass Stereo and Multi Pass when using Split Stereo Diplay.
+    (830612) - Virtual Reality: Fixed incorrect culling in Split Stereo Display.
+    (832185) - Virtual Reality: Fixed incorrect eye view in Split Stereo Display.
+    (832283) - Virtual Reality: Fixed incorrect viewport bounds in Singlepass Stereo.
+    (none) - Windows: When standalone player is embedded into other window, Alt+Enter shortcut for full screen is disabled.
+
+Revision: 72bb63a39d55
