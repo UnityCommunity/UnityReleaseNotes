@@ -1,0 +1,42 @@
+Unity 5.6.0b7
+Released: February 6, 2017
+
+Unity 5.6.0b7 release notes
+5.6.0b7 Release Notes (Delta since b6)
+Known Issues
+
+    2D: 2D Sprites cannot be dragged to the Scene view if the project is created in 3D. (863887)
+    Android: When MuteOtherAudioSources option is disabled and there's no READ_PHONE_STATE permission, the Unity application running on Android 5.1 or older devices might not mute itself during an incoming phone call. This might cause rejections when submitting to Samsung app store.
+    Animation: Problems with Animator in 5.6.0 beta after upgrading project from 5.5.0p3 (864062)
+    Editor: Editor crashes when selecting GameObjects in the Hierarchy window. This can be worked around by deleting the Assets/Prefabs/Trees folder. (837840)
+    Editor: Editor does not start on Windows 7 without VisualStudio 2013 installed. Workaround is to install Microsoft Visual Studio Community 2015. (876231)
+    GI: Compositing process gets stuck while building lighting. (863964)
+    GI: Progressive Lightmapper crashes on certain Scenes during the bake when instances are moved (depending on timing). Fix coming soon.
+    Particles: Game crashes occur during Play mode when a Particle System is a sub-emitter of more than one other Particle System. (857065)
+    Scripting: An API Updater internal error "Recursion detected while updating scripts (assembly index: 4)" is thrown when updating scripts. Note that this occurs when importing some 5.4 projects directly into 5.6 beta. One workaround is to do an intermediate import/save into 5.5. (863941)
+    VR: [Daydream] iOS is not supported with the current native integration, but will be available in an upcoming beta release.
+    VR: [Daydream] There is a memory leak when you exit and re-enter VR mode. This leak is on the native Google VR code and Google is actively working on fixing this. (859281)
+    VR: [Daydream] There is no native controller integration yet. For controller use, please use the Unity SDK provided by Google.
+    VR: [Daydream] You may notice that your Daydream VR display is dimmer than other VR devices. This is by design, as a means of prolonging battery life while in VR.
+    VR: VRSettings.renderViewportScale has unintended graphical effects when rendering sections of the screen at values less than 1. (851282)
+
+Features
+
+    Physics: Added Physics2D.Distance, Collider2D.Distance and Rigidbody2D.Distance returning new ColliderDistance2D.
+    Physics: Added Physics2D.OverlapCollider, Collider2D.OverlapCollider and Rigidbody2D.OverlapCollider.
+    Physics: Added Rigidbody2D.attachedColliderCount and Rigidbody2D.GetAttachedColliders().
+    VR: Native Cardboard support for iOS using OpenGL is now available.
+
+Changes
+
+    Windows: Windows 10 SDK is now the default SDK when building to Windows Store.
+    Windows: Windows Store: Windows 8.1 and Windows Phone 8.1 will be dropped after Unity 5.6. Unity 5.6 is therefore the last Unity release supporting these SDKs.
+
+API Changes
+
+    Physics: Changed Physics2D.minPenetrationForPenalty to Physics2D.defaultContactOffset.
+
+Fixes
+
+    Asset Import: Use SketchUp face layers to build mesh that only includes visible faces (867782)
+    Build Pipeline: Fixed an issue which caused editor to think the build succeeded and open explorer window to the output build location when it fails due to a managed exception thrown in the build process (843528)
