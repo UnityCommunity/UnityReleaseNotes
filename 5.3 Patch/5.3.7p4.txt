@@ -1,0 +1,18 @@
+Patch 5.3.7p4
+Released: 7 February 2017
+
+Improvements
+
+    Virtual Reality: Updated to Oculus runtime version 1.11.
+
+Fixes
+
+    (854214) - Android: Fixed an incorrect behaviour with Application.persistentDataPath.
+    (none) - Android: Play audio from background applications at the original volume when it is not muted.
+    (668043, 837519) - Asset Pipeline: Fixed an issue where asset and timestamp maps could get out of sync.
+    (865666) - Graphics: Fixed a crash that occurred when loading models from AssetBundles with Tangents set to Calculate Legacy.
+    (none) - Networking: Skip proxy check when using the "file://" protocol.
+    (764734) - Shadows: Fixed a memory leak and assert when shadows are cast from lights with specific properties and in a specific scene setup.
+    (813101) - WebPlayer: Fixed compression settings for WebPlayer when building from command line.
+
+Revision: 316083f083fb
