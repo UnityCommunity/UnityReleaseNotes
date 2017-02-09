@@ -1,0 +1,25 @@
+Patch 5.4.4p3
+Released: 8 February 2017
+
+Improvements
+
+    Asset Importing: Significant performance improvements to DXT1, DXT5, BC4 and BC5 texture compressor, resulting in faster asset imports.
+    Audio: Add support for streaming oggvorbis on Android and iOS.
+    Updated to Oculus runtime version 1.11.
+
+Fixes
+
+    (782183) - Android: Fixed a crash when doing simultaneous SceneManager.LoadSceneAsync and Resources.Load.
+    (854214) - Android: Fixed incorrect behaviour with Application.persistentDataPath.
+    (none) - Android: Play audio from background applications at the original volume when it is not muted.
+    (874678 ) - Cache Server: Can now handle paths with spaces on Mac when calling RunOSX.command with the --path argument. Paths with spaces must be quoted.
+    (840009) - Cache Server: When building, an unreachable cache server was reported as a warning not an error and did not cause the build to fail.
+    (862754) - Fixed UnityRepaint crash due to internal inconsistency error
+    (836737) - Graphics: Don't render the screen space depth buffer if nothing required it. i.e screenspace shadows were disabled.
+    (861446) - Graphics: Fixed a crash that occurred when loading models from AssetBundles with Tangents set to Calculate Legacy.
+    (874838) - IL2CPP: Fixed a compile error related to missing header when compiling code using SizeOf IL opcode.
+    (870810) - IL2CPP: Fixed an issue with race condition of the monitor implementation of IL2CPP that could cause a crash.
+    (819887) - Scripting: Fixed deadlock when debugging in MonoDevelop.
+    (857087) - UI: Fixed miscoloured mesh when this was created with CanvasRenderer.SetMesh, passing an array of Color objects to Mesh.colors.
+
+Revision: f19cbbe7deef
