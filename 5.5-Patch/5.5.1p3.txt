@@ -1,0 +1,46 @@
+Patch 5.5.1p3
+Released: 9 February 2017
+
+Improvements
+
+    Asset Bundles: Improved load asset performance by up to 25% for standard asset bundles. (Not streamed scene bundles).
+    Audio: Add support for streaming oggvorbis on Android and iOS.
+    (815299) - iOS: Added missing icon slots for Spotlight and Settings.
+
+Fixes
+
+    (782183) - Android: Fixed a crash when doing simultaneous SceneManager.LoadSceneAsync and Resources.Load.
+    (863528) - Android: Fixed splash screen flicker and artifacts.
+    (836697) - Android: Identified unaccounted spikes in profiler.
+    (none) - Android: Improved asynchronous loading time when showing splash screen.
+    (845762, 841092) - Asset Bundles: Fixed loading asset by file name and extension to work identical to loading by file name.
+    (874677) - Cache Server: Can now handle paths with spaces on Mac when calling RunOSX.command with the --path argument. Paths with spaces must be within quotes.
+    (858923) - Cache Server: Displays a warning in the Cache Server Editor Preferences when the Local Cache Server location cannot be reached (e.g. on a disconnected disk).
+    (790345) - Editor: Fixed an issue whereby new installed Unity would report timeout error in commandline activation.
+    (859819) - Graphics: DrawProcedural draws geometry only in the left eye when Single Pass is enabled
+    (850327, 851586) - HoloLens: Fixed an issue with InputField automatically getting activated for text entry as soon as you gaze at it.
+    (none) - HoloLens: Prevented a potential memory stomps in very rare repro cases when resuming from suspend.
+    (none) - IL2CPP: Fixed a rare crash in IL2CPP on some Visual Studio installation setups with message "Unhandled Exception: System.InvalidOperationException: Builder is unable to build using selected toolchain (MsvcDesktopToolChain) or architecture (Unity.IL2CPP.Building.x64Architecture)!"
+    (874838) - IL2CPP: Fixed a compile error related to missing header when compiling code using SizeOf IL opcode.
+    (870810) - IL2CPP: Fixed an issue with race condition of the monitor implementation of IL2CPP that could cause a crash.
+    (none) - IL2CPP: Fixed System.IO.WindowsRuntimeStreamExtensions class not being present in System.Runtime.WindowsRuntime.dll.
+    (869099) - iOS: Don't indicate that microphone and camera is used when it isn't.
+    (862754) - iOS: Fixed UnityRepaint crash due to internal inconsistency error.
+    (850430) - iOS: Fixed a bug that would prevent the text field input caret from updating when the virtual left and right arrow keys were pressed.
+    (869305) - iOS: Fixed a crash with advertisingIdentifier in iOS Simulator.
+    (869283) - iOS: Fixed inability to change Launch Screen Mode in Player Settings.
+    (739557) - OS X: Added a fix to hide the 'Picture in Picture' button in the movie player when played using Handheld.PlayFullScreenMovie.
+    (853996, 845817) - Particles: Fixed an issue with allowing circular references in sub emitters.
+    (778213) - Particles: Fixed the issue of color not being updated correctly when material properties were changed when using shape module.
+    (844815) - Particles: Fixed the issue of distance emission not working when scale was not 1 and using hierarchy scaling mode.
+    (858243) - Particles: Fixed an issue whereby particle trails were reusing old position data when emitted by script.
+    (none) - Physics 2D: Ensure all 2D physics profile items provide an object reference.
+    (863939) - Physics 2D: Fixed an issue of rendering CapsuleCollider2D with very small sizes.
+    (873587) - Playables: Fixed blending of AnimatorControllerPlayable not working properly.
+    (819887) - Scripting: Fixed a deadlock when debugging in MonoDevelop.
+    (none) - Windows Store: Fixed IL2CPP not finding tools from Windows SDK directory in some installation setups.
+    (862914) - Windows Store: Fixed build & run failing on windows phone 10 with IL2CPP scripting backend.
+    (858579) - Windows Store: Fixed the folder Structure missing from Assembly-CSharp.csproj.
+    (855595) - Windows Store: Fixed player pref corruption on power loss.
+
+Revision: 828893732fe0
