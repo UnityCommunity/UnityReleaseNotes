@@ -1,0 +1,42 @@
+Unity 5.6.0b9
+Released: February 17, 2017
+
+Unity 5.6.0b9 release notes
+5.6.0b9 Release Notes (Delta since b8)
+Known Issues
+
+    2D: 2D Sprites cannot be dragged to the Scene view if the project is created in 3D. (863887)
+    Android: Profiler hangs after several seconds of connection (879843)
+    Android: When MuteOtherAudioSources option is disabled and there's no READ_PHONE_STATE permission, the Unity application running on Android 5.1 or older devices might not mute itself during an incoming phone call. This might cause rejections when submitting to Samsung app store.
+    Animation: Problems with Animator in 5.6.0 beta after upgrading project from 5.5.0p3 (864062)
+    Editor: Editor crashes on attempt to open 5.5 compatible audio project (880653)
+    Editor: Editor crashes when selecting GameObjects in the Hierarchy window. This can be worked around by deleting the Assets/Prefabs/Trees folder. (837840)
+    Editor: Editor does not start on Windows 7 without VisualStudio 2013 installed. Workaround is to install Microsoft Visual Studio Community 2015. (876231)
+    GI: Progressive Lightmapper crashes on certain Scenes during the bake when instances are moved (depending on timing). Fix coming soon.
+    IL2CPP: UnityEngine.TestRunner.dll and UnityEngine.PerformanceTesting.dll with dependencies included into empty build (879084)
+    Particles: Game crashes occur during Play mode when a Particle System is a sub-emitter of more than one other Particle System. (857065)
+    Scripting: An API Updater internal error "Recursion detected while updating scripts (assembly index: 4)" is thrown when updating scripts. Note that this occurs when importing some 5.4 projects directly into 5.6 beta. One workaround is to do an intermediate import/save into 5.5. (863941)
+    Services: Collab: Cannot update to latest revision if current revision has been archived and there is a conflict (857465)
+    VR: UNITY_HAS_GOOGLEVR is not enabled for native iOS Cadboard support. This means that the Google SDK for Unity will allways attempt to run in compatibility mode under iOS. A fix will come in a future release. (874512)
+    VR: [Daydream] iOS is not supported with the current native integration, but will be available in an upcoming beta release.
+    VR: [Daydream] There is a memory leak when you exit and re-enter VR mode. This leak is on the native Google VR code and Google is actively working on fixing this. (859281)
+    VR: [Daydream] There is no native controller integration yet. For controller use, please use the Unity SDK provided by Google.
+    VR: [Daydream] You may notice that your Daydream VR display is dimmer than other VR devices. This is by design, as a means of prolonging battery life while in VR.
+    VR: VRSettings.renderViewportScale has unintended graphical effects when rendering sections of the screen at values less than 1. (851282)
+
+Features
+
+    Editor: Add -disable-assembly-updater to disable the Assembly Updater. Useful for when building managed dlls outside of Unity and copying them into the Assets. Avoids the Assembly Updater spending time analyzing the assemblies every time they are updated
+
+The following are changes and fixes to 5.6.0 features and regressions...
+Fixes
+
+    Build Pipeline: Fix rare crash when using command line argument -buildTarget (850673)
+    Build Pipeline: Fixed rare crash when building players (852993)
+    IL2CPP: Fix a rare crash in IL2CPP on some Visual Studio installation setups with message "Unhandled Exception: System.InvalidOperationException: Builder is unable to build using selected toolchain (MsvcDesktopToolChain) or architecture (Unity.IL2CPP.Building.x64Architecture)!"
+    IL2CPP: Prevent an ExecutionEngineException from being thrown at run time when a virtual generic method is called via a delegate. (869676)
+    Scripting: Allow serialization of classes extending Dictionary (699250)
+    Scripting: Fix AddComponent issue when using multiple precompiled managed dlls with the same name (833522)
+    Scripting: Fix issue with StopCoroutine not stopping IEnumerator and CustomYieldInstruction based coroutines (852360)
+    Scripting: Fixed issue with custom icons for ScriptableObjects with namespace being displayed incorrectly (799597)
+    VR: Fix issue where errors reported on VR Device initialization would create a modal ui the required user interaction even if the next device succeeded. (859281)
