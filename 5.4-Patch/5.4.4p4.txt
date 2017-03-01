@@ -1,0 +1,23 @@
+Patch 5.4.4p4
+Released: 1 March 2017
+
+Improvements
+
+    Asset Bundles: Introduced the ability to use ShaderVariantCollection to ensure Shader variants are built when packing the Shader with ShaderVariantCollection seperate from the Material using the Shader.
+    Audio: Add support for streaming oggvorbis on tvOS.
+
+Fixes
+
+    (861178) - Analytics: Fix adds Internet permission on Android when Analytics service is used.
+    (877407, 867093, 877210) - DX11: Fixed D3D11 Device creation failures on Windows Vista and Windows 7 systems without DX11.1 runtime.
+    (857117) - Editor: Fixed a rare issue where building the player and saving the project after could cause the Editor to lock up.
+    (878784) - Editor: Fixed Assertion failed error in console: '(sharedData.instructionCount == 0) || sharedData.combinedBounds.IsValid()'.
+    (799748) - Global Illumination: Fixed a rare issue where spawning external processes (such as GI Baking) could fail or cause a deadlock.
+    (849079) - Graphics: Fixed a crash in some circumstances if object disables renderer when culling updates visibility.
+    (847494) - iOS: Don't strip alpha channel out of launch screens.
+    (852360) - Scripting: Fix issue with StopCoroutine not stopping IEnumerator and CustomYieldInstruction based coroutines.
+    (852993) - Scripting: Fixed a rare failure when building players.
+    (none) - VCS: Fixed an issue which was trying to add files from ProjectSettings folder to Version Control even if they were already under Version Control.
+    (none) - Windows: Fixed -hideWindow briefly showing the window before hiding it on standalone players.
+
+Revision: 0415a3f705c9
