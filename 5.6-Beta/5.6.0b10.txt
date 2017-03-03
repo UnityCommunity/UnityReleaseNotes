@@ -1,0 +1,71 @@
+Unity 5.6.0b10
+Released: March 2, 2017
+
+5.6.0b10 Release Notes (delta since b9)
+System Requirement Changes
+
+    Android minimum version supported updated to 4.1 (JellyBean).
+
+Known Issues
+
+    Animation: Problems with Animator in 5.6.0 beta after upgrading project from 5.5.0p3 (864062)
+    Editor: The Unity Editor crashes when attempting to open a 5.5-compatible audio project. (880653)
+    GI: Progressive Lightmapper crashes on certain Scenes during the bake when instances are moved (depending on timing). Fix coming soon.
+    Particles: Game crashes occur during Play mode when a Particle System is a sub-emitter of more than one other Particle System. (857065)
+    Particles: Sorting Fudge is not working (884637)
+    Physics: RigidBody.collisionDetectionMode cannot be set during runtime if it is initially set to one of the continuous options. (784529)
+    Shaders: Crash in InitWGL when opening project on editor with forced OpenGL mode. (859418)
+    VR: UNITY_HAS_GOOGLEVR is enabled for iOS, but the Google SDK for Unity might not check for it correctly and try to use compatibility mode for iOS. This will be fixed with an SDK update from Google.
+    VR: [Daydream] There is a memory leak when you exit and re-enter VR mode. This leak is on the native Google VR code and Google is actively working on fixing this. (859281)
+    VR: [Daydream] You may notice that your Daydream VR display is dimmer than other VR devices. This is by design, as a means of prolonging battery life while in VR.
+    VR: VRSettings.renderViewportScale has unintended graphical effects when rendering sections of the screen at values less than 1. (851282)
+    Windows: Windows Store: PlayerPrefs gets corrupted on Windows 8.1-10 on sudden reset. (855595)
+
+To be fixed post 5.6.0
+
+    Android: When MuteOtherAudioSources option is disabled and there's no READ_PHONE_STATE permission, the Unity application running on Android 5.1 or older devices might not mute itself during an incoming phone call. This might cause rejections when submitting to Samsung app store.
+    Services: Collab cannot update to the latest revision if the current revision has been archived and there is a conflict. (857465)
+    VR: [Daydream] There is no native controller integration yet. For controller use, please use the Unity SDK provided by Google.
+
+Features
+
+    GI: Progressive Lightmapper features: directional lightmaps, transparent materials, better sampling of area lights.
+
+Improvements
+
+    Windows: The Unity installer now offers to install Visual Studio Community 2017 (i.e. instead of Visual Studio Community 2015).
+
+Fixes
+
+    2D: Fixed WSA crash that would occur when creating Sprite with certain textures. (859800)
+    Android: Added timeout to video playback to prevent issues with video not buffering. (851560)
+    Android: Fixed an issue where creating textures OnApplicationFocus resulted in black textures. (837483)
+    Android: Fixed case of leftover touches when changing multitouchEnabled to false. (865326)
+    Android: Fixed Target SDK check. (874350)
+    Cache Server: Fixed case of Editor Cache Server preferences asking the user to delete the local Cache Server data twice when switching from 'local' to a different mode. (878326)
+    DX12: Native plugin events are now only invoked from the rendering thread, not main thread. (863285)
+    DX12: The command queue is now exposed to DX12 native plugins. (867573)
+    Editor: Fixed case of DestroyImmediate(this) from within an Editor class crashing the Editor. (399555)
+    Editor: Fixed case of spurious scrollbar appearing in image previews. (852501)
+    Editor: Fixed crash on OSX when the Editor loses context. (837413)
+    Editor: Fixed return value of EditorGUIUtility.editingTextField after renaming an asset in the project browser. (870530)
+    Editor: Formally obsoleted already-unsupported room rolloff parameters. (873297)
+    Graphics: D3D9: fix to ensure that internal resolves don't result in a drawn pixel (i.e. single white pixel) when using defrerred mode. (728324)
+    Graphics: DirectX: fix to avoid displaying a fresh-black frame whilst performing screen resizing. (849424)
+    Graphics: Fix to prevent RenderNow/DrawMeshNow from crashing when shader has no matching vertex channels. (876162)
+    Graphics: Fixed a difference between graphics jobs and non-graphics jobs rendering, by setting the ambient probe for the deferred reflections pass. (863625)
+    Graphics: Fixed case of forward-only objects being rendered into Depth/DepthNormals textures multiple times when they have multiple submeshes and deferred shading is used. (863954)
+    Graphics: Fixed case of object rendering sequence appearing to be wrong in certain boundary cases. (866069)
+    Graphics: Fixed issue where changes to blending mode via shader properties would be ignored in Graphics.Blit. (865062)
+    Graphics: For script created/instanced cameras, we now only add Image Effects Callbacks if the Image Effect is registered already. This fixes a case of an error being thrown when disabling script during instantiate. (862473)
+    Graphics: When calling Material.SetFloatArray, SetVectorArray, SetMatrixArray throw a NULL exception instead of crashing. (868016)
+    Physics: Fixed a crash that could happen when more than 64 contacts were generated in PCM collision detection mode. (871475)
+    Physics: Fixed an issue where 'Physics2D.GetRayIntersection' calls involving collider triggers did not correctly detect them. This also affected UI events that use the same calls. (872690)
+    Physics: Fixed case of CapsuleCollider falling through MeshColliders occasionally (due to internal edge contact jitter). (850059)
+    Physics: Fixed case of Physics.queriesHitBackfaces flag not affecting Collider.Raycast (857090)
+    Physics: Fixed case of WheelCollider.suspensionSpring.targetPosition not being clamped between 0 and 1 when setting it from script (and thus causing assertions). (806448)
+    Physics: Fixed issue with the Spring Joint max distance max setting. (828163)
+    Physics: Fixed PhysX errors when setting the mesh of a SkinnedMeshRenderer to a primitive type. (874965)
+    Physics: Fixed typo in the RigidBody.rotation auto complete dialog. (877395)
+    Shaders: Fix to ignore duplicate keyword lines and issue warnings to user about duplicates. (864007)
+    Shaders: Fixed crash in ShaderLab::shaderprops::GetMatrix when using the OpenGL API with certain graphics drivers on Windows. (859418)
