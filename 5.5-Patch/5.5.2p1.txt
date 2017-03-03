@@ -1,0 +1,65 @@
+Patch 5.5.2p1
+Released: 3 March 2017
+
+Improvements
+
+    UnityAds: Updated native binaries to 2.0.8.
+
+Fixes
+
+    (861178) - Analytics: Fix adds Internet permission on Android when Analytics service is used.
+    (837483) - Android: Acquire context on focus before notifying player.
+    (853474) - Android: Fixed the failure to push OBB to certain Samsung devices.
+    (857978) - Android: Fixed proguard template to actually keep Unity classes.
+    (868612, 867887, 861069, 874761) - Android: Fixed the splash screen and black bar issues by applying immersive fullscreen mode as early as possible.
+    (none) - Android: Improved the WebRequest performance.
+    (863399) - Android: Input - Fixed issues with joystick polling and startup.
+    (867668) - Android: Manifest - Added layoutDirection to configChanges.
+    (827454) - Android: Opening the on-screen keyboard does not make webcam update slower.
+    (877623) - Animation: Fixed an issue with using abstract classes behaviour on a StateMachineBehaviour.
+    (869307) - Asset Importer: Fixed the importing process so that asset paths with zero length are skipped.
+    (878326) - Cache Server: Do not ask to delete the local cache server data twice when switching from local to a different option in preferences
+    (863299) - Cache Server: The Cache Server preferences dialog now correctly recognises when the mode is changed.
+    (879675) - Core: Fixed the issue of job system ending up with high CPU usage in certain circumstances eg. using UnityWebRequest.Send() in Editor after exiting Play mode.
+    (867573) - DX12: Expose the command queue to DX12 plugins now.
+    (863285) - DX12: Only invoke plugin events from the "rendering" thread, not main thread.
+    (837413) - Editor: Fixed a crash on OSX when the Editor loses context.
+    (878112) - Editor: Fixed the issue that Pro users can't skip the survey after Unity activation.
+    (none) - EditorAnalytics: Honoring DisableEditorAnalytics settings.
+    (856901) - GI: Fixed a crash while baking lightmaps with custom shaders after Light Transport jobs finished.
+    (865062) - Graphics: Changes made to blending mode via shader properties are no longer ignored in Graphics.Blit.
+    (728324) - Graphics: D3D9 to make sure that internal resolves don't result in a drawn pixel, i.e. single white pixel when using deferred mode.
+    (865491) - Graphics: Fixed an issue with BC6 decompression and improve reading of textures with more than one byte per channel.
+    (863954) - Graphics: Fixed the issue of forward-only objects being rendered into Depth/DepthNormals textures multiple times when they have multiple submeshes and deferred shading is used.
+    (862473) - Graphics: For script created/instanced cameras only add Image Effects Callbacks if the Image Effect is already registered. Fixed the error message when disabling script during instantiate.
+    (849424) - Graphics: On DirectX avoid presenting a fresh-black frame whilst performing screen resizing.
+    (863625) - Graphics: Set the ambient probe for the deferred reflections pass to fix a difference between graphics jobs and non-graphics jobs rendering.
+    (876162) - Graphics: Stop RenderNow/DrawMeshNow crashing when shader had no matching vertex channels.
+    (868016) - Graphics: When calling Material.SetFloatArray, SetVectorArray, SetMatrixArray throw a NULL exception instead of crashing.
+    (869696) - IL2CPP: Fixed the incorrectly managed stack traces on iOS devices in release mode.
+    (837679) - iOS, Android: Fixed - Light Probe Proxy Volumes don't fallback to normal probe blending.
+    (878783) - Mac Editor: Fixed the crashes while exporting projects.
+    (871026](https://issuetracker.unity3d.com/product/unity/issues/guid/871026)]) - Metal: Fixed geometry corruption when dynamic batching was enabled.
+    (none) - Metal: Fixed issues with setting DontCare load flag when running multithreaded.
+    (881491) - Mono: Fixed rare issue due to timer collisions.
+    (750307) - Shaders: Fixed advanced blend operations by requiring the shaders to be decorated with UNITY_REQUIRE_ADVANCED_BLEND(mode) declaration.
+    (877123) - Shaders: Make shader binary blob data deterministic to fix problems with asset bundle (or player data) changing with identical source inputs.
+    (871606) - Shadows: Allow 2k shadowmap textures on devices with less than 2 GB of RAM when best quality shadows are selected
+    (863256) - Sprites: Fixed an issue where OverrideGeometry on instantiated sprites produced differing results in the Editor and Standalone
+    (864935) - Terrain: Fixed an issue where the default material could be more specular than expected.
+    (870830) - Texture Importer: Fixed an issue where a texture's colour model was set to RGBA without an alpha channel.
+    (858502) - Texture Importer: Fixed an issue where BC7 didn't compress alpha textures correctly.
+    (856584) - Texture Importer: Fixed an issue where setting textureType reset sprite mode to single.
+    (858460) - Texture Importer: Fixed an issue where some textures were wrongly interpreted as single channel cube maps.
+    (873678) - UI: Fixed an occasional masking issue when using deferred rendering path on Linux.
+    (856380) - UI: Fixed scrollrect performance being slow when it had a lot of content.
+    (861736, 872634) - UI: Selection elements will update selection state when interactable is changed.
+    (none) - UnityAds: Fixed callback executor from being destroyed on scene changes.
+    (850239) - VCS: Fix for editor not checking out scene file before first write in freshly loaded project.
+    (none) - VCS: Fixed an issue trying to add files from ProjectSettings folder to Version Control even if they were already under Version Control.
+    (855985) - WebGL: Fixed "incorrect header check" builtin web server error when build folder contained non-URI characters.
+    (865630) - WebGL: Fixed buffer overflow that occurred when using UnityWebRequest and custom DownloadHandlerScript.
+    (868756) - WebGL: Fixed memory corruption when generating terrain base map textures.
+    (none) - Windows Store: Fixed the known issue reported in the previous release, 5.5.2 - player prefs might get corrupted on Windows 8.1 and Windows Phone 8.1 SDKs when forcefully closing the application right after saving them.
+
+Revision: 9360c5517afe
