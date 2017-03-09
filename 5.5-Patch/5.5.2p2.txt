@@ -1,0 +1,26 @@
+Patch 5.5.2p2
+Released: 8 March 2017
+
+Fixes
+
+    (884523) - Animation: Playback range is now correctly displayed after changing the Samples of a clip.
+    (873836) - GameObject: Fixed position inconsistency when using generic instantiate.
+    (866194) - iOS: Fixed build errors in XCode when stripping is enabled using Mono scripting backend.
+    (880773) - IOS: Fixed WebRequest setting the IsError property correctly.
+    (875180) - iOS: Removed extra notification sent on application launch.
+    (878716) - Kernel: Prevent scripts from adding Transform-derived components during their Awake methods.
+    (869169) - Mono: Fixed a C# compiler bug which could cause an incorrect compiler error in some cases when overloaded generic methods were used.
+    (878859) - Mono: Fixed a crash which could occur in the editor when deep profiling was enabled.
+    (881847) - Particles: Fixed an incorrect velocity for first frame when a rigidbody was first enabled.
+    (886574) - Physics: Fixed a crash caused by changing the value of the configuredInWorldSpace flag on a Joint attached to an inactive GameObject.
+    (859418) - Shaders: Fixed a crash in ShaderLab::shaderprops::GetMatrix when using OpenGL API when using specific graphics drivers on Windows.
+    (857047) - Terrain: Fixed a crash when loading a scene with a terrain and trees and then unloading the previous scene.
+    (876027, 880565) - UnityWebRequest: Fixed high CPU usage/fareeze after aborting (leaving play mode) UWR with custom download handler script.
+    (876823) - UnityWebRequest: URLs without '%' character will be escaped and the ones with '%' will be assumed to be properly escaped.
+    (874571) - Windows Store: Fixed the issue whereby secure connections were not working when using UnityWebRequest.
+
+Known Issues
+
+    (888339) - OpenGL : Internal testing reported a crash in InitWGL, when opening a project with -force-opengl command. This issue will be fixed in one of the next patch releases.
+
+Revision: 03f34082a9c0
