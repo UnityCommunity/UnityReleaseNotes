@@ -1,0 +1,59 @@
+Unity 5.6.0b11
+Released: March 8, 2017
+
+Unity 5.6.0b11 release notes
+5.6.0b11 Release Notes (Delta since b10)
+Known Issues
+
+    Animation: Problems with Animator in 5.6.0 beta after upgrading project from 5.5.0p3 (864062)
+    Editor: Setting Custom Editor window's position to what it already is, changes it's position (593259)
+    GI: Progressive Lightmapper crashes on certain Scenes during the bake when instances are moved (depending on timing). Fix coming soon.
+    GI: [PVR] 32bit Unity 5.6 crashes if scene is baked with lightprobes and PVR (888806)
+    Particles: Game crashes occur during Play mode when a Particle System is a sub-emitter of more than one other Particle System. (857065)
+    Particles: Sorting Fudge is not working (884637)
+    Physics: RigidBody.collisionDetectionMode cannot be set during runtime if it is initially set to one of the continuous options. (784529)
+    UI: Adding UI elements via script will cause OnDisable and OnEnable to be called on all scripts in the hierarchy if a RectTransform needs to be added. Workaround is to add a RectTransform component in the new GameObject call . For example new GameObject("Canvas", typeof(RectTransform)); (882791)
+    Video: [Android] Video fails to play (and may crash) on some device/OS version combinations. (862078)
+    VR: [Daydream] There is a memory leak when you exit and re-enter VR mode. This leak is on the native Google VR code and Google is actively working on fixing this. (859281)
+    VR: [Daydream] You may notice that your Daydream VR display is dimmer than other VR devices. This is by design, as a means of prolonging battery life while in VR.
+    VR: UNITY_HAS_GOOGLEVR is enabled for iOS, but the Google SDK for Unity might not check for it correctly and try to use compatibility mode for iOS. This will be fixed with an SDK update from Google.
+    VR: VRSettings.renderViewportScale has unintended graphical effects when rendering sections of the screen at values less than 1. (851282)
+    Windows: Windows Store: PlayerPrefs gets corrupted on Windows 8.1-10 on sudden reset. (855595)
+
+To be fixed post 5.6.0
+
+    Android: When MuteOtherAudioSources option is disabled and there's no READ_PHONE_STATE permission, the Unity application running on Android 5.1 or older devices might not mute itself during an incoming phone call. This might cause rejections when submitting to Samsung app store.
+    Services: Collab cannot update to the latest revision if the current revision has been archived and there is a conflict. (857465)
+    VR: [Daydream] There is no native controller integration yet. For controller use, please use the Unity SDK provided by Google.
+
+Features
+
+    2D: Added ability to control the tessellation quality of Sprites in the Sprite Editor Window. Tessellation quality controls how tight or coarse the mesh resembles the actual image.
+    IL2CPP: Unity in-app purchase now works on Windows Store with IL2CPP scripting backend.
+    Video: Implementation and API finalized, with revised preliminary documentation available.
+    WebGL: WebAssembly Support (experimental).
+
+Changes
+
+    Animation: Exposed Animator.playableGraph property.
+    Scripting: Changed namespace UnityEngine.Runtime.Networking.PlayerConnection to UnityEngine.Networking.PlayerConnection for clarity and consistency with Unity convention
+
+Improvements
+
+    Animation: Clarified the warning issued when playing generic clips that animate humanoid bound transforms.
+    Animation: Improved entry transition notice message in the Inspector.
+    Multiplayer: Up to 128 UDP sockets are now supported.
+
+Fixes
+
+    Animation: Fixed a bug where undoing Apply in model importer would attempt to incorrectly restore values (565438)
+    Animation: Fixed a crash when getting state machine behaviours while there is an invalid State Machine Behaviour assigned to a state (873144)
+    Animation: Fixed Animator changing selection even if the window is locked (850456)
+    Animation: Fixed bug spamming the inspector with warnings when playing a generic/humanoid mixed animation (768773)
+    Animation: Fixed crash when transitionning to invalid StateMachine (864131)
+    Animation: Fixed erroneous animation for single state machine layer set to additive. (862998)
+    Animation: Fixed humanoid animation imported from previous versions not working properly (869759)
+    Animation: Fixed issue where changing OverrideController clips would reset the StateMachine.
+    Animation: Fixed MissingMethodException thrown on some platforms (783535)
+    Editor: Fix to ensure that user-provided center for Gizmos.DrawFrustum is respected. (863596)
+    Editor: Respect user-provided center for Gizmos.DrawFrustum. (863596)
