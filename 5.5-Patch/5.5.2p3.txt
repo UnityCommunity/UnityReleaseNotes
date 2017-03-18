@@ -1,0 +1,19 @@
+Patch 5.5.2p3
+Released: 17 March 2017
+
+Fixes
+
+    (868587) - Animation : Fixed a race condition in the legacy animation system which could cause a crash if a GameObject and an Animation assigned to that GameObject were deleted in the same frame.
+    (864273) - Editor: Fixed an issue with deselect of single selected item in hierarchy with ctrl/cmd+click.
+    (864246) - Editor: Fix for time not updating in Editor if play mode is entered and then exited while paused.
+    (861345) - Editor: Fixed an issue with vertex snapping jumping to extreme values in isometric view.
+    (858292) - GI : Fix for lightmaps not being loaded in a standalone player when loading scene through an AssetBundle.
+    (862215) - GI : Fix for lightprobe gizmos being rendered too bright in Linear color space.
+    (none) - Graphics : Fixed D3D12 cubemap mip generation.
+    (868935) - Scripting: Fixed MonoBehaviour array field with initializer getting resized to 0 by serialization.
+    (none) - Tizen: Fixed a crash that occurred when an app tried to exit.
+    (858645) - UI : Fixed the issue of fonts created at runtime not showing up when added to text.
+    (none) - VR: Updated Oculus to version 1.12. This fixed a GearVR timeout issue.
+    (886630) - Windows: Fixed the logging code in the Windows Editor/Standalone player so that messages got printed at once instead of one byte at the time.
+
+Revision: 594449419939
