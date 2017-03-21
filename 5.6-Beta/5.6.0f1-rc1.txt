@@ -1,0 +1,48 @@
+Unity 5.6.0f1 - Release Candidate 1
+Released: March 17, 2017
+
+Unity 5.6.0f1 release notes
+5.6.0f1 Release Notes (Delta since b11)
+System Requirement Changes
+
+    Android minimum version supported updated to 4.1 (JellyBean)
+
+Known Issues
+
+    Scripts are pointing to the Editor version of the DLLs instead of Runtime, resulting in "Null reference" errors. (888020)
+    Animation: Problems with Animator in 5.6.0 beta after upgrading project from 5.5.0p3 (864062)
+    Editor: Error messages spamming the console during playmode. (879941)
+    Particles: Game crashes occur during Play mode when a Particle System is a sub-emitter of more than one other Particle System. (857065)
+    Particles: Sorting Fudge does not work. (884637)
+    Physics: CCD is broken on pooled objects. (889118)
+    Physics: RigidBody.collisionDetectionMode cannot be set during runtime if it is initially set to one of the continuous options. (784529)
+    Scripting: Unity crashes at <Coroutine::CompareCoroutineEnumerator>. (888302)
+    Video: [Android] Video fails to play (and may crash) on some device/OS version combinations, and especially on Android versions lower than 6.0. (862078)
+    VR: There is an issue with the current 1.1 Google VR NDK integrated in 5.6 betas when used with the Google SDK for Unity. The Google SDK includes a backwards compatible library for non-integrated scenarios that conflicts with the library integrated into Unity. At this time, if you need functionality provided in the Google SDK (especially audio, which is intgrated with the library that conflicts) then you will need to use the non-native Cardboard functionality provided by the Google SDK. To do this, make sure you do not enable VR for iOS (or if you did, remove the Cardboard device and disable VR). We are working on this issue and will have more details at a later date.
+    VR: VRSettings.renderViewportScale has unintended graphical effects when rendering sections of the screen at values less than 1. (851282)
+    VR: There is a discrepancy between the Android 1.2 Google VR NDK update and the iOS 1.1 VR NDK currently integrated in Unity that will cause linking errors. For now, if you need iOS Cardboard support please disable native iOS integration and use the support provided in the Google VR SDK for Unity. This issue will not exist in 5.6.0f2. (885513)
+
+To be fixed post 5.6.0
+
+    Android: When MuteOtherAudioSources option is disabled and there's no READ_PHONE_STATE permission, the Unity application running on Android 5.1 or older devices might not mute itself during an incoming phone call. This might cause rejections when submitting to Samsung app store.
+    GI: [PVR] 32-bit Unity 5.6 crashes if the Scene is baked with Light Probes and PVR texture compression. (888806)
+    GI: [PVR] G-Buffer job fails when Keep Quads option is enabled (890651)
+    Services: Collab cannot update to the latest revision if the current revision has been archived and there is a conflict. (857465)
+    UI: Adding UI elements via script causes OnDisable and OnEnable to be called on all scripts in the hierarchy if a RectTransform needs to be added. Workaround is to add a RectTransform component in the new GameObject call, for example: new GameObject("Canvas", typeof(RectTransform));. (882791)
+    VR: [Daydream] There is no native controller integration yet. For controller use, please use the Unity SDK provided by Google.
+    VR: [Daydream] You may notice that your Daydream VR display is dimmer than other VR devices. This is by design, as a means of prolonging battery life while in VR.
+    VR: UNITY_HAS_GOOGLEVR is enabled for iOS, but the Google SDK for Unity might not check for it correctly and try to use compatibility mode for iOS. This will be fixed with an SDK update from Google.
+
+Improvements
+
+    GI: Added a pragma option(nolppv) for surface shaders to strip Light Probe Proxy Volume code when it isn't needed.
+    VR: Updated Oculus GearVR to version 1.11.1 to fix the GearVR focus timeout issue.
+
+Fixes
+
+    Graphics: Fixed Editor crash by ensuring the camera and camera stack are valid after a PreCull message. (876867)
+    Graphics: Fixed spamming assertion when a LOD is incorrectly set to have the same screen height as the previous LOD. (849046)
+    Graphics: ForceLOD now will not be overriden when selecting LODs in editor play mode. (815223)
+    Terrain: Fixed terrain basemap generation in linear color space when the terrain is created. (852069)
+    Terrain: Fixed terrain shader that sub-optimally does pixel lighting when normal is not used. (867627)
+    Video: Fixed crash when creating/releasing multiple VideoPlayers. (888305)
