@@ -1,0 +1,25 @@
+Release 5.5.2p4
+23 March 2017
+
+Improvements
+
+    (815861) - UI: CanvasRenderer::OnTransformChanged will not be called when object is inactive.
+
+Fixes
+
+    (851523) - Android: Fixed incorrect dangerous permissions dialog behavior when the app was suspended while the dialog was on screen.
+    (888274) - Android: Fixed an issue where ApplicationId was missing from AndroidManifest.xml in Gradle builds.
+    (887998) - Animation: Fixed Assert Thread::CurrentThreadIsMainThread() from Animator::IsHuman() when run in a job thread.
+    (884643) - Animation: Fixed a crash when re-enabling GameObject that was running a Playable.
+    (884472) - Asset Pipeline: Fixed a crash that occurred when loading the same asset both synchronously and asynchronously simultaneously.
+    (864237) - Graphics: Fixed an issue with Assert "Texture aux property (unity_SpecCube0_HDR) should never be a built-in name!".
+    (851265) - Graphics: Fixed a crash when switching from DX12 to DX11 graphics API in the Editor.
+    (887912) - IOS: Added support in order to enable auto-rotation while broadcasting using ReplayKit.
+    (788515) - iOS: Fixed Airplay mirroring mode when using Open GLES.
+    (876169) - Particles: Fixed a NullReferenceException, when Inherit Velocity was set to less or more than 0 and Rigidbody2D was set to Dynamic.
+    (890937) - Physics 2D: CapsuleCollider2D now correctly calculates its mass when using auto-mass.
+    (888302) - Scripting: Fixed a coroutine crash in Coroutine::CompareCoroutineEnumerator.
+    (881103) - Shaders: Fixed an internal error on a GLSL/Metal shader compiling corner case.
+    (886841) - VR: Fixed a subtle timing bug on Rift that could cause very minor view stuttering in certain situations.
+
+Revision: 876cd739bef1
