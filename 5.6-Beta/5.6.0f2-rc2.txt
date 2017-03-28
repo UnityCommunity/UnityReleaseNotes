@@ -1,0 +1,59 @@
+Unity 5.6.0f2
+Released: March 27, 2017
+
+Unity 5.6.0f2 release notes
+5.6.0f2 Release Notes (Delta since f1)
+System Requirement Changes
+
+    Android minimum version supported updated to 4.1 (JellyBean)
+
+Known Issues
+
+    Video: [Android] Video fails to play (and may crash) on some device/OS version combinations, and especially on Android versions lower than 6.0. (862078)
+    VR: The Oculus plug-in was updated to 1.12.1 in f2 and has a known mobile crash on Marshmallow devices. f3 updates to 1.12.2 and does not have this issue. PC is unaffected.
+    VR: With this release we have updated the Google VR NDK for iOS to version 1.20. This change is not backward compatible with the 1.1 integration and will require that you replace or re-create your iOS Cardboard project if you were using the earlier native integration. You can do this by simply backing up your current project, selecting "Build" or "Build & Run" and generating the project into a new folder or selecting "Replace" to replace the current generated project. (885513)
+
+To be fixed post 5.6.0 release:
+
+    2D: "Dynamic batching: index buffer destination/source is NULL" when dragging a blank sub-sprite to scene. (890858)
+    Android: When MuteOtherAudioSources option is disabled and there's no READ_PHONE_STATE permission, the Unity application running on Android 5.1 or older devices might not mute itself during an incoming phone call. This might cause rejections when submitting to Samsung app store.
+    Asset Import: Sprite Mode" is not auto-populated when switching Texture Type to "Sprite (2D and UI). (891314)
+    GI: Progressive Lightmapper (Preview): 32-bit Unity 5.6 crashes if the Scene is baked with Light Probes and PVR texture compression. (888806)
+    GI: Progressive Lightmapper (Preview): Baked LODs are not supported (coming soon).
+    GI: Progressive Lightmapper (Preview): Cast shadows on MeshRenderer is not supported (coming soon).
+    GI: Progressive Lightmapper (Preview): Colored translucency is not supported (coming soon).
+    GI: Progressive Lightmapper (Preview): G-Buffer job fails when Keep Quads option is enabled (890651)
+    GI: Progressive Lightmapper (Preview): Lighting Modes are not supported (coming soon).
+    GI: Progressive Lightmapper (Preview): Negative scaled meshes invalidate texels (883844)
+    GI: Progressive Lightmapper (Preview): Scales only to moderately large scenes due to excessive memory use - scenes should have less than 20 1K lightmaps on a PC with 16GB RAM (addressed soon)
+    GI: Progressive Lightmapper (Preview): Transparency only works for direct lighting.
+    Physics: RigidBody.collisionDetectionMode cannot be set during runtime if it is initially set to one of the continuous options. (784529)
+    Services: Collab cannot update to the latest revision if the current revision has been archived and there is a conflict. (857465)
+    SpeedTree: SpeedTree breaks GPU instancing when trees come back into view. This will be fixed soon in a patch release. (883087)
+    Terrain: Spurious additive DontDestroyOnLoad scene appears in the Hierarchy after launching scene with painted trees. (839148)
+    UI: Adding UI elements via script causes OnDisable and OnEnable to be called on all scripts in the hierarchy if a RectTransform needs to be added. Workaround is to add a RectTransform component in the new GameObject call, for example: new GameObject("Canvas", typeof(RectTransform));. (882791)
+    VR: [Daydream] There is no native controller integration yet. For controller use, please use the Unity SDK provided by Google.
+    VR: [Daydream] You may notice that your Daydream VR display is dimmer than other VR devices. This is by design, as a means of prolonging battery life while in VR.
+    VR: Mirror mode is incompatible with Single-Pass stereo rendering.
+    VR: Target eye mode is incompatible with Single-Pass stereo rendering.
+    VR: UNITY_HAS_GOOGLEVR is enabled for iOS, but the Google SDK for Unity might not check for it correctly and try to use compatibility mode for iOS. This will be fixed with an SDK update from Google.
+
+Changes
+
+    VR: Updated iOS to Google VR NDK 1.2.
+
+Improvements
+
+    Physics: A warning is now issued when attempting to use CompositeCollider2D.SetEnabled as this isn't supported.
+    Shaders: Shader upgrader now automatically replaces "mul(UNITY_MATRIX_MVP, v)" with "UnityObjectToClipPos(v)".
+    UI: CanvasRenderer::OnTransformChanged will now not be called when object is inactive.
+
+Fixes
+
+    2D: Removed error message that would appear when canceling the creation of a sprite animation, when sprites are dropped to the scene. The behaviour is now also consistent with dragging multiple sprites to the HierarchyWindow. (881910)
+    Animation: Fixed a crash that was triggered when removing the AnimatorController in a StateMachineBehaviour callback. (883762)
+    Animation: Fixed an issue where Euler curves used in conjunction with Additive pose would cause random values to be written to some bone. (859578)
+    Animation: Fixed broken meshes with Optimized Game Object selected. (879368)
+    Animation: Fixed crash that woukd occur when using abstract StateMachineBehavior classes. (877623)
+    Multiplayer: Fixed issue where, when the websocket WebGL client called disconnect, it wouldn't notify itself with this event.
+    Windows: IME input now works with embedded game window. (764583)
