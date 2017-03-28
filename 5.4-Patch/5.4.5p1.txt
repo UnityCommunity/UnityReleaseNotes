@@ -1,0 +1,40 @@
+Patch 5.4.5p1
+Released: 27 March 2017
+
+Improvements
+
+    (815861) - UI: CanvasRenderer::OnTransformChanged will not be called when object is inactive.
+
+Fixes
+
+    (837483) - Android: Acquire context on focus before notifying player.
+    (743739, 887242) - Android: Fixed a crash in WebStreamDecomp after a long sequence of reading asset bundles.
+    (870185) - Animation: Fixed root rotation when importing a humanoid animation that used the "Copy From Other Avatar" feature.
+    (879675) - Core: Fixed job system ending up with high CPU usage in certain circumstances eg. using UnityWebRequest.Send() in Editor after exiting Play mode.
+    (none) - Editor - Other: Editor internal resources can now be rebuilt in 5.4.
+    (728324) - Graphics: D3D9 - Make sure that internal resolves don't result in a drawn pixel – i.e single white pixel when using deferred mode.
+    (890915) - Graphics: Fixed a crash in GetBuildUsageTagFromAssets that was triggered by pro0ject that had ShaderVariants.
+    (864237) - Graphics: Fixed an issue with Assert "Texture aux property (unity_SpecCube0_HDR) should never be a built-in name!".
+    (863954) - Graphics: Fixed forward-only objects being rendered into Depth/DepthNormals textures multiple times when they had multiple submeshes and deferred shading was used.
+    (849424) - Graphics: On DirectX, avoid presenting a fresh-black frame whilst performing screen resizing.
+    (863625) - Graphics: Set the ambient probe for the deferred reflections pass to fix a difference between graphics jobs and non-graphics jobs rendering.
+    (870973) - IL2CPP: Fixed a race condition on iOS during method initialization.
+    (861046) - iOS: Added support in order to enable auto-rotation while broadcasting using ReplayKit.
+    (875180) - iOS: Removed extra notification sent on application launch.
+    (none) - Metal: Fixed an issue with setting DontCare load flag when running multithreaded.
+    (883312) - Physics: Fixed a crash caused by changing the value of the configuredInWorldSpace flag on a Joint attached to an inactive GameObject.
+    (888302) - Scripting: Fixed a coroutine crash in Coroutine::CompareCoroutineEnumerator.
+    (881103) - Shaders: Fixed an internal error on a GLSL shader compiling corner case.
+    (750307) - Shaders: Fixed advanced blend operations by requiring the shaders to be decorated with UNITY_REQUIRE_ADVANCED_BLEND(mode) declaration.
+    (863256) - Sprites: Fixed an issue where OverrideGeometry on instantiated sprites produced differing results in the Editor and Standalone.
+    (none) - Tizen: Resolved a crash that occurred when an app tried to exit.
+    (873678) - UI: Fixed an occasional masking issue when using deferred rendering path on Linux.
+    (856734) - UI: Fixed a curve preview crash not updating when points changed but bounds did not.
+    (856381) - UI: Fixed scrollrect performance being slow when it had a lot of content.
+    (880565) - UnityWebRequest: Fixed Editor freeze when exiting play mode with active UnityWebRequest with custom download handler script.
+    (876027) - UnityWebRequest: Fixed high CPU when WebRequest with custom download handler script was aborted.
+    (879749) - UnityWebRequest: Fixed redirect in editor when not in play mode.
+    (850239) - VCS: Fix for editor not checking out scene file before first write in freshly loaded project.
+    (886841) - VR: Fixed a subtle timing bug on Rift that could cause a minor view stuttering in certain situations.
+
+Revision: 3a377daef261
