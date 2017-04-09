@@ -1,0 +1,37 @@
+Patch 5.5.3p1
+Released: 7 April 2017
+
+Fixes
+
+    (871871) - 2D: Fixed an issue with texture compressions when using SpritePacking with '[TIGHT]' texture packing and high quality compression.
+    (892203) - Android: Fixed an unnecessary internet permission requirement in empty project.
+    (880724) - Animation: Fixed the mesh distortions during animation if the "Optimize Game Objects" option was selected.
+    (885258) - Buildpipeline: Fixed an issue with reported texture size being smaller than actual size.
+    (894074) - Editor: Fixed the issue whereby 'Build and Run' attempted to push a build to device even if error (during the build) was encountered.
+    (875845) - Editor: Fixed an issue where locking the Inspector on subscene objects caused their disappearance, coupled with a group of 'Failed to unpersist' error messages.
+    (885492) - GI: Fixed lightmap texture inspector preview being too bright when using linear color space.
+    (878724) - Graphics: Fixed SceneView GUI elements being very bright when HDR and Linear mode were enabled.
+    (889138) - Graphics: Fixed a crash in GetBuildUsageTagFromAssets that was triggered by project that had ShaderVariants.
+    (833583) - Graphics: Fixed an issue on PS Vita causing the default sky to be black.
+    (888339) - Graphics: Fixed an editor crash on old OpenGL drivers.
+    (884547) - Graphics: Fixed generating invalid raycasts causing "Invalid AABB b0" error appears in console.
+    (880716) - Graphics: When graphics jobs are enabled CommandBuffers will not be executed multiple times upon LightEvent.AfterShadowMap.
+    (891471) - IL2CPP: Implemented RegionInfo.
+    (none) - Particles: Reinstated random emission modes.
+    (889321) - Purchasing: Fixed an issue with Unity IAP emitting DuplicateTransaction failure for all non-consumable purchases when initialized.
+    (none) - Shaders: Fixed a subtle metal shader generation bug in bit field insert operations.
+    (883080) - Shaders: Fixed an incorrect translation from HLSL assembly for AND and OR operands. Fixes a crash when compiling shaders for GLCore.
+    (881103) - Shaders: Fixed internal error on a GLSL shader compiling corner case.
+    (893421) - Shaders: Fixed uint params on OpenGL.
+    (883721) - SpeedTree: Fixed GPU instancing break when the trees come back into view.
+    (891365) - TextureImporter: Fixed a bug with some types of PNG files caused the texture importer to not detect the alpha channel properly. (Please re-import the affected assets to fix them.)
+    (884058) - Windows Store: Fixed a build error "Failed to resolve assembly: 'Windows.Foundation.UniversalApiContract, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null'"." when using default parameters of Windows Runtime types in method signatures and "C# projects" build option on .NET scripting backend.
+    (869168) - Windows Store: Fixed a build error on .NET scripting backend when a method with name OnMouseDown was defined in a non-monobehaviour class.
+    (869407) - Windows Store: Fixed a crash when using "SceneManager.UnloadSceneAsync" on .NET scripting backend with .NET native enabled.
+    (885997) - Windows Store: Fixed a rare build error "Failed to resolve assembly: 'System.Reflection.TypeExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'" on .NET scripting backend when using "C# projects" option.
+    (886049) - Windows Store: Fixed a rare build error "Version not supported: 255.255.255.255" when using certain .winmd plugins and "C# projects" option on .NET scripting backend.
+    (872058) - Windows Store: Fixed a System.TypeInitializationException on startup with .NET scripting backend when a nested class derived from a non-nested class and was overriding one of its methods.
+    (855878) - Windows Store: Fixed a crash on certain devices in debug and release configurations when there was no internet connectivity (note: master configurations were unaffected).
+    (875849) - Windows Store: Fixed Screen.SetResolution not accounting for DPI settings.
+
+Revision: b27954c0d351
