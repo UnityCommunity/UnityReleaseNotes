@@ -1,0 +1,253 @@
+Unity 2017.1.0b1
+Released: April 11, 2017
+
+
+Unity 2017.1.0b1 release notes
+2017.1.0b1 Release Notes (new since a6)
+Known Issues
+
+    Animation: Reading from Animator.rootPosition and Animator.rootRotation during OnAnimatorMove gives wrong results. Use Animator.deltaPosition and Animator.deltaRotation instead. (899049)
+    Audio: AudioSource attached to VideoPlayer produces choppy sound when playing certain mp4 files with VideoPlayer created from script (895458)
+    Editor: "The system cannot find file specified" error while opening the project for the first time. Deleting Library folder resolves the issue. (895343)
+    Editor: Editor crashes on attempt to open some 5.5 compatible audio projects. (880653)
+    Editor: Text in Editor becomes red after dismissing EditorUtility.DisplayDialog() popups. (886650)
+    Editor: Unity crashes when playing a scene with maximized game view (894572)
+    Graphics: "Assertion failed on expression: 'translated != kInvalidEnum'" error is spammed in the console when selecting an Image file (883459)
+    Graphics: Debug GFX overlay is drawn on top of objects. (851379)
+    iOS: OnGUI fails to draw any elements on iOS (883482)
+    Physics: Crash when reverting prefab which had Rigidbody and Joint deleted, and then undoing the revert. (870498)
+    VR: Rendering problems on Pixel Daydream when using 4x or 8x MSAA with single-pass stereo. This is due to driver issues, so the problem will be addressed via a driver update, independently of Unity releases. (-)
+
+Features
+
+    Collab: In-Progress. In-Progress allows developers using Unity Collaborate to see who else on their team has made local changes to a Scene or Prefab before those changes have been published.
+    Graphics: Added LineUtility class and 'LineRenderer.Simply' function. Optimize your lines and curves by using the LineUtility to create a simplified version with a similar shape.
+    Graphics: Added memoryless mode to RenderTexture, accessed through new property RenderTexture.memorylessMode.
+
+Fixes
+
+    Animation: Fixed adding State/StateMachines with invalid names. (882122)
+    Editor: Fixed a crash in Editor caused by null Handles. Graphics.DrawMeshNow will now throw an exception if the mesh is null. (893112)
+    Particles: Removing a ParticleSystem on a GameObject that has a component with RequireComponent(Renderer) is now correctly prevented. (888048)
+    Particles: Size over lifetime now correctly affects collider size, and sub-emitter inheritance. (792289)
+
+The following are changes and fixes to 2017.1.0 features and regressions...
+Fixes
+
+    Android: Fixed reading assets from OBB (ApplicationPath) (891864)
+    Android: Fixed WebCamTexture crash with denied permissions (877837)
+    Android: Gradle - Check the signing key before the build starts (889076)
+    Android: SoftInput - Fixed input field hidden under keyboard when translucent flag is set
+    Animation: Fixed animation clip range not updating after undoing 'Add Key' operation. (892337)
+    Animation: Fixed disabling GameObject not resetting StateMachine (894062)
+    Animation: Fixed error message when changing animation type from None to Humanoid in model importer. (888414)
+    Animation: Fixed error message when entering playmode after renaming an AnimatorParameter when previewing a BlendTree. (891547)
+    Animation: Fixed IK on Feet not working when interrupting transitions. (892043)
+    Animation: Fixed NullReferenceException when clicking in empty Animator window. (891126)
+    Animation: Fixed NullReferenceException when entering newly created BlendTree in graph. (891128)
+    Animation: Fixed OnAnimatorIK not being fired in editor mode. (894061)
+    Animation: Fixed performance regression when destroying many game objects with an Animator. (889109)
+    Build Pipeline: Building many AssetBundles should no longer spend a long time updating the BuildReport between each bundle (849376)
+    Build Pipeline: Fixed SetScriptingDefineSymbolsForGroup() failing for BuildTargetGroup.Switch (863992)
+    Editor: Fixed 'Build and Run' attempts to push a build to device even if error (during the build) was encountered (894074)
+    Editor: Fixed GUI related Asserts when connected to an active VCS provider. (895453)
+    Graphics: Fix SceneView GUI elements being very bright when HDR and Linear mode are enabled. (878724)
+    Graphics: Fixed light rendering when a non-full screen viewport Camera renders to a texture. (880293)
+    IL2CPP: Allow more deeply nested generic recursion for method metadata. Throw an managed exception when the recursion is too deep. (889446)
+    IL2CPP: Fix memory snapshot profiler not showing multidimensional arrays (888796)
+    IL2CPP: Fixed marshaling of System.Uri to Windows.Foundation.Uri and back in Windows Runtime interop scenarios (887036)
+    Shaders: Fixed a subtle metal shader generation bug in bit field insert operations.
+    Windows: Fixed a crash that occurred in Metro apps when minimized/exiting on Windows RS1/RS2 (885964)
+
+2017.1.0b1 Release Notes (Full)
+Known Issues
+
+    Animation: Reading from Animator.rootPosition and Animator.rootRotation during OnAnimatorMove gives wrong results. Use Animator.deltaPosition and Animator.deltaRotation instead. (899049)
+    Audio: AudioSource attached to VideoPlayer produces choppy sound when playing certain mp4 files with VideoPlayer created from script (895458)
+    Editor: "The system cannot find file specified" error while opening the project for the first time. Deleting Library folder resolves the issue. (895343)
+    Editor: Editor crashes on attempt to open some 5.5 compatible audio projects. (880653)
+    Editor: Text in Editor becomes red after dismissing EditorUtility.DisplayDialog() popups. (886650)
+    Editor: Unity crashes when playing a scene with maximized game view (894572)
+    Graphics: "Assertion failed on expression: 'translated != kInvalidEnum'" error is spammed in the console when selecting an Image file (883459)
+    Graphics: Debug GFX overlay is drawn on top of objects. (851379)
+    iOS: OnGUI fails to draw any elements on iOS (883482)
+    Physics: Crash when reverting prefab which had Rigidbody and Joint deleted, and then undoing the revert. (870498)
+    VR: Rendering problems on Pixel Daydream when using 4x or 8x MSAA with single-pass stereo. This is due to driver issues, so the problem will be addressed via a driver update, independently of Unity releases. (-)
+
+Features
+
+    2D: Added Sprite Physics Shape to Sprite Editor, to allow users to set a custom default shape for a Sprite for generating collider shapes with a PolygonCollider2D.
+    2D: Introduced 2D Sprite Atlas, a new asset that will supplant the Sprite Packer. With it comes new and improved workflows that gives the developer more control on how to pack sprites and use them at runtime.
+    2D: Sprite Mask. Mask Sprites in world space using the new SpriteMask component.
+    Animation: (Also mentioned under API changes) AnimationLayerMixerPlayable scripting API added.
+    Animation: Manual Keyframing Workflow. Separate Recording and Preview modes in the Animation Window. Contextual menus added to all animatable properties in the inspector.
+    Animation: New GameObjectRecorder in UnityEditor.Experimental.Animations
+    Asset Import: Added the option of computing weighted normals when importing FBX files. Fixed normal generation for hard edges.
+    Audio: Added support for ambisonic audio clips and ambisonic decoder plugins.
+    Build Pipeline: Added delegates to BuildPlayerWindow that allow overriding the default Build button behavior
+    Collab: In-Progress. In-Progress allows developers using Unity Collaborate to see who else on their team has made local changes to a Scene or Prefab before those changes have been published.
+    Editor: Added new ArcHandle class in UnityEditor.IMGUI.Controls to interactively edit arcs in the Scene View.
+    GI: Added new API for setting Light falloff per Light. Added API for setting all Lights to use physically correct inverse squared falloff or the Unity legacy falloff model. Only used for Enlighten lightmaps so far, realtime and progressive will be supported later.
+    Graphics: Added LineUtility class and 'LineRenderer.Simply' function. Optimize your lines and curves by using the LineUtility to create a simplified version with a similar shape.
+    Graphics: Added memoryless mode to RenderTexture, accessed through new property RenderTexture.memorylessMode.
+    Graphics: Added Mirror and MirrorOnce texture wrapping modes, in addition to existing Repeat and Clamp ones.
+    Graphics: Unity can now accept and use a pointer to an externally created cubemap
+    IL2CPP: Unity in-app purchase now works on Windows Store with the IL2CPP scripting backend.
+    IMGUI: Added SearchField, a new IMGUI Control. It comes with Normal and Toolbar UI styles but can also be customized.
+    iOS: (Also mentioned under API Changes) Added API to change iOS splashscreens.
+    iOS: Enable deferred shading rendering path for Metal and OpenGL ES 3.0 for A8 and later iOS devices.
+    Particles: Added support for using Sprites in the Particle System, via the Texture Sheet Animation Module
+    Particles: Align Particles to their velocity direction
+    Particles: Particles can now apply forces to the Colliders they hit
+    Physics: Added 'Joint2D.attachedRigidbody' property to retrieve the Rigidbody2D attached to the Joint2D.
+    Physics: When setting 'Rigidbody2D.simulated' to false, Editor inspector shows information about its effect.
+    Playables: Playable Assets added to Playable API.
+    Playables: Playable Director added to play Playable Assets
+    Shaders: Added support for "inline" sampler states.
+        HLSL SamplerState objects that aren't taking sampling state from any texture (like what "sampler"+TextureName samplers do), but where sampling state is instead derived from the name.
+        For example, "MyLinearClampSampler" sets up bilinear filtering and clamp wrap mode; while "point_repeat_sampler" sets up point filtering and repeat wrap mode.
+        This allows e.g. doing both PCF depth comparison and reading raw depth value from a shadow map in a single shader.
+        Note that generally only modern graphics APIs support separate textures & samplers. You might therefore want to specify #pragma target 3.5 or similar in your shaders for this.
+        Implemented on DX11, DX12, PS4, XB1, Metal (Vulkan not yet).
+    Windows: Multi-display support for UWP.
+
+Changes
+
+    Asset Import: Upgraded FBX SDK to 2016.1.2
+    Build Pipeline: Added new function SwitchActiveBuildTargetAsync. This defers switching so that scripts can be imported first.
+    Build Pipeline: Event EditorBuildSettings.activeBuildTargetChanged has been deprecated as events do not survive script reloading. Replaced with interface class IActiveBuildTargetChanged and attribute ActiveBuildTargetChanged.
+    Editor: Added new GameObject sub menu - 'GameObject/Effects/. This menu includes a Line andTrail creation. The particle system has also been moved to this menu.
+    Editor: Added requirement for Visual C++ Runtime 2013 and 2015 to be installed when installing Windows Editor (i.e. the check is performed by Windows Editor installer).
+    Editor: AssetServer version control support has been removed from the editor.
+    Editor: Moved particle system rigidbody info message to top of the system as it does not just apply to inherit velocity
+    Editor: New projects now default to text-based serialization
+    Editor: Particle trail material slot is now always visible even if it is not used.
+    OSX: Disabled Metal on macOS 10.12.2 and 10.12.3 for stability reasons if GLCore is also present in API list
+    Windows Store: DX11 feature level 9.3 GPU support is required now. In practice this probably does not affect anything, as all Windows Phones that ever existed support 9.3 level already.
+
+Improvements
+
+    Android: Apk files are now signed using the new APK Signature Scheme v2.
+    Asset Import: Changing tabs in the Model Importer inspector does not force users to apply changes anymore
+    Asset Import: Support Segment Scale Compensate for models exported from Maya.
+    Asset Pipeline: In batchmode the FailedAssetImports.txt file is now ignored because there's no way to cancel or notify the user when the asset importer fails.
+    Build Pipeline: Scripts-only build is now available on all platforms.
+    Build Pipeline: Unified assembly stripping code used for IL2CPP and Mono builds - which should result in more consistent behaviour between IL2CPP and Mono and in smaller build sizes for platforms supporting assembly stripping on Mono.
+    Editor: Added "Called From" and "Calls To" view to the Hiverarchy View of Profiler Window.
+    Editor: Added a pre-drop style to particle system Object fields so it highlights if something can be dropped.
+    Editor: Added callbacks for assembly reload events: two events are dispatched: one before and one after reloading all assemblies. See: class AssemblyReloadEvents.
+    Editor: Log messages from connected players will now show in Editor console for easier debugging.
+    Graphics: Added a batch break cause (material disables instancing) to Frame Debugger.
+    Graphics: Added a new surface shader option "dithercrossfade", generating the screen-door dithering effect code automatically for being used in LOD cross-fade mode.
+    Graphics: Added new default material for trails. 'Default-Trail'
+    Graphics: Frame Debugger is now capable of showing array shader properties.
+    Graphics: Optimized conversions between float32 and float16 image formats on Editor for a x2 to x4 performance improvement.
+    Graphics: Texture wrapping modes can be set separately on each U,V,W axis.
+    Graphics: The default names for Graphics Quality Levels have been changed to be a little clearer, and more in line with what is common across other games. This will only affect newly created projects; existing projects will have the same Quality Level names as before (though, as always, you can edit the names via Edit -> Project Settings -> Quality).
+    IL2CPP: Improved IL2CPP code conversion time on OSX. Conversion times may improve by as much as 2x.
+    iOS: Added support for Watch apps and Watch app extensions in the Xcode extension API.
+    Mobile: Added TouchScreenKeyboardType.Social and TouchScreenKeyboardType.Search for iOS/tvOS, Android, WindowsPhone and Tizen platforms.
+    OSX: Added support for loading the first scene asynchronously when showing the splash screen.
+    OSX: Metal: [MTLDevice recommendedMaxWorkingSetSize] is now used to query VRAM size when available.
+    Particles: Added edit modes for Particle system collision mode planes.
+    Particles: Improved particle system culling mode supported tooltip messages. These now contain more details on why the culling mode is unsupported.
+    SamsungTV: UnityWebRequest is now supported on SamsungTV
+    Shaders: Optimized game data build time for shaders with massive ("millions or billions") potential variant counts. Fixed shader inspector popup menu to display variant counts larger than 2 billion properly.
+    Shaders: SystemInfo.graphicsShaderLevel now reports more accurate shader models that better match shader #pragma target levels (now can report values 25, 35, 45, 46).
+    Web: (Also mentioned under API Changes) UnityWebRequest now has built-in support for downloading MovieTexture on platforms that do support it. A new helper class WebRequestMultimedia has been introduced for simple download of MovieTexture or AudioClip. WebRequest.GetAudioClip() has been deprecated in favor of WebRequestMultimedia.GetAudioClip().
+
+API Changes
+
+    Animation: (Also mentioned under Features) AnimationLayerMixerPlayable scripting API added.
+    iOS: (Also mentioned under Features) Added API to change iOS splashscreens.
+    Playables: Moved Playable out of Experimental namespace.
+    Scripting: Rename to Debug.logger to Debug.unityLogger (852000)
+    Web: (Also mentioned under Changes/Improvements) UnityWebRequest now has built-in support for downloading MovieTexture on platforms that do support it. A new helper class WebRequestMultimedia has been introduced for simple download of MovieTexture or AudioClip. WebRequest.GetAudioClip() has been deprecated in favor of WebRequestMultimedia.GetAudioClip().
+    Web: Moved UnityWebRequest.GetTexture() to UnityWebRequestTexture.GetTexture().
+
+Fixes
+
+    2D: A quad mesh will be generated when generating Sprite from a blank texture. (890845)
+    2D: Add back POT option when in TextureImporter for Sprites (884926)
+    2D: Fix Sprite UV not updated when data is copied via EditorUtility.CopySerialized (884970)
+    2D: Fix SpriteRenderer not rendering Sprite in TileMode when mesh generation exceeds max vertex limit (888884)
+    2D: Rephrase warning message to include Sprite generated in PolygonMode in SpriteRenderer when TileMode is set (889106)
+    Animation: Clarified documentation on Translation DoF settings for Humanoids (847234)
+    Animation: Display "Update reference clips" button for Generic rig too (871684)
+    Animation: Fixed adding State/StateMachines with invalid names. (882122)
+    Animation: Fixed an issue where Optimize Game Objects would cause invalid scale being applied with some animations (879368)
+    Animation: Fixed an issue where previewing animations with an exit time of zero would prevent the previewer from showing (883536)
+    Animation: Fixed an issue where results were incorrect when the only layer of a state machine was set to additive (862998)
+    Animation: Fixed an issue where the Rig importer Mask's transform list was populated even though the definition was set to None (874995)
+    Animation: Fixed Audio Source nested curve editor getting stuck while dragging keys. (881723)
+    Animation: Fixed out of sync linear tangents when editing a curve in the curve editor. (881861)
+    Animation: Fixed standalone curve editor window association to its serialized property. (860540)
+    Asset Import: Mesh importer now displays an error for invalid polygons that cannot be triangulated without introducing a new vertex. (677375)
+    Asset Pipeline: Fixed import failure when FBX take name contained invalid characters. (873720)
+    Editor: Fixed a crash in Editor caused by null Handles. Graphics.DrawMeshNow will now throw an exception if the mesh is null. (893112)
+    Editor: Fixed an issue where locking the Inspector on subscene objects causes their disappearance, coupled with a group of 'Failed to unpersist' error messages. (874301)
+    Editor: Fixed case of errors spamming the console when taking detailed memory sample of 32 bit player. (886135)
+    Editor: Fixed case of Handles.PositionHandle() throwing NullReferenceException when no SceneView is in the current editor layout. (874248)
+    Editor: Fixed crash when using the SavePanel path bar on Windows. (839912)
+    Editor: Fixed crash whilst reloading scene(s) after using version control merge and resolve operations. (876733)
+    Editor: Fixed HDR Color Picker to preserve alpha when changing brightness field. (883476)
+    Editor: Fixed low Normals quality issue with low mesh compression settings. (709609)
+    GI: Fixed a crash when creating reflection probes from OnWillRenderObject (873206)
+    Graphics: Display an error message and disallow subregion copying of a depth-stencil texture. (883393)
+    Graphics: Fix Editor crash by ensuring the camera and camera stack are valid after a PreCull message. (876867)
+    Graphics: Fix incorrect warning about using instancing and static batching simultaneously.
+    Graphics: Fixed crash trying to use a compute buffer which failed to be created. (886290)
+    Graphics: Fixed crash when Unity loses focus caused by a camera being removed whilst it is being rendered. (869109)
+    Graphics: Fixed flickering game view window when resizing the window. (880788)
+    Graphics: Fixed Vulkan GraphicsJobs mode when rendering Particles
+    Graphics: Incrased batching limits to 65,000 vertices. (810600)
+    Graphics: Make sure wrap modes are valid before setting them on a texture to fix assert message spam "Assertion failed on expression: 'translated != kInvalidEnum'" (883459)
+    Graphics: Re-generate real-time Reflection Probe cubemap when screen resolution is changed. (868638)
+    Graphics: Throw an exception if script tries to set a random write target texture and the texture does not have random write enabled.
+    iOS: Fix to hide the status bar while playing movies with CancelOnInput or Hidden modes. (871989)
+    iOS: Removed extra notification sent on application launch (875180)
+    iOS: UnityEngine.iOS.Device.SetNoBackupFlag can now be called from background threads. (851113)
+    Kernel: Fixed log message filtering for LogType.Exception. (820286)
+    Kernel: Fixed Mathf.PingPong and Mathf.Repeat returning negatives values for some specific value (861278)
+    OSX: Fixed crash caused by quick open/close of GUIWindows. (884145)
+    Particles: Fixed all 3 curves(x,y,z) being added to the Particle System curve editor when switching to curve state and only in single axis mode (855588)
+    Particles: Fixed curves with loop or ping pong wrap modes being incorrectly converted into poly curves and thus causing asserts.
+    Particles: Fixed module curves being shown in curve editor after the module was disabled due to an undo operation (861424)
+    Particles: Particle system culling was not working until it was rendered at least once (680242)
+    Particles: Particle system is no longer cleared if procedural emission buffer contains items. (801335)
+    Particles: Removing a ParticleSystem on a GameObject that has a component with RequireComponent(Renderer) is now correctly prevented. (888048)
+    Particles: Size over lifetime now correctly affects collider size, and sub-emitter inheritance. (792289)
+    Physics: Fix a rare crash that occured when a solver batch was indexed incorrectly (PxsSolverSetupSolveTask was reported in the callstack) (874515)
+    Physics: Fixed a crash caused by changing the value of the configuredInWorldSpace flag on a Joint attached to an inactive GameObject. (832197)
+    Scripting: Editor recompilation is no longer triggered when adding WinRT dlls which are not used by the editor. (861189)
+    Scripting: Fix a memory leak and performance degradation when adding nested classes as components. (856497)
+    Scripting: Fixed case of ScriptExecutionOrder not being applied when entering play mode. (830711)
+    Scripting: Fixed crash in C# updater with arrays in some expressions. (855785)
+    Scripting: Fixed rare crash that could occur after accessing null AnimationState (and Null Reference Exception is thrown). (847112)
+    Scripting: Fixed Script Updater issue with generic type parameters on methods under member access expressions. (863941)
+    Scripting: Improved error message when ScriptableObject is used with abstract classes. (850202)
+    Scripting: Improved the error shown when a class must inherit from ScriptableObject instead of MonoBehaviour. (867259)
+    Scripting: Script Updater: Automatically update ParticleCollisionEvent.collider to ParticleCollisionEvent.colliderComponent
+    Scripting: Script Updater: Do not remove required "using namespace" due to inadvertently deeming it as not used
+    Services: Fixed issue with Unity project ID when importing assets from the asset store containing a project ID. (867382)
+    Shaders: Fixed standard shader not supporting _Bumpscale on iOS and Android platforms. (881869)
+    Shaders: Occlusion sampling in shader now takes into account parallax map/offset. (783222)
+    SpeedTree: Fix a case where LOD1 range cannot be adjusted in SpeedTree importer GUI. (886674)
+    Terrain: Fix asset messages when deleting in-use terrain asset. (863970)
+    UI: Augmented variable capacity to correctly handle large numbers of tiles. (862575)
+    UI: Fixed crash when deleting a nested canvas with nested canvas children. (858847)
+    UI: Fixed issue that would prevent the text field input caret from updating when the virtual left and right arrow keys were pressed. (850430)
+    UI: Fixed issue where fonts created by script would fail to appear. (858645)
+    UI: Selectable SelectionState is now updated as expected when setting interactable to true. (861736)
+    UI: The input field caret now generates the GameObject with the correct transform type as well as a CanvasRenderer, to prevent doing a switch of Transforms at runtime. (863470)
+    UI: The inverse transform of the canvas (m_CanvasData.invCanvasMatrix) is now updated when its ancestor has changed (i.e. not just its direct parent). (870698)
+    VR: Fix crash in Editor when attempting to do Holographic Simulation when graphics API forced to DX9 (885634)
+    VR: Fix daydream back button handling to deal with app store submission rejection (893219)
+    VR: Fix Daydream icon labels to not display tooltip text in the label. (891613)
+    VR: Fixed crash on HoloLens and Windows Mixed Reality caused by large amounts of input data overflowing queue
+    VR: Fixed particle shader errors when using instanced single pass. (872164)
+    VR: Integrate Google VR iOS SDK 1.20 (885513)
+    Windows: Fixed not being able to start the game with exclusive fullscreen mode on a secondary monitor (789575)
+    Windows: Fixed resolution selector showing primary monitor resolutions even when a secondary monitor is selected.
+    Windows: Fixed window not resizing to new monitor's size when moving window to another monitor while in windowed fullscreen mode.
+
