@@ -1,0 +1,87 @@
+Release 5.6.0p1
+18 April 2017
+
+Improvements
+
+    Android: Fixe capture of EGL calls when using Mali Graphics Debugger.
+    Graphics: Improved CopyTexture/ConvertTexture handling in Metal.
+    Networking: Added new statistical functions allowing measure bandwidth per connection per host or per lib.
+    Physics: Added Editor Tooltip for EdgeRadius property on BoxCollider2D, EdgeCollider2D and CompositeCollider2D.
+    Physics: Allow user to turn on/off collision/trigger exit callbacks when a Collider2D is disabled
+    Physics: Improved API documentation for ContactFilter2D.
+    Physics: Improvements to ContactFilter2D including being able to specify collision normal range crossing zero and expose ability to filter using the managed ContactFilter2D rather than just use it to pass to native queries.
+    Unity Ads: Update native binaries to 2.1.0
+
+Fixes
+
+    (877784) - AI: Expose missing API for agent type ID for NavMeshAgent component.
+    (871615) - Android: Fixed a rare crash when seeking in an audio file (reported on MotoZ phones).
+    (888274) - Android: Fixed an issue where ApplicationId was missing from AndroidManifest.xml in Gradle builds
+    (898503) - Animation: Changing Animator.Speed during an animation transition will now correctly affect the cross-fade speed.
+    (892337) - Animation: Fixed an issue whereby animation clip range was not updating after undoing 'Add Key' operation.
+    (894062) - Animation: Fixed the issue of disabling GameObject not resetting StateMachine.
+    (892043) - Animation: Fixed IK on Feet not working properly when interrupting transitions.
+    (894061) - Animation: Fixed OnAnimatorIK not being fired in editor mode.
+    (889109) - Animation: Fixed a performance regression when destroying many GameObject with Animator.
+    (885258) - Buildpipeline: Fixed an issue with reported texture size being smaller than actual size.
+    (none) - Cluster Rendering: Fixed VRPN stopped working in Editor.
+    (885895) - DX12: Fixed double present causing screen blinking.
+    (896793) - Editor: Attempt to identify and use the cancel option for dialogs that are launched on worker threads, as they can otherwise soft-lock or force-quit the editor.
+    (894074) - Editor: Fixed 'Build and Run' attempts to push a build to device even if error (during the build) was encountered.
+    (895453) - Editor: Fixed GUI related Asserts when connected to an active VCS provider.
+    (897850) - Editor: Fixed an issue where nunit exposed system classes, that could clash with other libraries implementations.
+    (885492) - GI: Fixed lightmap texture inspector preview being too bright when using linear color space.
+    (895474) - Graphics: Behavior of the VFACE semantic on DX12 is now consistent with the editor.
+    (894999) - Graphics: Fixed Android Adreno chipset frame buffer invalidation appearing as if rendering had frozen.
+    (833583) - Graphics: Fixed an issue on PS Vita causing the default sky to be black.
+    (877367) - Graphics: Fixed a crash when manually deleting occlusion data.
+    (884547) - Graphics: Fixed generating invalid raycasts causing "Invalid AABB b0" error appears in console.
+    (878724) - Graphics: Fixed SceneView GUI elements being very bright when HDR and Linear mode are enabled.
+    (888339) - Graphics: Fixed an editor crash on old OpenGL drivers.
+    (none) - Installer: Fixed an issue issue with Visual Studio 2017 installer sometimes restarting Windows without warning.
+    (868697) - iOS: Fixed a crash that could occur in callbacks for Social.localUser.Authenticate when the error parameter was read.
+    (889296) - Mono: Prevent DeflateStream from throwing an exception when an empty stream is flushed.
+    (889998) - MonoDevelop: Allow breakpoints to properly load in MonoDevelop in some situations where they did not load before.
+    (876597) - Particles: Fixed a case where ping-pong emission could occasionally spawn particles at the wrong end of the line shape.
+    (none) - Particles: Fixed trail interpolation in Edit Mode, when using slow-motion previewing.
+    (none) - Particles: Reinstated ability to animate EmissionModule.enabled, plus add bindings for the enabled flag of every module.
+    (none) - Particles: Reinstated random emission modes.
+    (874999) - Particles: Revert particle simulation space to world space, when custom transform is missing.
+    (none) - Physics: Do not draw Collider AABB gizmo if attached to a Rigidbody2D with 'simulated' property set to false.
+    (none) - Physics: Fixed an issue with minimum threshold size for BoxCollider2D.
+    (896824) - Physics: Fixed backward compatibility for Physics2D.queriesHitTriggers, Physics2D.queriesStartInColliders, Physics2D.defaultContactOffset & PolygonCollider2D.points.
+    (895732) - Physics: Fix for where infinite 2D raycast misses EdgeCollider2D edge.
+    (843507) - Physics: Fix for Rigidbody2D interpolation loosing precision with time.
+    (898513) - Profiler: Changed the colour of the 'Others' field in order to clearly differentiate it from the one used by 'Scripts'.
+    (889321) - Purchasing: Fixed an issue with Unity IAP emitting DuplicateTransaction failure for all non-consumable purchases when initialized.
+    (none) - Scripting: Fixed an issue with scripts always being compiled on project open.
+    (868697) - Scripting: Fixed a parameter corruption and potential crashes for some delayed callbacks.
+    (none) - Shaders: Removed fastmath compiler option from Metal compute shaders, as it could create different results compared to other platforms.
+    (none) - Shaders: Fixed a subtle metal shader generation bug in bit field insert operations.
+    (883080) - Shaders: Fixed an incorrect translation from HLSL assembly for AND and OR operands. Also fixed a crash when compiling shaders for GLCore.
+    (883720) - SpeedTree: Fixed GPU instancing break when the trees came back into view.
+    (none) - Tizen: Changed symbols in mono to HIDDEN.
+    (none) - UGUI: Fixed a memory leak in UGUI.
+    (858540) - Unity Ads: Prevent Unity Ads internal MonoBehaviours from showing in the inspector now.
+    (895742) - Unity test runner: Fixed EditorPref to be Project setting.
+    (884291) - UnityWebRequest: Fixed an issue with getting texture from download handler after scene change.
+    (876648) - UnityWebRequest: Fixed nonReadable parameter in UnityWebRequestTexture.GetTexture() working the opposite way.
+    (896314) - VR: Fixed a potential crash when entering play mode.
+    (884058) - Windows Store: Fixed a build error "Failed to resolve assembly: 'Windows.Foundation.UniversalApiContract, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null'"." when using default parameters of Windows Runtime types in method signatures and "C# projects" build option on .NET scripting backend.
+    (869168) - Windows Store: Fixed a build error on .NET scripting backend when a method with name OnMouseDown was defined in a non-monobehaviour class.
+    (869407) - Windows Store: Fixed a crash when using "SceneManager.UnloadSceneAsync" on .NET scripting backend with .NET native enabled.
+    (885997) - Windows Store: Fixed a rare build error "Failed to resolve assembly: 'System.Reflection.TypeExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'" on .NET scripting backend when using "C# projects" option.
+    (886049) - Windows Store: Fixed a rare build error "Version not supported: 255.255.255.255" when using certain .winmd plugins and "C# projects" option on .NET scripting backend.
+    (872058) - Windows Store: Fixed a System.TypeInitializationException on startup with .NET scripting backend when a nested class derives from a non-nested class and overrides one of its methods.
+    (875849) - Windows Store: Fixed Screen.SetResolution not accounting for DPI settings.
+    (885964) - Windows Store: Fixed a crash that could occur with D3D build type when the window was minimized or closed.
+    (888660) - Windows Store: Fixed non-alloc physics overlap functions causing a crash on .NET Scripting Backend.
+    (890043) - Windows Store: Fixed an issue whereby not being able to switch to Windows Store platform when Windows 10 SDK was not installed.
+    (870209) - Windows: Fixed a case of Screen.DPI returning the DPI of the primary monitor when the window was on a secondary monitor.
+    (891481) - Windows: Fixed window automatically resizing to fill the screen when in windowed mode and the monitor's display mode got changed through windows display settings.
+
+Known Issues
+
+    Multiview for GearVR is broken and we do not recommend this patch for Oculus development.
+
+Revision: 6c0210300415
