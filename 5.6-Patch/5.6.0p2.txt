@@ -1,0 +1,33 @@
+Patch 5.6.0p2
+Released: 21 April 2017
+
+Changes
+
+    2D: Sprite Batching is enabled by default.
+    VR: GPU skinning can be enabled for Android VR. This is experimental, and behavior and performance should be verified on target devices.
+
+Fixes
+
+    (none) - Android: Disable MSAA for backbuffer on older ARM Mali Vulkan drivers.
+    (780958) - Android: Disabled Debug markers on PowerVR Series 5 devices.
+    (none) - Android: Fixed Vulkan shadow texture linear filtering.
+    (896033) - Animation: Fixed a crash when using an Avatar built in 5.5 or earlier.
+    (878712) - Asset Bundles: Fixed performance regression when building many small asset bundles.
+    (none) - Editor: Provide new API allow trusted partner to retrieve oauth2 authorization code for Editor user.
+    (883808) - Editor: Switching Cache Server mode from local to a different mode no longer throws exceptions.
+    (863272) - Graphics: Fixed Vulkan fullscreen scaling on Windows.
+    (889446) - IL2CPP: Allow more deeply nested generic recursion for method metadata. Throw a managed exception when the recursion is too deep.
+    (888796) - IL2CPP: Fixed memory snapshot profiler not showing multidimensional arrays.
+    (881013) - IL2CPP: Fixed compiler error when using generic delegates with variance.
+    (891471) - IL2CPP: Implemented RegionInfo.CurrentRegion.
+    (867606) - IL2CPP: Protect against the usage of attributes that don't exist in .NET 3.5.
+    (885096) - iOS: Fixed an issue whereby local notifications aren't cleared on iOS10.
+    (364754) - Kernel: Obsoleted undocumented FindChild method.
+    (898357) - VR: Accessing PlayerSettings.VRDaydream.* scripting API no longer results in MissingMethodException.
+    (none) - VR: Added Fade out to VR Splash Screen for Daydream.
+    (none) - VR: Fixed Render Viewport Scale for Forward rendering. Deferred still has issues that should be addressed in a later patch.
+    (none) - VR: Fixed some shader related issues when using single-pass stereo rendering on Android devices.
+    (none) - VR: Update GearVR to version 1.13.1 to fix black screen when multiview, monoscopic, or double-wide eye buffers are used.
+    (776552) - WWW: Fixed an issue whereby new WWW object without internet connection did not set Error field.
+
+Revision: bbd5ca01a0ea
