@@ -1,0 +1,50 @@
+Patch 5.5.3p2
+Released: 25 April 2017
+
+Improvements
+
+    Unity Ads: Updated native binaries to 2.1.0
+
+Changes
+
+    VR: GPU skinning can be enabled for Android VR. This is experimental, and behavior and performance should be verified on target devices.
+
+Fixes
+
+    (780958) - Android: Disabled Debug markers on PowerVR Series 5 devices.
+    (833158) - Android: Fixed an issue where a Unity application could stop responding after starting a screen recording.
+    (898504) - Animation: Changing Animator.Speed during an animation transition will now correctly affect the cross-fade speed.
+    (892043) - Animation: Fixed IK on Feet not working properly when interrupting transitions.
+    (849376) - AssetBundles: Fixed a performance regression when building many small bundles.
+    (none) - Cluster Rendering: VRPN works in Editor now.
+    (none) - Editor Analytics : Added fix to stop sending editor analytics events when disabled (pro only) from Unity preferences.
+    (896794) - Editor: Attempt to identify and use the cancel option for dialogs that are launched on worker threads, as they can otherwise soft-lock or force-quit the editor.
+    (895474) - Graphics: Behavior of the VFACE semantic on DX12 is now consistent with the editor.
+    (860724) - Graphics: Fix for buggy Android Adreno chipset frame buffer invalidation appearing as if rendering has frozen.
+    (889446) - IL2CPP: Allow more deeply nested generic recursion for method metadata. Throw a managed exception when the recursion is too deep.
+    (894071) - IL2CPP: Corrected an error in the byte code stripper which looked like this: "Member '' is declared in another module and needs to be imported.
+    (868697) - iOS: Fixed a crash that could occur in callbacks for Social.localUser.Authenticate when the error parameter was read.
+    (888370) - iOS: Fixed some icons not getting copied into Xcode project when Target Device was set to iPhone Only.
+    (885096) - iOS: Local notifications are cleared on iOS10.
+    (870498) - Kernel: Fixed a crash when undoing a revert would cause components to be removed.
+    (889998) - MonoDevelop: Allow breakpoints to properly load in MonoDevelop in some situations where they did not load before.
+    (892278) - Particles: Fixed an issue where scripted emission could fail to emit the correct number of particles.
+    (893476) - Particles: Fixed scripted emission crash when using the TriggerModule.
+    (893838) - Particles: Fixed sub-emitter crash when using Prefabs.
+    (895898) - Particles: Only use skinning info if it's valid, when emitting from a skinned mesh renderer shape.
+    (843507) - Physics: Do not draw Collider AABB gizmo if attached to a Rigidbody2D with 'simulated' property set to false.
+    (895732) - Physics: Fixed an issue where infinite 2D raycast misses EdgeCollider2D edge.
+    (none) - Physics: Fix for Rigidbody2D interpolation loosing precision with time.
+    (868697) - Scripting: Fixed parameter corruption and potential crashes for some delayed callbacks.
+    (858645) - Text: Fixed an issue where fonts created by script would fail to appear.
+    (858540) - Unity Ads: Prevent Unity Ads internal MonoBehaviours from showing in the inspector.
+    (884291) - UnityWebRequest: Fixed getting texture after scene reload.
+    (876648) - UnityWebRequest: Fixed nonReadable parameter working the opposite way in UnityWebRequest.GetTexture().
+    (896314) - VR: Fixed a potential crash when entering play mode.
+    (none) - VR: Updated Oculus to version 1.13 and GearVR to version 1.13.1. Fixed plugin loading issue in paths with non-ASCII characters.
+    (885964) - Windows Store: Fixed a crash that could occur with D3D build type when the window is minimized or closed.
+    (888660) - Windows Store: Fixed non-alloc physics overlap functions causing a crash on .NET Scripting Backend.
+    (890043) - Windows Store: Fixed an issue of not being able to switch to Windows Store platform when Windows 10 SDK is not installed.
+    (776552) - WWW: Fixed an issue of new WWW object without internet connection did not set Error field.
+
+Revision: f15b2772e4d0
