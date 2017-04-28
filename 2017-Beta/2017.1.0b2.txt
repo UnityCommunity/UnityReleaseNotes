@@ -1,0 +1,102 @@
+Unity 2017.1.0b2
+Released: April 25, 2017
+
+Unity 2017.1.0b2 release notes
+2017.1.0b2 Release Notes (Delta since b1)
+Known Issues
+
+    Android: Android Build fails when the latest Android SDK Tools 25.3.1 version is used (888859)
+    Animation: Imported animation for humanoids is incorrect (904985)
+    Audio: AudioSource attached to VideoPlayer produces choppy sound when playing certain mp4 files with VideoPlayer created from script (895458)
+    Editor: "The system cannot find file specified" error while opening the project for the first time. Deleting Library folder resolves the issue. (895343)
+    Editor: Editor crashes on attempt to open some 5.5 compatible audio projects. (880653)
+    Editor: Text in Editor becomes red after dismissing EditorUtility.DisplayDialog() popups. (886650)
+    Editor: Unity crashes when playing a scene with maximized game view (894572)
+    Graphics: Debug GFX overlay is drawn on top of objects. (851379)
+    VR: Rendering problems on Pixel Daydream when using 4x or 8x MSAA with single-pass stereo. This is due to driver issues, so the problem will be addressed via a driver update, independently of Unity releases. (-)
+    Windows: Edit menu has duplicate menu items (Undo, Cut, Copy, Paste, etc) (905191)
+
+Features
+
+    Asset Import: Added ability to import visibility from FBX files to ModelImporter
+    Audio: Timeline Editor Audio Track support. Audio clips are now enabled in Timeline, using a scheduling API.
+    Particles: Apply Noise Module data to particles sizes and rotations, and also send the noise data to your shaders via new Custom Vertex Streams.
+    Particles: Mesh particles now support the same Render Alignment options are billboarded particles
+    Particles: New Donut emission shape.
+    Particles: Play Particle Systems when your game is paused, by choosing to use either Scaled or Unscaled time for the simulation.
+    Particles: The Shape Module now contains an additional Transform, for applying custom transformations to the emitter shape.
+    Physics: Add ability to manully simulate 2D physics using "Physics2D.Simulate(time)" and turn auto simulation on/off with "Physics2D.autoSimulation=true/false".
+    Physics: Expose Physics.Simulate and Physics.autoSimulation. This allows stepping the physics simulation manually, from scripts. Useful for customising the server-side physics, in-editor simulation, and more.
+    Physics: Exposed Joint.massScale & Joint.connectedMassScale. This allows adjusting masses and inertia tensors of the connected bodies as perceived by the solver. It's mostly useful for ragdolls that have high forces applied to their limbs and thus experiencing unpleasant stretchiness. This should also help avoiding setting the same mass for all the body parts of a ragdoll, as recommended before. See more in the API docs.
+    Web: A new UnityWebRequest.timeout property that gives the user some coarse-grain control over the time a webrequest can take before unity attempts to cancel it.
+
+Changes
+
+    VR: GPU skinning can be enabled for Android VR. This is experimental, and behavior and performance should be verified on target devices.
+    VR: Updated Google NDK for Android and iOS to 1.40
+    Windows: "Visible In Background" player setting now defaults to on.
+    Windows: Renamed "Windows Store" to "Universal Windows Platform" in the build window
+    Windows Store: Removed support for build Windows 8.1 and Windows Phone 8.1 applications.
+
+Improvements
+
+    Android: Add default equals, hashCode and toString implementations to AndroidJavaProxy
+    Android: OBB compatibility is now done using build id rather than a hash of the OBB file
+    Animation: Statemachinebehaviour can now be debugged in play mode in the editor
+    Asset Import: Reduced the import time for FBX assets with humanoid animations
+    GI: Upgrade Enlighten SDK to version 3.08p1
+    OSX: Added Appstore category field to player settings and improved info.plist generation
+    Particles: Allow Emit over Distance to be used for Local Space systems
+    Particles: Edge emission is now more flexible, allowing you to choose the thickness of the edge used for generating particles.
+    Particles: Randomize the spawn positions of particles, with a new option in the Shape Module.
+    Particles: Scene lighting can now affect Lines and Trails.
+    Particles: The speed range of a Particle System is now displayed in the Scene View GUI, when previewing a Particle System.
+    Shaders: Pass platform caps keyword defines to compute shaders
+    Windows Store: Unity player binaries are now signed.
+
+API Changes
+
+    Asset Import: Added ModelImporter.importVisibility
+    Web: (Also mentioned under Features) Added timeout property to UnityWebRequest. (823903)
+
+Fixes
+
+    DX12: Behaviour of the VFACE semantic now consistent on DX12 with the editor and other platforms (895474)
+    Editor: Fixed erroneous IMGUI clipping with non-trivial GUI.matrix (896013)
+    GI: GI Scene Modes Not Fetching Visualization Data After Quitting Play Mode. (849063)
+    GI: Light sources incorrectly identified as realtime when in Auto mode. (815031)
+    GI: LoadLevelAdditive loads baked lighting as (no GI) realtime if it was baked using Auto. (709362)
+    GI: Progressive lightmapper now honors GraphicsSettings.LightsUseLinearIntensity.
+    Graphics: Fixed instancing mesh sorting when custom properties are set on renderers.
+    Graphics: Fixed render target becoming white or black on stop if set to don't clear. (884057)
+    iOS: Metal: Fixed unnecessary half to float casts in generated shaders (898788)
+    Multiplayer: Added better error messages when processing a non-valid state in weaver (875195)
+    Multiplayer: Fix issue with network transport host being removed with invalid host id, when using custom network connection (NetworkConnection override) (881764)
+    Multiplayer: Fix issue with NetworkAnimator not updating parameters (related to local player authority) (779549)
+    Multiplayer: Fix max events flood protection in network client
+    Multiplayer: Fix problem with cleaning/resetting network identities in disabled objects, in the network manager (881743)
+    Particles: Align to Direction now works for Mesh particles. (864493)
+    Particles: Disable/re-enable of Particle System GameObject now causes it to successfully restart previewing. (767489)
+    Particles: Inspector now refreshes when changing MinMaxCurve types from script. (788240)
+    Particles: Particle trails could render with graphical corruption when used on Sub-Emitters (895376)
+    Particles: Reset Component option is now fully working for Particle Systems. (715605)
+    Particles: The Pivot offset used for Stretched Particles was incorrect along the X axis. (830382)
+    Particles: Velocity and Force modules now apply scale correctly when using World Space mode. (874051)
+    Physics: Fix a crash that happened when continuously scaling a MeshCollider while activating and deactivating it at the same time (878740)
+    Physics: Fix a crash that happened when more than 262143 colliders were created. This is not supported by PhysX and we won't be creating colliders once this limit is reached. (872785)
+    Physics: Fix a crash that happened when scaling a mesh that PhysX failed to cook properly (think a convex MeshCollider with too many vertices). (892396)
+    Physics: Fix a crash updating active skinned meshes. (845868)
+    Physics: Fix horizontal clipping in the layer collision matrix when some layers had names that were too long (526797)
+    Physics: Fix interpolation and extrapolation being being applied in an incorrect order for nested Rigidbodies. This affected the stability of ragdolls that had interpolated bones. (772337)
+    Physics: Fix Physics.ComputePenetration & Physics.ClosestPoint not returning the correct value when a rotated collider had it's centre offset (865250)
+    Physics: Fix Rigidbody.collisionDetectionMode being impossible to change if it was initially set to Continuous (784529)
+    Physics: Fix Rigidbody.collisionDetectionMode being impossible to change if the Rigidbody was part of a pool of objects (889118)
+    Physics: FIx voodoo trigger events being fired to scripts when a degenerate CapsuleCollider was used (701504)
+    Physics: Reprocess mesh used for cloth if changed. (664672)
+    Physics: Reprocess mesh used for cloth if changed. (879584)
+    Scripting: Prevent managed thread creation during app domain reload (882697)
+    Video: VideoPlayer.isPrepared always returns false after calling VideoPlayer.Prepare() when playOnAwake is false with some video files (893939)
+    Video: VideoPlayer.Prepare() broken on random video files (897708)
+    Video: [Video Player] Can't play a Video Clip If WaitForFirstFrame is enabled (899233)
+    Video: [VideoPlayer] Video which has 6-channel audio and its audio codec is AC-3 doesn't play on Windows (893910)
+    VR: VRDevice.refreshRate now reports correct values on Oculus devices. (820293)
