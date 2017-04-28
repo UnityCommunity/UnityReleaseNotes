@@ -1,0 +1,55 @@
+Patch 5.6.0p3
+Released: 27 April 2017
+
+Improvements
+
+    MacOS: Added Appstore category field to player settings and improved info.plist generation
+    Video: Improved error reporting for incompatible webm files
+    Video: Updating api docs to reflect that a few hooks are unimplemented for now
+
+Fixes
+
+    (898946) - 2D: Fixed an occasional crash when SpriteRenderer.size was set multiple times in a single frame.
+    (891644) - 2D: Fixed the issue of SpriteRenderer not rendering Sprite in tiling mode when tile size was too big.
+    (839005) - Android: AndroidJava - return null instead of throwing exceptions on functions which return object, class or array.
+    (884540) - Android: Buildpipe - Fixed an error message on wrong NDK version.
+    (none) - Android: Buildpipe - Fixed the user resources library build issues with Gradle.
+    (894074) - Android: Fixed an issue whereby ctrl+b shortcut pushing app package even if it failed to build.
+    (888859) - Android: Fixed android application building with the latest android sdk.
+    (895550) - Android: Fixed incorrect error message in the Editor when selecting a non-default version of the NDK.
+    (877837) - Android: Fixed WebCamTexture crash with denied permissions.
+    (none) - Android: SoftInput - Fixed input field hidden under keyboard when translucent flag was set.
+    (875247) - Android: Webcam - Fixed the wrong orientation returned on first frames.
+    (896185) - Asset Pipeline: Fixed an issue when importing assets with name changes that could cause a timestamp mismatch in the database.
+    (840294) - Audio: Fixed a bug in AudioSource::IsPlaying for streaming audio clips, where false would sometimes be returned incorrrectly.
+    (884238) - Editor: Fixed screen offsets updates for tooltips.
+    (890468) - Editor: Fixed "Sprite Mode" so it defaults to "Single" instead of "None" when switching Texture Type to "Sprite (2D and UI)".
+    (896321) - Google VR: Fixed the issue of indefinitely flashing screen after changing VRSettings.renderScale.
+    (898851) - Graphics: Disallow material to be used with CommandBuffer.DrawMeshInstanced if enableInstancing is false.
+    (882704) - Graphics: Fixed a periodic crash in shadow culling job code (GenerateCombinedDynamicVisibleListJob).
+    (884057) - Graphics: Fixed the issue of render texture not being cleared on stop for windows.
+    (876718) - Graphics: Mark main splash screen as finished when VR splashscreen was used.
+    (898861) - IL2CPP: Modify the implementation of the IL Switch opcode to workaround a possible C++ compiler bug in Xcode 8.3.
+    (807273) - iOS: Added an option to select whether extra frame was rendered on pause.
+    (869947) - iOS: Fixed a crash when font's material was assigned to game object.
+    (866673) - iOS: Fixed framework search paths in Xcode project being incorrectly quoted if they contained spaces.
+    (882013) - iOS: Fixed inclusion of ReplayKit framework in plugins.
+    (888370) - iOS: Fixed some icons not getting copied into Xcode project when Target Device was set to iPhone Only.
+    (none) - macOS: Fixed standalone app compatibility issues when uploading to the Appstore with Application Loader 3.6.
+    (898788) - Metal: Fixed unnecessary half to float casts in generated shaders.
+    (896867) - Physic 2D: Fixed physics animation transform change not correctly rotating a Rigidbody2D.
+    (895548) - Terrain: Fixed an assert that got triggered by deleting a folder that contained a Terrain object.
+    (893559) - UI: Fixed NaN issues with ScrollRect when using clamped mode.
+    (892913) - UI: Fixed nested canvas returning a null world camera after its root canvas had been disabled and then re-enabled.
+    (893302) - UnityWebRequest: Fixed getting stuck when using custom download handler script in Editor in edit mode.
+    (891028) - Video: Better error handling and reporting when attempting an OSX H.264 transcoding exceeding profile level limits.
+    (887882) - Video: Fixed clip selection dialog video preview for non-transcoded material.
+    (893945) - Video: Prevent a crash when playing vp8 movies on Android OS 4.1 / 4.2 on Samsung and Meizu devices.
+    (893837) - Video: Prevent crash on negative resolution custom resize transcode.
+
+Known Issues
+
+    VR: GearVR and Daydream shaders may generate a compilation conflict. To resolve this change line 71 of UnityInstancing.cginc to: "#define UNITY_VERTEX_OUTPUT_STEREO float stereoTargetEyeIndex : BLENDWEIGHT0;"
+    VR: The gameview may have a black border when VR is active. These issues will be fixed in one of the upcoming patches soon.
+
+Revision: f8dcc233883f
