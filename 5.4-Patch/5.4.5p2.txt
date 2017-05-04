@@ -1,0 +1,33 @@
+Patch 5.4.5p2
+Released: 4 May 2017
+
+Improvements
+
+    Android: Improved WebRequest performance.
+
+Fixes
+
+    (780958) - Android: Disabled Debug markers on PowerVR Series 5 devices.
+    (888859) - Android: Fixrf android application building with the latest android sdk.
+    (867508) - Android: Fixed a rare crash on application exit due to UnityWebStreams not getting cleaned up properly.
+    (851523) - Android: Fixed a dangerous permission popup issue.
+    (892203) - Android: Fixed an unnecessary internet permission requirement in empty project.
+    (none) - Android: SoftInput - Fixed input field hidden under keyboard when translucent flag was set.
+    (898505) - Animation: Changing Animator.Speed during an animation transition will now correctly affect the cross-fade speed.
+    (892043) - Animation: Fixed IK on Feet not working properly when interrupting transitions.
+    (890636) - Editor: Fixed OSX editor load failure when loading on case-sensitive file systems.
+    (878724) - Graphics: Fixed SceneView GUI elements being very bright when HDR and Linear mode are enabled.
+    (none) - IL2CPP: Fixed a a rare crash in IL2CPP on some Visual Studio installation setups with message "Unhandled Exception: System.InvalidOperationException: Builder was unable to build using selected toolchain (MsvcDesktopToolChain) or architecture (Unity.IL2CPP.Building.x64Architecture)!"
+    (898861) - IL2CPP: Modified the implementation of the IL Switch opcode to workaround a possible C++ compiler bug in Xcode 8.3.
+    (882013) - iOS: Fixed inclusion of ReplayKit framework in plugins.
+    (889321) - Purchasing: Fixed an issue with Unity IAP emitting DuplicateTransaction failure for all non-consumable purchases when initialized.
+    (883080) - Shaders: Fixed an incorrect translation from HLSL assembly for AND and OR operands. Fixes a crash when compiling shaders for GLCore.
+    (886258) - UI: Removed an extra call to CanvasRenderer.OnTransformChanged when canvas was set to ScreenSpace.Camera render mode, and the camera was transformed
+    (none) - VR: Updated Oculus to version 1.13 and GearVR to version 1.13.1. Fixes plugin loading issue in paths with non-ASCII characters.
+    (895766) - Windows Store: Fixed a rare case where games can get stuck in a busy loop on dual core devices.
+
+Known Issues
+
+    (905903) - Animator: BlobWrite errors after selecting transition in Animator window.
+
+Revision: e6ffa1986af7
