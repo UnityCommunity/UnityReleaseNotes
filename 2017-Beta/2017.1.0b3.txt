@@ -1,0 +1,55 @@
+Unity 2017.1.0b3
+Released: May 3, 2017
+
+Unity 2017.1.0b3 release notes
+2017.1.0b3 Release Notes (Delta since b2)
+Known Issues
+
+    Audio: AudioSource attached to VideoPlayer produces choppy sound when playing certain mp4 files with VideoPlayer created from script (895458)
+    Editor: "The system cannot find file specified" error while opening the project for the first time. Deleting Library folder resolves the issue. (895343)
+    Editor: Editor crashes on attempt to open some 5.5 compatible audio projects. (880653)
+    Editor: Text in Editor becomes red after dismissing EditorUtility.DisplayDialog() popups. (886650)
+    Editor: Unity crashes when playing a scene with maximized game view (894572)
+    Graphics: Debug GFX overlay is drawn on top of objects. (851379)
+    VR: Rendering problems on Pixel Daydream when using 4x or 8x MSAA with single-pass stereo. This is due to driver issues, so the problem will be addressed via a driver update, independently of Unity releases. (-)
+
+Features
+
+    Collab: Project Browser Filters including 'All Modified', 'All Excluded', 'All Conflicts', 'All In Progress'
+    Collab: Right Click Menu Options in the Project Browser including See Differences, Revert, Conflict Resolution
+    Editor: MacOS: Support Visual Studio for Mac as an External Script Editor. Opens .sln (solution) file when double clicking a script.
+    Graphics: Added RenderTextureDescriptor struct that allows you to copy and create RenderTextures by passing a single value.
+
+Improvements
+
+    Editor: Simplify dragging code setup: Getting rid of the requirement of setting DragAndDrop.objectReferences = new UnityEngine.Object[] {} when using DragAndDrop.SetGenericData()
+    Web: It is now allowed to override User-Agent header in UnityWebRequest
+
+API Changes
+
+    Asset Import: Added ModelImporter.extraUserProperties
+    Playables: - Changed C# Playable classes to structures: new and better approach for the API, it uses less memory and is in line with the future job system.
+        Remove properties in favor of getters and setters: since we're using class extensions that can't have properties, we decided to only use methods to have a consistant API (i.e. not properties there and methods here just because reasons).
+        Rename ScriptPlayableData to PlayableBehaviour: the PlayableBehaviour is the user side of the ScriptPlayable, it is where the user puts its logic.
+        Documentation is in progress expect a better one in a few weeks.
+
+Fixes
+
+    2D: Fix "Register Undo object is not a ScriptableObject" error message when editing Sprite in SpriteEditorWindow after entering and exit PlayMode (900436)
+    2D: Fix NullReferenceException error when entering PlayMode with SpriteEditorWindow opened (900419)
+    2D: Fix occasional crash when SpriteRenderer.size is set multiple times in a single frame (898946)
+    Asset Import: Fix incorrect Animation help bubble in ModelImporter UI when Animation Type is None (899008)
+    Asset Import: Fix issue with strings sometimes having the wrong value when importing a binary package and editor serialization is set to Force Text. (857486)
+    Build Pipeline: Fixed issue where the selected build target wasn't being changed on projects created from command line. This affected changes made to player settings via scripts in these projects. (901407)
+    Editor: Fix crash when calling EditorSceneManager.NewScene in a DidReloadScripts callback (891856)
+    Editor: Fix gameobject set to HideInHierarchy and moved to DontDestroyOnLoad scene made the scene header show in the Hierarcy Window; with no objects (893148)
+    Editor: Fixed bug introduced in 5.6.0f3 that broke holding alt to pin center of PrimitiveBoundsHandle (affects edit modes for BoxCollider, CapsuleCollider, BoxCollider2D, CapsuleCollider2D, etc.); also back ported to 5.6.0p4
+    Particles: Scripted Play/Stop/Simulate etc generate no garbage, and handle sub-emitters correctly. (856840)
+    Scripting: Fix crash due to "Too many threads" (882697)
+    Scripting: Fix crash when Deep Profile is enabled (897828)
+    Scripting: Fix issue where OnDisable would not get called when entering play mode for ScriptableObjects that were created in edit mode and do not have a script file with the same filename as the ScriptableObject class name. (883373)
+    UI: PhysicsRaycaster now culls raycasts that are outside of the camera viewport. This prevents confusion between multiple raycast hits when using multiple cameras with different viewports. (636595)
+    VR: Removed Daydream specific call outs in documentation that are no longer correct. (900866)
+    WebGL: Fix Input.simulateMouseWithTouches (894098)
+    WebGL: Fix WebGL build failure when both WebAssembly and Full Exceptions are enabled (892185)
+    WebGL: Turn WebAssembly loading errors into simple log messages (896202)
