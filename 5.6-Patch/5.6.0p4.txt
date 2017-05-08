@@ -1,0 +1,50 @@
+Patch 5.6.0p4
+Released: 8 May 2017
+
+Improvements
+
+    MacOS: Support Visual Studio for Mac as an External Script Editor. Opens .sln (solution) file when double clicking a script.
+    Graphics: Added function to allow cube map textures to be compressed from script like their Texture2D counterparts.
+
+Fixes
+
+    (884926) - 2D: Added POT options in TextureImporter for Sprite.
+    (890858) - 2D: Fixed an error message "Dynamic batching: index buffer destination/source is NULL" when dragging a blank sub-sprite to scene.
+    (889106) - 2D: Fixed a misleading warning when using Sprite in 'Polygon Mode' for tiling in SpriteRenderer.
+    (884970) - 2D: Fixed Sprite data not copy when using EditorUtility.CopySerialized.
+    (none) - Analytics: RemoteSettings adding debug_device flag in http header.
+    (none) - Android: Fixed manifest merging with new android sdk tools.
+    (899553) - Animation: Animator.Rebind should reset AnimatorController.
+    (896659) - Animation: Fixed crash in prepare frame due to deactivating Animator in script
+    (901268) - Animation: Fixed disabled Animator affecting scene objects.
+    (none) - Animation: Fixed a performance issue with GetLayerWeight.
+    (900875) - Animation: Fixed StateMachineBehaviour callback on interrupted transition.
+    (899198) - API Updater: Fixed a crash in ScriptUpdater.exe when user scripts contains methods taking pointers as parameters.
+    (none) - Editor: Fixed a bug which broke holding alt to pin center of PrimitiveBoundsHandle (affects edit modes for BoxCollider, CapsuleCollider, BoxCollider2D, CapsuleCollider2D, etc.).
+    (899285) - Graphics: Fixed a regression where a Deferred Camera was throwing a "Dimensions of color surface does not match dimensions of depth surface" error message when a RenderTexture was used.
+    (900527) - Graphics: Fixed a regression where image effects weren't working as expected in the Scene View.
+    (899365) - Graphics: Fixed a regression where the objects shaders become unlit when a RenderTexture with Anti-aliasing is active and the Camera RenderingPath is set to Deferred.
+    (903086) - Graphics: Fixed the Dynamic Batching rendering code in order to be able to handle valid meshes that have no submeshes.
+    (890527) - Graphics: Improved the mechanism for handling imposters. This fixed the error message, 'Internal: Possible leak. All textures should be removed from IdMap when destructed using RemoveTexture(TextureID texid).' which was being triggered when switching a graphics API in a project that contained terrain.
+    (899331) - Graphics: Render texture will no longer be vertically flipped in forward rendering when assigning a null texture.
+    (898787) - Kernel : Fixed an issue in JSON parsing that could cause a deserialized box collider to change size.
+    (900357) - Lines: Initialized new line vertices to zero, to prevent bad uninitialized data existing in the positions array.
+    (903466) - Lines: Reintroduce missing texture mapping mode, to restore pre-5.5 functionality.
+    (902758) - Mono: Corrected the handling of C# compiler errors in a column that are more than 255 characters wide.
+    (899574) - Particles: Fixed an incorrect error message about sub-emitter parenting.
+    (888236) - Particles: Reduced Particle System memory usage, to improve the large increase seen since Unity 5.2.
+    (901465) - Physics 2D: Fixed a crash during reparenting of a Rigidbody2D.
+    (880353, 891305, 905608) - Physics 2D: Fixed a crash and infinite loop when triangulating Polygon2D.
+    (none) - Physics: Removed duplicate profiler entry of "Physics2D.Simulate".
+    (904904, 904905, 904906, 904907) - SkinnedMeshRenderer: Fixed bugs related to updating.
+    (806211) - UnityWebRequest: Allow overriding user-agent.
+    (899017) - UnityWebRequest: Fixed formatting multiform post request with section list.
+    (893939, 897708, 899233, 893910) - Video : Fixed issues related to video preparation.
+    (903657) - Video: Fixed an incorrect crop happening on Android Samsung devices Samsung with OS 4.3, resulting in a few uninitialized lines showing at the bottom of the video.
+    (872164) - VR: Fixed a bug where particles shaders displayed compile errors if stereo instancing was enabled.
+    (902791) - VR: Fixed a bug where the occlusion mesh was visible from the game window.
+    (901617) - VR: Fixed a crash when there were no renderable cameras.
+    (897406) - VR: Fixed an editor crash when performing a bloom gesture while using HoloLens remoting.
+    (889591) - VR: Standalone VR build crashes with Graphics Jobs and Soft Particles.
+
+Revision" 396ab58c4e90
