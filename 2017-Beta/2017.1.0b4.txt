@@ -1,0 +1,67 @@
+Unity 2017.1.0b4
+Released: May 5, 2017
+
+2017.1.0b4 Release Notes (Diff from b3)
+Known Issues
+
+    Audio: AudioSource attached to VideoPlayer produces choppy sound when playing certain mp4 files with VideoPlayer created from script (895458)
+    Editor: "The system cannot find file specified" error while opening the project for the first time. Deleting Library folder resolves the issue. (895343)
+    Editor: Editor crashes on attempt to open some 5.5 compatible audio projects. (880653)
+    Editor: Text in Editor becomes red after dismissing EditorUtility.DisplayDialog() popups. (886650)
+    Editor: Unity crashes when playing a scene with maximized game view (894572)
+    Graphics: Debug GFX overlay is drawn on top of objects. (851379)
+    VR: Rendering problems on Pixel Daydream when using 4x or 8x MSAA with single-pass stereo. This is due to driver issues, so the problem will be addressed via a driver update, independently of Unity releases. (-)
+
+Changes
+
+    Editor: RenderDoc enabled for DX12 Editor mode.
+    VR: Added OpenVR to the default PC VR SDK list. The default behavior is to try initializing Oculus first, followed by OpenVR if an Oculus device isn't detected.
+
+Improvements
+
+    Editor: Added profiler labels to all player loop stages
+    Editor: DX12 Editor is more responsive and little bit faster.
+    Editor: Improvements to Package Export loading state
+    Shadows: Improved shadow culling for stable fit directional shadows.
+    Shadows: Improved shadow filtering for directional and spot lights
+    UI: Added support for selecting multiple files in the "Assets/Import New Asset..." dialog, on all platforms
+
+Fixes
+
+    AI: Fix issue where the NavMeshAgent would sometimes jitter when moving over a navmesh that has been carved by obstacles (886529)
+    Build Pipeline: Fix crash when building a scenes containing any long chains of connected objects (865522)
+    Build Pipeline: Fix issue where the the icon of an OSX standalone player can be corrupted under certain circumstances (815319)
+    Build Pipeline: Fixed asset bundle statistics that are printed to the editor log when building bundles (890644)
+    Editor: Added graceful handling if the Unity shader compiler socket times out whilst compiling shaders. The Unity shader compiler process is terminated and a new Unity shader compiler process is spawned. (900500)
+    Editor: Fix focused Game View not always receiving input (macOS) (895460)
+    Editor: Fix issue with "Type Mismatch" error not always showing in inspector when changing an object type from a game object to a component (837920)
+    Editor: Fix recursive rendering error with Package export window when Verified Save Assets is enabled (820395)
+    Editor: Fix repeated duplication of object being undone together if modifier key is not released (Windows) (877421)
+    Editor: Fix vertex snapping having inconsistent accuracy at different zoom levels (738371)
+    Editor: Fix: 'Enum not handled' error message when selecting game objects while some of them are expanded (875406)
+    Editor: Fix: Hierarchy will properly animate foldouts when using custom hierarchy drawers (885708)
+    Editor: Fix: project browser view is in sync when duplicating folders (875831)
+    Editor: Fix: Rect transform updates properly when manipulating it's parent rect transform (856034)
+    Editor: Fix: Selecting different types of elements not being displayed in inspector and throwing errors (899307)
+    Editor: Fix: the player settings' package name is properly updated when focusing another window (879071)
+    Editor: Fixed NullReferenceException when cancelling file browser after a popup prompt (874140)
+    Editor: Fixed NullReferenceException when deleting the last remaining quality setting (also being back ported to 5.6) (903620)
+    Editor: Fixed SerializedObject.maxArraySizeForMultiEditing not being respected when using default property drawer (also being back ported to 5.6) (817640)
+    Editor: Optimize log entry insertion (862257)
+    Editor: Reset global handle direction when changing tool using toolbar buttons (864054)
+    Editor: Show single info message instead of multiple errors messages when there's an issue loading a layout (825848)
+    Editor: Version Control System: More detailed reasons why Perforce connection failed ie incorrect server, username, password, workspace.
+    Editor: Version Control System: Set default version control log level to be "Notice" instead of "Info" to reduce log spam. (873454)
+    Editor: Version Control Sytstem: Added provider name and failure reason to error messages about failed connections to make it clearer what has failed. (873396)
+    GI: Fixed light being considered in shadow range even though it's fully culled away. (888704)
+    GI: Support quads in progressive lightmapper (890651)
+    Graphics: Clarify when shadow cascade parameters are set in regard to command buffer (818448)
+    Graphics: ComputeScreenSpaceShadowMap after first initialization of s_CollectMaterial never returns NULL, which may create inconsistent behavior after startup. Now returns NULL if screenspace shadows are disabled. (767050)
+    Graphics: Removing support for screenspace shadow shader when it should be used based on tier settings will deactive directional shadow for consistency (867797)
+    OSX: (893036)
+    Video: Android: Fix garbage collector abuse and freeze when changing current clip during playback. (894208)
+    Video: Fix .mov video referenced from URL on Windows (900325)
+    Video: Fix video end detection (890946)
+    Video: Fix video end detection (894319)
+    VR: Camera target eye masks now work under single pass stereo rendering. (817492)
+    VR: Fix: Android antialiasing quality settings not being able to change at runtime. (896253)
