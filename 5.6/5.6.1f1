@@ -1,0 +1,191 @@
+Unity 5.6.1f1
+Released 11 May, 2017
+
+Release notes
+Improvements
+
+    Android: Fixed capture of EGL calls when using Mali Graphics Debugger.
+    Graphics: Added a function to allow cube map textures to be compressed from script similar to their Texture2D counterparts.
+    Graphics: Improved CopyTexture/ConvertTexture handling in Metal.
+    MacOS: Added Appstore category field to player settings and improved info.plist generation.
+    MacOS: Support Visual Studio for Mac as an External Script Editor. Opens .sln (solution) file when double clicking a script.
+    Networking: Added new statistical functions allowing measure bandwidth per connection per host or per lib.
+    Physics 2D: Added Editor Tooltip for EdgeRadius property on BoxCollider2D, EdgeCollider2D and CompositeCollider2D.
+    Physics 2D: Allow user to turn on/off collision/trigger exit callbacks when a Collider2D is disabled.
+    Physics 2D: Improved API documentation for ContactFilter2D.
+    Physics 2D: Improvements to ContactFilter2D including being able to specify collision normal range crossing zero and expose ability to filter using the managed ContactFilter2D rather than just use it to pass to native queries.
+    Unity Ads: Updated native binaries to 2.1.0.
+    Video: Improved error reporting for incompatible webm files.
+    Video: Updated API docs to reflect that a few hooks were unimplemented for now.
+
+Changes
+
+    2D: Sprite Batching is enabled by default.
+    VR: GPU skinning can be enabled for Android VR. This is experimental, and behavior and performance should be verified on target devices.
+
+Fixes
+
+    2D: Added POT options in TextureImporter for Sprite. (884926)
+    2D: Fixed a misleading warning when using Sprite in 'Polygon Mode' for tiling in SpriteRenderer. (889106)
+    2D: Fixed an error message "Dynamic batching: index buffer destination/source is NULL" when dragging a blank sub-sprite to scene. (890858)
+    2D: Fixed an occasional crash when SpriteRenderer.size was set multiple times in a single frame. (898946)
+    2D: Fixed Sprite data not copy when using EditorUtility.CopySerialized. (884970)
+    2D: Fixed the issue of SpriteRenderer not rendering Sprite in tiling mode when tile size was too big. (891644)
+    AI: Expose missing API for agent type ID for NavMeshAgent component. (877784)
+    Analytics: RemoteSettings adding debug_device flag in http header.
+    Android: AndroidJava - return null instead of throwing exceptions on functions which return object, class or array. (839005)
+    Android: Buildpipe - Fixed an error message on wrong NDK version. (884540)
+    Android: Buildpipe - Fixed the user resources library build issues with Gradle.
+    Android: Disabled MSAA for backbuffer on older ARM Mali Vulkan drivers.
+    Android: Disabled Debug markers on PowerVR Series 5 devices. (780958)
+    Android: Fixed a rare crash when seeking in an audio file (reported on MotoZ phones). (871615)
+    Android: Fixed an issue where ApplicationId was missing from AndroidManifest.xml in Gradle builds (888274)
+    Android: Fixed an issue whereby ctrl+b shortcut pushing app package even if it failed to build. (894074)
+    Android: Fixed android application building with the latest android sdk. (888859)
+    Android: Fixed an incorrect error message in the Editor when selecting a non-default version of the NDK. (895550)
+    Android: Fixed manifest merging with new android sdk tools.
+    Android: Fixed Vulkan shadow texture linear filtering.
+    Android: Fixed WebCamTexture crash with denied permissions. (877837)
+    Android: SoftInput - Fixed input field hidden under keyboard when translucent flag was set.
+    Android: Webcam - Fixed the wrong orientation returned on first frames. (875247)
+    Animation: Animator.Rebind should reset AnimatorController. (899553)
+    Animation: Changing Animator.Speed during an animation transition will now correctly affect the cross-fade speed. (898503)
+    Animation: Fixed a crash when using an Avatar built in 5.5 or earlier. (896033)
+    Animation: Fixed a performance issue with GetLayerWeight.
+    Animation: Fixed a performance regression when destroying many GameObject with Animator. (889109)
+    Animation: Fixed an issue whereby animation clip range was not updating after undoing 'Add Key' operation. (892337)
+    Animation: Fixed a crash in prepare frame due to deactivating Animator in script. (896659)
+    Animation: Fixed disabled Animator affecting scene objects. (901268)
+    Animation: Fixed IK on Feet not working properly when interrupting transitions. (892043)
+    Animation: Fixed OnAnimatorIK not being fired in editor mode. (894061)
+    Animation: Fixed StateMachineBehaviour callback on interrupted transition. (900875)
+    Animation: Fixed the issue of disabling GameObject not resetting StateMachine. (894062)
+    API Updater: Fixed a crash in ScriptUpdater.exe when user scripts contains methods taking pointers as parameters. (899198)
+    Asset Bundles: Fixed a performance regression when building many small asset bundles. (878712)
+    Asset Pipeline: Fixed an issue when importing assets with name changes that could cause a timestamp mismatch in the database. (896185)
+    Audio: Fixed an issue in AudioSource::IsPlaying for streaming audio clips, where false would sometimes be returned incorrectly. (840294)
+    Buildpipeline: Fixed an issue with reported texture size being smaller than actual size. (885258)
+    Cluster Rendering: Fixed the issue of VRPN stopped working in Editor.
+    DX12: Fixed double present causing screen blinking. (885895)
+    Editor: Attempt to identify and use the cancel option for dialogs that are launched on worker threads, as they can otherwise soft-lock or force-quit the editor. (896793)
+    Editor: Fixed 'Build and Run' attempts to push a build to device even if error (during the build) was encountered. (894074)
+    Editor: Fixed "Sprite Mode" so it defaults to "Single" instead of "None" when switching Texture Type to "Sprite (2D and UI)". (890468)
+    Editor: Fixed a bug which broke holding alt to pin center of PrimitiveBoundsHandle (affects edit modes for BoxCollider, CapsuleCollider, BoxCollider2D, CapsuleCollider2D, etc.).
+    Editor: Fixed an issue where nunit exposed system classes, that could clash with other libraries implementations. (897850)
+    Editor: Fixed GUI related Asserts when connected to an active VCS provider. (895453)
+    Editor: Fixed screen offsets updates for tooltips. (884238)
+    Editor: Switching Cache Server mode from local to a different mode no longer throws exceptions. (883808)
+    Editor/macOS: Fixed an issue where exception was being thrown when Visual Studio for Mac was selected as an external script editor.
+    GI: Fixed lightmap texture inspector preview being too bright when using linear color space. (885492)
+    Google VR: Fixed the issue of indefinitely flashing screen after changing VRSettings.renderScale. (896321)
+    Graphics: Behavior of the VFACE semantic on DX12 is now consistent with the editor. (895474)
+    Graphics: Disallow material to be used with CommandBuffer.DrawMeshInstanced if enableInstancing is false. (898851)
+    Graphics: Fixed a crash when manually deleting occlusion data. (877367)
+    Graphics: Fixed a periodic crash in shadow culling job code (GenerateCombinedDynamicVisibleListJob). (882704)
+    Graphics: Fixed a regression where a Deferred Camera was throwing a "Dimensions of color surface does not match dimensions of depth surface" error message when a RenderTexture was used. (899285)
+    Graphics: Fixed a regression where image effects weren't working as expected in the Scene View. (900527)
+    Graphics: Fixed a regression where the objects shaders become unlit when a RenderTexture with Anti-aliasing is active and the Camera RenderingPath is set to Deferred. (899365)
+    Graphics: Fixed an editor crash on old OpenGL drivers. (888339)
+    Graphics: Fixed an issue on PS Vita causing the default sky to be black. (833583)
+    Graphics: Fixed Android Adreno chipset frame buffer invalidation appearing as if rendering had frozen. (894999)
+    Graphics: Fixed generating invalid raycasts causing "Invalid AABB b0" error appears in console. (884547)
+    Graphics: Fixed SceneView GUI elements being very bright when HDR and Linear mode are enabled. (878724)
+    Graphics: Fixed the Dynamic Batching rendering code in order to be able to handle valid meshes that have no submeshes. (903086)
+    Graphics: Fixed the issue of render texture not being cleared on stop for windows. (884057)
+    Graphics: Fixed Vulkan fullscreen scaling on Windows. (863272)
+    Graphics: Improved the mechanism for handling imposters. This fixed the error message, 'Internal: Possible leak. All textures should be removed from IdMap when destructed using RemoveTexture(TextureID texid).' which was being triggered when switching a graphics API in a project that contained terrain. (890527)
+    Graphics: Mark main splash screen as finished when VR splashscreen was used. (876718)
+    Graphics: Render texture will no longer be vertically flipped in forward rendering when assigning a null texture. (899331)
+    IL2CPP: Allow more deeply nested generic recursion for method metadata. Throw a managed exception when the recursion is too deep. (889446)
+    IL2CPP: Fixed a compiler error when using generic delegates with variance. (881013)
+    IL2CPP: Fixed marshaling of System.Uri to Windows.Foundation.Uri and back in Windows Runtime interop scenarios. (887036).
+    IL2CPP: Fixed memory snapshot profiler not showing multidimensional arrays. (888796)
+    IL2CPP: Implemented RegionInfo.CurrentRegion. (891471)
+    IL2CPP: Modified the implementation of the IL Switch opcode to workaround a possible C++ compiler bug in Xcode 8.3. (898861)
+    IL2CPP: Protect against the usage of attributes that don't exist in .NET 3.5. (867606)
+    Installer: Fixed an issue issue with Visual Studio 2017 installer sometimes restarting Windows without warning.
+    iOS: Added an option to select whether extra frame was rendered on pause. (807273)
+    iOS: Fixed a crash that could occur in callbacks for Social.localUser.Authenticate when the error parameter was read. (868697)
+    iOS: Fixed a crash when font's material was assigned to game object. (869947)
+    iOS: Fixed an issue whereby local notifications were not cleared on iOS10. (885096)
+    iOS: Fixed framework search paths in Xcode project being incorrectly quoted if they contained spaces. (866673)
+    iOS: Fixed inclusion of ReplayKit framework in plugins. (882013)
+    iOS: Fixed some icons not getting copied into Xcode project when Target Device was set to iPhone Only. (888370)
+    Kernel : Fixed an issue in JSON parsing that could cause a deserialized box collider to change size. (898787)
+    Kernel: Obsoleted undocumented FindChild method. (364754)
+    Lines: Initialized new line vertices to zero, to prevent bad uninitialized data existing in the positions array. (900357)
+    Lines: Reintroduce missing texture mapping mode, to restore pre-5.5 functionality. (903466)
+    macOS: Fixed standalone app compatibility issues when uploading to the Appstore with Application Loader 3.6.
+    Metal: Fixed unnecessary half to float casts in generated shaders. (898788)
+    Mono: Corrected the handling of C# compiler errors in a column that are more than 255 characters wide. (902758)
+    Mono: Prevent DeflateStream from throwing an exception when an empty stream is flushed. (889296)
+    MonoDevelop: Allow breakpoints to properly load in MonoDevelop in some situations where they did not load before. (889998)
+    Particles: Fixed a case where ping-pong emission could occasionally spawn particles at the wrong end of the line shape. (876597)
+    Particles: Fixed an incorrect error message about sub-emitter parenting. (899574)
+    Particles: Fixed trail interpolation in Edit Mode, when using slow-motion previewing.
+    Particles: Reduced Particle System memory usage, to improve the large increase seen since Unity 5.2. (888236)
+    Particles: Reinstated ability to animate EmissionModule.enabled, plus add bindings for the enabled flag of every module.
+    Particles: Reinstated random emission modes.
+    Particles: Revert particle simulation space to world space, when custom transform is missing. (874999)
+    Physic 2D: Fixed physics animation transform change not correctly rotating a Rigidbody2D. (896867)
+    Physics 2D: Fixed a crash and infinite loop when triangulating Polygon2D. (880353, 891305, 905608)
+    Physics 2D: Fixed a crash during reparenting of a Rigidbody2D. (901465)
+    Physics 2D: Do not draw Collider AABB gizmo if attached to a Rigidbody2D with 'simulated' property set to false.
+    Physics 2D: Fix for Rigidbody2D interpolation loosing precision with time. (843507)
+    Physics 2D: Fix for where infinite 2D raycast misses EdgeCollider2D edge. (895732)
+    Physics 2D: Fixed an issue with minimum threshold size for BoxCollider2D.
+    Physics 2D: Fixed backward compatibility for Physics2D.queriesHitTriggers, Physics2D.queriesStartInColliders, Physics2D.defaultContactOffset & PolygonCollider2D.points. (896824)
+    Physics 2D: Removed duplicate profiler entry of "Physics2D.Simulate".
+    Profiler: Changed the colour of the 'Others' field in order to clearly differentiate it from the one used by 'Scripts'. (898513)
+    Purchasing: Fixed an issue with Unity IAP emitting DuplicateTransaction failure for all non-consumable purchases when initialized. (889321)
+    Scripting: Fixed a parameter corruption and potential crashes for some delayed callbacks. (868697)
+    Scripting: Fixed an issue with scripts always being compiled on project open.
+    Shaders: Fixed a subtle metal shader generation bug in bit field insert operations.
+    Shaders: Fixed an incorrect translation from HLSL assembly for AND and OR operands. Also fixed a crash when compiling shaders for GLCore. (883080)
+    Shaders: Removed fastmath compiler option from Metal compute shaders, as it could create different results compared to other platforms.
+    SkinnedMeshRenderer: Fixed bugs related to updating. (904904, 904905, 904906, 904907)
+    SpeedTree: Fixed GPU instancing break when the trees came back into view. (883720)
+    Terrain: Fixed an assert that got triggered by deleting a folder that contained a Terrain object. (895548)
+    Tizen: Changed symbols in mono to HIDDEN.
+    UGUI: Fixed a memory leak in UGUI.
+    UI: Fixed NaN issues with ScrollRect when using clamped mode. (893559)
+    UI: Fixed nested canvas returning a null world camera after its root canvas had been disabled and then re-enabled. (892913)
+    Unity Ads: Prevent Unity Ads internal MonoBehaviours from showing in the inspector now. (858540)
+    Unity test runner: Fixed EditorPref to be Project setting. (895742)
+    UnityWebRequest: Allow overriding user-agent. (806211)
+    UnityWebRequest: Fixed an issue with getting texture from download handler after scene change. (884291)
+    UnityWebRequest: Fixed formatting multiform post request with section list. (899017)
+    UnityWebRequest: Fixed getting stuck when using custom download handler script in Editor in edit mode. (893302)
+    UnityWebRequest: Fixed nonReadable parameter in UnityWebRequestTexture.GetTexture() working the opposite way. (876648)
+    Video: Fixed issues related to video preparation. (893939, 897708, 899233, 893910)
+    Video: Better error handling and reporting when attempting an OSX H.264 transcoding exceeding profile level limits. (891028)
+    Video: Fixed an incorrect crop happening on Android Samsung devices Samsung with OS 4.3, resulting in a few uninitialized lines showing at the bottom of the video. (903657)
+    Video: Fixed clip selection dialog video preview for non-transcoded material. (887882)
+    Video: Prevent a crash when playing vp8 movies on Android OS 4.1 / 4.2 on Samsung and Meizu devices. (893945)
+    Video: Prevent crash on negative resolution custom resize transcode. (893837)
+    VR: Accessing PlayerSettings.VRDaydream.* scripting API no longer results in MissingMethodException. (898357)
+    VR: Added Fade out to VR Splash Screen for Daydream.
+    VR: Fixed a bug where particles shaders displayed compile errors if stereo instancing was enabled. (872164)
+    VR: Fixed a bug where the occlusion mesh was visible from the game window. (902791)
+    VR: Fixed a crash when there were no renderable cameras. (901617)
+    VR: Fixed a potential crash when entering play mode. (896314)
+    VR: Fixed an editor crash when performing a bloom gesture while using HoloLens remoting. (897406)
+    VR: Fixed Render Viewport Scale for Forward rendering. Deferred still has issues that should be addressed in a later patch.
+    VR: Fixed some shader related issues when using single-pass stereo rendering on Android devices.
+    VR: Standalone VR build crashes with Graphics Jobs and Soft Particles. (889591)
+    VR: Update GearVR to version 1.13.1 to fix black screen when multiview, monoscopic, or double-wide eye buffers are used.
+    Windows Store: Fixed a build error "Failed to resolve assembly: 'Windows.Foundation.UniversalApiContract, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null'"." when using default parameters of Windows Runtime types in method signatures and "C# projects" build option on .NET scripting backend. (884058)
+    Windows Store: Fixed a build error on .NET scripting backend when a method with name OnMouseDown was defined in a non-monobehaviour class. (869168)
+    Windows Store: Fixed a crash that could occur with D3D build type when the window was minimized or closed. (885964)
+    Windows Store: Fixed a crash when using "SceneManager.UnloadSceneAsync" on .NET scripting backend with .NET native enabled. (869407)
+    Windows Store: Fixed a rare build error "Failed to resolve assembly: 'System.Reflection.TypeExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'" on .NET scripting backend when using "C# projects" option. (885997)
+    Windows Store: Fixed a rare build error "Version not supported: 255.255.255.255" when using certain .winmd plugins and "C# projects" option on .NET scripting backend. (886049)
+    Windows Store: Fixed a System.TypeInitializationException on startup with .NET scripting backend when a nested class derives from a non-nested class and overrides one of its methods. (872058)
+    Windows Store: Fixed an issue whereby not being able to switch to Windows Store platform when Windows 10 SDK was not installed. (890043)
+    Windows Store: Fixed non-alloc physics overlap functions causing a crash on .NET Scripting Backend. (888660)
+    Windows Store: Fixed Screen.SetResolution not accounting for DPI settings. (875849)
+    Windows: Fixed a case of Screen.DPI returning the DPI of the primary monitor when the window was on a secondary monitor. (870209)
+    Windows: Fixed window automatically resizing to fill the screen when in windowed mode and the monitor's display mode got changed through windows display settings. (891481)
+    WWW: Fixed an issue whereby new WWW object without internet connection did not set Error field. (776552)
+
+Revision: 2860b30f0b54
