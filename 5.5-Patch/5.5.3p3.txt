@@ -1,0 +1,41 @@
+Patch 5.5.3p3
+Released: 10 May 2017
+
+Improvements
+
+    Asset Bundles: Reduced SerializedFile memory usage when reading streams inside AssetBundles.
+    Build Pipeline: Exceptions thrown during the build process (e.g. by user callbacks) will now be treated the same as logged errors, from a reporting and StrictMode point of view.
+    Graphics: Added function to allow cube map textures to be compressed from script like their Texture2D counterparts
+
+Fixes
+
+    (839005) - Android: AndroidJava - return null instead of throwing exceptions on functions which return object, class or array.
+    (888859) - Android: Fixed android application building with the latest android sdk.
+    (894074) - Android: Fixed ctrl+b shortcut pushing app package even if it failed to build.
+    (852582) - Android: Fixed use of presentation display.
+    (867508) - Android: Fixed a rare crash on application exit due to UnityWebStreams not getting cleaned up properly.
+    (877837) - Android: Fixed WebCamTexture crash with denied permissions.
+    (none) - Android: SoftInput - Fixed input field hidden under keyboard when translucent flag is set.
+    (875247) - Android: Webcam - Fixed the wrong orientation returned on first frames.
+    (896659) - Animation: Fixed crash in prepare frame due to deactivating Animator in script
+    (886335) - Animation: Fixed a crash when activating/deactivating GameObject in AnimationWindow.
+    (896185) - Asset Pipeline: Fixed an issue when importing assets with name changes that could cause a timestamp mismatch in the database.
+    (902580) - Editor: Fixed an issue that prevented the creation of GameObjects with a RectTransform component.
+    (873206) - GI: Fixed a crash when creating reflection probes from OnWillRenderObject.
+    (882704) - Graphics: Fixed a periodic crash in shadow culling job code (GenerateCombinedDynamicVisibleListJob).
+    (884057) - Graphics: Fixed render texture not being cleared on stop for windows.
+    (771031) - Graphics: Fixed a crash if Texture.GetPixels/SetPixels is used with invalid input parameters.
+    (894071) - IL2CPP: Corrected an error in UnusedBytecodeStripper2 which could occur in some projects: "Member 'System.Type' was declared in another module and needed to be imported.
+    (898861) - IL2CPP: Modify the implementation of the IL Switch opcode to workaround a possible C++ compiler bug in Xcode 8.3.
+    (866673) - iOS: Fixed framework search paths in Xcode project being incorrectly quoted if they contained spaces.
+    (882013) - iOS: Fixed inclusion of ReplayKit framework in plugins.
+    (898787) - Kernel: Fixed an issue in JSON parsing that could cause a deserialized box collider to change size.
+    (903466) - Lines: Reintroduced missing texture mapping mode, to restore pre-5.5 functionality.
+    (898788) - Metal: Fixed unnecessary half to float casts in generated shaders.
+    (902758) - Mono: Corrected the handling of C# compiler errors in a column that were more than 255 characters wide.
+    (882685) - Particles: Fixed an issue where sub-emitters with a constant seed would not be identical on each subsequent play.
+    (880353, 891305, 905608) - Physics 2D: Fixed a crash and infinite loop when triangulating Polygon2D.
+    (825679) - UnityWebRequest: Fixed a delay when DNS could not resolve a given URL.
+    (893302) - UnityWebRequest: Fixed a hang when using custom download handler script in editor in edit mode.
+
+Revision: 3ff9bc5a03ff
