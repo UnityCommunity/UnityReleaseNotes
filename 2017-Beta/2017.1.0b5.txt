@@ -1,0 +1,43 @@
+Unity 2017.1.0b5
+Released: May 11, 2017
+
+2017.1.0b5 Release Notes (Diff from b4)
+Known Issues
+
+    Audio: AudioSource attached to VideoPlayer produces choppy sound when playing certain mp4 files with VideoPlayer created from script (895458)
+    Editor: "The system cannot find file specified" error while opening the project for the first time. Deleting Library folder resolves the issue. (895343)
+    Editor: Editor crashes on attempt to open some 5.5 compatible audio projects. (880653)
+    Editor: Text in Editor becomes red after dismissing EditorUtility.DisplayDialog() popups. (886650)
+    Editor: Unity crashes when playing a scene with maximized game view (894572)
+    Graphics: Debug GFX overlay is drawn on top of objects. (851379)
+    VR: Rendering problems on Pixel Daydream when using 4x or 8x MSAA with single-pass stereo. This is due to driver issues, so the problem will be addressed via a driver update, independently of Unity releases. (-)
+
+Features
+
+    Editor: Defines in mcs.rsp are added to .csproj files generated for MonoDevelop, Xamarin Studio, Visual Studio Code & JetBrains Rider
+    Editor: Scripts willl be opened correctly in JetBrains Rider when selecting it as external script editor.
+    Scripting: Add serialization support for unsafe fixed size buffers. See SerializedProperty.GetFixedBufferElementAtIndex docs for example code.
+
+Fixes
+
+    Animation: Animator.Rebind should reset AnimatorController ( for backward compatibility's sake. (899553)
+    Animation: Fixed "Key Modified" hotkey in the animation window that did not add keys for Euler Angles (Quaternion) and Quaternion interpolations (898957)
+    Animation: Fixed a bug where AnimationClipPlayables connected after the first frame never played
+    Animation: Fixed animation event remaining selected when clicking on dopesheet. (899032)
+    Animation: Fixed Animator being frozen when modifying Controller when in PlayMode with disabled Animator (894617)
+    Animation: Fixed crash in AnimatorLayerMixerPlayable when initializing a mixer with non-connected input
+    Animation: Fixed crash when deoptimizing optimized game object hierarchy containing nested skinned mesh renderer hierarchies (895840)
+    Animation: Fixed crash when moving StateMachine into SubStateMachine (875068)
+    Animation: Fixed disabled Animator affecting scene objects (901268)
+    Animation: Fixed error message when undoing key edit of standalone animation clip asset in animation window (898963)
+    Animation: Fixed game object selection loss issues in the animation window
+    Animation: Fixed Interrupted transition and Write defaults. (903556)
+    Animation: Fixed missing keyboard focus on animation window property fields. (879985)
+    Animation: Fixed performance issue with GetLayerWeight.
+    Animation: Fixed selection box display issue in the animation event timeline of the animation window (899010)
+    Animation: Fixed Transition previewer playhead's getting desynced (871160)
+    Editor: Fixed bug in progress bar code, which caused Build&Run to crash during sprite packing (907145)
+    Editor: Fixed Copying color from component throws NullReferenceException (904723)
+    Video: Android: Crash on Samsung devices with 4.1 OS when stopping playback. (900881)
+    Video: Android: H.264 videos above 480p crash on devices with 4.1 OS with Adreno 203 graphics. (893863)
+    Video: Android: VP8 videos not playing on Samsung devices with 4.2 / 4.4 OS (895687)
