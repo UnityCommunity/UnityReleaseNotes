@@ -1,0 +1,67 @@
+Unity 5.3.8f1
+Released 13 Mar, 2017
+
+
+Release notes
+Improvements
+
+    macOS/iOS/tvOS: Allow developers to use Xcode's manual signing paradigm by specifying a provisioning profile in Player Settings.
+    VR: Updated Oculus to version 1.11.
+
+Fixes
+
+    Android: Fixed a crash when doing simultaneous SceneManager.LoadSceneAsync and Resources.Load. (782183)
+    Android: Fixed an incorrect behaviour with Application.persistentDataPath. (854214)
+    Android: Fixed an issue whereby the projects without audio stopping the external audio sources. (807983)
+    Android: Fixed case of audio stutter when launching Android player from a notification on the lockscreen. (818174)
+    Android: Play audio from background applications at the original volume when it is not muted.
+    Asset Bundles: Fixed asset bundle load progress reported by AssetBundleLoadFromAsyncOperation. (880965)
+    Asset Bundles: Fixed the assetBundle property of AssetBundleCreateRequest so that it stalls instead of returning null when the bundle is not yet ready. (824009)
+    Asset Pipeline: Fixed an issue where asset and timestamp maps could get out of sync. (668043, 837519)
+    Audio: Fixed an issue which prevented streaming audio loading on 32-bit Apple devices which were upgraded to iOS 10. (832578)
+    Build Pipeline: VR Splash Screen texture will no longer be included when building a project for a non-VR platform. (853979)
+    Build player: Reverted the change, which saved relative paths for build target but introduced issues for targets that needed to browse for folders instead of files (webGL, etc). (829898)
+    Cache Server: Batch builds do not fail if the Cache Server is unreachable. (840009)
+    Cache Server: Fix for Cache Server Preferences where it would sometimes use the wrong server address when connecting. (775982)
+    Cache Server: Paths passed to the cache server may now include spaces in OSX (enclose these paths with double-quotes). (780150)
+    Cache Server: Properly implemented 'Last Resource Used' caching of files. (782662)
+    Core: Fixed an issue which was causing hangs in the job system when running on certain platforms with a low number of cores e.g. older Windows Phones, UWP dual core machines. (791434)
+    Editor: Fixed the logType passed to LogCallback in the event of an unhandled exception. (814160)
+    Editor: Tweaked the output of the generated Visual Studio solution file to better match Visual Studio standard format to fix problems opening Unity generated projects with Rider GUI. (833866)
+    Graphics: D3D9- Internal resolves no longer result in a drawn pixel such as a single white pixel when using deferred mode. (728324)
+    Graphics: Fixed a crash that occurred when loading models from AssetBundles with Tangents set to Calculate Legacy. (865666)
+    Graphics: Fixed a crash when deleting a Shader that is used by some Materials in the scene. (851359)
+    Graphics: Fixed a crash when switching scenes whilst reflection probes are updating. (832595)
+    Graphics: Fixed memory leak when instantiating materials (e.g. via renderer.material). (851689)
+    Graphics: Fixed potential lock when in fullscreen exclusive mode and minimising/maximising screen. (837783)
+    Graphics: Fixed selection of objects in Scene View if the scene contains reflective water. (769758)
+    Graphics: Fixed the issue of Lighting preview windows not rendering correctly on Mac's with retina displays. (836815)
+    IL2CPP: A call to GetCurrentMethod in a generic method should return the generic method definition, not the inflated generic instance method. (840596)
+    IL2CPP: Fixed a crash that could occur in the player when a virtual method was called on a value type and that value type implemented an interface which had an overload of that virtual method. (849701)
+    IL2CPP: Fixed stacktraces on iOS when Link Time Optimization (LTO) was enabled in the build. (845666)
+    IL2CPP: Implemented the array SetValue method for arrays of nullable types. (849072)
+    IL2CPP: Prevented a compiler error in generated C++ code when calling Interlocked.CompareExchange from some managed code. (847838)
+    IL2CPP: Prevented a stack overflow exception in the player at run time when an infinitely nested generic method is used. (845174)
+    IL2CPP: Return an empty array from GetGenericArguments when it is called on a MethodInfo object from a non-generic method. Previously the runtime incorrectly threw an assert in this case. (838259)
+    iOS: Added Taiwanese language support. (853532)
+    iOS: Fixed an issue where the keyboard could lose focus when rotating the device. (814493)
+    iOS: Fixed background applications sound muting after running unity application. (828762)
+    iOS: Fixed several crashes with regards to WWW and WebRequest. (852363, 814365, 823587)
+    iOS: Fixes language support to differentiate between traditional and simplified Chinese. (677623)
+    Mac Editor: Fixed a crash when using Build and Run for iOS projects. (836165)
+    Mac Editor: Fixed editor hanging if app was already running in Xcode 7.x when using Build and Run. (843181)
+    Mono: Prevent GetHostEntry from throwing a SocketException on Windows when the machine is not connected to any network. (840534)
+    Networking: Skip proxy check when using the "file://" protocol.
+    Prefabs: Fixed an issue where a prefab instance could be incorrectly marked inactive when first loading a scene. (801761)
+    Scripting: Fixed MonoDevelop build errors when building UnityScript and Boo projects. (850350)
+    Shadows: Fixed a memory leak and assert when shadows are cast from lights with specific properties and in a specific scene setup. (764734)
+    UI: Fixed Sprite Packer not packing sprites with ETC1 when compressing sprites for android. (845448)
+    UI: Fixed threading problem when computing bounds which could lead to an infinite loop in the UI system. (846096)
+    UI: Fixed Transparency not being applied to UI Elements if ETC1 compression is used combined with having specified a Packing Tag. (721071)
+    WebGL: Fixed crash when user writes a file using custom ArrayBuffer. (847853)
+    WebPlayer: Fixed compression settings for WebPlayer when building from command line. (813101)
+    Windows Store Apps: Fixed Unity C# projects when there was dependency among them. (855881)
+    Windows Store: Fixed a crash in multi scene system caused by internal managers being garbage collected. (821570)
+    Windows Store: Fixed a rare hang when alt tabbing during level load. (856362)
+
+Revision : 9886e74732cf
