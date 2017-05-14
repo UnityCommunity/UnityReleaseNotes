@@ -1,0 +1,91 @@
+Unity 5.4.5
+Released 10 Mar, 2017
+
+
+Release notes
+Improvements
+
+    Asset Bundles: Introduced the ability to use ShaderVariantCollection to ensure Shader variants are built when packing the Shader with ShaderVariantCollection seperate from the Material using the Shader.
+    Asset Importing: Significant performance improvements to DXT1, DXT5, BC4 and BC5 texture compressor, resulting in faster asset imports.
+    Audio: Add support for streaming oggvorbis on Android and iOS.
+    Audio: Add support for streaming oggvorbis on tvOS.
+    Documentation: Android - Added warning to raw JNI interface description.
+    VR: Updated Oculus to version 1.12. Fixes a GearVR timeout issue.
+
+Fixes
+
+    Analytics: Fix adds Internet permission on Android when Analytics service is used. (861178)
+    Analytics: Fixed an issue where transaction events could send the wrong value for "amount" on the WebGL platform.
+    Android: Enabled TLSv1.1 and TLSv1.2 on JellyBean and KitKat devices. (776003)
+    Android: Enhanced big.LITTLE core detection-specifically fixed core detection on Parker.
+    Android: Fixed a crash when doing simultaneous SceneManager.LoadSceneAsync and Resources.Load. (782183)
+    Android: Fixed an issue where ApplicationModeVR would threw an error in the log file.
+    Android: Fixed incorrect behaviour with Application.persistentDataPath. (854214)
+    Android: Fixed startup crash on Adreno when protected graphics memory was used. (832025)
+    Android: Fixed UI flickering issue that was affecting specific Vivante devices. (712890)
+    Android: Identified unaccounted spikes in profiler. (836697)
+    Android: OBB - Fixed loading performance regression and split APK not running without OBB. (842286)
+    Android: Play audio from background applications at the original volume when it is not muted.
+    Android: Post process is now executed before app is pushed to device. (803872)
+    Android: Updated JNIBridge to fix Bundle class regression in API 21. (856259)
+    Android/IL2CPP: Prevent a crash which could occur with the use of OnAudioFilterRead callbacks on krait CPUs. (852307)
+    Animation: Fix for a crash using Resources.UnloadUnusedAssets with Animators caused by orphaned references. (855546)
+    Animation: Re-enabled StateMachine multithreaded evaluation.
+    Cache Server: Can now handle paths with spaces on Mac when calling RunOSX.command with the -path argument. Paths with spaces must be quoted. (874678)
+    Cache Server: Fix for 'last resource used' behaviour; a file that it requested from the cache server will have its LRU state refreshed and its lifetime extended. (853251)
+    Cache Server: When building, an unreachable cache server was reported as a warning not an error and did not cause the build to fail. (840009)
+    Deployment Management: Corrected a behaviour on Windows where using -logfile on batch mode with an emptry string would cause the output to go to stdout, consistent with all other platforms. (857203)
+    DX11: Fixed D3D11 Device creation failures on Windows Vista and Windows 7 systems without DX11.1 runtime. (877407, 867093, 877210)
+    Editor: Fixed a crash for D3D platforms if shader compilation did not return any compiled shader data ie, a shader contained #error pre-processor directive. (824020)
+    Editor: Fixed a rare issue where building the player and saving the project after could cause the Editor to lock up. (857117)
+    Editor: Fixed an issue that personal user was able to skip a mandatory survey. (834243)
+    Editor: Fixed Assertion failed error in console: '(sharedData.instructionCount == 0) || sharedData.combinedBounds.IsValid()'. (878784)
+    Editor: Fixed Gizmos only being displayed for the first camera in the Game View. (780168)
+    Editor: PVRTexTool updated to 4.17 (SDK version 16.2@4273839).
+    Editor: Removed old editor assemblies when reimporting assets.
+    Global Illumination: Fixed a rare issue where spawning external processes (such as GI Baking) could fail or cause a deadlock. (799748)
+    Graphics: Don't render the screen space depth buffer if nothing required it. i.e screenspace shadows were disabled. (836737)
+    Graphics: Fixed a crash in some circumstances if object disables renderer when culling updates visibility. (849079)
+    Graphics: Fixed a crash that occurred when loading models from AssetBundles with Tangents set to Calculate Legacy. (861446)
+    Graphics: Fixed an issue where grab pass could cause lighting to break on translucent objects in a scene. (844799)
+    Graphics: Fixed console error generated when using WWW.movie to create a movie texture. -(825464)
+    Graphics: Fixed errors spamming the console when performing GPU profiling on a DX11 Standalone build. (767034)
+    Graphics: Fixed the GPU Profiler to work in the MacOS Editor using the GLcore graphics API. Can only profile a single game window whilst it is in play mode. (823371)
+    Graphics: Stopped rendering projectors twice if there was any transparent object visible to the camera. (732380)
+    IL2CPP: Fixed a compile error related to missing header when compiling code using SizeOf IL opcode. (874838)
+    IL2CPP: Fixed an issue with race condition of the monitor implementation of IL2CPP that could cause a crash. (870810)
+    iOS: Add missing iPod touch 6th gen enumeration. (834663)
+    iOS: Added Taiwanese language support. (853532)
+    iOS: Document settings are shared across iOS and tvOS. (786207)
+    iOS: Don't strip alpha channel out of launch screens. (847494)
+    iOS: Fixed UnityRepaint crash due to internal inconsistency error . (862754)
+    iOS: Fixed 2nd stage splash on iPhones with landscapeRight orientation. (810286)
+    iOS: Fixed a full screen video player crash on simulator. (814079)
+    IOS: Fixed an issue where the ReplayKit API might be reported as available on unsupported devices. (828288)
+    iOS: Removed extra offset in constraint in default launchscreens. (831195)
+    Kernel: JSON serialisation now supports correct parsing of NaN and +/- Inf. (829753)
+    Metal: Fixed a memory leak when loading scene. (850332)
+    Multiplayer: Fixed hostmigration sync issue. (807091)
+    Multiplayer: Made sure isLocalPlayer worked as expected on OnDestroy. (826931, 853316)
+    Networking: Skip proxy check when using the "file://" protocol.
+    Purchasing: Fixed a bug where a duplicate transaction could fail without calling the failure callback.
+    ReplayKit : Fixed a crash when creating objects from broadcasting start callback. (848718)
+    ReplayKit : Fixed ReplayKit.StartBroadcasting not pausing the app. (833159)
+    Scripting: Fix issue with StopCoroutine not stopping IEnumerator and CustomYieldInstruction based coroutines. (852360)
+    Scripting: Fixed a rare failure when building players. (852993)
+    Scripting: Fixed deadlock when debugging in MonoDevelop. (819887)
+    Shaders: Bugfixes in shader translation from HLSL to GLSL :
+        Fixed a crash on HLSLcc partial precision parsing.
+        Fixed bugs in swapc, SM5 variant of shift ops and GLSL extension handling.
+    Shadows: Fixed a memory leak and assert when shadows were cast from lights with specific properties and in a specific scene setup. (764734)
+    UI: Fixed miscoloured mesh when this was created with CanvasRenderer.SetMesh, passing an array of Color objects to Mesh.colors. (857087)
+    UnityWebRequest: Fixed a high CPU usage issue when a request was continuing execution after exiting playmode. (855646)
+    UnityWebRequest: Fixed the proxy support so that debugging tools like Fiddler work. (861828)
+    VCS: Don't attempt to connect to a Perforce server if any of the following parameters are unset: Server, User or Client. (861468)
+    VCS: Fixed an issue which was trying to add files from ProjectSettings folder to Version Control even if they were already under Version Control.
+    VR: Fixed usage of VRSettings.renderViewportScale in Camera's OnPreCull so that it was not a frame latent on all supporting SDKs. Fixed issues with Valve's Renderer adaptive quality feature.
+    WebGL: Fixed Content-Length header field for local web server response that caused some audio files to have a duration of infinity or zero. This required an asset store plugin for webgl audio streaming and was not reproducible using other web servers.
+    Windows Store: UnityWebRequest now works in master builds. (862888)
+    Windows: Fixed -hideWindow briefly showing the window before hiding it on standalone players.
+
+Revision: 68943b6c8c42
