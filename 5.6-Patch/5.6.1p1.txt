@@ -1,0 +1,73 @@
+Patch 5.6.1p1
+Released: 18 May 2017
+
+Improvements
+
+    Added R8 and RG16 Texture formats, and RGBAUShort and RG16 Render Texture formats.
+    Added support for the 5th generation iPad.
+    Added a timeout property to UnityWebRequest. This gives coarse grain control over timeouts for webrequests.
+    Updated Oculus to version 1.14.
+
+Fixes
+
+    (898383) - 2D: Fixed an issue where SpriteUtility.GetSpriteUvs returned invalid Uvs.
+    (898900, 868921) - Android: Fixed assertion failures of GLES calls without valid context on debug and development builds.
+    (890531) - Android: Fixed the build process when using Gradle so that checks for signed applications are performed at the beginning of the build process, instead of at the end.
+    (900109) - Animation: Fixed animation root motion layering.
+    (896498) - Animation: Fixed DeoptimizeTransformHierarchy crashing when a GameObject with a SkinnedMeshRenderer was attached to an exposed bone.
+    (893042) - Animation: Fixed incorrect animated color values when in linear color space.
+    (none) - Animation: Improved build and AssetBundle data determinism for Human components.
+    (890644) - Build Pipeline: Fixed AssetBundle statistics that are printed to the editor log when building AssetBundles.
+    (895452) - Build Pipeline: Fixed issue with Scene AssetBundles that would cause multiple builds with the same Scene to generate different results.
+    (none) - Editor: Fixed issue where Mesh and Model previews would not render in the Inspector window.
+    (903620) - Editor: Fixed issue with NullReferenceException when deleting the last remaining quality setting.
+    (817640) - Editor: Fixed SerializedObject.maxArraySizeForMultiEditing not being respected when using default property drawer.
+    (901529) - Editor: Fixed issue where color picker would crash on Metal.
+    (908964) - Editor: Fixed issue with Xcode project; queueDebuggingEnabled is now included.
+    (903397) - Fixed issue where profiler would crash when the active frame was out of view.
+    (905640) - Fixed TextureImporter to allow newly-imported textures to have their AssetBundle name/variant set.
+    (873026) - GI: Fixed a crash when creating Reflection Probes from OnWillRenderObject.
+    (none) - GI: Inverse squared falloff in progressive lightmapper.
+    (815031) - GI: Fixed an issue where a certain combination of GI settings and multiple Scenes being additively loaded would make baked light maps vanish.
+    (883844) - GI: Added support for negatively scaled Meshes in the progressive lightmapper. This now allows you to mirror Meshes using negative Transform values.
+    (890651) - GI: Added support for quads in progressive lightmapper.
+    (867797) - Graphics: Disabled directional shadows when Screen Space Shadows (Edit > Project Settings > Graphics) is set to No Support but Cascaded Shadows is enabled in the Tier Settings.
+    (893187) - Graphics: Fixed issue where, when Scene is set to Validate Albedo mode, Unity would render Baked GameObjects and other GameObjects in the Scene as planes.
+    (771031) - Graphics: Fixed a crash that occurred when Texture.GetPixels or Texture.SetPixels were used with invalid input parameters.
+    (909607) - Graphics: Fixed clear artifacts appearing on Metal when only the UI camera was used in the Scene.
+    (767050) - Graphics: Fixed inconsistent initialization in ComputeScreenSpaceShadowMap.
+    (885051) - Graphics: Fixed rendering of multiple cameras and depth being ignored when setting camera viewports to be different to each other.
+    (888704) - Graphics: Fixed crash that occurred while turning off occlusion culling with high shadow distance.
+    (905659) - IL2CPP: Applied a fix to prevent the following exception occuring on some projects during runtime: 'NotSupportedException: IL2CPP encountered a managed type which it cannot convert ahead-of-time. The type uses generic or array types which are nested beyond the maximum depth which can be converted'.
+    (none) - iOS: Fixed broken microphone permissions when camera is not used in app.
+    (902650) - Metal: Fixed GPU hang on A7/A8 devices in some MSAA scenarios.
+    (898854) - Mono: Applied a fix to prevent a crash that might occur when deep profiling is enabled in the Unity Editor.
+    (none) - Networking: Fixed possible crash on old Android devices due to alignment problems. Note: this change breaks protocol compatibility with previous 5.6.x builds. You need to recompile and redeploy existing 5.6 projects and builds (5.5.x and older should work without problem).
+    (902663) - OSX: Unity no longer destroys RenderTexture when switching the Standalone player between fullscreen and windowed.
+    (904810) - Particles: Fixed performance regression causing Update Jobs to be dispatched slowly on some platforms.
+    (878740) - Physics: Fixed a crash that happened when continuously scaling a MeshCollider while activating and deactivating it at the same time.
+    (892396) - Physics: Fixed a crash that happened when scaling a Mesh that the physics system (PhysX) failed to process properly (like a convex MeshCollider with too many vertices).
+    (845868) - Physics: Fixed a crash that occurred while updating active skinned Meshes.
+    (901950) - Physics: Fixed an issue where contacts between Effectors were not correctly evaluated when Effector Collider masks were used.
+    (865250) - Physics: Fixed an issue where Physics.ComputePenetration and Physics.ClosestPoint were not returning the correct value when a rotated Collider had its centre offset.
+    (701504) - Physics: Fixed an issue where unexpected trigger events were fired to scripts when a degenerate CapsuleCollider was used.
+    (none) - Shaders: Applied improvements to Metal shaders performance when using GroupMemoryBarrier().
+    (898809) - UGUI: Fixed crash issues when re-parenting inactive GameObjects.
+    (908073) - UI: Fixed issue where UI Button didn’t update its SelectionState after interact-able value changes.
+    (886258) - UI: Removed the extra call to CanvasRenderer.OnTransformChanged when the canvas is set to ScreenSpace.Camera render mode, and the Camera’s Transform is changed.
+    (907048) - Video: Fixed crash on Samsung Android devices with 4.1 OS when stopping playback.
+    (905282) - Video: On Android, applied a fix to prevent garbage collection from being over-used, and fixed an issue where the app would freeze when changing a video clip during playback.
+    (907049) - Video: Fixed issue on Android where H.264 videos above 480p crash on devices with 4.1 OS and Adreno 203 graphics.
+    (907051) - Video: Fixed issue on Android where VP8 videos would not play on Samsung devices with 4.2 or 4.4 OS.
+    (none) - VR: Added support for different eye texture color formats on Oculus Rift.
+    (899087) - Windows Store: Fixed a crash when animating scripting objects on .NET scripting backend.
+    (903232) - Windows Store: Fixed a harmless assert which happens when building for Universal 8.1 SDK.
+    (866141) - Windows Store: Fixed an out of bounds array access assert in Mesh code.
+    (897807) - Windows Store: Fixed Build & Run with VS2017.
+    (888029) - Windows Store: Fixed building player when some files (like UnityOverwrite.txt, WSATestCertificate.pfx, project.lock.json) are set to read-only.
+    (881845) - Windows Store: Fixed issue where Ctrl+C would delete input field instead of copying it.
+    (880362) - Windows Store: Fixed issue where pasting an item in the InputField always pastes the item that was first in the clipboard before launching the player.
+    (875834) - Windows Store: Fixed issue where pressing and holding Xbox One controller button A led to false keydown events during the first frame of a Scene.
+    (892653) - Windows Store: Fixed serialization when a serializable type derives from another serializable type in another assembly that has a serializable private field.
+
+Revision:74c1f4917542
