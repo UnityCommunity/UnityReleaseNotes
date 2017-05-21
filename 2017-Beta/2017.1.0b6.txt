@@ -1,0 +1,42 @@
+Unity 2017.1.0b6
+Released: May 19, 2017
+
+Unity 2017.1.0b6 release notes
+2017.1.0b6 Release Notes (diff since b5)
+Known Issues
+
+    Audio: AudioSource attached to VideoPlayer produces choppy sound when playing certain mp4 files with VideoPlayer created from script (895458)
+    Editor: Text in Editor becomes red after dismissing EditorUtility.DisplayDialog() popups. (886650)
+    Editor: Unity crashes when playing a scene with maximized game view (894572)
+    Graphics: Debug GFX overlay is drawn on top of objects. (851379)
+    VR: Rendering problems on Pixel Daydream when using 4x or 8x MSAA with single-pass stereo. This is due to driver issues, so the problem will be addressed via a driver update, independently of Unity releases. (-)
+
+Improvements
+
+    VR: Updated to Oculus version 1.14
+
+API Changes
+
+    Playables: New method PlayableGraph.IsPlaying()
+
+Fixes
+
+    AI: Add missing API for minimum region area when building navmesh using the runtime API. (906017)
+    AI: Fix internal limitation of slope maximum of 60 degrees when building navmesh using the runtime API. (906012)
+    AI: Fix issue where carving obstacles could create wrongly shaped holes on navmesh instances of arbitrary rotation. (902956)
+    AI: Fix missing support for triangulating navmesh instances with arbitrary rotation. (886302)
+    AI: Fix regression where a NavMeshAgent with 'autoTraverseOffMeshLink' set to false would not move freely. (905621)
+    AI: Fixed a crash happening when Warp() is called many times for a NavMeshAgent. (904910)
+    Android: SoftInput - Disable suggestions when autocorrect is false to make the behavior consistent with iOS (906014)
+    UI: Fixed Child UI elements in parent Canvas cannot be configured after changing their Anchor preset and previewing it (882651)
+    UI: Fixed crash when exiting scene that has animation animating UI elements (889776)
+    UI: Fixed crash when UI mask component deleting the canvas renderer material when entering playmode (900515)
+    UI: Fixed crash with Editor inspector trying to draw a null material editor for UI elements (891450)
+    UI: Fixed editor memory leak when editor display was not visible but has UI elements rendering to it (887819)
+    UI: Fixed impcomplete integration of UV2 & UV3 with UI elements (899626)
+    UI: Fixed issue with Application focus loss breaking Input with VR devices (896933)
+    UI: Fixed issue with NAN in scrollRect viewport content when changinge position (881819)
+    UI: Fixed issue with rapidly scaling Raw Image (895468)
+    UI: Fixed nested canvas returning a null camera after its root canvas has been disabled and then re-enabled (892913)
+    UI: Fixed RectTransform editor drawing issue where anchor preset labels all shown as Custom (896198)
+    UI: Fixing issue with overwriting text with '-' at the start (896424)
