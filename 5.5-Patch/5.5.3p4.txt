@@ -1,0 +1,28 @@
+Patch 5.5.3p4
+Released: 24 May 2017
+
+Improvements
+
+    Added support for the 5th generation iPad.
+    Networking: Added a timeout property to UnityWebRequest. This gives coarse grain control over timeouts for webrequests. (900900)
+    VR: Updated Oculus to version 1.14.
+
+Fixes
+
+    (898978) - Android: Fixed manifest merging with new Android SDK tools.
+    (893042) - Animation: Fixed incorrect animated color values when in linear color space.
+    (none) - Animation: Improved build and AssetBundle data determinism for Human components.
+    (890644) - Build Pipeline: Fixed AssetBundle statistics that are printed to the editor log when building AssetBundles.
+    (895452) - Build Pipeline: Fixed issue with Scene AssetBundles that would cause multiple builds with the same Scene that generated different results.
+    (908965) - Editor: Fixed Xcode project; queueDebuggingEnabled is now included.
+    (869729) - Fixed editor crashes when an error is made in a custom Deferred shader.
+    (905640) - Fixed TextureImporter to allow newly-imported Textures to have their AssetBundle name/variant set.
+    (909608) - Graphics: Fixed clear artifacts on metal, if only the UI camera is used in the Scene.
+    (888796) - IL2CPP: Fixed memory snapshot profiler not showing multidimensional arrays.
+    (905659) - IL2CPP: Applied a fix to prevent the following exception occurring during runtime for some projects: 'NotSupportedException: IL2CPP encountered a managed type which it cannot convert ahead-of-time. The type uses generic or array types which are nested beyond the maximum depth which can be converted'.
+    (901950) - Physics: Fixed issue where effector/effector contacts are not correctly evaluated when effector collider masks are used.
+    (898809) - UGUI: Fixed crash when reparenting inactive object.
+    (none) - UGUI: Fixed memory leak in UGUI.
+    (886258) - Removed the extra call to CanvasRenderer.OnTransformChanged when the canvas is set to ScreenSpace.Camera render mode, and the Camera’s Transform is changed.
+
+Revision: 12955fd3914a
