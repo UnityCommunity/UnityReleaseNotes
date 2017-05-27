@@ -1,0 +1,22 @@
+Unity 2017.1.0b7
+Released: May 26, 2017
+
+Unity 2017.1.0b7 release notes
+2017.1.0b7 Release Notes (Diff since b6)
+Known Issues
+
+    Audio: AudioSource attached to VideoPlayer produces choppy sound when playing certain mp4 files with VideoPlayer created from script (895458)
+    Editor: Text in Editor becomes red after dismissing EditorUtility.DisplayDialog() popups. (886650)
+    Editor: Unity crashes when playing a scene with maximized game view (894572)
+    Graphics: Debug GFX overlay is drawn on top of objects. (851379)
+    VR: Rendering problems on Pixel Daydream when using 4x or 8x MSAA with single-pass stereo. This is due to driver issues, so the problem will be addressed via a driver update, independently of Unity releases. (-)
+
+Features
+
+    Input: Added new Player Settings property 'Input Manager' for enabling backend of new input system preview feature. The front-end is supplied separately and is not included with the release.
+
+Fixes
+
+    AI: Fix rare truncation of paths - making the NavMeshAgent oscillate instead of completing movement. (908027)
+    Editor: Fixed 1-dimensional sphere bounds handle had no wireframe representation (also being back ported to 5.6)
+    Editor: Fixed PrimitiveBoundsHandle.DrawHandle() not resetting Handles.color if alt-clicking to rotate camera (also being back ported to 5.6)
