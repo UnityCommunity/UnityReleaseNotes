@@ -1,0 +1,86 @@
+Patch 5.6.1p2
+Released: 2 June 2017
+
+Improvements
+
+    Improve Outline Editor module performance in Sprite Editor Window.
+    SpriteRenderer's Sprite Tiling behavior changed when width/height is negative value.
+    Update BoxCollider2D Sprite Tiling generation to produce cleaner shape
+
+Fixes
+
+    (888016) - 2D: Changed warning message "MaterialPropertyBlock is used to modify these values" to info message.
+    (903668) - 2D: Fixed an issue whereby blue line briefly flickers when moving mouse in Sprite Editor "Edit Outline" mode in OSX Metal.
+    (871871) - 2D: Added Sprite changes in play mode when using [TIGHT] texture packing and high quality compression.
+    (897066) - 2D: Fixed an issue whereby Sprite packer caused Out of memory error.
+    (906017) - AI: Added missing API for minimum region area when building a NavMesh using the runtime API.
+    (906012) - AI: Fixed an internal limitation of slope maximum of 60 degrees when building a NavMesh using the runtime API.
+    (902956) - AI: Fixed an issue where carving obstacles could create wrongly shaped holes on NavMesh instances of arbitrary rotation.
+    (886302) - AI: Fixed missing support for triangulating NavMesh instances with arbitrary rotation.
+    (905621) - AI: Fixed a regression where a NavMeshAgent with 'autoTraverseOffMeshLink' set to false would not move freely.
+    (904910) - AI: Fixed a crash happening when Warp() is called many times for a NavMeshAgent.
+    (none) - Android: Buildpipe - Fixed slow loading with OBB by processing streaming assets in obbassets
+    (900191) - Android: Dropped obscured touch events to prevent tapjacking.
+    (867891) - Android: Fixed pause/resume issues when loading with static splash image.
+    (905581) - Android: Make SoftInput not take fullscreen on landscape orientation.
+    (908999) - Animation: Fixed animating Material Vector4 properties when in linear color space.
+    (908960) - Animation: Fixed a crash when loading an asset bundle with an override animator controller.
+    (865770) - BuildPipeline: Fixed an issue when trying to build asset bundles for target other than what was selected in Build Settings.
+    (none) - Editor: Fixed 1-dimensional sphere bounds handle had no wireframe representation.
+    (888678) - Editor: Fixed an issue where the editor would go unresponsive and text would turn red ("Missing built-in guistyle", "Unable to find style").
+    (879531) - Editor: Fixed an invalid index error when deleting custom resolution in game view.
+    (none) - Editor: Fixed PrimitiveBoundsHandle.DrawHandle() not resetting Handles.color if alt-clicking to rotate camera.
+    (889776) - Fix to prevent crashes in the editor due to UI and animation
+    (908990) - Fixed an issue where plugins would only clear part of the framebuffer when single pass stereo is enabled. This also fixes VRWorks' Single Pass Stereo and Lens matched shading.
+    (891834) - GI: Avoid a threading issue, where the Progressive Lightmapper cannot find an instances when it was removed too fast.
+    (726106) - GI: Fixed "Bake paused in play mode" hanging on opening another scene in Play mode.
+    (899488) - GI: Fixed AddInstanceProperties errors thrown when baking progressive lightmapper.
+    (875096) - GI: Fixed baked Area light affecting objects behind meshes where light shouldn't be present.
+    (902205) - GI: Fixed halos display when more than 64 of them.
+    (898200) - GI: Fixed an issue where Final Gather would cause light bleeding when baking with the Enlighten lightmapper backend.
+    (875894) - GI: Fixed quality Level button not wide enough and clips text.
+    (893958) - GI: Stop Gauss filter from correcting certain pixel values in invalid regions.
+    (none) - GI: Synchronized Box Projection option in Reflection Probe component with the global setting from current Tier Settings. When the option in Tier Settings is disabled, the probe UI with show a disabled unchecked checkbox for Box Projection.
+    (none) - GI: Updated the tooltip for Box Projection option in Reflection Probe component. The setting can be affected by the Reflection Probes Box Projection setting in the Tier Settings.
+    (751629) - GI: Visible artifact when using point lights in linear color space.
+    (900888) - GI: When editing Lightprobes they can be duplicated.
+    (901649) - Graphics: Fixed coherent alpha channel importing for various image format especially formats with more than 32-bits per pixel. Do not generate alpha channel if the alpha value is constant in the source texture.
+    (879378) - Graphics: Fixed CommandBuffer.Blit always writing to the first depth slice of a 3D render target and ignoring the depthSlice parameter.
+    (898318) - Graphics: Fixed a crash and error when attempting to set color surface as depth render target or vice-versa.
+    (896686) - Graphics: Fixed a crash in Graphics.Blit() with a NULL source and destination.
+    (897665) - Graphics: Fixed a crash when using DestroyImmediate() on a RenderTexture in OnPreRender callback.
+    (871140) - Graphics: Fixed Cubemap.GetPixel returning the wrong data from a BC6H compressed cubemap.
+    (903790) - Graphics: Fixed an issue where instancing variants being incorrectly stripped away for shaders that use fallback mechanism for e.g. shadow caster pass.
+    (822255) - Graphics: Fixed Mesh (and memory) leaks when the Profiler window is open.
+    (902409) - Graphics: Fixed RenderToCubemap when using a HDR enabled Camera. This fixes prevents error message "Releasing render texture whose render buffer is set as Camera's target buffer with Camera.SetTargetBuffers!".
+    (899324) - Graphics: Fixed Texture and Cubemap Arrays only containing the first texture in Standalone builds.
+    (878724) - Graphics: Fixed UI and gizmo being rendered with the wrong gamma in scene view.
+    (901270) - Graphics: Fixed Windows Standalone player sometimes crashing on display activation when color space in player settings is set to Linear.
+    (none) - Graphics: Improve the documentation for RenderTexture to clarify the behaviour of RenderTexture.DiscardContents
+    (889652) - Graphics: Update documention to clairfy that a MaterialPropertyBlock cannot set the render state.
+    (none) - INTERNAL: Android: Buildpipe - Print the step duration in the editor log
+    (880426) - Linux: Fixed uninitialized screen dimensions at startup with some window managers.
+    (none) - Linux: Unlock cursor when switching from Locked to Confined mode.
+    (826473) - Mobile: Disabled RunInBackground on Android and iOS.
+    (847798) - Mono: Corrected an invalid C# compiler error with generic types in compiler generated code (like lambdas and enumerators). The error from the C# compiler often includes this text: "There is no boxing or type parameter conversion from...".
+    (910101, 875075) - Mono: Fixed Mono C# compiler on Windows when using "non-standard" locales.
+    (none) - Multiplayer: Network simulator works again.
+    (905335) - NavMesh: Fixed the tile carving algorithm so that it's capable of handling colinear degenerate triangles. This was causing the generated NavMesh to have a double line on polygon and was causing a trembling movement for its associated GameObject.
+    (896001) - Particles: Fixed a crash on certain Android hardware caused by zero sized particles.
+    (907407) - Physics: Do not show missing Effector2D warning in Collider2D inspector when the Collider2D is using a CompositeCollider2D.
+    (907157) - Physics: Fixed a crash when removing a CompositeCollider2D.
+    (792933) - Scene Management : Fixed an issue where objects marked as 'DoNotDestroyOnLoad' and are disabled could be deleted on scene load/unload
+    (901719) - Shaders: Fixed an incorrect shader translation to GLSL and Metal shader code from a logical OR on boolean vectors. Fixed shader compile errors on Vulkan eg "Shader error in 'Hidden/Post FX/Screen Space Reflection': '' : compilation terminated at line 141 (on vulkan)".
+    (none) - Shaders: Fixed an incorrect shader translation to GLSL and Metal shader code from unsigned divide operation.
+    (891914) - Shaders: Prevent assert failures and crashes when attempting to compile tessellation or geometry shaders on platforms where they're not supported.
+    (898850) - Shaders: Vulkan added support for vector scalar expansion constructors. Fixed crashes with errors like "SymGetSymFromAddr64 error: 'Attempt to access invalid address.'"
+    (911205) - VR: Enabled termination of Cardboard applicaiton when pressing the <- button during the splash screen.
+    (891965) - VR: Fixed iOS crash in SetTexture() with Google VR SDK 1.2.
+    (895810) - WebGL: Fixed unresponsiveness when loading cashed AssetBundles with WWW.LoadFromCacheOrDownload.
+
+Known Issues
+
+    (916838) - Transform handles are lit and hidden by light source - this will be fixed in one of the patches soon.
+    (915659) - Crash building player if project has shaders with errors, this one regressed in this patch. This will be fixed in the next patch 5.6.1p3.
+
+Revision: fb53d44a1e84
