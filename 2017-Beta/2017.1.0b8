@@ -1,0 +1,31 @@
+Unity 2017.1.0b8
+Released: June 2, 2017
+
+2017.1.0b8 Release Notes (diff since b7)
+Known Issues
+
+    Audio: AudioSource attached to VideoPlayer produces choppy sound when playing certain mp4 files with VideoPlayer created from script (895458)
+    Graphics: Debug GFX overlay is drawn on top of objects. (851379)
+    VR: Rendering problems on Pixel Daydream when using 4x or 8x MSAA with single-pass stereo. This is due to driver issues, so the problem will be addressed via a driver update, independently of Unity releases. (-)
+
+API Changes
+
+    Editor: ArcHandle.radius can now be negative
+    Editor: PrimitiveBoundsHandle and subclass constructors no longer require a control ID hint
+    Editor: Removed unnecessary ArcHandle constructor taking a control ID hint
+    Playables: Renamed PlayableGraph.Connect() parameters for clarity
+    Scripting: Made GameObject.CalculateBounds() internal after it was accidentally made public in the 2017.1 beta cycle. This API is in the wrong place and will be moved/removed entirely in a future release
+    UI: Change isPaused to isFocused to better represent what it is. Only Effects 2017.1 betas
+
+Fixes
+
+    AI: Fix for NavMesh.SamplePosition returning inconsistent position depending on slope and tessellation of the navmesh (702030)
+    Editor: Fixed an issue where the Game View would render without vsync regardless of player settings (macOS OpenGL) (901973)
+    Editor: Fixed bug with CapsuleCollider and CapsuleCollider2D edit mode where some control handles could appear incorrect when multi-editing
+    Graphics: Fix assertion when setting updateWhenOffscreen on a disabled SkinnedMeshRenderer (912722)
+    Scripting: Fix crash caused by Transform pointer not being a Transform instance in OnEnable (898810)
+    Scripting: Stop calling OnEnable and OnDisable when adding Image component to child via script (897146)
+    UI: Fix coroutines stopping when attaching UI components (904415)
+    UI: Fix disabling of parent script when adding a RectTransform to a child (911871)
+    UI: Fix editor crash when adding text component to game object in play mode via the script (882791)
+    UI: Fix GC spikes when enabling MaskableGraphic (899441)
