@@ -1,0 +1,30 @@
+Patch 5.4.5p3
+Released: 8 June 2017
+
+Improvements
+
+    Added support for the 5th generation iPad.
+    Asset Bundles: Reduced SerializedFile memory usage when reading streams inside AssetBundles.
+    Networking: Added a timeout property to UnityWebRequest, this gives coarse grain control over timeouts for webrequests. (903139)
+    VR: Updated Oculus plugin to 1.14.
+
+Fixes
+
+    (900194) - Android: Dropped obscured touch events to prevent tapjacking.
+    (898979) - Android: Fixed manifest merging with new android sdk tools.
+    (867891) - Android: Fixed pause/resume issues when loading with static splash image.
+    (908868) - Android: Make SoftInput not take fullscreen on landscape orientation.
+    (none) - Animation: Improved build and asset bundle data determinism for Human components.
+    (895452) - Build Pipeline: Fixed an issue with scene asset bundles that could cause multiple builds with the same scene generate different results.
+    (852301) - Fix for Analytics events content type switches from Application JSON to application/x-www-form-urlencoded.
+    (859561) - Fixed an issue where Android devices' rendering could freeze or incorrectly render when using secondary cameras.
+    (873206) - GI: Fixed a crash when creating reflection probes from OnWillRenderObject.
+    (875096) - Global Illumination: Fixed an issue where baked area light affected objects behind meshes where light shouldn't be present.
+    (882704) - Graphics: Fixed a periodic crash in shadow culling job code (GenerateCombinedDynamicVisibleListJob).
+    (909610) - Graphics: Fixed clear artifacts on metal, if only UI camera is used in scene.
+    (888796) - IL2CPP: Fixed the issue of memory snapshot profiler not showing multidimensional arrays.
+    (898809) - UGUI: Fixed a crash when reparenting inactive object.
+    (none) - UGUI: Fixed a memory leak in UGUI.
+    (904688) - UI: Fixed an issue with corrupted text when text font was changed.
+
+Revision: 5c41f43a22b2
