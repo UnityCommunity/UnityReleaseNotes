@@ -1,0 +1,131 @@
+Unity 5.5.4f1
+Released 7 Jun, 2017
+
+
+Release notes
+Improvements
+
+    Added support for the 5th generation iPad.
+    AssetBundles: Reduced SerializedFile memory usage when reading streams inside AssetBundles.
+    Build Pipeline: Exceptions thrown during the build process (e.g. by user callbacks) are now treated the same as logged errors, from a reporting and StrictMode point of view.
+    Graphics: Added function to allow cube map textures to be compressed from script like their Texture2D counterparts
+    Networking: Added a timeout property to UnityWebRequest. This gives coarse grain control over timeouts for webrequests. (900900)
+    Unity Ads: Updated native binaries to 2.1.0
+    VR: Updated Oculus to version 1.14.
+
+Changes
+
+    VR: You can enable GPU skinning for Android VR. This is experimental, and you should verify behavior and performance on the target devices.
+
+Fixes
+
+    2D: Fixed an issue with texture compressions when using SpritePacking with '[TIGHT]' texture packing and high quality compression. (871871)
+    Android: AndroidJava returns null instead of throwing exceptions on functions which return an object, class or array. (839005)
+    Android: Disabled Debug markers on PowerVR Series 5 devices. (780958)
+    Android: Fixed a rare crash on application exit due to UnityWebStreams not getting cleaned up properly. (867508)
+    Android: Fixed an issue where a Unity application could stop responding after starting a screen recording. (833158)
+    Android: Fixed an unnecessary internet permission requirement in empty projects. (892203)
+    Android: Fixed Android application building with the latest Android SDK. (888859)
+    Android: Fixed Ctrl+B shortcut pushing app package even if it failed to build. (894074)
+    Android: Fixed manifest merging with new Android SDK tools. (898978)
+    Android: Fixed use of presentation display. (852582)
+    Android: Fixed WebCamTexture crash with denied permissions. (877837)
+    Android: Fixed SoftInput input field being hidden under keyboard when translucent flag is set.
+    Android: Webcam - Fixed issue where the wrong orientation was returned on first frames. (875247)
+    Animation: Changing Animator.Speed during an animation transition now correctly affects the cross-fade speed. (898504)
+    Animation: Fixed a crash when activating/deactivating GameObject in the Animation Window. (886335)
+    Animation: Fixed a crash in PrepareFrame that occurred due to Animator being Deactivated in Script (896659)
+    Animation: Fixed IK on Feet not working properly when interrupting transitions. (892043)
+    Animation: Fixed incorrect animated color values when in linear color space. (893042)
+    Animation: Fixed the mesh distortions during animation if the "Optimize Game Objects" option was selected. (880724)
+    Animation: Improved build and AssetBundle data determinism for Human components.
+    Asset Pipeline: Fixed an issue when importing Assets with name changes that could cause a timestamp mismatch in the database. (896185)
+    AssetBundles: Fixed a performance regression when building many small AssetBundles. (849376)
+    Build Pipeline: Fixed AssetBundle statistics that are printed to the editor log when building AssetBundles. (890644)
+    Build Pipeline: Fixed issue with Scene AssetBundles that would cause multiple builds with the same Scene that generated different results. (895452)
+    Buildpipeline: Fixed an issue with reported texture size being smaller than actual size. (885258)
+    Cluster Rendering: VRPN works in Editor now.
+    Editor Analytics : Added fix to stop sending Editor analytics events when disabled from Unity preferences (Pro only).
+    Editor: Added fix to attempt to identify and use the Cancel option for dialogs that are launched on worker threads, because they can otherwise soft-lock or force-quit the Editor. (896794)
+    Editor: Fixed an issue that prevented the creation of GameObjects with a RectTransform component. (902580)
+    Editor: Fixed an issue where locking the Inspector on sub-Scene GameObjects caused their disappearance, coupled with a group of 'Failed to unpersist' error messages. (875845)
+    Editor: Fixed the issue where 'Build and Run' attempted to push a build to device even if an error was encountered during the build. (894074)
+    Editor: Fixed Xcode project; queueDebuggingEnabled is now included. (908965)
+    Fixed editor crashes when an error is made in a custom Deferred Shader. (869729)
+    Fixed Texture Importer to allow newly-imported Textures to have their AssetBundle name/variant set. (905640)
+    GI: Fixed a crash when creating reflection probes from OnWillRenderObject. (873206)
+    GI: Fixed lightmap texture inspector preview being too bright when using linear color space. (885492)
+    Graphics: Behavior of the VFACE semantic on DX12 is now consistent with the editor. (895474)
+    Graphics: Fixed buggy Android Adreno chipset frame buffer invalidation appearing as if rendering has frozen. (860724)
+    Graphics: Fixed a crash if Texture.GetPixels or Texture.SetPixels is used with invalid input parameters. (771031)
+    Graphics: Fixed a crash in GetBuildUsageTagFromAssets that was triggered by project that had ShaderVariants. (889138)
+    Graphics: Fixed a periodic crash in shadow culling job code (GenerateCombinedDynamicVisibleListJob). (882704)
+    Graphics: Fixed an editor crash on old OpenGL drivers. (888339)
+    Graphics: Fixed an issue on PS Vita causing the default sky to be black. (833583)
+    Graphics: Fixed clear artifacts on metal, if only the UI camera is used in the Scene. (909608)
+    Graphics: Fixed generating invalid raycasts causing "Invalid AABB b0" error appears in console. (884547)
+    Graphics: Fixed Render Texture not being cleared on stop for Windows. (884057)
+    Graphics: Fixed SceneView GUI elements being very bright when HDR and Linear mode were enabled. (878724)
+    Graphics: When graphics jobs are enabled, CommandBuffers are no longer executed multiple times upon LightEvent.AfterShadowMap. (880716)
+    IL2CPP: Added fix to allow more deeply nested generic recursion for method metadata. A managed exception is now thrown when the recursion is too deep. (889446)
+    IL2CPP: Applied a fix to prevent the following exception occurring during runtime for some projects: 'NotSupportedException: IL2CPP encountered a managed type which it cannot convert ahead-of-time. The type uses generic or array types which are nested beyond the maximum depth which can be converted'. (905659)
+    IL2CPP: Corrected an error in the byte code stripper which looked like this: "Member'' is declared in another module and needs to be imported. (894071)
+    IL2CPP: Corrected an error in UnusedBytecodeStripper2 which could occur in some projects: "Member 'System.Type' was declared in another module and needed to be imported.” (894071)
+    IL2CPP: Fixed memory snapshot profiler not showing multidimensional arrays. (888796)
+    IL2CPP: Implemented RegionInfo. (891471)
+    IL2CPP: Modify the implementation of the IL Switch opcode to workaround a possible C++ compiler bug in Xcode 8.3. (898861)
+    iOS: Fixed a crash that could occur in callbacks for Social.localUser.Authenticate when the error parameter was read. (868697)
+    iOS: Fixed framework search paths in Xcode project being incorrectly quoted if they contained spaces. (866673)
+    iOS: Fixed inclusion of ReplayKit framework in plugins. (882013)
+    iOS: Fixed some icons not getting copied into Xcode project when Target Device was set to iPhone Only. (888370)
+    iOS: Added fix so that local notifications are now cleared on iOS10. (885096)
+    Kernel: Fixed a crash when undoing a revert would cause components to be removed. (870498)
+    Kernel: Fixed an issue in JSON parsing that could cause a deserialized box collider to change size. (898787)
+    Lines: Reintroduced missing texture mapping mode, to restore pre-5.5 functionality. (903466)
+    Metal: Fixed unnecessary half to float casts in generated shaders. (898788)
+    Mono: Corrected the handling of C# compiler errors in a column that were more than 255 characters wide. (902758)
+    MonoDevelop: Applied fix to allow breakpoints to properly load in MonoDevelop in some situations where they did not load before. (889998)
+    Particles: Fixed an issue where scripted emission could fail to emit the correct number of particles. (892278)
+    Particles: Fixed an issue where sub-emitters with a constant seed would not be identical on each subsequent play. (882685)
+    Particles: Fixed scripted emission crash when using the Trigger Module. (893476)
+    Particles: Fixed sub-emitter crash when using Prefabs. (893838)
+    Particles: Applied fix so that skinning info is only used if it's valid when emitting from a skinned Mesh Renderer shape. (895898)
+    Particles: Reinstated random emission modes.
+    Physics 2D: Fixed a crash and infinite loop when triangulating Polygon2D. (880353, 891305, 905608)
+    Physics: Applied a fix so that Collider AABB gizmo is not drawn if it is attached to a Rigidbody2D with the 'simulated' property set to false. (843507)
+    Physics: Fixed Rigidbody2D interpolation losing precision with time.
+    Physics: Fixed an issue where infinite 2D raycast misses the edge of EdgeCollider2Ds. (895732)
+    Physics: Fixed issue where contacts between effectors are not correctly evaluated when effector collider masks are used. (901950)
+    Purchasing: Fixed an issue with Unity IAP emitting DuplicateTransaction failure for all non-consumable purchases when initialized. (889321)
+    Removed the extra call to CanvasRenderer.OnTransformChanged when the canvas is set to ScreenSpace.Camera render mode, and the Camera’s Transform is changed. (886258)
+    Scripting: Fixed parameter corruption and potential crashes for some delayed callbacks. (868697)
+    Shaders: Fixed a subtle metal shader generation bug in bit field insert operations.
+    Shaders: Fixed an incorrect translation from HLSL assembly for AND and OR operands. This fixes a crash when compiling shaders for GLCore. (883080)
+    Shaders: Fixed internal error on a GLSL shader compiling corner case. (881103)
+    Shaders: Fixed uint params on OpenGL. (893421)
+    SpeedTree: Fixed GPU instancing break when the trees come back into view. (883721)
+    Text: Fixed an issue where fonts created by script would fail to appear. (858645)
+    TextureImporter: Fixed a bug where the Texture Importer failed to detect the alpha channel properly in some types of PNG files. Please re-import the affected Assets to fix them. (891365)
+    UGUI: Fixed crash when reparenting inactive object. (898809)
+    UGUI: Fixed memory leak in UGUI.
+    Unity Ads: Prevent Unity Ads internal MonoBehaviours from showing in the inspector. (858540)
+    UnityWebRequest: Fixed a delay when the DNS could not resolve a given URL. (825679)
+    UnityWebRequest: Fixed a hang when using custom download handler script in the Unity Editor in Edit mode. (893302)
+    UnityWebRequest: Fixed getting Texture after a Scene reload. (884291)
+    UnityWebRequest: Fixed the nonReadable parameter working the opposite way in UnityWebRequest.GetTexture(). (876648)
+    VR: Fixed a potential crash when entering Play mode. (896314)
+    VR: Updated Oculus to version 1.13 and GearVR to version 1.13.1. Fixed plug-in loading issue in paths with non-ASCII characters.
+    Windows Store: Fixed a build error "Failed to resolve assembly: 'Windows.Foundation.UniversalApiContract, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null'"." which occurred when using default parameters of Windows Runtime types in method signatures and "C# projects" build option on .NET scripting backend. (884058)
+    Windows Store: Fixed a build error on .NET scripting backend when a method with name OnMouseDown was defined in a non-monobehaviour class. (869168)
+    Windows Store: Fixed a crash on certain devices in debug and release configurations when there was no internet connectivity (note: master configurations were unaffected). (855878)
+    Windows Store: Fixed a crash that could occur with D3D build type when the window is minimized or closed. (885964)
+    Windows Store: Fixed a crash when using SceneManager.UnloadSceneAsync on .NET scripting backend with .NET native enabled. (869407)
+    Windows Store: Fixed a rare build error "Failed to resolve assembly: 'System.Reflection.TypeExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'", which occurred on .NET scripting backend when using "C# projects" option. (885997)
+    Windows Store: Fixed a rare build error "Version not supported: 255.255.255.255", which occurred when using certain .winmd plugins and "C# projects" option on .NET scripting backend. (886049)
+    Windows Store: Fixed a System.TypeInitializationException on startup, which occurred with .NET scripting backend when a nested class was derived from a non-nested class and was overriding one of its methods. (872058)
+    Windows Store: Fixed an issue of not being able to switch to Windows Store platform when Windows 10 SDK is not installed. (890043)
+    Windows Store: Fixed non-alloc physics overlap functions causing a crash on .NET Scripting Backend. (888660)
+    Windows Store: Fixed Screen.SetResolution not accounting for DPI settings. (875849)
+    WWW: Fixed an issue where new WWW objects without internet connection did not set an Error field. (776552)
+
+Revision: 8ffd0efd98b1
