@@ -1,0 +1,25 @@
+Unity 2017.1.0b9
+Released: June 9, 2017
+
+Unity 2017.1.0b9 release notes
+2017.1.0b9 Release Notes (Diff since b8)
+Known Issues
+
+    Audio: AudioSource attached to VideoPlayer produces choppy sound when playing certain mp4 files with VideoPlayer created from script (895458)
+    Graphics: Debug GFX overlay is drawn on top of objects. (851379)
+    VR: Rendering problems on Pixel Daydream when using 4x or 8x MSAA with single-pass stereo. This is due to driver issues, so the problem will be addressed via a driver update, independently of Unity releases. (-)
+
+Features
+
+    GI: Support for double sided materials in Progressive Lightmapper. Added a new material setting that causes lighting to interact with backfaces. When enabled, both sides of the geometry get accounted for when calculating Global Illumination. Backfaces do not count as invalid when seen from other objects. Backface rendering is not controlled by this setting nor will backfaces be represented in the lightmaps. Backfaces bounce light using the same emission and albedo as frontfaces.
+
+Fixes
+
+    Editor: Fixed an issue that prevented the user from reordering the scenes in the build settings window (874335)
+    Editor: Fixed incorrect placement of BoxCollider2D manipulator in scene view when using composite (916455)
+    Graphics: Fix grid rendering incorrectly in the Animation Preview window. (903454)
+    IMGUI: Fixed an issue where buttons were not working in the Save Asset Dialog. (909021)
+    Scripting: Fixed closing script execution order window not opening apply/revert dialog (916399)
+    Terrain: Fixed a crash that happens when loading corrupt terrain data. (913478)
+    UI: Fixed GraphicRaycaster Ray-cast distance value (848130)
+    UI: Fixed Tiled uGUI image shaking when changing its size (649927)
