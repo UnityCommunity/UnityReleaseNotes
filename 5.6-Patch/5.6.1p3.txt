@@ -1,0 +1,30 @@
+Patch 5.6.1p3
+Released: 9 June 2017
+
+Improvements
+
+    Animation: Optimized evaluation of complex blend trees, and blend trees with empty child nodes.
+
+Fixes
+
+    (915805) - Android: Changed threshold to recognize big cores of ARM big.LITTLE architecture better.
+    (915659) - Build Pipeline: Fixed a crash when building a project containing materials with missing shaders.
+    (883901) - Graphics: Fixed an issue in mesh compression that under the 'right' circumstances would have caused the maximum value in the range to be rounded to the minimum value.
+    (none) - Graphics: Fixed a crash in DrawMeshNow. It will now throw a null reference exception instead of crashing.
+    (898923) - Graphics: Fixed a crash when mesh was removed from meshrenderer on an object with cloth component.
+    (none) - Graphics: Fixed R8 & RG16 texture support for D3D11.
+    (898285) - Graphics: Fixed Texture2D.PackTextures not copying the source texture data correctly in an uncompressed atlas with non-zero padding.
+    (914197) - IL2CPP: Allow now the Guid attribute to be used on generic types.
+    (916365) - Metal: Fixed the issue of not rendering of standard shader with webgl emulator.
+    (910302) - Mono: Corrected a crash in the C# compiler when two or more overloaded operators were used in the same statement.
+    (914470) - Mono: Prevent a crash in a crash in mono_class_from_mono_type when using "new Enum[]{}" array in the script.
+    (914171) - Mono: Prevent an intermittent crash in Unity when the managed debugger is attached.
+    (none) - Multiplayer: Fix for the issue where reliable messages can be dropped in high dropping rate environment.
+    (916515) - Performance Reporting: Fixed an issue where native symbols for iOS builds were not uploaded when building on OSX Sierra.
+    (912024) - Physics: Fixed a crash where contacts for Collider2D were not deleted correctly.
+    (916478) - Physics: Fixed an issue with Raycast not always detecting an EdgeCollider2D when attached to a Rigidbody2D in certain poses.
+    (896253) - VR: Fix for Android not being able to change AA (Anti-Aliasing) settings at runtime.
+    (899030) - VR:Ffix for VR on PC doesn't render if rendertexture format RGB565 is created, crash possible.
+    (916281) - Windows Store: Fixed IL2CPP not being able to build C++ code with VS 2017 Update 2.
+
+Revision: ede8e3f4adbd
