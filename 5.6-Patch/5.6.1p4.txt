@@ -1,0 +1,48 @@
+Patch 5.6.1p4
+Released: 16 June 2017
+
+Improvements
+
+    UI: CanvasRenderer::OnTransformChanged will not be called when object is inactive. (815861)
+    Video: Optimized video decoding directly into RenderTexture if it is the same size as the video stream
+    Video: Skip-ahead functionality improvements.
+
+Changes
+
+    GI: Added support for LOD baking in Progressive Lightmapper. Light Probes are not necessary anymore when baking LODs using Progressive Lightmapper.
+    GI: Support for double sided materials in Progressive Lightmapper. Added a new material setting that causes lighting to interact with backfaces. When enabled, both sides of the geometry get accounted for when calculating Global Illumination. Backfaces do not count as invalid when seen from other objects. Backface rendering is not controlled by this setting nor will backfaces be represented in the lightmaps. Backfaces bounce light using the same emission and albedo as frontfaces.
+
+Fixes
+
+    (916119) - Android: Fixed a regression where Banner Ads are invisible, but still clickable.
+    (905867) - Android: Fixed an out of memory crash when using a static splash screen.
+    (910194) - Animation: Fixed an issue where using an override controller multiple times would not animate correctly.
+    (917343) - IL2CPP: Fixed an issue which caused IL2CPP to fail to convert assemblies if two non-existing methods with the same declaring type were referenced from any assemblies.
+    (907449) - Particles: Correctly initialize default curves, when creating new Particle Systems.
+    (907277) - Particles: Fixed an occasional crash when emitting from a skinned mesh renderer shape.
+    (none) - Particles: Fixed incorrect values for emission burst min and max when upgrading from an older Unity version.
+    (912158) - Physics 2D: Fixed an issue where ContactFilter2D collision normal limits failed.
+    (917323) - Physics 2D: Fixed an issue with Raycast not always detecting a CapsuleCollider2D or a BoxCollider2D.
+    (909020) - Video: Fixed issues regarding video looping/end detection.
+    (904924) - Video: Fixed failing VP8 transcode on Windows due to unsupported audio codec.
+    (898171) - Video: Fixed an intermittent failure to load video tracks on iOS.
+    (906044) - Video: Fixed invalid video stride evaluation.
+    (900524) - Video: Added support for transcoding to tiny VP8 resolutions.
+    (904578) - WebGL: Fixed AudioSource.time return value.
+    (903767) - WebGL: Fixed IE InvalidStateError load-time error.
+    (901252) - WebGL: Fixed Profiler connection.
+    (903092) - WebGL: Fixed Template Custom tags not being replaced at build time.
+    (892185) - WebGL: Fixed WebAssembly build failure with Full exceptions on Windows.
+    (897782) - WebGL: Fixed WebAssembly missing setTempRet function.
+    (891835) - WebGL: Fixed WebAssembly missing setThrow function.
+    (891431) - WebGL: Fixed WebAssembly runtime error: integer overflow/unrepresentable.
+    (905625) - WebGL: Fixed custom cursor support.
+    (898210) - WebGL: Released WebCam after use so other tabs can use it.
+    (871541) - Windows Store: Fixed a crash which happened when retrieving WheelHit.Collider after having previously set it to null on .NET scripting backend.
+    (909977) - Windows Store: Fixed a potential stack overflow when building a project with a large custom cursor.
+    (914797) - Windows Store: Fixed exceptions thrown in OnGUI callback not being logged on .NET scripting backend.
+    (912074) - Windows Store: Fixed System.Numerics.dll not being referenced by scripts when using IL2CPP scripting backend.
+    (909703) - Windows Store: Fixed UNetWeaver crashing when using .NET 4.6 API Compatibility level with IL2CPP scripting backend when deriving from .NET 4.6 specific types.
+    (902234) - Windows Store: Fixed WorldAnchorStore.GetAsync crashing the player.
+
+Revision: 99afd32ca6da
