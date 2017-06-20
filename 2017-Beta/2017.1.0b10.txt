@@ -1,0 +1,26 @@
+Unity 2017.1.0b10
+Released: June 19, 2017
+
+Unity 2017.1.0b10 release notes
+2017.1.0b10 Release Notes (Diff since b9)
+Known Issues
+
+    Audio: On Windows, AudioSource attached to VideoPlayer produces choppy sound when game iterations are overrunning. (895458)
+    Graphics: Debug GFX overlay is drawn on top of objects. (851379)
+    VR: Rendering problems on Pixel Daydream when using 4x or 8x MSAA with single-pass stereo. This is due to driver issues, so the problem will be addressed via a driver update, independently of Unity releases. (-)
+
+Improvements
+
+    Editor: macOS: Show Visual Studio for Mac in External Script Editor Lists if installed in default "/Applications/Visual Studio.app/" location
+    Particles: Allow users to disable the use-rigid-body physics functionality
+
+Fixes
+
+    Editor: Fixed a bug where EditorGUIUtility.SetIconSize would affect already rendered GUI. (913018)
+    Graphics: Fix looping line discontinuity (904622)
+    Particles: Fix another "Invalid AABB error" (903805)
+    Physics: Fix for crash when repeatedly unloading/loading cloth on XBox One and PS4. (909248)
+    Physics: Fix for normals issue with cloth using tiny mesh. (766851)
+    Physics: Fix to avert 'value must be greater' errors in cloth. (895771)
+    Physics: Fix to avert cloth errors with prefabs: in cloth inspector we now check if cloth has no verts disabled and we eprocess mesh if re-enabled and previous cloth mesh had no verts. (893025)
+    UI: Use canvas dimensions to compute bucket size of nested canvases, as was already the case for root canvases. (913932)
