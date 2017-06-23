@@ -1,0 +1,51 @@
+Patch 5.5.4p1
+Released: 22 June 2017
+
+Fixes
+
+    (852301) - Analytics: Fix for Analytics events content type switches from Application JSON to application/x-www-form-urlencoded.
+    (915806) - Android: Changed the threshold to recognize big cores of ARM big.LITTLE architecture better.
+    (900192) - Android: Dropped obscured touch events to prevent tapjacking.
+    (867891) - Android: Fixed pause/resume issues when loading with static splash image.
+    (905369) - Android: Make SoftInput not take fullscreen on landscape orientation.
+    (908999) - Animation: Fixed animating Material Vector4 properties when in linear color space.
+    (887644) - Asset Bundles: Fixed a performance regression when loading assets from asset bundles that contain a very large number of objects.
+    (874335) - Editor: Prevent re-entrant MouseDrag in ListView causing drag&drop stuttering.
+    (848131) - Editor: Windows editor regression on 5.5.
+    (889776) - Editor: Fix to prevent crashes in the editor due to UI and animation.
+    (none) - FSBTool: Re-enabled GCADPCM audio import on 64-bit Windows.
+    (726106) - Global Illumination: "Bake paused in play mode" hangs on opening another scene in Play mode.
+    (875096) - Global Illumination: Baked Area light affects objects behind meshes where light should not be present.
+    (836139) - Global Illumination: Upgraded Enlighten SDK to 3.03.UN6.58373. Fixed the Final Gather + transparent objects regression that started occurring in Unity 5.4.
+    (871140) - Graphics: Fixed Cubemap.GetPixel returning the wrong data from a BC6H compressed cubemap.
+    (900937) - Graphics: Fixed Particle System mesh wireframe in Shape Module does not display properly
+    (878724) - Graphics: Fixed UI and gizmo being rendered with the wrong gamma in scene view.
+    (none) - Graphics: Improve the documentation for RenderTexture to clarify the behaviour of RenderTexture.DiscardContents.
+    (912004) - IL2CPP: Improved error message reporting for problems with attributes during code conversion.
+    (835745) - iOS: Fixed corrupted orientation view when forcing interface orientation via script (using Screen.orientation) on iOS10.
+    (none) - Metal: Fixed const buffer recycling, decreases memory usage.
+    (914171) - Mono: Fixed an intermittent crash in Unity (editor or player) while debugging managed code.
+    (898854) - Mono: Prevent a crash that might occur when deep profiling is enabled in the Unity editor.
+    (911086) - Navigation: Fixed using NavMeshAgent and NavMeshObstacle simultaneously causing Y coordinate of the object to become MaxValue.
+    (905336) - NavMesh: Fixed the tile carving algorithm so that it was capable of handling colinear degenerate triangles. This was causing the generated NavMesh to have a double line on polygon and was causing a trembling movement for its associated GameObject.
+    (896001) - Particles: Fix for a crash on some Android hardware caused by invalid particle data.
+    (907277) - Particles: Fixed an occasional crash when emitting from a skinned mesh renderer shape.
+    (917323) - Physics: Fixed an issue with Raycast not always detecting a CapsuleCollider2D or a BoxCollider2D.
+    (916478) - Physics: Fixed an issue with Raycast not always detecting an EdgeCollider2D when attached to a Rigidbody2D in certain poses.
+    (878740) - Physics: Fixed a crash that happened when continuously scaling a MeshCollider while activating and deactivating it at the same time.
+    (701504) - Physics:Fixed the voodoo trigger events being fired to scripts when a degenerate CapsuleCollider was used.
+    (792933) - Scene Management : Fixed an issue where objects marked as 'DoNotDestroyOnLoad' and were disabled could be deleted on scene load/unload.
+    (none) - Shaders: Fixed an incorrect shader translation to GLSL and Metal shader code from unsigned divide operation.
+    (901719) - Shaders: Fixed an incorrect shader translation to GLSL and Metal shader code from a logical OR on boolean vectors. Fixed shader compile errors on Vulkan eg "Shader error in 'Hidden/Post FX/Screen Space Reflection': '' : compilation terminated at line 141 (on vulkan)".
+    (902205) - Shadows/Lights: Fixed light halos drawing when more than 64 of them.
+    (751629) - Shadows/Lights: Fixe an issue where the attenuation texture was not entirely black in its last pixel.
+    (780763) - Sprites: Fixed an issue where sprites from ETC2 atlases were drawn incorrectly when sharing a packing tag with ETC1 split alpha sprites.
+    (909977) - Windows Store: Fixed a potential stack overflow when building a project with a large custom cursor.
+    (866141) - Windows Store: Fixed an out of bounds array access assert in Mesh code.
+    (881845) - Windows Store: Fixed Ctrl+C deleting input field instead of copying it.
+    (916281) - Windows Store: Fixed IL2CPP not being able to build C++ code with VS 2017 Update 2.
+    (880362) - Windows Store: Fixed paste when clipboard changes while the application is in background.
+    (875834) - Windows Store: Fixed pressing and holding Xbox controller button leading to false keydown events during the first frame of a scene.
+    (892653) - Windows Store: Fixed serialization when a serializable type derives from another serializable type in another assembly that has a serializable private field.
+
+Revision: ef963c7eb035
