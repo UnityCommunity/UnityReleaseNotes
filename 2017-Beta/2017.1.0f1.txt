@@ -1,0 +1,33 @@
+Unity 2017.1.0f1
+Released: June 26, 2017
+
+Unity 2017.1.0f1 release notes
+2017.1.0f1 Release Notes (Diff since b10)
+Known Issues
+
+    Audio: On Windows, AudioSource attached to VideoPlayer produces choppy sound when game iterations are overrunning. (895458)
+    VR: Rendering problems on Pixel Daydream when using 4x or 8x MSAA with single-pass stereo. This is due to driver issues, so the problem will be addressed via a driver update, independently of Unity releases. (-)
+
+Changes
+
+    Editor: 2017 Editor now needs a new version of license. Subscription key will be upgraded. 5.x license key will not be accepted by 2017 Editor.
+
+API Changes
+
+    Asset Pipeline: Asset Pipeline: Added methods AssetBundle.GetAllLoadedAssetBundles and AssetBundle.UnloadAllAssetBundles. (920140)
+    iOS: iOSStatusBarStyle.BlackOpaque and iOSStatusBarStyle.BlackTranslucent are obsolute use iOSStatusBarStyle.LightContent instead (894136)
+
+Fixes
+
+    Animation: Fixed crash when disabling GameObject in OnStateMachineExit. (912808)
+    Animation: Fixed crash when previewing empty clips (909671)
+    Animation: Fixed crash when saving while transition previewer is running (910640)
+    Animation: Performance optmization with complex blendtrees.
+    Animation: Proper deprecation of Animator.Stop() (903787)
+    Editor: Fix transform precision issue when moving multiple objects. (907854)
+    Graphics: Fixed metal editor game view resize leak (918940)
+    Graphics: Fixed metal editor shader warmup (916950)
+    iOS: Removed deprecated calls to wantsFullScreenLayout. Status bar stype option values updated. (894136)
+    OSX: Fix for Apple filesystem (APFS) compatibility
+    Scripting: Fixed memory leak in UnityWebRequest when Dispose is not called (862095)
+    WebGL: Fixed wasm build failure on MacOS caused by special characters in project path (899387)
