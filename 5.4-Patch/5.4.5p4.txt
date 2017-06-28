@@ -1,0 +1,21 @@
+Patch 5.4.5p4
+Released: 28 June 2017
+
+Fixes
+
+    (916387) - Android: Changed the threshold to recognize big cores of ARM big.LITTLE architecture better.
+    (868587) - Animation : Fixed a race condition in the legacy animation system which could cause a crash if a GameObject and an Animation assigned to that GameObject were deleted in the same frame.
+    (774401) - Editor: Fixed script reference set to none after package import.
+    (874335) - Editor: Prevent reentrant MouseDrag in ListView causing drag&drop stuttering.
+    (836139) - Global Illumination: Upgraded Enlighten SDK to 3.03.UN6.58373. Fixed the Final Gather + transparent objects regression introduced earlier.
+    (900937) - Graphics: Fixed the Particle System mesh wireframe in Shape Module does not display properly.
+    (835745) - iOS: Fixed the corrupted orientation view when forcing interface orientation via script (using Screen.orientation) on iOS10.
+    (none) - Metal: Fixed const buffer recycling, decreases memory usage.
+    (none) - Shaders: Fixed an incorrect shader translation to GLSL and Metal shader code from unsigned divide operation.
+    (917177) - UI: Fixed a rare Transform::kReceivedDueToParentTRSChanged assertion failure introduced in 5.4.5p2.
+
+Known Issues
+
+    (878724) - Graphics: Scene view elements become washed out after enabling HDR and Linear Color Space. A fix for this introduced in 5.4.5p2 has been backed out.
+
+Revision: e66fe3466ac1
