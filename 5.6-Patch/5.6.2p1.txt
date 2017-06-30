@@ -1,0 +1,59 @@
+Patch 5.6.2p1
+Released: 29. June 2017
+
+Fixes
+
+    (917096) - Android: Fixed the empty scene startup time regression.
+    (893527) - Android: Fixed an issue whereby H264 videos did not loop on Android 4.1 and 4.2 devices.
+    (921525) - Android: Fixed an issue where Android IL2CPP builds might fail if built from an editor script.
+    (916581) - Animation: Fixed an issue with preview of mirrored animations in the inspector.
+    (913301) - Animation: Fixed Animator.GetBehaviour() returning null after recompiling a script while in play mode.
+    (904030) - API Updater: Fixed assembly corruption in assemblies containing references to UnityEditor.Animations.AvatarMask.
+    (902973) - API Updater: Fixed a crash when checking C# scripts with deep object initialization syntax.
+    (none) - API Updater: Fixed nested types updating on local variable / parameter declarations.
+    (909471) - Asset Bundles: Fixed a crash when loading GuiStyleState from an asset bundle.
+    (904653) - Asset Pipeline: Fixed AssetDatabase.GetMainAssetTypeAtPath so that it returns the right type for ScriptableObjects instead of just 'MonoBehaviour'.
+    (895425) - Editor: Fixed assets being marked for delete instead of opened for edit in Version Control in cases where the asset was deleted and recreated (e.g. re-baking NavMeshes).
+    (888995) - Editor: Fixed an issue which made deleted files moved to recycling bin on windows.
+    (907854) - Editor: Fixed a transform precision issue when moving multiple objects.
+    (906745) - Editor: Warn, rather than fail, if an external process Unity launches suspended has been unexpectedly resumed by another process. Note: Some versions of RenderDoc have a bug which can cause this.
+    (none) - GI: Fixed case of tiling being ignored by the Progressive Lightmapper.
+    (908093) - Graphics: Added tier settings for Light Probe Proxy Volume.
+    (917188) - Graphics: Fix assert when calling CommandBuffer.DrawRenderer on disabled mesh renderer
+    (918788) - Graphics: Fix crash in non-native graphics jobs in specific scene configurations eg lots of particles, terrain.
+    (899009) - Graphics: Fix for GetTransformInfoDoNotExpectUpToDate in renderer bounding volume updating
+    (901468) - Graphics: Fixed Assert in Editor and crash in Standalone when disabling/enabling SkinnedMeshRenderer in very specific situations eg from animation during an OnBecameVisible callback.
+    (897994, 907626, 901242) - Graphics: Fixed error message "Enabling or adding a Renderer during rendering; this is not allowed." when creating or enabling a game object during OnPreRender, OnWIllRenderObject, OnBecameVisible, OnBecameInvisible callbacks
+    (916950) - Graphics: Fixed metal editor shader warmup.
+    (918993) - Graphics: Fixed rare hang in the Editor when building lighting data.
+    (917343) -  IL2CPP: Fixed an issue which caused IL2CPP to fail to convert assemblies if two non-existing methods with the same declaring type were referenced from any assemblies.
+    (835745) - iOS: Fixed corrupted orientation view when forcing interface orientation via script (using Screen.orientation) on iOS10
+    (916125) - Linux: Don't add control characters to Input.inputString
+    (903860) - Multiplayer: Added a new overload to NetworkManager.StartClient function which allows to specific which port should the local socket be bound to.
+    (910223) - Navigation: Fix using NavMeshAgent and NavMeshObstacle simultaneously causing Y coordinate to snap to maximum value.
+    (none) - OSX: Apple File System (APFS) compatibility fix
+    (920587) - Physics 2D: Fix a crash when a 2D Collider is recreated during contact reevaluation.
+    (890470, 899631) - Physics: Fixed an error thrown when using a Rigidbody with an Interpolate mode (Interpolate or Extrapolate).
+    (909248) - Physics: Fix for a crash when repeatedly unloading/loading cloth on XBox One and PS4.
+    (766851) - Physics: Fix for normals issue with cloth using tiny mesh.
+    (895771) - Physics: Fix to avert 'value must be greater' errors in cloth.
+    (893025) - Physics: Fix to avert cloth errors with prefabs: in cloth inspector we now check if cloth has no verts disabled and we eprocess mesh if re-enabled and previous cloth mesh had no verts.
+    (809914) - Physics: Fixed a case of CharacterController starting to ignore collisions with certain objects after a number of scene reloads.
+    (862095) - Physics: Fixed a memory leak issue in UnityWebRequest when Dispose was not called
+    (871725) - Scripting: Fix C# compiler incorrectly generating error CS1525 when using ternary operator with floating point values and no whitespace
+    (914052) - Scripting: Fix end of frame event not being sent in batch mode
+    (860417) - Scripting: Fixed a regression causing ContextMenu attributes from base classes to not be used on derived classes.
+    (917177) - UI: Fixed a rare Transform::kReceivedDueToParentTRSChanged assertion failure introduced in 5.6.1p1
+    (907581) - UI: Fixed memory leak in UI::DepthSortLayer()
+    (908936) - Video: On Android 4.1/4.2, bigger resolution videos don't play
+    (915772) - Video: On Android, video stops playback if trying to play it faster than 1x
+    (913882) - VR: fix for single pass rendering w/one of the standard effects shaders doesn't render correctly on the right eye
+    (906203) - VR: Fixed CommandBuffers don't work w/ MSAA and VR
+    (916987) - VR: Fixed editor crash when user selected VR Camera while playing
+    (913547) - VR: Fixed Stereo Display (non-head mount) produces only black screen in build
+    (890718) - VR: Fixed Stereo Display Standalone build runs at a low resolution regardless of settings
+    (none) - VR: Removed an unnecessary blit when single-pass stereo rendering is used on Daydream devices
+    (859281, 911311, 901404) - VR: Updated GoogleVR SDK to 1.60.1
+    (904471) - Windows: Fixed switching to full screen from windowed when using dx11.
+
+Revision: 8a29de46e0a0
