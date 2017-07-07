@@ -1,0 +1,23 @@
+Scripting Improvements
+
+    It is no longer necessary to specify the type of parameters in event handlers inside javascript. Eg. you can now write: OnCollisionEnter(collision) instead of OnCollisionEnter(collision : Collision)
+
+Bug fixes
+
+    Worked around a driver bug on GeForce 5200 graphics cards that resulted in flickering lights and made text disappear
+    
+    Collision events are now sent to scripts attached to colliders with no rigid body
+    
+    Opening a file in an external editor on Tiger now works properly when the editor application is not running
+    
+    Published Dashboard Widgets now get a proper bundle identifier, allowing more than one Unity Dashboard widget to be installed at the same time
+    
+    Adding scripts using the component menu now works properly
+    
+    The installer now asks you to restart the web browser after installation
+    
+    The web plug-in is now drawn correctly inside Firefox
+    
+    Reported mouse position is now correct in the web plug-in inside Firefox
+    
+    Reported mouse position is now correct in the web plug-in in full screen mode
