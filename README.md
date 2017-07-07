@@ -1,4 +1,4 @@
-# UnityReleaseNotes
+# Unity Release Notes
 
 :notebook: Release Notes - to be used with github search
 
@@ -18,4 +18,6 @@
 
 - http://docs.unity3d.com/ScriptReference/40_history.html
 
-[**Official Unity Release Notes**](https://unity3d.com/get-unity/download/archive)
+[**Official Unity Release Notes Above 3.0**](https://unity3d.com/get-unity/download/archive)
+
+[**Official Unity Release Notes Below 3.0**](https://unity3d.com/unity/whats-new/archive)
