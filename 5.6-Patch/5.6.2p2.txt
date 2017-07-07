@@ -1,0 +1,31 @@
+Patch 5.6.2p2
+Released: 6. July 2017
+
+Changes
+
+    Android: Removed tapjacking protection because it causes touch input to be lost when a transparent overlay is shown on top of the Unity view.
+    GI: Support for per object cast and receive shadows in the Progressive Lightmapper. For Cast Shadows only On and Off options are supported.
+
+Fixes
+
+    (925765) - Editor: Fixed an issue whereby moving multiple objects made only one of them to move according to handles.
+    (none) - GI: Progressive Lightmapper: Fixed scene dependent issues with dark edges on charts lying near the lightmap border.
+    (919044) - Graphics: Fix for miscalculating the size of the view required for a buffer which will be used as the source for an Indirect Draw/Dispatch call.
+    (919058) - IL2CPP: Fixed a crash in QueryComponentByType when animation was used with engine code stripping enabled and there was no Sprite Renderer component in any scene in the build.
+    (913886) - iOS: Fixed Application.installMode for apps downloaded from AppStore.
+    (none) - Linux: Work around change in glibc TLS allocation behavior in certain distributions.
+    (923903) - Multiplayer: NetworkTransport.Send() leaks memory.
+    (881764) - Multiplayer: Fixed an issue with network transport host being removed with invalid host id, when using custom network connection (NetworkConnection override).
+    (923135) - Physics: Fix for "PolygonCollider2D.points" reporting "Assertion failed on expression: 'm_data == NULL'" when setting a new Vector2 array to it.
+    (886331) - UI: Fixed a regression that caused a crash of the Editor when adding a Text component to a GameObject via a script.
+    (896933) - UI: Fix for Event System not updating when the application was not focused on macOS/Linux/UnityRemote/VR.
+    (911562) - UnityWebRequest: Fix for broken audio clip when download is chunked.
+    (921259) - UnityWebRequest: Fixed the issue of absolute redirect URL not escaped.
+    (915277) - VR: Fixed an issue that was causing eye flickering in Daydream.
+
+Known Issues
+
+    (927097) - UI: In order to call GetTransformInfoExpectUpToDate, RendererUpdateManager.UpdateAll must be called first when adding RectTransform.
+    (926885) - iOS: Only half of sprite is visible on built app.
+
+Revision: a53d5f937d71
