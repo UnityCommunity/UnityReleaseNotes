@@ -1,0 +1,73 @@
+New Features
+
+    Added Capture Screenshot feature. The example in /Users/Shared/Unity/Script Tutorial/CaptureScreenshot.js shows how to make it capture a movie by writing a sequence of screenshots
+
+    Support for Maya 7.0 .mb and .ma importing
+
+    Performance improvements when importing .ma and .mb files
+
+    Added Bake Simulation option to the Maya importer. This automatically bakes IK and expressions to animation curves
+
+    Added support for directly importing Cheetah3D .jas files (requires version 2.4 of Cheetah 3D)
+
+    Improved performance when using a lot of SendMessage. For example OverWhelmedArena now runs 50% faster
+
+    Improved ray-casting performance
+
+    Dashboard Widgets now have a full-screen button. They run a lot faster in full-screen mode
+
+    Materials now import diffuse color and are better at locating the assigned texture
+
+Shaders
+
+    Specular highlights now look correctly on BumpSpec and Glossy kind of shaders
+    
+    Tangent space calculate is completely rewritten and now allows for mirrored normal maps. Note: meshes using BumpMaps must be reimported
+    
+    Radeon 8500-9200 shaders look a lot more like the shaders on higher end graphics cards.
+
+Scripting
+
+    Added isKinematic flag to the Rigidbody class
+    
+    Added GameObject.Find() function to find a game object by their name
+    
+    Coroutines will now always wait for at least one frame when using yield; or yield 0;
+    
+    Materials can now be assigned to guiText.material and renderer.material from scripts
+    
+    Coroutines can now be used as event handlers, eg. OnTriggerEnter () { yield WaitForSeconds (5); }
+    
+    Coroutines now keep running during level loads when marked as DontDestroyOnLoad()
+
+Editor and Workflow
+
+    Scene view camera improved
+
+Bug Fixes
+
+    Animations now no longer jump when playing the first frame
+
+    Skinned meshes now work correctly when using offset pivot points
+
+    Rewrote the mesh triangulator. Importing large concave polygons from 3D modellers now works correctly
+
+    Importing FBX files with UV's from Lightwave is now more forgiving. Some Lightwave made FBX files didn't show uv's before
+
+    Importing meshes with degenerate triangles now works correctly
+
+    Importing of UVs is more robust now. This solves an issue when import UVs exported from Lightwave could not be imported
+
+    Texture importer now chooses the correct texture format when importing textures that are black or white but have alpha
+
+    Fixed 2 Blender import crash bugs
+
+    Triangle mesh collider is more robust when using a lot of flat parts
+
+    Screen.width and Screen.height is now correct when called from inside the editor
+
+    Dashboard Widgets now render correctly when the monitor resolution is set to 16 bits
+
+    Generated prefabs now correctly enforce that they can not be changed in the user interface
+
+    Dragging a game object onto a script-property now assigns the correct instance
