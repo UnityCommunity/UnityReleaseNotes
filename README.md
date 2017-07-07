@@ -18,6 +18,10 @@
 
 - http://docs.unity3d.com/ScriptReference/40_history.html
 
-[**Official Unity Release Notes Above 3.0**](https://unity3d.com/get-unity/download/archive)
+### Sources
 
-[**Official Unity Release Notes Below 3.0**](https://unity3d.com/unity/whats-new/archive)
+[Unity Release Notes Above 3.0](https://unity3d.com/get-unity/download/archive)
+
+[Unity Release Notes Below 3.0](https://unity3d.com/unity/whats-new/archive)
+
+Made with :heart: by [Unity Community](https://github.com/UnityCommunity/)
