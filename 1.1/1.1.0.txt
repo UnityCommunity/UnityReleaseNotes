@@ -1,0 +1,110 @@
+New Features
+
+    Added support for building Windows standalone player [Unity Pro feature]
+
+
+    Added C/C++ plug-in support. As an example we added a MIDI plug-in with an accompanying easy-to-use Midi class (see the Manual's Plug-in documentation) [Unity Pro feature]
+
+    Added support for an asynchronous WWW library which allows you to download textures from the web or communicate with web sites
+
+    Levels can now be loaded from inside the editor so big games can be tested and tuned in full
+    
+Shaders
+
+    Refractive glass shader added [Unity Pro feature]
+
+    8 new virtual displacement bump-mapping shaders (sometimes known as parallax bumped)
+
+    A number of shader fallbacks were improved
+
+    Material color alpha is now 1 by default
+
+Scripting
+
+    Added gizmo drawing interface
+    
+    Improved level-loading interface
+    
+    Added GameObject.Find(string name) to get game objects by name
+    
+    Awake() is now called after all objects have been fully initialized
+    
+    Physics.OverlapSphere() now compares against the actual geometry instead of bounding box
+    
+    The current directory now points to the folder the player application is in for easier file access
+
+Editor and Workflow
+
+    Added Build menu item, which simply uses the last Build Settings for faster turn-around
+    
+    Scene view clip planes automatically adapt to the scene size. Zooming the scene view now behaves better for very large and very small objects
+    
+    Added support for importing Maya 4.5 and 5.0 files
+    
+    Frame selected now accounts for children of the selection
+
+Physics
+
+    Collision capsules can now set in which direction height is to be applied
+    
+    Added anisotropic friction and contact springs
+    
+    Sphere collider now changes radius with scale
+
+Documentation
+
+    Added a Scripting A Game Tutorial which walks through the creation of a full game. Another masterpiece by David Janik-Jones.
+    
+    Updated the Script Reference and added an overview over Unity's scripting API
+    
+    Rewrote script reference for transform and some other classes
+    
+    The documentation is now shown in browser instead of Unity
+
+Bug Fixes
+
+    Objects are now correctly lit when scaling them to be very small
+
+    Collision meshes were smoothed too much
+
+    Changing the hinges break force to 0 crashed
+
+    Added missing math functions
+
+    The transform inspector now displays euler angles correctly and doesn't suddenly change rotations
+
+    Fixed a skinning issue with characters imported from Lightwave
+
+    Fixed crashes when importing broken 3DS files
+
+    Fixed a crash-bug when removing a script
+
+    Mesh particle emitters now take scale of the mesh into account
+
+    Fixed a crash occurring when importing textures with the gamma correction import setting
+
+    Fixed a crash occurring when setting the radius of a capsule to 0
+
+    Fixed a crash occurring when using Import New Asset...
+
+    Key configuration dialog now only writes preferences when the settings change
+
+    Fixed the ortho graphic view drawing wrong
+
+    Fixed crash bug when setting making particle emitter max energy negative
+
+    Fixed skips when using center scale handle
+
+    Fixed Particle Cloud errors and not serializing color correctly
+
+    Games now including all scripts and physics materials
+
+    Welcome screen doesn't disappear after opening a new web page anymore
+
+    Fixed <= bug in JavaScript
+
+    Material inspector now always updates textures correctly.
+
+    Water now always turns the right way (you need to reimport the Pro Standard Assets package)
+
+    ... and more
