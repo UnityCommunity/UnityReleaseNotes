@@ -1,0 +1,108 @@
+Major Features
+
+    With version 1.0.1 web players and dashboard widgets can be publicly distributed.
+    The web player is now fully sand boxed. This means some functionality is disabled when running in the web player. For example you cannot create or destroy files on the users machine when running in a web player. We also added a web player download page for end users (www.otee.dk/getunityplayer.html) The sample html page shows how to link to this website in case the user doesn't have the plug-in installed. Dashboard widgets automatically install the web plug-in.
+    
+    Added nine HOWTO documents
+    
+    Greatly simplified Transform script interface
+    
+    Added alpha mapped shader family (Diffuse, Bumped, Glossy, BumpSpec & VertexLit variants)
+    
+    Warnings and errors are now colored and have an icon in the console. The status view now bounces like the dock to make it more visible when an error occurs
+    
+    Finder-like renaming, ESC to cancel an edit in Hierarchy
+
+Project & Inspectors
+
+    Animation clips can now be renamed by adding an @ in the file name. eg. monster@run.fbx will have all animations named run
+    
+    The screen can now be used as a render texture
+    
+    Web player can now enter full screen mode using the context menu
+    
+    Converted more sample code to java script
+    
+    You can now create networked games using System.Net.Sockets API. This is a low level networking API. We will add higher level API's later on
+    
+Bug fixes
+
+    Fixed a bug where an external text editor would open a script two times
+    
+    Fixed the crash reporting popping up when tabbing in the property editor
+    
+    Added "Remove Component" to context menu again
+    
+    Alternate key for input axis now works
+    
+    Fixed a bug when auto updating the web plug-in
+    
+    Fixed a crash bug when going into full screen mode with the web player
+    
+    Using 600k less memory for deployed web players
+    
+    Optimized installation to take up less space
+    
+    Improved collider documentation
+    
+    Made graphics script interface have a better match with what you see in the inspector
+    
+    Added particle animation/render script interface
+    
+    Lens flares now track the light enabled state correctly
+    
+    Lens flares work with directional lights
+    
+    Lens flare scripting interface maps 1:1 to the inspector
+    
+    Component names look better
+    
+    Inspector now immediately starts editing when clicking on a property
+    
+    Added Audio Source & Lens Flare gizmos so you can select them from the scene view
+    
+    A default material is now always assigned to the mesh renderer when importing a mesh from 3DS, FBX or Maya
+    
+    Components can now be removed from scripts by calling Destroy() on the component you want to destroy. Eg. Destroy(light)
+    
+    Fixed a bug where Input.inputString did not work in the player
+    
+    The title bar now shows the project you are working in
+    
+    The color well is now always opened when clicking on the color in the inspector
+    
+    Skinned characters now handle the case when scale is applied to the skinned mesh correctly
+    
+    Record animation now doesn't ask if it should break prefab connection if it doesn't have to
+    
+    Javascripts can now use yield; instead of yield 0;
+    
+    Javascripts can now use the post increment operator eg. i++
+    
+    Javascripts can now use the post increment operator eg. i++
+    
+    Javascripts can now create new classes inside the script
+    
+Crash bugs
+
+    Fixed a crashbug when importing FBX meshes, instead we are printing a warning that triangulation failed and skip importing uv's or vertex colors. Working mesh triangulation will be fixed in the next release
+    
+    Fixed a crashbug when dereferencing a null pointer from the scripting language
+    
+    Fixed a crashbug when playing sounds on non-stereo surround sound systems
+    
+    Fixed a crashbug when importing audio files
+    
+    Fixed a crashbug when using Add All key frames in the time line
+    
+    Fixed a crashbug when ragdolled characters are added to a prefabs
+    
+    Fixed a crashbug when in a Javascript yield 0; transform.position.x += 1; was used
+    
+Known issues
+
+    On Geforce 5200 mobile graphics cards text sometimes disappears. This will be fixed with the next release
+
+    Triangulation of meshes sometimes fails. We give a warning in the console when it happens. A workaround is to manually triangulate your meshes in your 3D program. This will be fixed with the next release
+
+    Dashboard widgets don't get focus back correctly when looking at the back side of the widget and then going back again
