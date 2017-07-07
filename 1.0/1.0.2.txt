@@ -1,0 +1,27 @@
+Scripting Improvements
+
+    Added a Transform FindChild(string name) to the Transform class
+
+Documentation
+
+    Improved the documentation for several classes
+    
+    Some documentation pages were strangely formatted
+
+Shader Improvements
+
+    Made the pre-multiply alpha blended shader fade out properly
+
+Bug fixes
+
+    Worked around a driver bug on GeForce 5200 graphics cards on Tiger when drawing text
+    
+    Fixed a issue in Dashboard Widgets where it loses focus when switching to the backside
+    
+    Fixed a backwards compatibility issue with particle shaders
+    
+    The web player failed to automatically upgrade to the latest version
+    
+    Remove component now correctly warns when removing a component which another component depends on
+    
+    About box showed the wrong license type
