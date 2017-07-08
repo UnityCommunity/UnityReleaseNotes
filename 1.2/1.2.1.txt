@@ -1,0 +1,19 @@
+Bugfixes
+
+    Mouse input now works even if USB overdrive is enabled or a Wacom tablet is being used.
+    
+    The bumped specular glass refraction shader now falls back correctly where pixel shaders are not supported.
+    
+    Fixed a bug in plugin loading on Windows.
+    
+    Right mouse button is now button 1.
+    
+    Fixed a JavaScript compiler error when declaring structs inside of a coroutines.
+    
+    Fixed a crashbug when adding a rigidbody to a plane.
+    
+    Fixed a crashbug when using public multi dimensional arrays in scripts.
+    
+    Fixed a crashbug when using a huge amount of coroutines at the same time.
+    
+    Fixed a memory corruption bug when importing textures with border mip map enabled. This sometimes made Unity crash or give errors when creating a new project.
