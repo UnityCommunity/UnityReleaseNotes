@@ -1,0 +1,109 @@
+Features
+
+    Animations are now clipped by the timeline, which makes it easier to create looping animations.
+
+    Animations can now be set to either loop, ping pong or clamp.
+
+    Gizmos are now drawn for the entire hierarchy below the selection.
+
+    Meshes can now import vertex colors.
+
+    Shaders can now define default textures.
+
+    Added Object.DestroyImmediate() function, which should be used when writing editor code.
+
+    Arrays are now shown in the inspector.
+
+    Classes not derived from MonoBehaviour or Scriptable object can now be referenced and shown in the inspector (you need to use the [System.Serializable] attribute on the class you want to serialize).
+
+    Improved class support in JavaScript.
+
+    Added attribute support for JavaScript using @attribute.
+
+    Application can be set to run in the background in Edit->Project Settings->Player or via scripting with Application.runInBackground.
+
+    Graphics performance optimizations.
+
+Bugfixes
+
+    Render Textures now work correctly on Windows.
+
+    Fixed a crashbug occuring when building a player.
+
+    Fixed a bug where the player wouldn't run exactly like the editor, because the default Physics Material wasn't setup correctly.
+
+    Fixed shader fallback of the Alpha/Diffuse shader on old graphics cards.
+
+    Added several Physics Materials to the standard assets.
+
+    PlayerPrefs class now works on Windows.
+
+    Fixed 2 crashbugs in the Windows standalone player.
+
+    The Windows standalone player can now be placed in folders containing non-ascii characters.
+
+    Fixed crashbug occuring when assigning textures to a mesh.
+
+    Dragging the camera in orthographic view works correctly now.
+
+    Fixed a bug where textures would appear as missing.
+
+    Fixed a bug where C# compile errors wouldn't open the script correctly.
+
+    The Player can now run on case sensitive file systems.
+
+    It is now possible to resize the Open Project wizard.
+
+    Fixed several JavaScript parsing issues related to arrays, enums, the ?: operator, using new with structs when no constructor exists.
+
+    Fixed crashbug occuring when modifying a material property from scripts.
+
+    Fixed documentation for Random.Range() (off by one ;)
+
+    MouseEvents (eg. OnMouseDown) now work with stacked cameras.
+
+    Aspect ratio dropdown in the game view handles non-fullsize cameras better.
+
+    Ogg Vorbis playback now works on Windows.
+
+    Kinematic rigidbodies now send trigger messages.
+
+    Fixed a bug in the Instantiate function occuring when using direct references to script instances.
+
+    Fixed a mono related bug that prevented unity or unity players from starting up on some machines.
+
+    GameObject.SampleAnimation now samples animation clips on hierarchies.
+
+    Fixed Projector to work correctly with scaled meshes.
+
+    Projector now has a gizmo.
+
+    Reset for scripted components now works correctly.
+
+    Fixed particle rendering crashbug.
+
+    Fixed text rendering bug.
+
+    Fixed Object.Destroy() to always be delayed in order to avoid invalid state in callbacks.
+
+    Fixed rendering bug on some machines that made all objects disappear.
+
+    Fixed cases when texture inspector would reject dragged textures.
+
+    Cleaned up standard assets.
+
+Upgrading Projects
+
+    After uprading Unity you may want to also upgrade your projects (to gain access to all the new features).
+
+    Open your old project and then import the Standard Assets and Pro Standard Assets packages (the second only if you are using Unit Pro). This will replace all the Standard Assets files in your project, so if you modified any of them you must take a backup first to avoid losing your changes.
+
+Physics Changes
+
+    We've upgraded to a new version of [Ageia's physX](http://ageia.com/) since Unity 1.1.1, which can cause changes in physics simulations. Read [this post](http://forum.otee.dk//viewtopic.php?p=6781#6781) for tips on how to change your game if this causes problems.
+    
+Boo Changes
+
+    If you use Boo as a scripting language, there is a thing you have to be aware of. A bug previous to Unity 1.2 made protected variables be shown in the inspector. We fixed this, so they are not anymore. By default Boo creates protected variables, so previously they showed up in the inspector. If you want them to continue being shown in the inspector, you now need to mark them as public in Boo.
+
+    It is strongly recommended to fix your scripts before opening Unity 1.2, in order to not lose data in your scenes or prefabs (the loss of data happens when loading the project).
