@@ -1,0 +1,57 @@
+Universal Binary Games
+
+    Unity 1.2.2 produces games that work on Apple's sweet new Intel Macs (as well as Apple's sweet old PowerPC macs.)
+
+    This goes for all deployment targets: standalone, the Unity Web Plugin, and Dashboard Widgets.
+
+Great Windows Support
+
+    Games delivered to the Windows platform now perform better, support hardware better, and offer a screen-resolution interface which is as good as that on the Mac. The built game looks really clean on Windows too: just one executable and one data-folder.
+
+    Harmony between the spheres.
+
+    (Screenshots from Phoenix Final, a game in development by Neil Carter.)
+
+New Features
+
+    Added screen-selector on Windows.
+    
+    Windows Standalone players now only contain an executable and a Data folder. DLLs have been moved into the Data folder.
+    
+    Added improved resolution handling on Windows.
+    
+    Improved joystick support on Windows.
+    
+    Performance improvements across the board.
+    
+    Screen.SetResolution can now set the refreshRate.
+
+Bugfixes
+
+    OnCollisionEnter contact normals now always face outwards of the surface hit. In some rare cases they used to be the opposite direction
+
+    Fixed Skybox handling.
+
+    Fixed flare rendering for directional lights when the camera has a faraway near-plan.
+
+    Fixed a problem where Euler-angle rotation values entered in the inspector were garbled.
+
+    Fixed bug in Selection.GetFiltered handling when requesting all selected game objects.
+
+    Fixed a problem when stripping debug symbols of the standalone player, if the user didn't have the Apple Developer Tools installed. This is no longer necessary!
+
+    Fixed crashbug related to rendering selection wireframe and wireframe getting out of sync.
+
+    Fixed a JavaScript error when comparing dynamically typed objects against null.
+
+    Fixed rare crashbug when multiple character controllers collided.
+
+    Fixed rare null-reference exception when using coroutines in C#.
+
+    Fixed a rare render texture crashbug on ATI 8500 / 9000 / 9200 graphics cards.
+
+    Fixed rare crashbug when collapsing placement foldout in the material inspector.
+
+    Fixed rare Windows crashbug related to lighting.
+
+    Fixed spurious MeshRenderer "missing vertex colors" error.
