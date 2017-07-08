@@ -1,0 +1,380 @@
+Major New Features
+
+  Feature #1: Windows web-browser plug-in
+  
+    With the new Windows web browser plug-in, Unity web games are ready for prime-time. Just create your content normally, then use the File -> Build Settings… menu to take your web game live.
+
+    Your games will get the attention they deserve.
+    
+  Feature #2: Character Animation
+  
+    Unity 1.5 has a brand new animation system. It now supports animation blending, mixing, additive animations, walk cycle time-synchronization, animation layers, control over all aspects of the animation playback (time, speed, blend-weights), and mesh skinning with 1, 2 or 4 bones per vertex (can be controlled with quality settings) – in addition to our classic ragdolls.
+
+    But don't let the buzzwords scare you – it's still easy to set up and use.
+  
+  Feature #3: Universal Binary
+  
+    You've got a brand new MacBook Pro: now what pro software are you gonna run on it? Unity, of course. Unity 1.5 is now a fully universal application – so you can make your games even faster than before.
+
+    We've been testing Universal Unity for the past months, so we know it'll fry you with its speed-induced heat.
+  
+  Feature #4: High-speed Car Physics
+  
+    Ever wanted to drive at insane speeds? Now you can get that off your chest by making your very own racing game. For Unity 1.5 we've added a dedicated wheel collider that accurately simulates the traction model of real cars.
+
+    It has never been so easy to create racing games, or for that matter cool mountable vehicles for your first person shooters.
+  
+  Feature #5: More Full-Screen Filters!
+  
+    We added another batch of filters to really make your Unity games shine. Use the Noise Filter to get a grainy black-white look (complete with hair on the film stock). Make your sci-fi worlds live in vivid colors using the Glow Filter. Or give life to your horror game with the dynamic Contrast Stretch. This is a Unity Pro feature.
+  
+  Feature #6: Mesh Script Interface
+  
+    In Unity 1.5 you have full access to all vertex data / normals / tangents / colors / UVs and triangles.
+
+    Generate infinite terrains, deform objects, break or merge objects. The interface is simple, and ridiculously fast too: we measured 1,200,000 vertices processed per second. With JavaScript!
+  
+  Feature #7: Textures Script Interface
+  
+    Generate or modify textures on the fly. Or use textures as source data for anything (generate terrains from heightmaps, analyze image colors, …).
+  
+  Feature #8: Particle Script Interface
+  
+    The last entry in Unity's new full control programme is a fully exposed particle interface. You can now manually spawn particles and give them arbitrary position, velocity, size, and color. You can loop through all existing particles and animate them from a script, adding or removing particles you want.
+  
+  Feature #9: Lightmap Support
+  
+    Now lightmaps are fully supported. Bake the light in your 3D app of choice, then import painlessly into Unity for that contrastful look.
+  
+  Feature #10: TrueType Typography
+  
+    Just drag any TrueType font (.ttf) into the project. Create a GUI Text or Text Mesh and drag the imported font onto the font property.
+  
+  Feature #11: Cinema 4D Importer
+  
+    Cinema 4D files are now imported natively. If Cinema 4D is not already running Unity will launch it and automatically install a converter plug-in. The whole process is completely seamless, just drop your .c4d files into the project.
+  
+  Feature #12: Documentation & Tutorials
+  
+    We now have 5x as much documentation as before. Everything has been read, reread, corrected and polished. All components now have annotated screenshots. Thanks to Sam Kalman for helping us out on this project.
+
+    Unity 1.5 also includes five tutorials covering a wide range of topics.
+
+    After all, what good is the world's best tool if you can't figure out how to use it?
+  
+  Other New Features
+  
+    In addition to the above Unity 1.5 includes more than 256 new small features, improvements. Here are most of these.
+
+Graphics
+
+    Fullscreen AntiAliasing and Sync to vertical retrace (Set it up in Edit -> Quality Settings)
+
+    Improved texture compression quality and speed. We also now support DXTC5 texture compression which is better for textures with compressed alpha.
+
+    Water cleanup/additions:
+    
+        Water prefab now reflects the skybox
+        
+        Wave speed is now independent of wave scale
+        
+        Made property names clearer
+        
+        Added reflective & refractive water in Unity Pro
+        
+        Optimized the shaders
+        
+    Pro Standard Assets:
+    
+        Added reflective & refractive water
+
+        Optimized all water shaders, made property names clearer
+
+        Added Glow, Noise and Contrast Stretch image effects
+
+        Glow uses extra brightness from alpha channel, you may want to set main color of your materials to use zero alpha
+
+        Blur image effect more efficient at doing large blurs
+
+        Edge Detect effect now uses a different and faster filter
+
+        Image effects now no longer print "no subshaders..." warning on old video cards
+
+    Builtin shaders cleanup:
+    
+        Added lightmapped shaders
+
+        Properly handle texture placement offset
+
+        Work nice with glow (put extra brightness into alpha, i.e. specular highlights)
+
+        Diffuse shader is now truly per-pixel, so you can have bright lights near big polygons
+
+        There is a Diffuse (fast) shader which does the same as the old diffuse
+
+        DiffuseDetail now does a proper detail texture (i.e. gray texture has no effect)
+
+        Most of the shaders are faster
+
+        Skybox shaders use background render-queue
+    
+    Added light culling mask. This allows you to selectively apply lights to only some objects
+    
+    GUILayer now renders after all image effects
+    
+    Shaderlab now supports Fallback off statement, which won't complain if no subshaders can run
+    
+    ShaderLab now uses the Cg 1.4.1 compiler
+    
+Scripting
+
+    When calling a coroutine from JavaScript it will automatically be started. Thus it's no longer necessary to use StartCoroutine. In C# you still have to do this
+    
+    Added an Array class to JavaScript which behaves exactly like ECMA 1.5 standard JavaScript.
+    
+    Improved dynamic typing in JavaScript
+    
+    Renamed FileTexture to Texture2D
+    
+    Renderers can now be made invisible: Use renderer.enabled = false;
+    
+    Added Animation WrapMode.ClampForever, this is very useful with additive animation blending
+    
+    Added GameObject.CreatePrimitive() function for creating primitives from code
+    
+    A Material's texture placement (offset & scale) can be set from scripts
+    
+    Added a SendMessageUpwards() function
+    
+    Fog and ambient lighting settings are now exposed to the script interface. Use RenderSettings.fogColor = Color.white;
+    
+    GetComponent() can now also be used with a string. This is useful for accessing scripts written in other languages
+    
+    Added AddExplosionForce() and ClosestPointToBounds() function to rigidbody
+    
+    Scripting access to make rigidbodies sleep and solver iteration count:
+
+        Sleep minimum velocity can be overridden per rigidbody.
+        
+        Rigidbody.Sleep() can force a rigidbody to start sleeping
+
+Physics
+
+    Rigidbody interpolation. This is an extremely important feature if your main character or vehicle is a Rigidbody. This will remove any stuttering on the Rigidbody, which is most visible when you have a camera following it. For non-player Rigidbodies, there is no need to use interpolation as it doesn't make any visible difference and comes at a tiny performance cost
+    
+    Improved CharacterController stability. You can now use the CharacterController from inside the Update() function too. Movement also appears smooth now
+
+Runtime
+
+    Joystick improvements: Unity now contains an XML file for overriding reported joystick minimum and maximum values (Saitek joysticks report skewed min and max values). If you have a joystick that doesn't work correctly please try adjusting the XML file and send back the results so we can ship them to all Unity users
+    
+    Improved multi-monitor support. When going fullscreen, Unity will now choose the monitor that the screenselector was placed in
+    
+    Alt-Enter now toggles fullscreen mode in standalone Windows players
+    
+    Project Settings now have an option to always display the Unity watermark
+
+Performance
+
+    Quality Settings made much more flexible. They allows you to associate graphics quality settings to the ScreenSelectors quality setting
+    
+    Using skyboxes is much faster now (does depth clear in hw-friendly way)
+    
+    Editor performance optimizations in high object count scenes with a lot of gizmos
+    
+    Up 300% performance improvement when rendering skinned meshes. You can selected the number of weights used per bone (1, 2 or 4). It is also possible to select the accuracy used when transforming normals. If your mesh is not scaled, Fast will look just as good as Accurate but take up much less processing power
+    
+    300% performance improvement for rendering of high poly count meshes on Windows
+    
+    By default imported skinned meshes are now set to only process if visible. This implies that the bounding box will not change after it has been built the first time. If you are not animating a character but for example a big crane and you see the object popping into view too late, disable only update if visible.
+
+Editor
+
+    Greatly improved editor grid rendering
+    
+    Added Layers menu to Scene View
+    
+    Renamed inspector expert mode to debug
+    
+    Renamed LightManager to Render Settings
+    
+    Renamed ProjectSettings to Player Settings
+    
+    Performance optimizations when entering playmode in the editor
+    
+    Improved null reference exception messages. When encountering exceptions, Unity will now display much more readable warnings about what has gone wrong:
+    
+    UnassignedReferenceException: The variable target of SuperMarioCamera has not been assigned. This happened in the game object "Main Camera".
+    You probably need to select the "Main Camera" in the hierarchy and assign the target variable of the SuperMarioCamera script in the inspector.
+
+Asset importing
+
+    Support for Collada 1.4 files
+    
+    Support for importing .dxf and .obj files
+    
+    Added Collada based Blender importer. This fixes several bugs in the handling of rotations and pivot points (some Blender files would import rotations incorrectly). While this version doesn't add any new features, it will allow importing animations once the Collada exporter for Blender supports it. At the moment it supports importing UVs, normals, and vertices. This importer is more streamlined and requires Blender version 2.4. If you have a Blender file that was already imported with an earlier version of Unity, in order to stay consistent with the old imported file the new Blender importer will not be used. To use the new importer simply duplicate the Blender file in the Finder.
+    
+    Unity packages (.unitypackage) can now be opened with a double click in the Finder
+    
+    The default global scale when importing .fbx files directly is now 0.01 instead of 1.0. This fits how most modelers except Maya work.
+    
+    Worked around several issues in the Lightwave .fbx exporter when exporting meshes with assigned textures. You can now assign multiple textures to the same mesh in Lightwave and it will import correctly into Unity
+
+Text and GUI
+
+    Added GUI Text pixelOffset
+    
+    Added a Create 3D Text menu command. This will create a complete Text Mesh. Selecting a font asset before fist will assign that font to the created Text Mesh
+    
+    GameObject -> Create -> GuiTexture now creates a GUI Texture with the size of the texture that will maintain its pixel size regardless of resolution
+    
+Bug-fixes and polish
+
+    Audio Listener added to FPS camera prefab in standard assets
+
+    Unity now works around an issue with a new version of the (now broken) Quicktime LiveType.component
+
+    When playing an animation and it is the last active animation, it will clamp to the last frame instead of just stopping before the frame
+
+    Updated OS X version of the web player to support multiple plug-in instances and work better with FireFox
+
+    Added background render-queue and fixed overlay render-queue to work correctly
+
+    Remove ambient light scale property from light manager inspector
+
+    Fixed water shader and reflection shader on Intel cards
+
+    Fixed progress bar in the web player
+
+    Fixed Dashboard Widget loading to be backwards compatible
+
+    Fixed menu bar not being restored correctly after fullscreen
+
+    Fixed game view sometimes drawing garbage pixels on screen
+
+    Fixed layout issue in preferences dialog
+
+    Default camera doesn't contain skybox component by default anymore to avoid confusion (use Edit -> Render Settings instead)
+
+    Fixed crashbug when using imported meshes with zero vertices
+
+    Fixed move tool handles becoming black on rare occasions
+
+    Fixed Blender importer bug when using orthographic cameras in Blender
+
+    Worked around NVIDIA graphics card issues with water on OS X
+
+    Fixed fallback effects not using UsePass/GrabPass correctly. This resulted in ATI cards not falling back correctly with bumped specular shader
+
+    Fixed Edit -> Select All to work correctly
+
+    Fixed a error where Unity would not allow building a web player when using some JavaScript features
+
+    Fixed minor bugs in the script interface of the Light component
+
+    Fixed particle systems animating when not selected and in edit mode when moving around in scene view
+
+    ShaderLab now supports different line endings (LF, CR, CRLF).
+
+    Fixed 50mm flare in standard assets
+
+    Fixed Line Renderer color interpolation issue
+
+    Fixed rare crash or reboot when recompiling shaders often
+
+    Fixed crashbug when setting Hinge Joint damper value to less than zero in the inspector
+
+    Fixed bug where Unity didn't hide the menu bar correctly in fullscreen mode
+
+    Fixed crash in texture upload on Windows when using Fastest display quality or using Texture.masterTextureLimit
+
+    Fixed bug in particleEmitter.particles when assigning energy and color
+
+    Fixed wrong values shown in material inspector after doing a Reset
+
+    Fixed crashbug in mesh particle emitter when the mesh contains no normals
+
+    Worked around OpenGL driver bug on Geforce FX 5200 cards using PowerOfTwo Render Textures
+
+    On Windows, three argument texture combiners (a*b+c, a*b+-c) now work on nVidia cards
+
+    Worked around an Apple OpenAL crashbug when playing streaming Ogg Vorbis sounds. The workaround simply preloads the whole Ogg Vorbis instead of streaming it. We are pushing Apple to fix this issue, so that we can enable streaming Ogg Vorbis sounds again
+
+    Tool handle doesn't wiggle anymore when a particle system is selected
+
+    Fixed raycast collider triggers to report trigger events correctly on Windows
+
+    Fixed exiting fullscreen mode in OS X standalone player to fade out correctly before the resolution switch
+
+    Fixed crashbug that sometimes occurred when starting Unity and hitting play
+
+    Fixed a crashbug when storing an AnimationState in a member variable
+
+    Fixed wrong colors in 2x2 MIP level when using RGB 24 bit textures
+
+    Fixed a rare crash when setting material properties from scripts
+
+    Screen.showCursor = false; now actually works on Windows
+
+    Folders with extensions in the path name are now displayed correctly in the editor
+
+    Fixed rare (and random) crashbug when recompiling scripts
+
+    Fixed issue where the lowest MIP-map levels of compressed textures would sometimes result in random pixels
+
+    Holding down shift while dragging the scene view camera actually moves 3 times faster now
+
+    Fixed bug when loading the first level multiple times, where triggers would sometimes fail working
+
+    Fixed several joystick input bugs:
+
+        Screen selector input configuration for joysticks has a less sensitive deadzone when configuring now
+
+        Mouse buttons can now be configured
+
+        Configured key names shown in the screen selector are nicer formatted now
+
+        The idle center of the joystick is calculated correctly now
+
+    Fixed wrong lighting bug when multiple pixel lights are placed at the same position
+
+    Fixed possible lockup on Windows when switching from fullscreen to windowed mode on some drivers
+
+    Fixed lighting issue when using bump specular shader on skinned characters (tangents were not transformed correctly)
+
+    When unpausing the player all input will now be reset:
+
+        Activating the player window with a click will not let the mouse event go through)
+
+        Fixed an editor issue, where a key became sticky when pressing command and an arrow key at the same time
+
+        Keys will never get stuck
+
+    Fixed an issue where changing scripts while in playmode and using animations sometimes would disconnect the animation state
+
+    Fixed a JavaScript issue in web player
+
+    Fixed scene view losing camera position setting when going into playmode while a view is maximized
+
+    When going out of game mode and a scene view was switched into a gameview it will now be restored
+
+    Fixed "invalid IL" crashbug when implicitly casting floats to bool in JavaScript
+
+    Fixed LightManager flare strength not updating live
+
+    Fixed annoyance where a wireframe would sometimes go out of sync with real mesh when changing scale
+
+    Fixed reflective shaders on Intel GMA cards (MacBook, Intel MiniMac)
+
+    Fixed water to display better on Intel GMA cards
+
+    Fixed fallback effects not using UsePass/GrabPass correctly
+
+    Fixed Render Texture clearing on GeForce cards
+
+    Fixed possible lockup on Windows when switching from fullscreen to windowed mode on some drivers
+
+    On Windows Unity no longer thinks GeForce 6/7 does not support 3D textures :)
+
+    Fixed wrong lighting bug when multiple pixel lights are placed at the same position
