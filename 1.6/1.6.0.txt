@@ -1,0 +1,143 @@
+We've been hard at work acting on the needs of our many users. This is a list of the main changes that have gone into Unity since Unity 1.5.1.
+
+Graphics, ease of use, minor features
+
+    Any texture size is now supported (lifting the requirement to have texture dimensions of 2, 4, 8, 16, 32, 64, 128, 256, etc.) This both means than any image can be used as a texture, and that it's much easier to do pixel-perfect game GUIs. The WWW class now fetches images without padding them.
+    
+    Cinema 4D 10 is now fully supported.
+    
+    Quality Settings are fully switchable at run time. Scripts can access a QualitySettings class to change current quality level.
+    
+    The separate Web Player quality level was removed; and default standalone and web-player quality levels are set up in Quality Settings as well.
+    
+    A different icon now seperates imported and created prefabs. It's useful to see what's what since they work differently (imported prefabs can't be modified).
+    
+    The Unity Web Player can now hide the cursor while it is over the area of the plugin. Use Screen.showCursor = false; to enable this behaviour.
+    
+    The player window on OS X starts centered on the screen instead of on the top left corner.
+    
+    Application.loadedLevel will now refer to the correct "Build Game" dialog index number when testing scenes in the editor.
+    
+    The Mesh import settings dialog is now resizable, to make splitting animations into many parts easier.
+    
+    The name of a prefab is now always overridden and will not change when the prefab name changes.
+    
+    The name of the physics material will now stay the same when instantiated through Collider.material.
+    
+    Scripts can now be dragged into the empty area of the inspector to add the script to the selected game object.
+    
+    Tabbing through the inspector is more consistent now.
+    
+    Inspector properties are no longer edited by a mouse click that activates Unity. Thus one no longer can accidentally change values like this.
+    
+    Moved Quality Settings menu item into Project Settings submenu because they are project-wide settings.
+
+New scripting functionality:
+
+    Added Resources.Load() and Resources.LoadAll() functions. You can now place assets in a folder named "Resources" inside the project folder. Assets inside this folder (and only these) can be loaded at runtime, by referencing them by name or path.
+
+    Added Input.GetButtonUp(), Input.GetKeyUp(), and Input.GetMouseButtonUp() functions.
+
+    Added Application.CancelQuit() to stop or delay a standalone player from quitting. This function is useful to call from inside an OnApplicationQuit() handler. It is perfect for showing a splash screen just before the user leaves the application.
+
+    Added transform.forward, transform.right, transform.up convenience properties.
+
+    Added JavaScript parseInt and parseFloat functions.
+
+    Added GetScreenRect() for GUI elements (GUITexture and GUIText).
+
+    Added Graphics.deviceName, Graphics.deviceVendor and Graphics.deviceVersion.
+
+    Added Screen.currentResolution property.
+
+    Added a WWW.progress property and WWW.LoadUnityWeb() function to the WWW class.
+
+    Added RaycastHit.triangleIndex and RaycastHit.textureCoord.
+
+    The constructor of GameObject now takes an optional list of components that should be added to the game object automatically.
+
+    Added Texture2D.SetPixels() to set all pixels in a texture in one go, vastly improving performance.
+
+    Added Texture.wrapMode property.
+
+    Added Mathf.Log() and Mathf.Exp() functions.
+
+    Texture2D.SetPixel() now automatically clamps / repeats out of bounds pixels automatically. This makes using RaycastHit.textureCoord a lot easier.
+
+    The transform and rigidbody accessors in RaycastHit now return null if nothing was hit (instead of throwing an exception).
+
+    Collision.collider property now is always set to a collider even if a Rigidbody was hit. This is more intuitive than the old approach of returning null if a Rigidbody took place in the collision.
+
+    SendMessage() functions can automatically convert between float and int.
+
+    Vector3.back, Vector3.left and Vector3.down properties have been deprecated. Use -Vector3.forward, -Vector3.right and -Vector3.up instead.
+
+Bug fixes
+
+    GUI Textures now always display pixel correct.
+    
+    Pixel point lights now attenuate towards completely black at their maximum range (instead of a dark gray).
+    
+    Fixed jitter when using Rigidbody interpolation.
+    
+    Fixed bug in animation splitting when using loop-frames.
+    
+    OnCollisionExit() will now be called even if OnCollisionEnter is not defined.
+    
+    new WWW (url) can now be accessed from C#.
+    
+    Double clicking on a texture in the material inspector will now open the texture in Photoshop (or whichever application you have selected as the texture editor application).
+    
+    When assigning references to objects in the inspector using the popup-menu, classes that inherit from MonoBehaviour will now be checked for their exact type and only listed if the type matches exactly.
+    
+    When rotating a parent transform, with transform children that have a kinematic rigidbody, the position change from the rotation will now be applied correctly. Previously the world space position of the transform would not change.
+    
+    The Unity Web Player's context menu now always works on Firefox running on OS X.
+    
+    Fixed some .NET classes failing to load in standalone Windows players (ConfigurationException: Cannot find …\Data\etc\mono\1.0\machine.config).
+    
+    Windows standalone player will no longer switch to rotated full screen resolution.
+    
+    Invalid characters now get removed in Product Name and Company Name in Edit->Project Settings->Player. Certain characters would lead to the built player application not being able to launch.
+    
+    Alpha of main color in all shaders is now 100% by default.
+    
+    The InputManager's "Should quit on CMD-Q" checkbox has been removed. Application.CancelQuit() can do the job better now.
+    
+    Calling ToString() on an enum is no longer disabled in the Unity Web Player.
+    
+    Fixed Unity Web Player scrolling flicker in Safari.
+    
+    Fixed an issue where single quotes in script filenames named led failed compilations.
+    
+    Fixed a bug where resizing arrays of custom structures sometimes failed.
+    
+    Fixed crashbug when the mesh particle emitter has lost the reference to the mesh and emit mode is set to Systematic.
+    
+    Fixed cubemap inspector not displaying face images correctly.
+    
+    Fixed misleading label for 1/4 and 1/8 texture resolutions in Quality Settings (used to show 1/8 and 1/16).
+    
+    Fixed issue in the automatic triangulation of quads when importing models.
+    
+    Fixed bug in property inspector scrolling to the beginning when right-click dragging values fast.
+    
+    Fixed a crashbug that rarely and randomly happened when switching between inspectors.
+    
+    Fixed Flare fade checkbox to actually work.
+    
+    Fixed crash occurring when setting the tag of a behaviour inside of the constructor.
+    
+    Worked around Maya FBX exporter bug, where Maya batchmode would crash when using IK Constraints on some characters.
+    
+    Prefab changes are now propagated when using Application.LoadLevel() from inside of the editor.
+    
+    When going to fullscreen in the web player, the resolution and refresh rate is now clamped to the desktop resolution. This helps making sure that the Unity Web Player never switches to a resolution the monitor does not support.
+
+Driver workarounds
+
+    Fullscreen mode for S3 Savage cards with old drivers on Windows used to be disabled. Now entering directly into fullscreen from standalone is supported.
+    
+    Worked around a crash on older FireGL drivers on Windows (this is the same issue as with old Radeon cards: vertex programs get parsed wrongly)
+    
+    Worked around crashes and wrong rendering on Radeon 7x00 cards under Windows (disabled VBOs).
