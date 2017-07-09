@@ -1,0 +1,117 @@
+Upgrading Projects
+
+    When uprading Unity you may want to also upgrade your projects to gain access to all the new features. Open your old project and then import the Standard Assets and Pro Standard Assets packages (the second only if you are using Unity Pro).
+
+All-Round Improvements
+
+    Yet again we've collected and categorized hundreds of your suggestions and bug reports, fixing each and every one we could.
+
+Improvements
+
+    The Collada .dae importer has been greatly improved. Collada files can now have two separate UV sets, and vertex colors also import correctly now.
+    
+    A #pragma strict keyword can now be used to disable dynamic ("duck") typing in JavaScript. This is useful when you want to not accidentally make use dynamically typed function calls, thus ensuring that your code runs at maximum speed.
+    
+    Support for Internet Explorer plugin activation. Web content on IE ignores input until it's activated, but the plugin can now be activated by using external .js files to load the plugin. See the web player manual section for more information.
+    
+    In the web player, the WWW class now downloads through the browser's API, allowing downloads to be cached by the browser. This improves streaming for the web plugin a lot. This means that WWW downloads are no longer able to stall until the download is complete (the API of common browsers does not allow this). We deprecated all functions which will stall a download, and are now giving an error when a download is being used before complete. Instead of stalling the download simply use yield WWW;. Web players published with Unity 1.6.0 or earlier will of course continue to work.
+    
+    The automatically generated web player html has been simplified. The documentation on the Unity Web Player HTML and browser communication has been rewritten.
+    
+    Script examples in the documentation are now syntax-highlighted.
+    
+    Added scripting function Material.GetTag(), to detect which subshader is being used in a shader.
+    
+    GUI elements and colliders are now ignored for OnMouseDown(), OnMouseEnter(), etc., functions when they are in the Ignore Raycast layer.
+    
+    Unity's Game View support for 16:9 aspect ratio was added.
+    
+    Reflective and Refractive Water shaders now render faster on old cards (specifically Radeon 7x00, Intel 8xx, and GeForce 2/3/4). For better performance the unnecessary camera is now disabled when the fallback is active (to get this, you need to re-import Standard and Pro Standard Assets packages into your projects).
+    
+    Width and height is now passed into postprocess build scripts. The current directory in the postprocess build player script is now always set to the project folder.
+    
+    Doppler is turned off by default now. To enable it, go to the Edit -> Project Settings -> Audio and set Doppler Factor to a non-zero value in order to activate it.
+
+Known issues
+
+    On some computers, the Unity editor does not launch. Unity will bounce one time in the dock, then quit. This is a bug in OS X 10.4.8 that triggers on some Intel-based Macs. The bug has been fixed in upcoming Mac OS X 10.4.9 update. Until it's released the problem can be solved by reinstalling the system or booting from another hard drive. The Player and Web Player are not affected by this.
+    
+    The Unity Web Player running in Firefox on Windows computers sometimes runs slower than it does in Internet Explorer. This is a bug in the Firefox "TalkBack" feature (FireFox's automatic bug reporting system). It specifically causes the context switches in OpenGL to take a needlessly long amount of time. You can make the Unity Web Player run fast again by simply turning off TalkBack in Firefox (Tools -> Add-ons menu). The performance issue is not very noticable with simple players, but if you use Render Textures or Image effects (for example reflective surfaces, blur, glow) the performance decrease can be quite drastic. The same issue also applies to other browser plugins (as for example Adobe Shockwave).
+
+Bug fixes
+
+    GetComponents() now gives an error instead of crashing when called from an object's constructor.
+
+    Setting a reference to a component from a builtin components works again.
+
+    Various issues with audio playback with pitch & doppler have been fixed.
+
+    "Maximize on Play" on Unity's Game View now sets Screen.width & Screen.height before play begins.
+
+    Made Matrix4x4.SetOrtho() to work correctly.
+
+    Fixed a problem where skinned meshes having just one bone would sometimes incorrectly not be recognized as being skinned.
+
+    Application.dataPath now works correctly in the Windows web player.
+
+    Creating new assets from the Assets menu would fail when any project settings were selected.
+
+    If a standalone Windows player crashes, the crash-report is saved into a separate folder next to game executable.
+
+    Fixed an issue where particles would sometimes have huge initial velocities when a particle system was created in the editor.
+
+    Fixed an issue where particles with very high energy in some cases aren't emitted.
+
+    Fixed a graphics issue where flickering could occur when using the ColorMaterial keyword in a shader.
+
+    Fixed rendering corruption when Halos are used on some Windows graphics card drivers.
+
+    Fixed issue where script compilation would stall when encountering more than 32 errors or warnings.
+
+    Fixed a bug where compilation would sometimes halt when importing a .unitypackage while having many compile errors.
+
+    Fixed two regressions in the JavaScript compiler related to scoping of identical variable names.
+
+    Fixed an issue in .obj file importing where UV coordinates would sometimes get lost.
+
+    When making a game object DontDestroyOnLoad() without making the parent game object DontDestroyOnLoad. Instead of crashing, Unity will now warn about this since it's most likely not what is wanted.
+
+    PlayerPrefs are now cleared when loading a new web player instance, but they are retained when using WWW.LoadUnityWeb();. This can be used to persist data between level loads when streaming .unityweb files.
+
+    Fixed memory leak when stopping audio sources which use Ogg Vorbis.
+
+    Fixed bug where Unity would behave inconsistently when a prefab was deleted in the Finder, and a new one created shortly afterwards.
+
+    Fixed mouse cursor jittering when using right mouse drag in the editor.
+
+    Fixed a problem where textures loaded via the WWW interface sometimes would not show.
+
+    Fixed Windows Web Player crash on Firefox 1.0.x.
+
+    Fixed Web Player installation and update failing on Windows in some rare cases.
+
+    Fixed crash when importing non-power of two textures with some (large) texture sizes.
+
+    Fixed bug with Export Package causing rare crashes when exporting entire scenes.
+
+    Fixed a crash when disabling a camera from inside OnPreRender() or OnPostRender().
+
+    Fixed a crash when ParticleEmitter.Emit() is called with a negative value.
+
+    Fixed a crash when assigning null texture on a GUI Texture from script.
+
+    Fixed an occasional crash when accessing GUIText.pixelOffset, material.mainTextureOffset and material.mainTextureScale on Windows and Intel-based Macs.
+
+    Fixed a crash when using multiple image effects on a camera rendering into a Render Texture.
+
+    Fixed a crash when max emission of a particle emitter in one shot mode was set to infinity.
+
+    Removed spurious error "!CompareApproximately" that would sometimes show up when using interpolation on a rigidbody.
+
+Driver workarounds
+
+    Render textures now work on Intel graphics cards on Windows.
+    
+    Vertex programs are now enabled on GeForce4 4200 Go cards.
+    
+    Worked around guiText.material.color not always updating on Mac OS X, caused by a bug in Apple's Radeon X1x00 drivers.
