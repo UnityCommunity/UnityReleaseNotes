@@ -1,0 +1,253 @@
+When making middleware for such a wide audience as we do, one of the challenges is that many of the end users of our customer's games have outdated hardware and graphics drivers. The solution? We've spent massive resources testing our runtime on these platforms. Thus, we're proud to announce Unity 1.5.1, with rock-solid support for a terrifying range of old hardware/software combinations.
+
+Major New Features
+
+  Feature #1: Support for old hardware and drivers
+  
+    When making middleware for such a wide audience as we do, one of the challenges is that many of the end users of our customer's games have outdated hardware and graphics drivers. Some of these drivers are awfully broken, and functionality that is documented to work, doesn't. The solution? We've spent massive resources testing our runtime on these platforms and working around driver bugs. Thus, we're proud to announce Unity 1.5.1, with rock-solid supports for a terrifying range of old hardware/software combinations.
+
+    While not the sexiest of "features", the benefits are massive: reduced support costs, reduced quality assurance, and increased market reach. The result is that you have more time to make a great game. This is critical to anyone who wants to make games for a wide casual audience.
+
+  Feature #2: Unicode Support
+
+    Unity finally supports Unicode for game localization. Japanese? Chinese? Korean? Not only westerners play games.
+
+    Unicode TrueType fonts now import correctly and it is possible to enter Unicode characters into strings in the inspector. Scripts can even be saved in the UTF16 encoding which allows them to contain complete Unicode strings.
+
+  Feature #3: Car Wizard
+  
+    Unity 1.5 brought high-speed physical modelling of vehicles, with suspension, tires and that whole racing-thing. With Unity 1.5.1 it's become really easy with a new "car wizard". Drag in a car model, run the wizard, set your parameters, drive.
+
+    But don't let the buzzwords scare you – it's still easy to set up and use.
+
+  New Example Project #1: 3D Platform Game
+  
+    Want to make a 3D platformer in the style of "Super Mario 64", complete with jump-pads, feel-good camera controls, and a cute (or scary) animated character? This example project has scripts to control such a game. Loads of goodies include: scripts, 3D objects and rigged character complete with textures and animations.
+
+    As always, the assets from the example projects can be used free of charge commercially (and well as non-). The scripts are well written and can be extended and repurposed. 
+
+  New Example Project #2: Nature Rendering
+  
+    To help you create gorgeous terrains with foliage such as animated grass and trees, we added this example project. It includes several really cool parts: A grass generator script to dynamically generate leaves of grass across a terrain mesh, foliage and terrain shaders, and two fully textured sample trees.
+
+    As always, the assets from the example projects can be used free of charge commercially (and well as non-). The scripts are well written and can be extended and repurposed.
+
+  All-Round Improvements
+  
+    We weren't relaxing these last months. We've been hard at work responding to your suggestions and improving Unity back to back. Unity supports native importing of files from the newly released packages, Maya 8 and Cinema 4D 9.0 + 9.1, and improves the native support for complex hierarchies in Blender.
+
+    Unity 1.5.1 has also been optimized. Complex scenes render 15% faster, and a new script has been added to combine objects, which can provide for massively increased rendering speeds.
+  
+  Ogg Vorbis playback improved
+  
+    Improved playback of very short Ogg Vorbis clips on Intel Macs and Windows.
+    
+    Enabled Ogg Vorbis streaming on Intel Macs on OS X 10.4.7+, because Apple's OpenAL driver has been patched.
+    
+    Worked around an issue in the Ogg Vorbis importing when a buggy QuickTime component is present.
+
+  Usability
+  
+    The New Project wizard is now clearer.
+    
+    Asset / object pop-up selector now sorts items correctly, and does not show any invalid items.
+    
+    Unity now waits until all scripts have finished compilation before entering play-mode.
+    
+    Improved Texture inspector now displays texture's size, format and compression.
+    
+    Improved Render Texture inspector. Size, wrap and filtering can be set up now.
+    
+    Improved icons for Fonts, Scripts, Unity scenes, Cubemaps, Shaders and Physic Materials.
+    
+    Improved display of WheelCollider components in the scene view.
+    
+    Alpha-only textures now display alpha channel automatically in the project view and inspector.
+    
+    Adding elements to completely empty string arrays in the inspector is now possible.
+    
+    Show a warning when trying to save scene outside of the project folder.
+    
+    Show a warning when saving two scripts with the same name.
+    
+    Worked around an issue in .fbx files containing duplicate bones.
+    
+    Worked around an issue in 3ds max's .fbx converter where path names would come through incorrectly, leading to textures not being found.
+    
+    Much improved scripting and ShaderLab documentation.
+
+  Scripting
+
+    It is no longer necessary to manually cast when assigning a JavaScript array to a builtin array.
+
+    Added WWW.bytes property to read raw bytes over the network.
+
+    Added Physics.RaycastAll() and Physics.TestCapsule() functions.
+
+    Added CharacterController.center property.
+
+    Added Shader.Find() function which finds existing shaders by name.
+
+    Added Input.GetAxisRaw() function which returns an input axis with no smoothing applied.
+
+    Added GuiText.anchor, GuiText.alignment and GuiText.tabSpacing properties to allow complete script control.
+
+    Added Mathf.SmoothDamp() function for a tunable smooth damping. Useful for following cameras.
+
+    Added Mathf.SmoothStep() function.
+
+    Renamed CollisionFlags.CollideSides to CollisionFlags.Sides. Added CollisionFlags.None. (CollisionFlags.CollideSides still works but is deprecated).
+
+    Rigidbody.useGravity will now wake up a Rigidbody when enabled.
+
+  Graphics
+
+    Massive improvements of graphics card and driver compatibility on Windows. We worked around a lot of broken graphics card driver bugs, including some very old ones. We have tested against most graphics cards with different driver versions. In particular:
+    
+      Fixed rendering artifacts on most Intel cards (845, 865, 945).
+      
+      Worked around older ATI drivers parsing vertex programs incorrectly.
+      
+      Disabled software vertex programs on DX7-level NVIDIA and Intel cards.
+      
+      Worked around a crash with render textures with pre-30.82 NVIDIA drivers.
+      
+      Worked around a crash with pre-4.1.10.3691 Intel drivers.
+      
+      Worked around crashes on S3 Savage/ProSavage/Twister cards.
+      
+      Worked around a crash on VIA/S3 UniChrome cards falsely claiming they're OpenGL 1.2.
+      
+      Worked around some SiS 630/651/730 drivers falsely claiming they're OpenGL 2.0.
+      
+      Various graphics cards have trouble when performing rendering from a separate thread (most ATI and Intel drivers). Disabled multithreaded rendering on those.
+      
+      On some ATI drivers, the Unity Web Player could hang when getting out of full-screen.
+      
+      Unity Web Player on Windows now grays out full-screen menu item if it is not safe to switch to full-screen mode due to buggy graphics card drivers.
+
+    Glow effect looks a lot nicer. Less white fringes around, finer control of glow color based on the object's color.
+    
+    The color of a text material can now be modified and is stored when closing the project.
+    
+    Graphics performance optimization with up to 15% faster rendering when many objects are visible.
+    
+    Decal shader now behaves similar to VertexLit, but with a second (decal) texture.
+    
+    Improved sorting for transparent objects. Transparent objects are now sorted by now sorted by bounding volume center instead of Transform.position.
+    
+    Particle shaders look much better on really old (single texture) graphics cards.
+    
+    Fixed glossy/specular vertex lighting suddenly changing sometimes (on full-screen switches and level loads).
+    
+    Intel integrated graphics cards now support vertex and pixel shaders on the Mac (MacBook and MacMini).
+    
+    When using animated particle textures in the ParticleRenderer, the UVs pointed to the wrong tile on the first frame.
+    
+    Linear eye-space UV generation (TexGen EyeLinear) in shaders now works correctly.
+    
+    Projectors are now culled correctly by the camera's culling mask.
+    
+    Fixed issue where the Projector flips textures vertically when using an orthographic projection.
+    
+    MotionBlur filter is no longer too dark on some Windows machines. It also runs on more graphics cards now.
+    
+    Spotlight cookies are not mirrored anymore.
+    
+    Flare layouts 2x2, 3x3 and 4x4 now work correctly.
+    
+    Fixed errors with Reflective shaders that would occur in some situations.
+
+  Unity Web Player
+  
+    Firefox on Intel Mac is now supported too.
+    
+    The loading bar is now drawn correctly for small games.
+    
+    Loads much faster and doesn't leak resources on OS X.
+    
+    It is possible to detect where the game was loaded from (both the srcValue and the absolute url) as Application.srcValue and Appliction.absoluteUrl.
+    
+    For computers that do not have any OpenGL drivers, a warning is issued before continuing with software rendering.
+    
+    Unity Web Player on Windows runs much faster in full-screen, and full-screen mode is entered faster.
+    
+    Unity Web Player mouse position in Firefox now works correctly.
+
+  Deployment
+  
+    Screen selector dialog can now be hidden by default. The new options in the player settings are:
+    
+      Enabled by default.
+      
+      Disabled completely.
+      
+      Disabled by default, but shown when holding down ALT during launch.
+
+    Reduced mouse sensitivity on Windows to be more like on the Mac.
+    
+    Unity games can now be run headless (without requiring a monitor), using a -batchmode command line argument (requires Unity Pro).
+    
+    Fixed an issue with OnMouseDown when using multiple overlaid cameras and culling masks.
+    
+    Fixed issues with keystrokes being lost and keys being stuck.
+
+  Other fixes
+
+    Fixed issue in package importing on network-booted setups.
+    
+    Unitron no longer starts two recompiles (once when saving the file and once when activating Unity).
+    
+    Dashboard Widgets now render non-fullscreen cameras at the right position.
+    
+    Fixed an occasional crash when exiting a standalone game from the screen selector on Windows.
+    
+    ForceMode.Acceleration now works correctly. Previously the parameter would be on the scale of an impulse instead.
+    
+    Fixed an issue in Camera.WorldToViewportPoint() and Camera.ScreenToViewportPoint() functions when using non-fullscreen cameras.
+    
+    Random.RandomRange(min, max) integer function now returns min when min equals max.
+    
+    When creating Materials from code they are now shown in the inspector.
+    
+    SpringJoint.damper property now applies correctly when set from a script.
+    
+    Collider.bounds now returns the real bounding volume.
+    
+    ControllerColliderHit.normal now returns the correct surface normal (instead of sometimes returning its inverse).
+    
+    Fixed a bug where assigning a particles array would not allow resizing the rendered particles.
+    
+    Fixed a bug where Material.GetColor(name) right after creating the material from a script always returned black.
+    
+    Fixed an issue where split-screen cameras had inconsistent Flare rendering for the top-most camera.
+    
+    Fixed a crash which occurred when using GetComponent() with a null argument.
+    
+    Fixed a crash which occurred when providing negative coordinates to GetPixel() when texture wrap mode was set to repeat.
+    
+    Fixed a crash which occurred in a overridden OnEnable() function when recompiling scripts in play-mode.
+    
+    Fixed a crash which occurred in GuiElement.HitTest() if no current camera is available. It now uses an imaginary full-screen camera when no camera is found.
+    
+    Fixed a crash which occurred when setting properties of a Rigidibody created from a script, which is attached to an inactive GameObject.
+    
+    Fixed a crash that occurred on some computers when exiting Unity.
+    
+    Fixed a crash that occurred when using "1 texture" flare layout.
+    
+    Fixed several bugs that could crash Unity when importing some fonts.
+    
+    Fixed freeze which could occur when Unity is brought to the foreground.
+    
+    Fixed crash when setting the spring parameter of a Spring Joint.
+    
+    Fixed rare crash when using AudioSource.PlayOneShot() with Ogg Vorbis audio clips.
+    
+    Fixed crash bug on PPC based Macs with some Ogg Vorbis files.
+    
+    Fixed OpenAL loading on some Creative sound cards on Windows.
+    
+    Removed a warning saying that the editor scripts could not be loaded.
+    
+    Fixed an issue where drag&drop sometimes needlessly scrolled the hierarchy view horizontally.
