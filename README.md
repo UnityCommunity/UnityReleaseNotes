@@ -20,8 +20,6 @@
 
 ### Sources
 
-[Unity Release Notes Above 3.0](https://unity3d.com/get-unity/download/archive)
-
-[Unity Release Notes Below 3.0](https://unity3d.com/unity/whats-new/archive)
+[Unity Release Notes](https://unity3d.com/unity/whats-new/)
 
 Made with :heart: by [Unity Community](https://github.com/UnityCommunity/)
