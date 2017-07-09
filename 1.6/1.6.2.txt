@@ -1,0 +1,43 @@
+Unity 1.6.2 was released in response to Apple's buggy Mac OS X 10.4.9 update, which in some cases made Unity stop working on Intel Macs after the update had been applied. But we still went through your bug reports and fixed most of them.
+
+All-Round Improvements
+
+    Yet again we've collected and categorized hundreds of your suggestions and bug reports, fixing each and every one we could.
+
+Bug fixes
+
+    Fixed an issue where Unity wouldn't launch on Intel-based Mac OS X 10.4.9 computers due to bad prebindings caused by the 10.4.9 updater.
+    
+    Fixed a bug where more than one image effect on a camera targeting into another render texture would crash.
+    
+    Fixed random crashbug in Skinned Mesh Filter when animate normals is disabled.
+    
+    Fixed issue with Dashboard Widgets crashing when they are being reloaded using CMD-R.
+    
+    Fixed Internet Explorer activation in web player when using external JavaScript.
+    
+    Fixed loading issue on Windows when the executable is contained in a folder using Unicode characters.
+    
+    Fixed web player hang or crash on Windows when navigating very fast between pages.
+    
+    Fixed sound volume sometimes not updating correctly when changing listener volume.
+    
+    Fixed front and back audio channels being reversed on a 5+ speaker setup.
+    
+    Fixed bug where scale was sometimes not applied correctly when using animation clips.
+    
+    Layer Mask on Character Controller is now setup correctly.
+
+Driver workarounds
+
+    Fixed crash on Intel 9xx cards on Windows when render textures and image effects are used.
+    
+    Fixed rare crash on graphics cards that don't support DXT texture compression.
+    
+    Fixed incorrect uploading of DXT compressed cubemaps on some drivers.
+    
+    Fixed render texture crash on some Vista OpenGL drivers.
+    
+    Disabled render textures on old ATI FireGL drivers (they would often crash).
+    
+    Disabled multi-threaded web player rendering on old NVIDIA drivers and some SiS cards (they would crash sometimes).
