@@ -1,0 +1,13 @@
+Unity 2.0.1 was a quick update we released to be able to support Mac OS X 10.5 "Leopard".
+
+    Fixed editor crash on Mac OS X Leopard whenever color property was in the Inspector.
+
+    Fixed 'F' key focusing not working on Leopard.
+
+    Fixed Layer popup in GameObject inspector on Leopard.
+
+    Fix double click not launching asset editor on Leopard.
+
+    Disabled mipmapped render textures on GeForce 8600 on Leopard and Tiger (an OpenGL driver bug which leaks memory is not fixed yet).
+
+    Fixed some broken links in the documentation.
