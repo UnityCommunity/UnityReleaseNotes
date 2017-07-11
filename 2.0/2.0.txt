@@ -1,0 +1,299 @@
+We have been hard at work for over two years, and are now proud to present Unity 2.0: the largest and most exciting update to Unity and the Unity Web Player that has ever been released. The 50+ new features all make your games look better on more platforms, run faster, and easier to make.
+
+Terrain Engine
+
+    To support highly detailed and massively big worlds, we bring you a highly optimized terrain engine. Import a heightmap image, or create one yourself, using the built-in brushes and other terrain editing tools. Push, pull, or paint the height of the landscape. Draw and combine multiple terrain textures for hand-built roads or foot-worn wilderness paths.
+
+    Hundreds of thousands of trees can be rendered real-time with Soft Directional Ambient Occlusion shaders. Grass and detail objects in the billions are generated on the fly around the player. Hand-place trees, rocks, grass, flowers, or any other decoration with the new tools. The terrain can even be deformed and modified at runtime for dynamic gameplay mechanics.
+
+Video Playback
+
+    Unity is a strong media platform on its own, and so in Unity 2.0 games can include video as well as audio. Videos can be played back in 2D or 3D just like audio, and can also be wrapped around objects in the 3D space. And of course you can play back an audio soundtrack syncronously with the video.
+
+    As part of our commitment to streaming, you can either include the data files in the game or stream them directly from the web.
+
+    Video playback is a Unity Pro-only feature.
+
+DirectX 9.0 Renderer
+
+    Standalone games and the Unity Web Player now take advantage of native DirectX libraries on Windows. Considering that DirectX is much more widely-supported on Windows, this means that your games will run faster and more reliably now.
+
+    To ensure that Unity is stable and fast everywhere we set up a testing lab with a large number of computers. In the lab we extensively tested for compatibility on hundreds of graphics cards and driver combinations.
+
+    Across the board, you can expect a doubling in the frame-rate from previous versions, and greatly increased stability on the oldest of old graphics card drivers.
+
+Networked Multiplayer Games
+
+    The easy to use yet highly optimized Networking layer makes it a breeze to create great networked multiplayer games. The Networking Layer is completely based on UDP, provides NAT punchthrough, and has support for sending packets reliably and unreliably. Unity's new Network Views support the two methods of network communication: State Synchronization and Remote Procedure Calls.
+
+    A library of re-usable networking scripts takes the hard work out of understanding networking concepts, so you can get started creating scalable multiplayer functionality quickly and easily.
+
+Real-Time Dynamic Shadows
+
+    Shadows in Unity 2.0 are dynamic, optimized, and allow self-shadowing. All light types can be instructed to cast shadows – Pointlights, Directional lights, and Spotlights. Even alpha-textured objects cast shadows correctly!
+
+    A wide range of options let you specify which objects receive and cast shadows, so you can tweak your world for high performance and the perfect look.
+
+    Shadows are a Unity Pro-only feature.
+
+Game GUIs
+
+    Unity's GUI system has undergone a complete overhaul, and in Unity 2.0 we bring you a fast and efficient way of creating GUIs for your games. Not only is the new system robust with dozens of GUI object types – including buttons and text labels – it can also all be skinned.
+
+    If you're familiar with CSS, you'll feel right at home with skinning Unity GUIs. Adding functionality to your GUI objects is simpler and more intuitive as well – we're talking "single line of code" easy.
+
+Web Player Streaming and Compression
+
+    On the web instant startup times are crucial. To make this easier to achieve, Unity 2.0 features a new streaming Unity Web Player, which organizes assets by level and downloads them in order. Thus, your game will start immediately after assets in the first level have finished loading. If you have multiple levels, they will finish downloading silently in the background while the game is being played.
+
+    Additionally, state of the art LZMA compression reduces file size by a solid 30% compared to earlier version, and the game is decompressed on the fly. This means that even your first level can finish loading in seconds. The best part is that Unity will do all this for you automatically, with zero setup. It's invisible to you, and it's invisible to the player. You can rest safely in the knowledge that your deployed games will load on the player's machine faster than ever before.
+    
+Unity Asset Server
+
+    The Unity Asset Server is a full version control solution for game assets and scripts. Like everything else in Unity, it's polished and simple to use. Multi-gigabyte projects with thousands of multi-megabyte files are handled with grace. Import settings and other metadata are stored and versioned too. Updates, commits, and graphical version comparisons are all done inside the Unity editor. When files are modified, their status instantly updates visually. Renaming, moving, and restoring assets is handled elegantly.
+
+    The enterprise-level database PostgreSQL powers the Unity Asset Server. PostgreSQL is famous for reliability, data integrity, and easy administration. PostgreSQL handles the workloads of huge projects. The Asset Server is available both as a Mac OS X Installer and as Linux RPMs. The support for multiple platforms gives you flexibility in how to integrate the Unity Asset Server into your existing IT infrastructure.
+
+    The Unity Assset is an add-on product for Unity Pro only.
+
+More Major Features
+
+We've been working on Unity 2.0 for over two years now, so of course there's lots more in there. And of course there's hundreds of minor improvements and bug fixes and driver workarounds too.
+
+Web Player
+
+    The Unity Web Player installation process has been greatly simplified. No browser restarts are required on any browser, no windows are popped up to download the installer, and content starts as soon as the installer is finished.
+
+    Unity web files can now be streamed. Assets are automatically reordered in the stream by the first level that uses them. This is an amazing no-hassle way of streaming web players. Unity essentially does everything for you. In your scripts you simply have to query if the level you are about to load has already been downloaded completely. By ensuring your first few levels are not using a lot of assets, you can start your game with only a minimal amount of data.
+
+    Web Players data file compresses around 30% better now. Unity now uses the state of the art LZMA compression algorithm. Data files are decompressed on the fly, resulting in shorter load times. We also use solid compression – multiple game levels share the same compression dictionary, this further increases compression ratio.
+
+    You can now switch to fullscreen in web player from a script. The same rules as for mouse locking apply: user must have clicked on the content before you can go fullscreen.
+
+    Safari 3 for Windows support as added.
+
+    Web players on Windows properly pause when browser is in background.
+
+    Web player progress loading images can now be .pngs with an alpha channel.
+
+    Added disableContextMenu, disableFullscreen and disableExternalCall embed tags.
+
+    On Windows, the Unity Web Player can now perform auto-update on non-admin user accounts.
+
+    Unity and Unity Web Player installers on Mac OS X will now cleanup receipt files in order to work around Apple's installer limitation of not allowing installations of older versions.
+
+    Made a new CLSID for the Internet Explorer plugin, and new plugin name for Netscape-like browsers.
+
+    Changed default web player installation path on Windows to [program files]\Unity\WebPlayer.
+
+    Added a WWW.url property.
+
+Workflow
+
+    Automatic Ogg Vorbis audio converter. Optionally force Stereo or Mono for positional sounds, choose compression and preloading settings. MP3 files are automatically converted to Ogg Vorbis by default.
+
+    Imported Ogg files (audio and video) can be exported via a menu command in the Assets Menu for web streaming.
+
+    Graphics Card Emulation. You can now simulate older graphics cards from a menu item (Edit > Graphics Emulation). This is extremely convenient to quickly preview how your game looks on that graphics card without different hardware.
+
+    Texture Atlas generation function added as Texture2D.PackTextures(). Combine multiple textures into a single texture. This is useful for optimizing graphics performance when combining objects which might not otherwise use the same texture.
+
+    Imported Models can now be post-processed during import. Once the basic importing of a model is complete, MeshImporter.OnPostprocessAsset() will be called. From here you can modify all meshes, GameObjects, Components, etc. to your liking. This allows you to completely customize the asset pipeline. Trees in the Terrain Engine take advantage of this. See the MeshImporter class for details.
+
+    Textures can be postprocessed in the same way. For example you could invert the colors of an image. Or ensure that normals of a normalmap are always normalized even in the mip levels.
+
+    16 more layers have been made available. This is useful for people who have run out of layers to use.
+
+Unity Editor
+
+    The Unity Editor has received a complete facelift! New skin, new buttons, new icons, new gizmos. Reimport your existing Unity 1.x project to see the new asset icons.
+    
+    Optimized drawing of editor views; editor is much faster with complex projects.
+    
+    Progress bar in the editor for building players and Terrain lightmapping.
+    
+    New Directional light gizmo.
+    
+    Integer values can now be right click dragged in the Inspector.
+    
+    Rectangles are now defined as x, y, width, height matching the way they are used in scripting.
+    
+    Pipeline components are not used anymore. You can remove them from your existing objects if they bother you :)
+    
+    Rects, Vector2 and Vector4 can now be serialized in the inspector for scripts.
+    
+    Serialization of arrays in scripts has been greatly optimized.
+
+Rendering
+
+    Rendering system rewritten! A new render pass sorting algorithm is used. Passes are sorted to minimize state changes. The algorithm takes lights and shadows into account. We've seen up to 50% speed increase on real world scenes!
+
+    Lights have an intensity property. The intensity can be up to 8. This can be used to create very strong lights even if they have a small light range.
+
+    Skinned Mesh Rendering has been optimized. It is 2-4x faster than in Unity 1.6.2!
+
+    Lighting from Point lights is much less "blocky" on fragment program capable cards.
+
+    Vertex lights now match pixel lighting more closely.
+
+    Specular highlights in builtin shaders are less attenuated now.
+
+    Orthographic cameras sort transparent objects by distance along their Z axis, which makes 2D games easier!
+
+    Switching materials from inside OnPreRender/OnPostRender works as expected now. This is useful if you want specific cameras to render with specific materials.
+
+    Cameras can now be removed or added during any time. Even while drawing/culling another camera.
+
+    Improved appearance of Particle Additive, Additive-Multiply and Alpha Blended shaders. If some of your particle objects became too bright, make the tint color 2x darker. The change was needed to make particle appearance match in D3D and OpenGL.
+
+    Changed the order in which cameras are culled & rendered. Before it was like this: CullAllCameras(); RenderAllCameras();. Now the order is per-camera: for( all cameras ) { CullCamera(); RenderCamera(); }. The change should not affect you, but it's now easier to use OnPreRender and friends.
+
+    Default near clip plane for cameras increased to 0.3. Yay for better depth precision!
+
+    Added Texture2D.GetPixelBilinear() function.
+
+    Added Graphics.DrawTexture().
+
+    All render textures on Mac OS X use OpenGL "frame buffer objects" if available. This makes render textures generally faster.
+
+    Added Camera.RenderToCubemap for dynamic cubemap reflections.
+
+    Added Material.HasProperty() function.
+
+    Render Textures can now use mip maps (mip levels are automatically generated).
+
+    Textures can now be reinitialized using Texture2D.Resize().
+
+    Texture2D.ReadPixels() has been added. This has many cool applications.
+
+    Reading pixels from Texture2D has been optimized.
+
+    The normal smoothing angle is now also used as a smoothing angle for tangents. This allows for adjusting tangents so that tangent issues with generated normal maps are fixed. For example, this makes normal mapped characters have a lot less seams.
+
+Physics
+
+    Convex Mesh Colliders can automatically be generated from any Mesh, by checking the convex flag. Convex Mesh Colliders can collide with any other Collider.
+    
+    Added Configurable Joint. A highly configurable joint with direct control over all 6 axes, including soft limits. This joint can do just about everything.
+    
+    Added Heightmap Collider.
+    
+    Ageia PhysX has been updated to version 2.6.2.
+    
+    10x performance optimization when loading collision meshes.
+    
+    Optimized performance of raycasting on PowerPC Macs.
+    
+    Support for cone friction – a more accurate friction implementation. This can be enabled via scripting.
+    
+    Performance for kinematic rigidibodies that are being moved around a lot has been greatly improved.
+    
+    Default values for Hinge Joint are now more intuitive.
+    
+    Ignore collision now also works between two character controllers. Added CharacterController.disableCollision.
+    
+    Slope limit and step offset exposed to scripting in CharacterController.
+    
+    RaycastHit now contains a barycentric coordinate member that can be used to interpolate vertex attributes in the triangle, ie. smoothed normals.
+    
+    The animation system can now apply friction and velocity correctly to kinematic rigidbodies. This allows you to animate platforms and stack boxes or other rigidbodies on top. To enable it you have to make the rigidbody kinematic and turn on Animation.animatePhysics.
+    
+    MovePosition()/MoveRotation() has been added to the rigidbody class, it is useful for animating kinematic rigid bodies so that they apply friction correctly to touching objects.
+
+Scripting
+
+    Support for .NET 2.0 including generics!
+
+    Full support for eval in JavaScript!
+
+    Added OnJointBreak() callback when a joint is broken by joint break force.
+
+    Static variables are now automatically reset when hitting Play.
+
+    ExecuteInEditMode attribute will make scripts will run in edit mode. This is useful if you want to interact with the editor, for example to see your changes live without entering playmode.
+
+    WWW class can now perform POST requests in addition to GET requests.
+
+    WWW class can load PNG images in addition to JPG images.
+
+    WWW class can read local files using WWW("file://mypathname"). This is disabled in the Unity Web Player.
+
+    Added WWWForm for easy uploading of forms.
+
+    Arrays of classes marked are now be shown in the inspector and are serialized. You simply have to give the class the Serializable attribute.
+
+    Added Texture2D.EncodeToPNG().
+
+    Added on WaitForFrameComplete() coroutine. This will execute after all rendering is done. Useful for grabbing screenshot and posting to a web server for example.
+
+    TextAsset class has been exposed to scripting. This lets you easily use text files without having to go through .NET file routines.
+
+    Added Application.unityVersion.
+
+    Moved Graphics.deviceName and friends into SystemInfo class.
+
+    Added Matrix4x4.Perspective for constructing perspective matrices.
+
+    Coroutines can now take an arbitrary amount of parameters.
+
+    Creating game objects has been streamlined. You can pass in an optional argument list with several components to automatically add them.
+
+    Added CloneComponent() function. This is useful for copying individual Components to a different game object.
+
+    Added Debug.LogError() and Debug.LogWarning() functions.
+
+    Optimized Vector3 math functions.
+
+    HideInInspector attribute added.
+
+    When instancing a material or physics material, "(Instance)" will be appended to it's name. This lets you easily differentiate shared materials and instanced materials.
+
+    OnEnable() and OnDisable() has been added for ScriptableObject().
+
+    The seed of a random number generator can now be set from code.
+
+    Animation.RemoveClip() has been added. This is useful for reducing the set of textures in order to improve performance.
+
+    HideFlags can be used to specify what is visible in the hierarchy, project view and inspector. You can also use this to make Unity not store an object in a scene.
+
+    Mathf.Abs() is now also available in an integer version.
+
+    Renamed Camera.orthoGraphic to Camera.orthographic.
+
+    Removed Texture2D.frameCount and Texture2D.frame properties. Use arrays of textures and switch them manually.
+
+    Changed Camera.WorldToScreenPoint(), Camera.ScreenToWorldPoint() and similar functions to use world space depth in Z component, instead of non-linear z-buffer depth.
+
+    Added DXT1 and DXT5 texture formats for scripting.
+
+Shaders
+
+    GLSL is supported as shader language in addition to Cg.
+
+    Lots of render queues for shaders! If you want to make something render after opaque things but before transparent things, now you can. See Tags documentation in ShaderLab docs.
+
+    Comment-style directives for compilation are replaced with more robust and intuitive #pragma directives.
+
+    Cg compiler updated to Cg 1.5. Shader compilation is much faster due to new batch Cg importer and because Cg 1.5 is Universal Binary.
+
+    Shaders use #pragma multi_compile tags instead of autolight codes to generate different variants for different light/shadow types.
+
+    Added AlphaToMask command to ShaderLab (still waiting for Apple to properly implement it in Mac OS X; but it works on Windows now).
+
+    Writing dummy SetTexture {} commands after fragment programs is not necessary anymore.
+
+    Renamed some builtin shaders: Alpha -> Transparent, Glossy -> Specular, moved Parallax shaders into corresponding groups.
+
+    Shaders that contain errors are put into separate submenu in material inspector.
+
+    Added Shader.SetGlobalVector().
+
+    Shader.Find() always returns user made shaders if there is also a builtin shader with the same name.
+
+Water in Unity Pro
+
+    It works correctly in Scene View! It also just works with multiple in-game cameras.
+
+    Much improved setup. Just a single script (Water.cs) and a single material to use. Switch between Simple, Reflective and Refractive in the Water script in the Inspector.
+
+    Best way to upgrade is 1) delete Standard Assets/Water and Pro Standard Assets/Water folders, 2) reimport Standard Assets and Pro Standard Assets packages.
