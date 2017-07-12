@@ -1,0 +1,315 @@
+Counting in bugfixes and optimizations, Unity 2.0.2 is a huge release. But we added a few features and improvements too, mainly focusing on the new features that got introduced in Unity 2.0.
+
+Networking Improvements
+
+    A new integrated Ping class for pinging remote servers or machines.
+
+    Added boolean and byte array parameter support for RPC functions.
+
+    Improved host list processing (Network.RequestHostList()) so it doesn't cause delays. Client connections to the master server are also more efficient.
+
+    A function which provides local NetworkPlayer information. Provides local IP address, internal and external with NAT addresses (after connecting to a remote machine).
+
+    Added compare operators on NetworkPlayer and NetworkViewID structures.
+    
+UnityGUI Improvements
+
+    Copy & Paste now work in UnityGUI through CMD-C/CMD-V (Mac OS X) and CTLR-C/CTRL-V (Windows) keys.
+
+    Added GUIUtility.RotateAroundPivot(), GUIUtility.ScaleAroundPivot(). Guess what they'll do to your GUI :)
+
+    Improved GUILayout.ScrollView's logic for detecting when scrollbars are neccessary.
+
+    Made the default GUI skin a bit brighter so it looks better on Windows boxes, and other minor tweaks.
+
+    TextFields now select their content when the user tabs to them.
+
+    EventType enum members were made UpperCase (so EventType.repaint becomes EventType.Repaint). Old scripts will continue to work, but warnings are generated when they compile.
+
+Graphics Improvements
+
+    Improved skinning performance on OpenGL by about 20%. It's about as fast as D3D now :)
+
+    Texture2D.PackTextures creates a DXT compressed texture atlas if all input textures are compressed.
+
+    As a result, video memory usage in terrain engine is decreased when you're using compressed textures.
+
+    Two UV sets are now correctly imported from 3DS Max when using Standard material types, making lightmaps easier to get across.
+
+    Removed hardware depth buffer bias for shadows in OpenGL. This can make shadow bias slightly worse, but matches Direct3D behaviour (less unpleasant surprises).
+
+    Improved error message when assigning DXT compressed lightmap to the terrain.
+
+Other Improvements
+
+    Application.runInBackground now suppored in the web player.
+    
+    Improved file size info reporting when building games. Unity now prints the size taken up by each asset and sorts all assets that are used in the build by size.
+    
+    Windows standalone build startup dialog has input configuration just like Mac OS X standalone!
+    
+    Added WWW.uploadProgres to track progress of large file uploads using the WWW class.
+    
+    Unitron text editor accepts files dropped on it via Dock, can be used as an "Open As" in the Finder & got a new application icon.
+    
+    When using the Unity Asset Server, the current project name and server is now shown in the main window title bar.
+    
+    Added EditorUtility.SetDirty() function to notify changes in scripts performed from editor scripts.
+    
+    Support for Reproduction Logging on standalone Mac OS X games. Hold down CMD-ALT-CTRL while loading the standalone player and Unity will ask you to write or read from a log file. This records all input and lets you play it back in order to easily reproduce a crash or other issue.
+
+Graphics Fixes
+
+    Fixed a bug in Trail Renderer where trails would not appear again if object had been disabled or stopped moving.
+    
+    Fixed a bug where shadow receiving objects and terrain engine billboards were rendered in incorrect order.
+    
+    Fixed GL.Viewport() on Direct3D when render texture is active at the time of the call.
+    
+    Fixed winding order of GL.QUADS under Direct3D.
+    
+    Fixed issue in Windows games where exiting fullscreen mode could fail if desktop is 16 bit color depth and the card does not support 32 bit backbuffer with 16 bit display mode (S3 Savage, Matrox G 200/400/450 and the like).
+    
+    Fixed GUI rendering on Direct3D on S3 Savage4 and Matrox G 200/400/450 cards.
+    
+    Disable render textures on S3 Savage4/ProSavage cards on Windows (their drivers tend to crash otherwise).
+    
+    Fixed rare problems on GeForce 2/4MX cards on drivers that advertise support for vertex shaders (though the hardware does not support them).
+    
+    Fixed Mac OS X kernel panic when creating render texture that is larger than the maximum render texture size.
+    
+    Driver workarounds for Intel GMA X3100 card in new MacBooks on Mac OS X:
+    
+    Disable shadows (produces random garbage or crashes).
+    
+    Disable fragment programs (very often computes wrong results).
+    
+    Disable render to cubemap (produces random garbage).
+    
+    Grass billboards in terrain don't wave in the wind (otherwise it transforms vertices incorrectly).
+    
+    Non-fullscreen cameras don't clip their rendered contents; did not find a workaround yet.
+    
+    ...all hail Apple!
+    
+    Water reflections/refractions work correctly with orthographic cameras. Update Pro Standard Assets!
+    
+    Fixed WWW PNG file loader to be more correct when using palettized images.
+    
+    Scaled trees in the terrain engine will now be correctly culled when rendered as billboard meshes.
+    
+    Fixed particle system bounds not updating properly when assigning whole particle array from script.
+    
+    Fixed particle emitter velocity scale behaving erroneously when Time.timeScale is small or the amount of particles emitted per frame is low.
+    
+    Fixed a bug where some shaders would not be properly included in built players (e.g. Refractive Glass Specular, or Toon Outline). Reimport those shaders and rebuild your game.
+    
+    Fixed SystemInfo.graphicsMemorySize detection under Windows Vista.
+    
+    GL class immediate mode rendering can handle very large amounts of primitives on Direct3D now (previously was limited to 4096 vertices per Begin/End call).
+    
+    Fixed Screen.currentResolution initially returning wrong result on Windows Web Player.
+    
+    Fixed terrain engine tree impostors sometimes getting noise or lines at billboard edges.
+    
+    Fixed non-power-of-two GUI textures that don't have mipmaps displayed slightly wrong when using global texture resolution in Quality Settings.
+    
+    Fixed Camera.RenderToCubemap some faces being flipped on Direct3D when rendering into a static cubemap.
+    
+    Fixed first frame on Mac OS X web games sometimes showing garbage.
+    
+    Fixed bug in terrain renderer where base map rendering kicked in too early.
+    
+    CaptureScreenshot() and ReadPixels() work correctly in Direct3D when display mode is 15 or 16 bit color.
+    
+    On Intel 845/865 cards on Windows clamp maximum render texture size to 512 on drivers older than January 2004 (buggy drivers).
+    
+    Fixed shader compiler crashing on PowerPC machines in some situations (for example the Island Demo water shader).
+    
+    Fixed crash when calling Texture2D.PackTexture() function on a null texture.
+    
+    Fixed crashes in Direct3D on graphics cards that don't support 32 bit textures (Intel 810 card).
+    
+    Fixed a bug where creating a Texture from a static constructor would crash Unity.
+    
+    Fixed rare crashes on Windows when toggling fullscreen mode (mostly happened when skinned meshes were used).
+    
+    Fixed standalone player crash on Direct3D when the graphics card does not support 32 bit color depth resolutions.
+
+UnityGUI Fixes
+
+    CMD-A (on Mac OS X) & CTRL-A (on Windows) selects all text in text fields and text areas.
+
+    TextFields now handle maximum string length correctly.
+
+    TextFields got more correct double-click behaviour (for example double-click now properly selects words on Windows).
+
+    GUI controls now let go of captured mouse properly.
+
+    GUI ToolTips flicker less.
+
+    GUI.DrawTexture() correctly handles GUI.color and GUI.contentColor.
+
+    GUI.DrawTexture() works correctly for ExecuteInEditMode scripts.
+
+    GUI.Toggle now has the text placed on the same baseline as Label and Button.
+
+    Text cursor is now correctly clipped to windows and scroll views.
+
+    Tab key correctly cycles keyboard focus between multiple scripts.
+
+    GUILayout.Space no longer uncollapses margins on surrounding elements.
+
+    GUILayout.Space no longer breaks sizing calculations.
+
+    Calling GUI.* or GUILayout.* functions now throws an exception if you try to do it outside OnGUI() code.
+
+    Fixed OnMouseEnter() / OnMouseExit() / OnMouseDown() and friends when GameObjects go behind new-style GUI.
+
+    Tab character for UnityGUI navigation on Windows does not insert extra tab characters into text fields.
+
+    Fixed arrows, HOME, END and TAB keys not getting into UnityGUI on Windows Web Player in Internet Explorer.
+
+    GUILayout.BeginVertical() and BeginHorizontal() now correctly handle mouse-over GUIStyleStates.
+
+    Fixed small bug with GUI.enabled and button presses.
+
+    Fixed FlexibleSpace not working correctly with MinWidth and MinHeight options.
+
+    On Windows GUI is properly drawn when game is paused because it is in background.
+
+    GUI.SelectionGrid and GUI.Toolbar has correct mouse tracking (could get off by some pixels in some cases).
+
+    Double clicks in the Mac OS X web player now correctly select text in TextFields.
+
+    GUILayout.BeginArea and GUI.BeginGroup now draws background style correctly.
+
+    GUI.Matrix no longer blocks mouse events when controls have been moved.
+
+    Margins between GUI groups no longer get doubled if they are inside a scrollview with a visible scrollbar.
+
+    Custom GUI style names will now be maintained instead of automatically being lower cased.
+
+    GUI ID generation improved. You can now rename GUI groups without mucking up controls inside them.
+
+    Fixed GUILayout sizing calculations for images in GUIContent with wordwrapped text.
+
+    Fixed GUILayout.MaxWidth and GUILayout.MaxHeight overrides when non-wordwrapping elements contain too large images.
+
+    Fixed bug where Event.current.delta in mouse drag events always returned zero on Windows.
+
+Web Player Fixes
+
+    Joystick and gamepad buttons work correctly in Windows web player.
+
+    Fixed WWW downloads not finishing if they are completely in Internet Explorer's cache.
+
+    WWW POST request fixes on Internet Explorer: now works when using some GET parameters, when connecting to non-default server port, and don't report error when server returns HTTP redirect status codes.
+
+    Fixed WWW audio streaming crash that would sometimes happen on Internet Explorer.
+
+    Fixed issue where running in fullscreen mode on Mac OS X web player would sometimes crash after a few minutes.
+
+    On Internet Explorer ExternalCall(), ExternalEval(), OpenURL() are now executed in the frame/iframe, and not the topmost window. This matches behaviour of other browsers.
+
+    Fixed issue where Windows Web Player content on Firefox and Safari would make some JavaScript libraries (like script.aculo.us or Dojo Toolkit) not work correctly.
+
+    Fixed issue where switching fullscreen in Safari 3 would sometimes toggle between fullscreen and window mode in erratic ways.
+
+    Fixed issue where Mac OS X web player on Safari would sometimes exit fullscreen mode automatically.
+
+    Fixed mouse lock not working in Mac OS X Dashboard Widgets.
+
+    Fixed crash during install process of web player from Mac OS X Dashboard Widget.
+
+    Progress bar in web player on Firefox now updates more responsively.
+
+Networking Fixes
+
+    Fixed two bugs relating to InitializeServer() resetting stuff it shouldn't. InitializeSecurity() now actually works , and incomingPassword works when used before InitializeServer().
+
+    Fixed problem where connection tester IP and port were unchangeable after one test run.
+
+    Fixed bug which caused the server password to get lost during password connects with arrays of IPs.
+
+    Fixed problem where network view IDs would be reused when the owning network view was disabled in the editor.
+
+    Fixed Windows crash when accessing NetworkView.owner.
+
+    Fixed problem with Network.minimumAllocatableViewIDs not being set correctly.
+
+    Fixed problem where a prefab could contain a scene ViewID and conflict with another scene View ID when instantiated.
+
+    Handle the case properly when Network.DestroyPlayerObjects() is called by a client. It doesn't assert anymore and the client can destroy its own players objects.
+
+    Fixed crash when using null strings as game type in the MasterServer class functions.
+
+Physics Fixes
+
+    Renamed Physics.bounceTreshold to Physics.bounceThreshold (the old property is still around for backwards compatibility).
+
+    Fixed bug in Bounds.IntersectRay() function.
+
+    Fixed bug where Unity would sometimes perform physics incorrectly on instantiated prefabs containing a lot of joints.
+
+    Fixed crash when physics simulation contains NaN values.
+
+    Fixed a bug where animation system would sometimes introduce NaN's into transforms, leading to a crash in PhysX.
+
+    Fixed crash when setting axis or anchor on an invalid joint.
+
+    Rigidbody extrapolation now works correctly again.
+
+Other Fixes
+
+    Fixed jerkiness in Windows games running on a computer that had not been rebooted for a couple of weeks.
+
+    Fixed comparing, reverting and restoring files from the Asset Server that contained a resource fork on Leopard.
+
+    Fixed WWW.progress to return 0.0 instead of NaN in some cases in the standalone player and the editor.
+
+    JavaScript eval() now works correctly in standalone games.
+
+    Streaming progress function now returns false if the level is not included in the build.
+
+    Improved assertions when user enters NaN values into Unity.
+
+    Fixed issue where NaN value assert would show up in the editor when maximizing game view on PPC machines.
+
+    Fixed crash when dragging array size value in the editor.
+
+    Fixed several confusing errors related to Apply Changes to Prefab and ALT-dragging prefabs.
+
+    Fixed a bug where overriding part of a prefab instance would result in other elements in the array being cleared incorrectly. Changing any value in an array now marks the entire array as overridden.
+
+    The weight of animation states will now be set to zero when starting a cross fade of another animation state in the same layer with a zero cross fade time.
+
+    Fixed AudioSource.maxVolume not being settable from a script.
+
+    Fixed bug in JavaScript when assigning to a field would fail in a struct that is a private variable from inside of a coroutine.
+
+    Enabling Compress Textures now works correctly when the project folder contains more than 4GB of textures.
+
+    Fixed issue in FBX importer when importing blender files through old Collada (.dae) file importer.
+
+    Terrain inspector now draws correctly into a scrolling inspector.
+
+    Flatten Terrain can now be undone.
+
+    The Mesh Importer no longer remaps the skinned mesh to the root bone if there is more than one skinned mesh in the file.
+
+    Reduced memory consumption when importing a lot of assets.
+
+    Fixed issue where loading Mac OS X standalone would fail if the company name in the player settings contained backslashes.
+
+    Windows standalone games work from network shares now.
+
+    Fixed a bug where selecting Compare in the Server menu would ignore the current selection and compare all assets if the server view was not visible.
+
+    Fixed rare crash when cleaning up coroutines.
+
+    Fixed crash when there are multiple terrains using one terrain data object.
+
+    Fixed crash when exiting fullscreen directly on Mac OS X through OpenURL call.
+
+    Fixed Fatal Error when importing more than 30.000 assets at once in a project folder.
