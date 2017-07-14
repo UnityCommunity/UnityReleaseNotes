@@ -1,0 +1,41 @@
+2017.1.0f2 (Release Candidate 2)
+July 5, 2017
+
+Release notes
+2017.1.0f2 Release Notes (diff since f1)
+Known Issues
+
+    Audio: On Windows, AudioSource attached to VideoPlayer produces choppy sound when game iterations are overrunning. Will be fixed in future Unity release. (895458)
+    xR: Rendering problems on Pixel Daydream when using 4x or 8x MSAA with single-pass stereo. This is due to driver issues, so the problem will be addressed via a driver update, independently of Unity releases.
+
+Known Issues expected to be fixed in f3
+
+    Android: Apps can be tapjacked (fixed in f3) (898030)
+    Animation: Additive layer in Animator window on humanoid rig type broken (fixed in f3) (916487)
+    Asset Bundles: Caching.expirationDelay doesn't clean the cache anymore (fixed in f3) (920498)
+    Audio: Audio clip plays at the incorrect volume for a few frames (fixed in f3) (925334)
+    Editor: Missing Behavior' component can not be seen or removed from Game Objects it was assigned to (fixed in f3) (917810)
+    Editor: Moving multiple objects makes only one of them to move according to handles (fixed in f3) (925765)
+    Editor: Play mode doesn't maximize in some conditions (fixed in f3) (921114)
+    GI: Lit clustering debug visualization does not show (to be fixed in patch) (911953)
+    Graphics: ComputeBuffer set to MaterialPropertyBlock doesn't take effect when drawing a mesh (fixed in f3) (913828)
+    Graphics: Crash using RenderTextureFormat.RFloat w/ Command Buffer (fixed in f3) (898318)
+    Graphics: DrawMeshInstancedIndirect draws nothing when passed camera (fixed in f3) (924663)
+    Launcher: Unity does not load the 2017.1 launcher in some conditions without internet connection when license is for 5.x (fixed in f3) (924763)
+    Multiplayer: NetworkTransport.Send() leaks memory (fixed in f3) (923903)
+    Scripting: InvalidCastException thrown when casting using UniRx and 4.6 .NET scripting runtime version (fixed in f3) (924070)
+    xR: [Daydream] Changing RenderScale is causing flickering or black view (fixed in f3) (915277)
+
+Improvements
+
+    GI: Support for per object cast and receive shadows in the Progressive Lightmapper. For Cast Shadows only On and Off options are supported.
+
+Fixes
+
+    AI: Fix occasional inconsistent carving near tile boundaries (833089)
+    Android: Fix crash when playing non-existing webcam texture (912742)
+    Editor: Added missing component icons for the HoloLens WorldAnchor, SpatialMappingRenderer, SpatialMappingCollider, InputModule, and AudioSpatializer (858525, 858531, 858530, 858522, 905399)
+    Editor: Don't ignore remote input if gameview is out of focus (911082)
+    Scripting: Fixed issue with API updater not updating player specific code inside conditional #if's such as #if !UNITY_EDITOR when building player (908821)
+    Video: Fixed MovieTexture support for Metal. (911115)
+    VR: Stop exiting VR when render scale is set higher than texture memory will allow and safely reverting back to last known good scale setting. (916952)
