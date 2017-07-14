@@ -1,0 +1,482 @@
+Unity has evolved to be the perfect MMO and virtual world client, both in the browser and stand-alone. Stream in limitless landscapes as your users travel your universe, customize characters, and load infinite locations and virtual items on demand. When Funcom, makers of Anarchy Online and Age of Conan, decide to use Unity for their upcoming browser based MMO project, you know it has to be good.
+
+Streaming Asset Bundles
+
+    Load assets on demand with new web streaming features. You can now stream in your game world as characters, locations, and objects come into view. You can also stream entire levels from the web as you navigate through the world.
+
+    Textures, animated models, complete or partial scenes, new missions and expansions, user-generated characters – anything can be streamed.
+
+    Streaming asset bundles are a Unity Pro-only feature.
+    
+Streaming Terrains
+
+    A seamless world is key when making an MMO. With Unity 2.1 you no longer are limited to a single terrain. Immerse your user in an endless landscape, based on streamed data.
+
+Real-Time Shadows on Terrains
+
+    For extra kicks, lights and shadow projectors make terrains more distinct. And with Unity Pro, real-time shadows make them even more dazzling.
+
+    Real-time shadows on terrains are a Unity Pro-only feature.
+
+Procedural Characters and Animation
+
+    It's easy to stitch multiple body parts into one character, and reassign bones to different characters. In order to support fully customizable avatars, the entire skinned animation system is now scriptable.
+
+    Tie animation playback to scripted game events using Animation Events.
+
+    Response curves can be edited in a Response Curve Editor, using the new Editor Window Extension API.
+
+    You can assign arbitrary animation curves to an AnimationClip, and things like material properties can now be animated too.
+
+Even More Editor Extensibility
+
+    Need more tools to support your team? With Unity 2.1 there's even more tools to extend the development environment: you can now create completely custom editor windows, and entirely new tools and workflows.
+
+Asset Processing Pipeline
+
+    In larger projects, customizing the art pipeline to avoid repetitive steps becomes crucial. You can now complement Unity's famous asset importing pipeline with any additions you need to make it truly flow.
+
+    We've added a complete scripting API for pre– and post-processing assets. Want to generate materials slightly differently? Add components to some game objects based on their name? Set up specific texture import settings based on the name of a texture?
+
+    Scripted Asset Processing is a Unity Pro-only feature.
+    
+Rendering with Shader Replacement
+
+    Render the scene, replacing shaders of all objects. This makes it simple to make incredible eye-candy like depth-of-field, soft particles, thermal goggles, and more!
+    
+Immediate Mode Rendering
+
+    A single function call can render any mesh anywhere, with full per-pixel lighting and custom shader support.
+
+Undo
+
+    Yes, undo! Traditional, reliable Undo and Redo are now available for all scene operations. You can stop constantly saving your work – it just works.
+
+Performance
+
+    One can never have enough speed. In Unity 2.1, accessing components from scripts is a lot faster. Oh, and we optimized the graphics engine as well.
+
+Additional Features, improvements, and changes
+Unity is a lot of things to a lot of people, so of course we added lots more for your development pleasure.
+
+Asset Bundles
+
+    All types of assets in the Project View can exported as a compressed asset bundle.
+
+    The asset bundle file can be streamed through the WWW class. This makes it possible to stream all assets on demand, as characters or other assets come into view.
+
+    Assets in asset bundles can be loaded by name or through a designated "main asset" for easy prefab instantiation.
+
+    Asset bundles can contain additional scene files and their dependencies. This can be combined with asset bundle cross dependencies.
+
+    Asset bundles and all their loaded assets can be unloaded explicitly through AssetBundle.Unload function.
+
+Web Player
+
+    PlayerPrefs now work in the Web Player! Use them to store persistent data on the client machine.
+    
+    Joysticks and mice are now hot swappable on OS X web players
+
+Editor
+
+    Undo and Redo for all scene operations!
+    
+    Unity Editor can now natively import .DDS texture files.
+    
+    Added "Split tangents across UV seams" option to mesh import settings, most often used for bumpmapped characters.
+    
+    Arrays of booleans, Vector2, Vector4, Rect, LayerMask are shown in the Inspector now.
+    
+    Game View statistics window displays video memory size used by the screen, total video memory usage and skinning/animation statistics.
+    
+    Assets->Reimport and Assets->Import Settings now works recursively for folders.
+    
+    Help menu and the Console window have buttons to open Editor and Player logs.
+    
+    Renamed Open and Save menu entries Open Scene and Save Scene.
+    
+    Added warning when importing scripts and shaders that use mixed CR & LF line endings.
+    
+    Ogg Vorbis encoding bitrate expanded to 16..320 kbps (previously was 56..256 kbps).
+    
+    .ogv files are recognized as Theora movies. Exporting movie to a file also uses .ogv extension.
+
+Editor Extensibility
+
+    New EditorWindow class lets you create a window in which you can draw custom GUI. Use it to create your own game design tools!
+    
+    Editor classes AssetImporter, TextureImporter, MeshImporter have been renamed to AssetPostprocessor. Be ready to update your asset post-processing scripts.
+    
+    Introduced OnAssignMaterial for overriding the default material assignment behaviour.
+    
+    Introduced OnPostprocessAllAssets for tracking any changes to assets from editor scripts.
+    
+    Import settings for textures and models are now exposed and can be modified from AssetPostprocessor to customize the asset import pipeline.
+    
+    Added AssetDatabase class with functions to import, delete, create Assets, and create, instantiate, update Prefabs.
+
+Asset Server
+
+    Server view now shows a quick summary of changes and conflicts at the top of the view.
+
+    Improved performance of Asset Server Status and Update commands by 10x.
+
+    Added a feature to update entire project to any previous Asset Server version.
+
+    Reduced connection timeout from 60 to 15 seconds when connecting to the Asset Server.
+
+    Much reduced false positives of changed Prefabs, Materials and Scripts.
+
+    Commit message in Asset Server is now a lot faster.
+
+    Improved displayed message when trying to commit without commit access rights.
+
+Terrain Engine
+
+    Multiple terrains can be included in a single scene.
+    
+    Terrains can now be moved and connected. LOD across terrain edges can be matched with Terrain.SetNeighbors.
+   
+    Terrains have an additional "Pixel Lit" render mode. Shadows on terrains finally work!
+    
+    VertexLit terrain lighting mode supports point lights now. Spot lights are treated as point lights.
+    
+    Projectors work on terrain.
+    
+    Terrain can be displayed in wireframe mode in Scene View.
+    
+    Terrain textures, tree types, and detail object types can be removed from Terrain Inspector.
+
+Graphics & Shaders
+
+    Added rendering with shader replacement. See Camera.RenderWithShader and Camera.SetReplacementShader – it's The Bomb :-)
+    
+    RenderTextures with high precision "depth" format can be created (see RenderTextureFormat).
+    
+    Shader Model 3.0 level shaders can be created by using #pragma target 3.0 compilation directive.
+    
+    Improved support for lightmapping inside of Unity. Each renderer now has a per-renderer offset & scale value for the lightmap and a index into a set of lightmaps available in each scene.
+    
+    Added Particle render modes for rendering particles that always face up right and particles that always lie flat down.
+    
+    Shader compiler is multithreaded, usually resulting in about 2x speedup.
+    
+    Much reduced "double lighting" artifacts on Direct3D on close or intersecting geometry when pixel lights are used!
+    
+    Re-enabled fragment programs, shadows and render-to-cubemap on Intel GMA X3100 on Mac OS X 10.5.3 and up (driver bugs got fixed).
+    
+    Upgraded Cg to version 2.0, January 2008. Improves code generation a bit and fixes some bugs.
+    
+    On graphics card with 512MB or more video memory, Unity allows higher shadowmap resolutions.
+    
+    ShaderLab: added RequireOptions=SoftVegetation pass tag, IgnoreProjector=True subshader tag, LightmapMode texture property.
+    
+    Combine Children script supports mesh vertex colors now. This requires you to reimport the Standard Assets package!
+    
+    Much improved handling of "out of video memory" situations:
+    
+        Automatic reduction of anti-aliasing level if memory required by screen would not sanely fit into VRAM.
+
+        Automatic down-scaling of textures that are within hardware limits but are too large to sanely fit into free VRAM.
+
+        Automatic reduction of shadowmap resolution when running close to video memory limits. Fixes major slowdowns or machine hangs with large resolutions, high anti-aliasing settings, large shadowmaps and not-so-large VRAM amounts.
+
+Networking
+
+    Better support for limiting transmission of communication groups. Both SetSendingEnabled() and SetReceivingEnabled() now allow modification on the group level or network player level.
+    
+    Proxy relay support for clients and server. Servers can get their incoming connections relayed through a proxy server and clients can get their outgoing connections relayed as well.
+    
+    Direct relevant set support. Network views can be in or out of scope relevant to specific network players.
+    
+    NetworkViewID can now be serialized during state synchronization.
+
+Scripting
+
+    Animation & Skinning:
+
+        Added API to procedurally generate animated characters, stitch multiple character pieces into one character at runtime to reduce draw calls, or reassign bones to different characters.
+
+        Added API for creating Animation Events that are invoked when the animation clip is played back and passes the specified time. You can now easily spawn particles, play sounds and so on, all synced to animation.
+
+        Individual Animation Curves can be created from scripts and used as response curves.
+
+        Material properties can now be animated using animation clips. Any material property including UV tiling, UV rotation, float properties, Color properties and Vectors can be animated using Animation Clips.
+
+        Editor API for accessing AnimationClip curves, animation states and sampling the current state of a specific animated property of any scene object.
+
+        You can assign animation curves to animation clips.
+
+        Renamed AnimationCurve's preInfinity, postInfinity to preWrapMode, postWrapMode.
+
+    Graphics:
+
+        Added Graphics.DrawMesh that draws a model, while taking all lighting, shadowing, projectors and whatnot into account.
+
+        Renamed Graphics.DrawMesh to Graphics.DrawMeshNow. Graphics.DrawMesh does other things now…
+
+        Exposed Light's shadowStrength, shadowConstantBias, shadowObjectSizeBias properties to scripting.
+
+        Added Texture2D.LoadImage(byte[]) function to load a JPG or PNG from a byte array.
+
+        Shader.name now returns the actual name of the shader (same as used in Shader.Find), not the filename.
+
+    Other:
+
+        Added Application.LoadLevelAdditive. Incredibly useful for creating continous virtual worlds, where more content is loaded as you walk through the environment.
+
+        Seeking in played sounds via AudioSource.time!
+
+        JavaScript now supports virtual keyword!
+
+        System.Environment.CommandLine and System.Environment.GetCommandLineArgs() works in editor and standalone players.
+
+        Added TextAsset.bytes.
+
+        GetComponent now works correctly with abstract classes and interfaces.
+
+        WWW files can now be cancelled while they are downloading.
+
+        Input.GetKey API now supports Keycode enum instead of string based queries for improved performance.
+
+        50% faster GetComponent or component accessors. Heavily reduced memory allocations which reduces strain on the garbage collector, further improving speed.
+
+        A warning is given in the editor when user script has the same name as a built-in Unity component.
+
+        Added warning when creating MonoBehaviour from code incorrectly using the new keyword.
+
+Other improvements
+
+    Multiple Audio Sources can now be added to a single Game Object.
+    
+    Standalone Windows games can use arbitrarily sized windowed resolutions (window sizes no longer limited to list of display resolutions).
+    
+    ShaderLab reference moved from Manual into Reference. Much expanded documentation regarding Cg shader programs.
+    
+    Improved performance for animation sampling with deep hierarchies where not all transforms are animated.
+    
+    On OS X, Unity won't print to global system console anymore. Editor prints to ~/Library/Logs/Unity/Editor.log, and players print to ~/Library/Logs/Unity/Player.log (both can be viewed through Console.app, or opened from Unity's Help menu).
+    
+    Improved performance when downloading large WWW files.
+    
+    PlayerPrefs are now stored in the same place as the published standalone player and not in the Unity Editor preferences file.
+
+Bug Fixes
+
+    Graphics Fixes
+
+        Worked around wrong GUITextures and UnityGUI rendering on ATI Rage cards on Windows (buggy drivers).
+
+        Transparent/Cutout shaders did not take material color's alpha into account when casting shadows.
+
+        Loading grayscale JPG images via Texture2D.LoadImage, WWW.LoadImageIntoTexture and WWW.texture works properly now.
+
+        Particle Renderer now takes "stretched particles" mode into account when computing particle bounds (no more false culling of stretched particles).
+
+        GUITexture Border values work properly when non power of two RenderTexture is used with it.
+
+        GLSL shader compilation errors are properly reported in the editor.
+
+        Particles/Additive (Soft) and Particles/Multiply (Double) shaders now work correctly on some old cards (e.g. Radeon 7000).
+
+        Camera.Render will synchronize renderer bounds if they have been moved in between Render calls or when using the function from Editor scripts.
+
+        Fixed shadows not visible from a directional light when all shadow casters are outside the view frustum.
+
+        Fixed mesh bounds sometimes not being applied correctly if a mesh is modifed from Awake() or Start() functions.
+
+        Fixed streaming movie textures not filling object surface correctly if Play() is called after assigning texture to the material.
+
+        Fixed issue where bounding volumes were calculated incorrectly for skinned characters. This has affected lighting and affected frame selected being off when selecting characters.
+
+        Flares work properly when their texture is a RenderTexture.
+
+        Fixed a bug when non power of two RenderTextures were used with GUITexture (sometimes only top-left pixel was visible).
+
+        Fixed "offset != skin.inStride" error message when a skinned mesh uses a shader that requires vertex colors, but the mesh does not have them.
+
+        Fixed "Unhandled vertex structure for strided buffers" error message if shader required (position, normal, color, tangent) vertex data.
+
+        Fixed renderer.bounds being wrong on skinned meshes when called before rendering them for the first time.
+
+        Fixed GL.Begin/GL.End on Direct3D in some cases disabling TexGen mode of objects that are rendered later.
+
+        If a vertex or pixel shader on Direct3D fails to load, only current subshader is disabled, and not whole shader.
+
+        Fixed bug where multiple skinned mesh renderer on one animated characters would incorrectly disable the animation when one of them became invisible.
+
+        Fixed crash when no skinnable mesh is assigned to a skinned mesh renderer.
+
+        Fixed crash on Vista with some Intel graphics cards when mesh does not have vertex colors but a vertex shader requires them.
+
+        Fixed crash when shader's UsePass command contains malformed shader/pass name.
+
+    Web Player Fixes
+
+        Windows Web Player on Internet Explorer will send cookies with POST requests now.
+        
+        WWW class on Internet Explorer would sometimes fail downloading when the web server was serving gzip-compressed output. Fixed.
+        
+        Internet Explorer would always indicate that web player data files are still downloading (status bar & spinning IE logo), even after they finished downloading. Fixed!
+        
+        System.Socket using Async callbacks now works correctly in the web player.
+        
+        When web player data file is corrupted, proper error is shown on Windows Web Player.
+        
+        When running web player under Rosetta on OS X it now gives an error message detailing that you must not run in Rosetta mode.
+        
+        Fixed crash in LoadUnityWebStream.
+        
+        Fixed web player games not starting properly on some ATI Rage drivers on Windows.
+        
+        Fixed Windows Web Player not resizing properly on non-IE browsers when plugin area is resized (e.g. having percentage CSS width).
+        
+        Fixed Dashboard widgets not handling active state properly on OS X Leopard (e.g. music would still play when Dashboard is hidden).
+        
+        Fixed Web Player auto-update on Windows when Program Files and Temp folders are on different drives.
+
+    Editor Fixes
+
+        Editor scripts no longer have MonoBehaviour default references, this makes wizards no longer have default references. It is necessary because otherwise some scriptable object based editor functionality would behave incorreclty with the automatically generated ScriptableObjects.
+        
+        Abstract classes can not be added as components anymore.
+        
+        Prefabs containing MonoBehaviours no longer cause the prefab to reimport without the user actually changing it.
+        
+        Ogg Vorbis encoding rate is clamped to allowed range by the encoder (the range depends on input channel count and sample rate).
+        
+        Ogg Vorbis and Theora encoding errors are actually shown in the editor, instead of being printed to system console only.
+        
+        User script named CopyTransform could not be added using AddComponent or accessed via GetComponent.
+        
+        Fixed import of animation clips when loop frame is enabled. Unity will now match the tangents at each end to flow into each other smoothly.
+        
+        Fixed Movie importer failing for some very short (several frames) movies, or dropping a couple of last frames on those movies.
+        
+        Fixed Game View Statistics window reporting incorrect size of used textures when global texture resolution is reduced via QualitySettings.
+        
+        Fixed objects using non-standard fog mode (e.g. linear) appearing black in scene view.
+        
+        Fixed Characters option being initially empty in font import settings dialog.
+        
+        Fixed Scene View only showing first 16 defined layers by default.
+        
+        Fixed a bug where references from a script components inside of a prefab in some rare cases could get reset to null.
+        
+        Fixed a bug where encoding an audio file that had zero size video data failed importing as an Ogg Vorbis file.
+        
+        Fixed memory leak in audio importer and movie importer.
+        
+        Fixed bug where adding a script to an import model would automatically clear references to objects inside the prefab.
+        
+        Fixed GameObject.SampleAnimation and editor's Timeline view when boolean (on/off) properties were animated.
+        
+        Fixed various serialization crashes: arrays of enums, arrays of structs in some cases, arrays with non-Object derived classes that also contain an Animation State.
+        
+        Fixed crash when importing a model that has out of bounds material indices.
+        
+        Fixed crash when undoing an import of a RAW file heightmap.
+
+    UnityGUI Fixes
+
+        When GUILayout gets confused it just complains but does not crash :)
+        
+        Wordwrapping fixes – especially showed up when single-character words would get clipped.
+        
+        Start() now gets called before OnGUI().
+        
+        Scroll bars no longer break keyboard focus.
+        
+        GUI.Window supports having a tooltip for the window itself.
+        
+        GUI.DrawTexture fixes.
+        
+        GUI.BeginArea can now be called conditionally.
+        
+        Fixed RotateAroundPivot & ScaleAroundPivot.
+        
+        Fixed mouse tracking when nesting scroll views.
+        
+        Fixed mouse-over not working properly after dragging a ScrollView inside a BeginGroup.
+        
+        Scrollbar fixes: up and down button sizes no longer swapped in vertical scrollbars, clicking left arrow no longer hides right arrow.
+        
+        GUILayout.BeginScrollView now correctly handles fixed width & height using GUILayout.Width.
+        
+        GUI.Window does not always set GUI.changed to true
+        
+        Moved text 1 pixel left so it stays inside the buttons.
+        
+        Scaled GUI no longer gets clipped to the original top-left of the screen.
+
+    Networking Fixes
+
+        Fixed Network.SetSendingEnabled() where it was sometimes not possible to reset a communication group.
+        
+        Broadcast RPCs no longer include newly disconnected players, which was harmless but resulted in errors in the debug log, for example when sending broadcast RPC inside OnPlayerDisconnected().
+        
+        Fixed marshalling of BitStream.Serialize for booleans.
+        
+        Fixed a bug where the external IP address would be reversed on PPC machines which are connected to Intel machines.
+        
+        Fixed a bug where the external IP address contained a garbage value.
+
+    Physics Fixes
+    
+        WorldParticleCollider now works properly with Terrain and Sphere colliders.
+        
+        Fixed Joint issue on PowerPC Macs in some ragdoll configurations.
+        
+        Fixed a crash when calling CharacterController.Move on an inactive controller.
+
+    Audio Fixes
+
+        Fixed Play On Awake setting being ignored for AudioSources that are added dynamically from script (audio was always playing).
+        
+        Fixed Movie audio not playing on Windows when calling Play(), if the audio source had Play On Awake set.
+        
+        Fixed crash on Mac OS X when setting audio source pitch to extreme values (now pitch is clamped to 0.1 .. 10.0 range).
+
+    Terrain Engine Fixes
+    
+        Terrain Lightmapper shadow anti-aliasing now actually works properly with more than 4 samples
+        
+        Tree placement width & height variation sliders are no longer locked together.
+        
+        Fixed terrains leaking memory when they are used with reflective Water and water gets disabled.
+        
+        Fixed terrain not being visible on new machines if game was built on old machine (e.g. Mac with Rage card).
+        
+        Fix crashes when painting details on terrain that has invalid detail resolution. Also prevent from setting invalid detail resolution in the Set Resolution wizard.
+
+    Asset Server Fixes
+
+        The Asset Server client will now skip deleting directories that have been deleted on the server but still contain uncommitted changes locally.
+        
+        The Asset Server administration interface does not allow creating new users with invalid characters in the user name.
+        
+        Unity no longer attempts to contact the Asset Server during startup until it is completely finished launching the application.
+        
+        Asset Server does not allow discarding changes from manager objects that are not on the server.
+        
+        Fixed infinite loop bug that could happen in rare cases when updating from or committing changes to the Asset Server.
+
+    Other Fixes
+
+        Quaternion equality and inequality operators actually do something meaningful now :-)
+        
+        Using yield to wait for a WWW download to finish will now also work when Time.timeScale is zero.
+        
+        Fixed float.Parse() in some rare cases returning NaN results on Windows.
+        
+        Fixed LookAt sometimes reporting that a rotation is not valid.
+        
+        Closing screen selector via red close button on OS X would still launch the game. Fixed!
+        
+        Fixed some scripts not running properly when Windows Data Execution Prevention (DEP) feature is on.
+        
+        Fixed OnEnable() and Start() still called on a script that is disabled from inside of Awake().
+        
+        Fixed bug on OS X, where some Logitech keyboards would not register any input because they don't support HID. Unity now automatically falls back to a Carbon based solution if HID keyboard input is not supported by the device.
+        
+        Fixed crash when setting fixed timestep to zero.
