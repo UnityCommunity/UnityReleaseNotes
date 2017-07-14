@@ -1,0 +1,78 @@
+2017.2.0 Beta 3
+Released: 14. July 2017
+
+Release notes
+2017.2.0b3 Release Notes (diff since 2017.2.0b2)
+System Requirements Changes
+
+    Removed iOS 6.0 support. The minimum supported version is now 7.0.
+
+Known Issues
+
+    Animation: Crash in AnimationClip::BuildMecanimDataMainThread when entering a Play mode (925276)
+    Asset Import: Editor crashes in Transform::CountNodesDeep when loading a new scene. (919023)
+    Asset Import: MergePrefabInstance crash when reimporting assets from Assets Store (913659)
+    Asset Import: Visibility animation curves are invalid when their target meshes are split because of the 65534 vertices limit.
+    Asset Import: [Asset Bundles] Caching.expirationDelay no longer cleans the cache (920498)
+    Asset Pipeline: Crash at MoveTransformToRootOfSceneUndo when undoing addition of TectTransform to prefab. (912166)
+    Asset Pipeline: Hard crash when building some projects (926484)
+    Asset Pipeline: Reverting changes on applied prefab crashes Unity (825035)
+    Asset Pipeline: Reverting model back to a prefab and then undoing these changes creates an additional broken non-prefab object (864619)
+    Editor: Editor fails to launch on attempt to restart (note however that subsequent manual launch works fine). (929923)
+    Editor: rootTransform != NULL assert followed by a crash when undoing/redoing (883861)
+    Editor: [Analytics] Crashes on UsabilityAnalytics_CUSTOM_SendEvent when adding light component under any game object (923355)
+    Editor: [BuildSettings] Cannot multiselect scenes by using Ctrl/cmd+A shortcut (923264)
+    Graphics: Camera does not render correctly with CameraClearFlags.Depth and MSAA (923842)
+    Graphics: GameObjects mesh is stuck at Combined Mesh (root:scene) and cannot be moved after aborting a build process (891971)
+    Graphics: Lower fps with vSync off, when Static Batching is enabled (922811)
+    Graphics: Mesh is not rendered in target camera when using Graphics.DrawMeshInstanced with not null Camera argument (927910)
+    Graphics: TextMeshPro is not displayed, and errors are logged. (929909)
+    Graphics: [Occlusion culling] Performance spike in Culling when Camera is not rendering every frame (743462)
+    Particles: Unity crashes after deleting a particle system and undoing the delete. (923711)
+    Physics: Rigidbody interpolation speed regression. (923319)
+    Physics: [Particles] 3D World collisions no longer work in Edit Mode (921489)
+    Scripting: [macOS10.13] MonoDevelop doesn't start (921104)
+    Windows: [WSA] Error messages appear while/after building a project with "Unity C# projects", if the Editor folder contains a script. (918989)
+    Windows: [WSA] Reference rewriter fails in 2017.2 with analytics enabled (927848)
+    Windows: [XR][WSA] Including "Unity C# Projects" while building to Universal Windows Platform, causes builds to fail (927925)
+    XR: GearVR HMD Touchpad does not currently send input through the new input system.
+    XR: Haptics with Vive controller is currently disabled due to issues with correctly playing haptics on the correct controller
+    XR: Hololens / UWP / PS4 VR Devices not yet supported with the new input system for VR use.
+    XR: New API surface for recent UnityEngine.VR.WSA.Input changes has forthcoming breaking changes to land in another beta soon.
+    XR: Script updater may fail to update Vuforia resource scripts. Re-importing assets forces the updater to run.
+    XR: Vuforia loading fails when used on iOS.
+    XR: [VR Oculus Compositor Splash] Particle System does not work on Build when VR is enabled (926695)
+
+Fixes
+
+    2D: Console warning "Texture being dragged has no Sprites" is no longer printed infinitely when sprite is being dragged on Scene window. (916845)
+    2D: Fixed case of "Unapplied Module Changes" Window appearing when navigating to Edit Outline / Edit Physics Shape but making no changes. (916747)
+    2D: Fixed case of Aniso Level on Texture being stuck at 16 when imported as Sprite Texture and without mipmaps enabled. (909748)
+    2D: Fixed case of text for "Edit Physics Shape" being cutoff in Sprite Editor window regardless of window size. (916742)
+    Editor: Fixed case of TextField changing height when entering new text, and toggles not displaying fully when no text is entered. (912001)
+    Scripting Upgrade: Fixed crash when System.Reflection.Emit is used to generate assemblies for the AppDomain.AssemblyResolve event. (920772)
+    Scripting Upgrade: Fixed hang that could occur when displaying bug reporter. (915672)
+
+The following are changes and fixes to 2017.2.0 features and regressions...
+Fixes
+
+    2D: Fixed case of NullReferenceException being thrown when multi-selecting asset while locking Sprite Atlas inspector and selecting Pack Preview. (920771, 927668)
+    2D: Fixed case of sprites from the same texture not being packed correctly when mixed interchangeably in the Sprite Atlas packable list. (922540, 927669)
+    Android: Fixed development build crash on Android 4.2.2 with VideoCore GPU. (922553)
+    Animation: Fixed crash when changing number of inputs in AnimationLayerMixerPlayable at runtime. (921997, 927400)
+    Asset Import: Fixed texture mapping when extracting embedded textures multiple times. (926891)
+    Asset Import: Material Location is now set to External for older projects. (926896)
+    Editor: Fixed a crash caused by null font in a TextField.
+    Editor: Fixed case of Test Runner UI missing name, result and category filters. (927711)
+    Linux: Addiitonal fix for initializing screen dimensions (mouse input). (880426)
+    Scripting: Fixed case of Editor ignoring C# compiler error CS0165. (899417)
+    Scripting: Fixed case of scripting exception being logged as Info instead of Error. (912719)
+    Scripting Upgrade: Fixed case of corrupted build when "Scripts only build" is performed. (923404)
+    Scripting Upgrade: Fixed crash on encountering stack overflow on 64-bit Windows. (922636)
+    Scripting Upgrade: Fixed crash when assembly references another missing assembly. (922668)
+    Scripting Upgrade: Fixed crash when invoking LINQ expressions. (920085)
+    Scripting Upgrade: Fixed crash with error popup "Fatal error in GC: Too many root sets". (919929)
+    Scripting Upgrade: Fixed hang that could occur when exiting Editor. (911456)
+    Services: Fixed potential crash in the Performance Reporting symbol upload tool. (927886)
+    XR: Moved access to Async Video Reprojection to outside of UnityPlayerActivity so that users don't need to subclass.
+    XR: Updated Vuforia support to resolve UnityEngine.VR to UnityEngine.XR rename.
