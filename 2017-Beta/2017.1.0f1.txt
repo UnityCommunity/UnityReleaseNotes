@@ -1,4 +1,4 @@
-Unity 2017.1.0f1
+Unity 2017.1.0f1 (Release Candidate 1)
 Released: June 26, 2017
 
 Unity 2017.1.0f1 release notes
