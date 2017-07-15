@@ -1,0 +1,223 @@
+Improved Usability
+
+    Find the tools you need quickly and easily. The Play buttons are front and center, clearly visible and inviting you to play, test, and improve your work. And when you do, they light up, dimming the rest of the application, drawing your attention to the most important things in the play experience you're creating.
+
+Precise Navigation and Placement Tools
+
+    Snap any object to customizable increments of position, scale, and rotation values. Drag objects around, clamped to any surface collision. Manipulate objects in local or world space. Use the new flythrough controls to get around easily. And did we mention the completely redesigned rotation tool?
+
+3ds Max Importing
+
+    Drag and drop your .max files right into the Editor, including support for all skeletal based animation, multiple UVs, and vertex colors. Autodesk 3ds Max now joins the existing support for Maya, Blender, and all other 3D applications that integrate with the latest FBX plugin on the Windows platform.
+
+Completely Customizable Editor
+
+    UnityGUI, Unity's own GUI creation system, now powers the entire Editor and allows you to integrate your own unique level design tools, AI control tools, debugging tools, difficulty tuning tools, or anything else you need. Over 130 new API entry points enable you to create specialized, customized editor tools and build them into the existing Editor interface.
+
+Tabbed Interface
+
+    We took cues from the best designed applications, and the rewritten editor has received dozens of improvements. The most visible change is the tabbed interface, where every part of the interface can be moved, undocked to a secondary monitor, and even stacked to achieve logical grouping.
+
+Information at Your Fingertips
+
+    We've gone to great lengths to make sure that you always have the info you need, when you need it. Model files have previews right inside the inspector. Audio Clips show their waveform with click-to-play behaviour. Meshes show the detailed rendering stats – and that's just scratching the surface.
+
+Additional features, improvements, and changes
+
+Of course we did not just rewrite the editor. We also added some features and fixed some rough corners.
+
+Graphics & Shaders:
+
+    Multithreaded mesh skinning. Multicore processors, here we come!
+
+    Runtime DXT compression. See WWW.LoadImageIntoTexture and Texture2D.Compress.
+
+    Shader Level of Detail support. See Shader.maximumLOD, Shader.globalMaximumLOD.
+
+    RenderQueue can be set per-material from script, see Material.renderQueue.
+
+    Optimized rendering internals.
+
+    Shader compilation is about 3x faster now!
+
+    Added #pragma exclude_renderers and #pragma only_renderers directives to shader compiler, to be able to write D3D-only and OpenGL-only shader paths.
+
+    Optimized UnityGUI rendering, now it generates less vertices when it can.
+
+    NVPerfHUD is supported in Windows standalone games.
+
+Web Player:
+
+    Google Chrome browser support (had input problems and crashes on early versions of Chrome).
+    
+    Internet Explorer 8 support (had input problems when running on Vista).
+    
+    Windows Web Players have much more stable frame rate.
+
+Editor:
+
+    Asset Server client interface completely rewritten. Change-set based interface, log history, and so on!
+
+    Scene view can visualize overdraw & optimal texture resolutions (added to RGB/Alpha mode popup).
+
+    FBX importing libraries updated to latest version. Fixes lots of issues with FBX, Collada, OBJ, DXF file importing.
+
+    FBX user properties are exposed to asset post-processing scripts, see AssetPostprocessor.OnPostprocessGameObjectWithUserProperties.
+
+    Added Global transformation tools mode.
+
+    Game view Stats window displays frame time and frames per second.
+
+    Arrays of enums are properly shown in Inspector.
+
+    Added "Show Project Wizard when launching" option to Preferences.
+
+    Custom Script/Image editing applications are remembered in Preferences.
+
+    Added Terrain wind tint color to terrain settings. Previously it was a hardcoded value.
+
+    Added gizmo for Spring Joint and improved gizmos of other joints.
+
+    Make default setting for "Recalculate Normals" be off in mesh importer.
+
+    Added progress bars for import/export package operations.
+
+Other Improvements:
+
+    Application.targetFrameRate. If you want to cap the maximum frame rate to save the planet – now you can!
+    
+    AnimationClipCurveData has target variable now.
+    
+    Improved UnityGUI text fields. Now they scroll with cursor if content is too large to fit; selection and cursor display were improved.
+    
+    Unity on Windows is "large address aware" – so on 64 bit Windows it can use up to 4GB of memory.
+    
+    Licensing changes: Unity can build standalone games for any platform (they will show splash screen). Unity builds web players with a watermark that goes away after a short period of time. With Unity Pro the splash screen and watermarks are optional.
+
+Bug Fixes
+
+Editor Fixes:
+
+    Fixed Character Kerning inspector for custom fonts.
+    
+    Fix error message when importing Font from a FAT32 filesystem on OS X
+    
+    Fixed Rotate tool handle location changing with complex hierarchies when it's in Center mode.
+    
+    Fixed Joints that are connected to themselves.
+    
+    Fixed Mac vs. PC byte orders in terrain .raw files being swapped.
+    
+    Mass Place Trees is properly undoable.
+    
+    Switch texture format to one that has alpha channel when Generate Alpha from Grayscale is enabled.
+    
+    priority parameter for MenuItem attribute actually works now.
+    
+    Fixed crash when importing some TrueType fonts.
+    
+    Error Pause in the console works for script exceptions.
+    
+    In Cubemap inspector you can create cubemap from skybox images without having to mirror them.
+    
+    Gizmos.color and Gizmos.matrix are reset before calling any gizmo functions.
+    
+    Fixed importing progress bar for movies without audio.
+    
+    Fixed terrain lightmap shaders not working in editor on some old cards (e.g. GeForce 2).
+    
+    Mesh importer was putting random values into normals and tangents of unused vertices.
+
+Web Player Fixes:
+
+    OS X web player correctly clips the game area if it does not fit on screen.
+    
+    Work around a bug in Vista + Internet Explorer 8 (RC1) where going fullscreen hangs up the browser. Now fullscreen is disabled there :(
+    
+    Work around Firefox 3.0.x scripting interface bug on OS X that made some games not work.
+    
+    Fixed non-focused web players able to read keyboard input.
+    
+    Fixed OS X web player flicker while scrolling in Firefox.
+
+Graphics Fixes:
+
+    Fixed Camera.RenderWithShader in some cases messing up image effects if called from inside of OnPreRender.
+    
+    Fixed Water becoming blocky on some Intel cards when game is running for many hours. Update Standard Assets and Pro Standard Assets to get the fix!
+    
+    GUI.DrawTexture fixes: can handle non power of two render textures; fixed 50% opacity when there's no other UnityGUI used; correctly takes GUI.BeginGroup clipping rectangles into account.
+    
+    Rendering Stats window gathers any rendering done during Update and other functions. Rendering through GL class is captured now as well.
+    
+    Reported VRAM size should be more robust now on OS X (previously was reporting 256MB for some 512MB cards).
+    
+    Fixed Texture2D.ReadPixels being upside down when reading from render textures on Windows.
+    
+    Fixed TexGen ObjectLinear not producing correct texture Z coordinate.
+    
+    Fixed Movie Textures leaking some memory.
+    
+    Fixed occasional movie playback crash when movie is more tall than wide and is not power of two in size.
+    
+    Fixed Camera.SetReplacementShader not taking the tag value into account.
+    
+    Fixed particle rendering in orthographic scene view.
+    
+    Fixed large GUI areas clipping off last pixel row/column on Radeon HD graphics cards.
+    
+    Fixed crash in Graphics.DrawMeshNow if there is no current camera.
+    
+    Fixed setting mesh.triangles corrupting data when mesh has multiple submeshes and you set a smaller triangle array.
+
+Documentation Fixes:
+
+    Much better documentation for Editor scripting API.
+    
+    Attributes are on a separate page in scripting reference.
+    
+    Fixed scripting reference search not finding some words (e.g. Mathf.Sign)
+    
+    Fixed broken links in printable documentation (printable.html)
+
+Other Fixes:
+
+    Unicode love:
+        
+        Various Unicode character input fixes for Unity GUI.
+        
+        Standalone Windows games can launch from Unicode paths or when Project Name contains Unicode characters.
+        
+        Fixed Paste with some Unicode strings not working.
+        
+        Fixed Font.HasCharacter() for some characters.
+    
+    Seeking in compressed audio (with .time) now works and with a much better precision.
+    
+    Animation fixes:
+        
+        Fixed Animation.Sample() not working if animation was not playing before.
+        
+        Fixed Animation.CrossFade and Stop not clearing out queued animations.
+        
+        Fixed Animation.IsPlaying for queued animations.
+    
+    Fixed Application.loadedLevel being initially -1 in players.
+    
+    Fixed Mesh.tangents producing null reference exception if mesh had no normals nor tangents.
+    
+    Fixed EventType.ScrollWheel delta values being about 100x too large on Windows compared to OS X (now they match OS X).
+    
+    Fixed copying text into clipboard producing extra ASCII zero character at the end on OS X.
+    
+    Fix unrecognized keys (like volume up/down on some keyboards) triggeting unrelated input axes on Windows.
+    
+    Fixed Mathf.Ceil and Mathf.CeilToInt returning next integer number if the argument was integer already. D'oh!
+    
+    Fixed audio playback from streamed Ogg files.
+    
+    Fixed crash when streamed video download is cancelled.
+    
+    Fixed terrain tree colliders for terrains that aren't placed at zero.
+    
+    Fixed MovieTexture playback issue.
