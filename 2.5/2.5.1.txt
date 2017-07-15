@@ -1,0 +1,147 @@
+Unity 2.5.1 is all about stability of the Editor, Web Player and other fixes. Some stuff that was missing in 2.5 has been improved, and some other outstanding issues should be solved. See below.
+
+Improvements:
+
+    Scene view Gizmos are pickable again, just like they were in Unity 2.1. Gizmo picking is improved when multiple gizmos overlap the same screen area.
+
+    Improved Scene View performance when very large hierarchies are selected.
+
+    Cubemap preview in Editor Inspector now actually works.
+
+    WWW class supports SSL (https) in Windows Editor and Standalone games
+
+    Decreased memory usage of Asset Bundles by 8MB per bundle (decompression dictionary was kept around for no good reason)
+
+Changes:
+
+    Screen.SetResolution and Screen.fullScreen do not switch resolution immediately; instead resolution change happens when the current frame is finished.
+
+Editor Fixes:
+
+    Fixed occasional random crashes when working in the Editor (recompiling scripts, popup menus, custom ContextMenu attributes etc.)
+    
+    Fixed input keys&buttons getting "stuck" in Windows Editor (switching between applications, un-pausing the game)
+    
+    Fixed some cases where switching user, entering screen saver or standby mode would make Windows Editor GUI not update anymore.
+    
+    Building an OS X Standalone player on Windows properly strips symbols now
+    
+    Fixed Font importing on Windows when folder or file name has non-ASCII characters
+    
+    Fixed current scene being marked as modified when showing Material Inspector
+    
+    When building a player using BuildPipeline, level path names are converted into forward slashes as path separators. Fixes levels being named like "Assets\Foo.unity" (instead of "Foo.unity") on Windows.
+    
+    Showing invalid Tag no longer produces errors in the Editor
+    
+    Fixed '/' and '%' in Asset Server commit messages being interpreted as menu shortcuts
+    
+    Fixed file comparison problems in Asset Server
+    
+    Fixed exceptions in Editor when changing Game Object Active or Layers in non-recursive mode
+    
+    Fixed error in Editor when deleting Movie Texture that is currently displayed in Inspector
+    
+    Fixed crash when doing Reimport All from Project View's context menu in Windows Editor
+    
+    Fixed crash when importing some malformed .3ds files
+    
+    Fixed hidden / CVS files appearing in Project View when manually reimporting asset folders
+    
+    Fixed Unity Editor crash when Data Execution Prevention is used on Windows
+    
+    Fixed audio files sometimes missing samples at the end (OS X only)
+    
+    Fixed loading editor preferences when user has changed system locale
+    
+    Fixed terrain heightmap editing crash when the same terrain is instantiated multiple times in the scene
+    
+    Fixed Frame Selected on skinned meshes and transform hierarchies
+    
+    Non-skinned Custom deformer weights are properly ignored when importing FBX files
+    
+    Inspector properly updates when changing Script component to reference another script
+    
+    Set Terrain Resolution button no longer says "Import"
+    
+    Fixed errors on Windows when dragging files into Project View from some applications
+    
+    Fixed Help icons in Inspector appearing at startup for non-existing help pages
+
+Web Player Fixes:
+
+    Fixed auto-update problem on Windows Vista + UAC + Internet Explorer. See tech note below.
+    
+    Fixed web player crash on Windows Vista when locale is set to Spanish
+    
+    Fixed issue with mixing Unity and Flash content (by hiding one or another) on Internet Explorer (regression in Unity 2.5.0)
+    
+    Fixed Tabbing through UnityGUI fields not working on Internet Explorer
+    
+    Fixed crash on Mac OS X when exiting fullscreen mode
+    
+    Fixed auto-update problem on PowerPC Macs
+    
+    Fixed Input.mousePosition being incorrect when using Application.targetFrameRate on OS X Web Player
+    
+    Fixed occasional crash when reloading web player on OS X
+    
+    Null Reference Exceptions don't crash on OS X + Firefox 3 anymore
+    
+    Fixed Firefox 3.0.10 issues on OS X Web Player
+
+Other Fixes:
+
+    Various scripting reference documentation fixes
+    
+    GUI.depth now works again
+    
+    TextAsset can contain arbitrary binary data again
+    
+    Fixed Mono memory leaks on Windows (allocating large managed arrays, leaked script assemblies)
+    
+    Fixed Input configuration dialog in standalone games on Windows (keyboard configuration was broken in 2.5.0)
+    
+    Fixed regression in existing Unity 2.0-2.1 content that was using Event.current outside of OnGUI
+    
+    Fixed UnityGUI regression with custom1..custom20 GUI styles
+    
+    Fixed Screen.lockCursor making Screen.showCursor not work on Windows
+    
+    Fixed terrain billboards being culled too early and trees culled incorrectly in some cases
+    
+    Fixed crash when unloading asset bundles
+    
+    Fixed Movie streaming via WWW class
+    
+    Fixed occasional crashes when switching the screen resolution in the middle of frame on Windows
+    
+    Fixed crash when setting .time on an audio clip that is not playing yet
+    
+    Fixed crash when running standalone Windows games from a read only file system
+
+Release 2.5.1 Web Player auto-update Tech Note
+
+    During testing of 2.5.1 we have identified and fixed an issue that affects auto-update behaviour of the web player plugin. This tech note explains the issue and the steps that are required to be taken by customers publishing content using Unity 2.5.1 or later.
+
+    The Unity Web Player has a mechanism that automatically updates when it encounters content that requires a newer version of the Unity Web Player. In that case Unity downloads and installs an update to the Unity Web Player completely automatically. Under Windows Vista, when UAC (User Account Control) mode is enabled and Internet Explorer is used as the browser, we have discovered a situation where this auto-update will fail.
+
+    Under Windows Vista only, when the browser is Internet Explorer, if the 2.5.0 Unity Web Player was installed and Vista's UAC is on, it is impossible for the plugin to be automatically upgraded to 2.5.1. However, a manual install will successfully upgrade the 2.5.0 plugin to 2.5.1.
+
+    This issue only happens when upgrading from 2.5.0 to a later plugin. Earlier versions of the plugin (2.1.0, 2.0.2 etc.) do not have this problem. The problem itself is wrong manifest information in web player update application, which makes it not have enough permissions to perform the update on Vista + UAC + Internet Explorer.
+
+    To help customers we have changed the default HTML template built by Unity when building web content. The change is in a VBScript snippet we recommend be used on the containing web page to identify which version of the plugin is installed. We have updated the "Detecting the Unity Web Player using browser scripting" page of the Unity Manual. We urge all customers to visit this page, understand the significance of the change and update their HTML pages accordingly. The change recommended is that if the script detects Windows Vista and Internet Explorer and Web Player Plugin version 2.5.0 the page should pretend that the plugin is not installed. The gamer should be recommended to download and install the plugin manually. The Support team at Unity is aware of the issue and can help customers who require assistance with this change.
+
+Upgrade Guide
+
+    Unity 2.5 projects are compatible with Unity 2.1, so if you do not use new 2.5 features, you can open your projects with Unity 2.1.
+
+    Timeline window for creating animations directly in Unity was removed in 2.5. Of course you can still author animations in a 3D application. This feature will return even better in Unity 2.6 including High-end Curve Editing and support for animating any property including material animation.
+
+    Some of the Editor scripting API was refactored, here are the largest changes:
+
+    EditorWindow.OnCloseWindow is removed. Use OnDestroy instead.
+    
+    Hotkey part in MenuItem name requires a space character before the hotkey now.
+    
+    Removed Mac Ctrl (^) modifier support from MenuItem hotkey.
