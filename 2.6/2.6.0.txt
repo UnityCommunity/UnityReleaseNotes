@@ -1,0 +1,27 @@
+Load Better
+
+    Major streaming and loading features and optimizations that we implemented for major games like Cartoon Network's FusionFall MMO have now been fully integrated in Unity 2.6. Chief among these features is support for prioritized background loading of new scenes and assets, while using minimal CPU and memory.
+
+Run Faster
+
+    You not only want to make great games, you want screaming performance. Our new profiler makes it easy to see where your are spending resources, what scripts are running, and where the graphic bottlenecks lie. The profiler shows a frame-based overview, and a hierarchical CPU profiler, giving you the big picture and the ability to drill down to see the details.
+
+Look Sharper
+
+    Your game should look as sharp as it possibly can! Image effects now work perfectly with anti-aliasing, and we added ambient occlusion as a built-in feature. Shadow map rendering was also greatly optimized so you can get all the graphical goodness you expect.
+
+Animate Everything
+
+    With Unity 2.6 you can animate any property using our state-of-the-art integrated animation editor. You can animate objects, materials, lights, script values, the whole enchilada. Refined tangent handling gives you full control. Want to tweak your game code to match animations? No problem – simply activate scripts from your animations so that everything syncs perfectly.
+
+Project Search
+
+    Ever wondered where that stone texture was, needed to find a quick script? With Unity 2.6, we have a built-in search feature for your project – simply type the name of the file in the project window and see the live-updated results.
+
+A Better Citizen
+
+    Unity has always been about integration. In version 2.6, we added support for external version control to Unity Pro — so you can use Subversion, Perforce, Bazaar or any other VCS out there. We also added full integration with Visual Studio — Unity will now automatically sync a VS project to your source code so you have all files in your solution and IntelliSense configured for you.
+
+Snappy!
+
+    Placing lots of objects? We didn't just add loads of big features, but also added lots of spit-polish to the editor. One of many things we improved was placement snapping. Set pivot mode to 'center' to place objects so that their bounding volumes rest on top of whatever is below them. Selected objects can also be snapped to grid by using the Snap Settings dialog.
