@@ -1,0 +1,107 @@
+Fixes added by the 3.1.0f4 hotfix release
+
+    Unity 3.1.0f4 is a hotfix release to the Unity 3.1 release (version number 3.1.0f3).
+    Unity 3.1.0f4 was released November 29th 2010.
+
+Fixes:
+
+    Mac Web Plugin: Fixed an incompatibility with a recent version of QuickTime, which caused the web player to stop working on some machines.
+    
+    Win Web Plugin: Fix the bug where Firefox hogs all CPU resources when Web Player tab is inactive.
+    
+    Editor: Fixed a crash bug when using Undo after closing the Asset Store.
+    
+    Mac Editor: Fixed an Asset Store crash bug on some machines with an incompatible version of WebKit.
+    
+    Fix for broken tree billboard transitions.
+
+Additional Improvements & Fixes in 3.1.0f3
+
+    As usual, we added a couple of improvements and fixed some things.
+    Unity 3.1.0f3 was released November 10th 2010.
+
+New Features:
+
+    Managed .NET DLLs can now be placed in the project folder and can contain script code, including MonoBehaviours, EditorWindows and ScriptableObjects. This allows you to move any code into a DLL, making code sharing between projects easier, and making it easier for middleware developers to create libraries without sharing the source code. This was introduced in Unity 3.0 but was not mentioned in the release notes.
+    
+    Scripting: Added GL.InvalidateState() to flush the internal renderstate cache in Unity. This is mostly useful when writing native code plugins that access the 3D device.
+    
+    Audio: Added AudioSettings.outputSampleRate. Returns the mixer's output rate; use this to calculate the precise hertz range returned from GetSpectrumData().
+
+Fixes:
+
+    Editor: Fixed out of memory errors when editing very large terrains due to the Undo system.
+    
+    Editor: Fixed "too many open files" error when reimporting a large project with many shaders on Mac OS X.
+    
+    Editor: Some textures would not say "Texture not yet compressed" when importing with the "Compress Textures" preference turned off.
+    
+    Editor: Fixed a bug where upgrading a Unity 2.x project with normal maps would leave some normal maps not marked as Normalmap type properly.
+    
+    Terrain Engine: Unity 2.x Soft Vegetation tree shaders had lighting upside down :)
+    
+    Shaders: fixed Surface Shader compilation errors with large custom output structures.
+    
+    Shaders: wrong syntax in UnityCG.glslinc file (for GLSL shaders).
+    
+    Graphics: fixed Projector crash in some circumstances.
+    
+    Graphics: fixed tangent vectors not bound correctly with GLSL shaders on some GPUs.
+    
+    Graphics: fixed dynamic batching corrupting vertex colors on Direct3D.
+    
+    Graphics: fixed GL.TRIANGLES rendering with large triangle counts on Direct3D.
+    
+    Graphics: fixed some hiccups when changing non-uniform scale of meshes.
+    
+    Graphics: Fixed dynamic batching index overflow.
+    
+    Audio: GetOutputData/GetSpectrumData API changed so it accepts an pre-allocated array instead of allocating on every call. Old API is deprecated and marked obsolete.
+
+Unity iOS Fixes:
+
+    Fixed render texture support on iPad with OS 3.2.
+    
+    Fixed video autorotation. Pinch zoom gesture now disabled during video playback.
+    
+    Fixed stripping of GUI scrollable area.
+    
+    Fixed OpenGL ES 1.1 cache invalidation, which was sometimes causing visual artifacts.
+    
+    Fixed render texture memory leak.
+
+Unity Android Improvements & Fixes:
+
+    Plugins folder is moved; it now uses Assets/Plugins/Android to scan for plugins.
+
+    Plugins now support standard Android project layout; /assets, /bin, /libs and /res will be merged with the final package.
+
+    Added 'update necessary' notifcation dialog for Samsung devices running pre-2.2 OS firmware.
+
+    License Verification Library (LVL) no longer causes a crash.
+
+    Added iPhoneUtils.isApplicationGenuineAvailable() to be able to determine if application integrity can be confirmed or not.
+
+    Ignore .meta files (with external version control) when packaging the .apk.
+
+    Assign DefaultImporter to platform specific plugin assets.
+
+    Custom manifests are now merged with the properties from the editor (like Bundle Identifier, Version and permission flags).
+
+    Ship UnityPlayerActivity as source code template for writing plugins with custom activity classes.
+
+    Added support for translucent (RGBA 8888) rendering surface.
+
+    com/unity3d/player/UnityPlayerActivity.currentActivity field is now found at com/unity3d/player/UnityPlayer.currentActivity.
+
+    iPhoneKeyboard is now displayed on top of the application; it supports the basic soft keyboard layouts (URL, Email, Phone, etc).
+
+    PlayMovie is now displayed on top of the application (instead of in a separate activity); fixes the screenCanDarken issue while playing movies.
+
+    The editor now checks for device specifications before trying to deploy in Build&Run.
+
+    The editor will try to locate the JDK based on information stored in the registry on Windows.
+
+    Fixed C# assemblies being loaded from the wrong thread; was causing crashes if external classes were loaded late at runtime.
+
+    Fixed render textures on OpenGL ES 2.0.
