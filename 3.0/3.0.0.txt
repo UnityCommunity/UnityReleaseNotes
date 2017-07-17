@@ -1,0 +1,805 @@
+Additional Features & Improvements
+
+  As always, we've added a slew of other features and optimizations... keep reading for too much detail.
+  
+Android Support:
+
+    Support for Android OS is added in this version.
+    
+    Please note that this an early build and does not represent the final Unity Android quality.
+
+Standard Assets:
+
+    Standard packages split into more specialized and smaller packages.
+    
+    New Image Effects: Sun Shafts (aka God Rays); Bloom & Lens Flares; Vignetting & Chromatic Aberration; Curve based Color Correction; Depth of Field; Contrast Enhance (aka Unsharp Mask); Geometry Outline; Fisheye; Create Shading.
+    
+    Improved particle effects.
+    
+    New Skyboxes with alpha channels to be compatible with Image Effects.
+    
+    New Editor Scripts for useful shortcuts that are not built-in.
+    
+    Improved First Person Controller that uses Character Motor script.
+    
+    New CharacterMotor script for use with CharacterControllers.
+        
+        Proper movement on slopes and steps without loosing grounding.
+        
+        Support for standing on moving platforms with multiple movement transfer modes when jumping off.
+        
+        Variable height jumping and other jump improvements.
+        
+        Improved speed and acceleration control.
+        
+        Customizable sliding and perpendicular jumping can prevent climbing up too steep surfaces.
+        
+        Detached from input so it can be used for first person, third person, AI, etc.
+
+New Editor Features:
+
+    Black is the new 50% gray. Unity Pro got a new look - you can toggle it in the preferences.
+    
+    Procedural Tree Creator. Documentation.
+    
+    Integrated Lightmapping via Illuminate Labs' Beast. Documentation.
+        
+        Automatic generation of lightmap UVs (mesh import setting).
+        
+        Terrains use the same solution and gain a whole new look when used with skylight.
+        
+        You no longer use special "Lightmapped" shaders; all shaders that interact with lighting can handle lightmaps. Dynamic shadows from characters mix with lightmaps properly.
+    
+    Object Selector. We no long show a simple dropdown menu; instead a swanky new window opens up, with previews and everything.
+    
+    Scene View improvements (documentation):
+        
+        Search field with interactive highlighting of objects.
+        
+        Rectangle selection.
+        
+        Vertex Snapping for precise object placement.
+        
+        Live previews of material, prefab and texture drags into the scene view.
+        
+        Improved camera handles, and a camera preview window.
+        
+        Improved light handles.
+        
+        More consistent scene navigation controls.
+    
+    New texture Import Settings dialog with simpler interface & per-platform import settings.
+    
+    New Build Settings window to better support multiple platforms.
+    
+    New and more organized platform-aware Player Settings Inspector.
+    
+    Curve Popup Window:
+        
+        Any public script variable of type AnimationCurve is now exposed in the Inspector as a curve field.
+        
+        Clicking a curve field opens a popup window with a curve editor, similar to the curve editor in the Animation Window.
+        
+        Customizable curve fields can also be used in custom editor windows.
+    
+    Editor checks when new versions are available< and notifies the user.
+    
+    Texture compression is now multi-threaded for faster texture imports on multi-core computers.
+    
+    Asset Server Window:
+        
+        History window shows multiline commit descriptions directly in the list instead of tooltips.
+        
+        Selected history window items are revealed better.
+        
+        Framing (F key) works for history window file list.
+        
+        Remember user/password per host name.
+        
+        Disable merge button in conflict resolution window for non-merge-able items.
+    
+    Improved error reporting for shaders. Shader Inspector also displays the list of errors & warnings for selected shader.
+    
+    Implemented snap to grid in Curve Popup Window and Animation View when holding down Control (Command on OS X). Control/Command no longer adds to selection, but Shift can still be used for that.
+    
+    Editor Console displays total number of errors & warnings in lower right corner.
+    
+    Improved inspector for movie audio.
+    
+    Windows: Double-clicking *.unitypackage will open and import it.
+    
+    Editor API has been expanded: documentation.
+    
+    Added option to search for object types instead of names in the project search field.
+    
+    Can now drag objects onto an array field in the inspector to add them to the array.
+    
+    Can now drag project folders onto the Project Wizard on Mac OS X to select them.
+    
+    Nicer display of thumbnails when dragging tabbed editor windows.
+    
+    Long operations show progress badge on the Unity Dock icon in Mac OS X and on the taskbar button in Windows 7.
+    
+    Added support for touchpad gestures in OS X editor, for maximizing windows (pinch gesture), and switching camera in scene view (swipe gesture).
+    
+    Overdraw visualization mode does not do alpha testing now. Alpha tested pixels still cost on the GPU, so better to visualize the real cost.
+    
+    Animation window can display animation clips from prefab, just click the prefab's root game object.
+    
+    Protect Transform position, rotation, scale against invalid values.
+    
+    Build Pipeline: Typetrees are removed from serialized files (assets) when possible, this make resource files smaller and loading time faster.
+    
+    Double-clicking a Game Object in Hierarchy View will frame select it in Scene View.
+    
+    When going out of Play mode and the Game View is docked together with other tabs, go to last active tab instead of always focusing or creating a Scene View tab.
+    
+    Now the Hierarchy View has a toolbar too.
+    
+    API Compatibility setting in player settings lets you choose your mono profile. Use 2.0 if you're having trouble with 3rd party assemblies (2.0 not available for web player).
+    
+    High resolution icon support for players (Windows: 256x256 and 128x128; iOS: 114x114).
+    
+    Search results in project and scene search are now sorted alphabetically.
+    
+    Inspector Lock got a real button instead of being hidden in a menu.
+    
+    Rotate Tool now includes 'Look At Point' option when Shift + Control/Command keys are held.
+    
+    Audition audio in SceneView. Scene view search now filters audio sources as well.
+    
+    Added Web Player build templates.
+    
+    It is now possible to update Asset Server project to specific revision through command line.
+
+New Graphics Features:
+
+    Static Occlusion Culling using Umbra sPVS.
+    
+    Geometry Batching: static and dynamic batching from Unity iPhone 1.7 comes to all platforms.
+    
+    Rendering paths: (choose in Player Settings or per-Camera; documentation)
+    
+        Deferred Lighting. A deferred rendering scheme, where realtime lights are not horribly expensive anymore. Lighting cost is only dependent on the number of pixels it touches, so you can have lots of small lights for cheap.
+
+        Vertex Lit. This makes all shaders & lights use fixed function per-vertex lighting. In exchange, this is fast; primarily targeted at mobile platforms and low-end web.
+
+        Forward rendering path had lots of changes compared to Unity 2.x, see below.
+    
+    Surface Shaders - a much easier way to write shaders that interact with lighting. We don't have the docs for it yet; you'll have to trust us that it's awesome!
+    
+    Speed! We have optimized the rendering code; it's often 20-50% faster than 2.6 in the same scene setups.
+    
+    OpenGL ES 2.0 for iOS and Android. You can use shaders for objects, post-processing effects etc.
+    
+        Regular Cg/HLSL shaders and Unity 3 Surface Shaders will be cross-compiled into GLSL behind the scenes. Resulting GLSL will be optimized as well, because mobile platforms are not very good at optimizing the shaders.
+
+        Of course, since mobile platforms are not very powerful, you should use OpenGL ES 1.1 if possible.
+    
+    Particle Rotation: Particle.rotation, Particle.angularVelocity and respective properties in ParticleEmitter.
+    
+    Soft Particles! When you use Deferred Lighting and have Soft Particles on in Quality Settings, particles will fade out close to intersections with the scene. All built-in Particle shaders (except VertexLit) support this.
+    
+    Shadowing improvements: use native shadow maps on Direct3D (faster, less memory, native filtering); much reduced self-shadowing artifacts; Soft shadows support for Point lights; much less "shadow halos" around objects for directional light soft shadows; optimized shadows for Forward rendering path (shares depth buffer with main rendering); optimized shaders for directional light shadows.
+    
+    Terrain: Added slider (under Terrain Settings) to control detail object density.
+    
+    Vertex shaders for Shader Model 3.0 on Direct3D9 and GLSL on OpenGL can read from textures.
+    
+    Skybox is rendered after opaque geometry. Improves performance if your application is fillrate bound.
+    
+    Separate Alpha Blending: use Blend ColorSrc ColorDest, AlphaSrc AlphaDest in ShaderLab.
+    
+    In-editor visualization on which objects would use which rendering paths (green/yellow/red for deferred/forward/vertexlit).
+    
+    #pragma glsl for compiling Cg/HLSL shaders into GLSL instead of ARB assembly programs on OpenGL.
+    
+    Compiling shaders to #pragma target 3.0 allows 512 texture indirections on OpenGL (up from 4).
+    
+    Development standalone players on Windows have Direct3D PIX events; useful if you use PIX, Intel GPA or other graphics performance tools.
+    
+    Fog just works on Direct3D with Shader Model 3.0 shaders, on OpenGL with GLSL and on OpenGL ES 2.0. Additionally, there's no need to write #pragma fragmentoption ARB_fog_exp2 in your shaders anymore; just remove that line.
+    
+    CameraDepthTexture modes can be combined if you want to get both depth & depth+normals textures.
+    
+    It is possible to forcibly disable Anisotropic filtering on a texture, even when Quality Settings have anisotropic on all textures. Just set anisotropic slider on the texture to zero.
+    
+    Uniformly scaled objects will no longer be pre-scaled before rendering - instead uniform scale is now natively supported by the renderer.
+    
+    Cg/HLSL VPOS (pixel position) pixel shader input semantic is supported now.
+    
+    Terrain: Expose detail resolution per patch; previously was hardcoded to 8.
+    
+    Terrain: Improved performance of painting textures & detail objects.
+
+Asset Pipeline Improvements:
+
+    Upgraded to FBX SDK 2011.2.
+    
+    Import support for stepped and linear keys for position curves; improved compression and curve fitting for position curves.
+    
+    Settings for allowed animation compression error in mesh importer.
+    
+    Implemented support for importing 1 unit in 3dsmax as 1 unit in Unity (the default is 1 cm in 3dsmax as 1 unit in Unity).
+    
+    Implemented import of tangent space from FBX, .max, .mb and .ma files.
+    
+    Switched Cinema4D import process to work in background mode.
+    
+    Support for Cinema4D R11 on Mac OS X.
+    
+    Support for FBX2010 format when exporting from Cinema4D.
+
+Audio Improvements:
+
+    Filter components: Reverb, Echo, Distortion, Chorus, High- and Low-pass. Can be applied to each audio source or globally to the listener.
+    
+    Reverb Zones: Apply reverb to main audio output, when the listener is within zone(s) defined by a position and min/max radii.
+    
+    Live output and spectrum data access from each audio source or globally from the listener.
+    
+    Tracker/Mod file support.
+    
+    Sample-accurate synching. Sources played in the same frame are always started at the exact same point in time. Sources can be delayed and played in the future on an exact sample accurate boundary with .Play(int64 delay).
+    
+    Surround sound (7.1, 5.1, 4.0, ProLogic DTS) support.
+    
+    Attenuation curves for volume, spread, panning and lowpass filter factors.
+    
+    Doppler factor per audio source.
+    
+    AudioSource prioritization.
+    
+    iOS latency settings. Choose between Default, Best Performance, Good Latency and Best Latency.
+    
+    Asset memory is freed after loading audio data.
+
+Physics Improvements:
+
+    Upgraded PhysX to 2.8.3.
+    
+    Cloth and clothing simulation: use the new InteractiveCloth, SkinnedCloth and ClothRenderer components.
+   
+    Layer based ignore collisions: use the Physics inspector or Physics.IgnoreCollision().
+    
+    Continuous collision detection, to make sure that fast moving colliders will not pass through other colliders. See Collider.collisionDetectionMode.
+    
+    Added Physics.SphereCast() and Physics.CapsuleCast() to implement volume raycasts.
+    
+    Added Rigidbody.SweepTest() to check if a Rigidbody would collide with anything if moved into a certain direction.
+
+New Scripting Features:
+
+    Mono Develop for script editing and debugging! Documentation.
+    
+    Upgrade Mono and C# compiler to Mono 2.6.3. This brings C# 3.5, variable type inference, lambda expressions, LINQ and more.
+    
+    New UnityScript compiler: generics, interfaces, structs, type cast operator, anonymous functions/closures, lambda expressions, function types, type inferred array comprehensions and more.
+    
+    New Boo compiler.
+    
+    Mono class libraries derived from Silverlight profile for the web player.
+    
+    Socket security sandbox implementation. Just like Flash (think crossdomain.xml).
+    
+    WWW class security sandbox implementation. Just like Flash (think crossdomain.xml).
+    
+    Per-platform script defines. Use UNITY_EDITOR, UNITY_WEBPLAYER, UNITY_IPHONE etc. Documentation.
+    
+    Improved UnityScript compilation speed.
+    
+    New scripting API functions (documentation). Some highlights:
+    
+        WWW.responseHeaders will contain the response headers received from the HTTP server.
+
+        Application.isWebPlayer.
+
+        SystemInfo.graphicsPixelFillrate to query GPU pixel fillrate. Returns fillrate for about a thousand GPUs out there.
+
+        GL.ClearWithSkybox.
+
+        Math functions: MoveTowards to Mathf, Vector2, Vector3, and Vector4; Quaternion.RotateTowards.
+    
+    Changed Mathf.Approximately to not only be useful for comparing very small numbers.
+    
+    Stacktraces have been prettified, useless information is better stripped from stack traces.
+
+Other Improvements:
+
+    Web Player: Java and ClickOnce based installer on Windows for true one-click installation process.
+    
+    IME input support (for languages like Japanese, which require multiple keypresses to enter a character) on Windows, and in the editor and standalone on the Mac.
+    
+    Support for OS font rendering (new "dynamic" font rendering mode), to save space in distribution and texture sizes. Textures are generated dynamically to contain the characters which are needed.
+    
+    Documentation: scripting examples in UnityScript; C# and Boo. Docs for all platforms merged and platform specific parts toggle-able.
+    
+    Web Player: UnityObject.js script makes Web Player embedding easier.
+    
+    iOS: Added cpu-waits-gpu metric in internal profiler; useful for tracking down GPU bound applications.
+    
+    iOS: Native resolution support for iPhone 4.
+    
+    iOS: Improved game build sizes.
+    
+    iOS: Unity Remote 2: It is possible to turn off image syncing between editor and device. Useful for input-critical games.
+    
+    OS X Web Player: Now supports NPDrawingModelInvalidatingCoreAnimation, as will be required by future versions of Chrome.
+    
+    Networking: RakNet upgraded to version 3.732
+    
+    Networking: Connection tester, Network.TestConnection(), now reports your NAT implementation type more accurately.
+    
+    Networking: Exposed Network.logLevel so you can change the amount of log output at runtime.
+    
+    Networking: Added network GUID, used for NAT punchthrough.
+    
+    Bug Reporter: Supports multiple file attachments; trims attached log files if they are too large.
+
+Some Changes We Did
+
+We thought you might want to know about them...
+
+Graphics Changes:
+
+    Forward rendering path had lots of changes:
+        
+        Most common case (one directional per-pixel light) is drawn in one pass now! (used to be two passes in 2.x)
+        
+        Point & Spot light shadows are not supported. Only one Directional light can cast shadows. Use Deferred Lighting path if you need more shadows.
+        
+        Most "Vertex" lights replaced with Spherical Harmonics lighting.
+        
+        Forward rendering path is purely shader based now, so it works on OpenGL ES 2.0, Xbox 360, PS3 (i.e. platforms that don't support fixed function rendering).
+    
+    Shader & ShaderLab changes:
+        
+        If you want to write shaders that fully interact with lighting; it's best to use Surface Shaders.
+        
+        Unity 2.x per-pixel lit shaders will need to be manually converted to surface shaders or manually fixed.
+        
+        Shaders are compiled to more targets by default (e.g. OpenGL ES 2.0); you might hit some places where OpenGL ES 2.0 does not like some Cg/HLSL constructs. Either fix the offending places, or exclude shader from OpenGL ES 2.0 via #pragma exclude_renderers gles.
+        
+        Lots of sanitization to built-in variable names (mostly to accommodate new OpenGL ES 2.0, Xbox 360, PS3 platforms).
+        
+        Unity 3.0 will automatically upgrade most of 2.x shaders for syntax changes. This actually modifies your shader files (look for "Upgrade NOTE" in your files).
+    
+    Normal map compression; just mark texture as Normal Map and will be DXT5nm compressed at decent quality. All shaders need to use UnpackNormal(n) instead of n*2-1.
+    
+    Remove concept of "RECT" textures. All non-power-of-two RenderTextures are addressed with 0..1 UVs now (just like in D3D9 in Unity 2.x).
+    
+    Parallax shaders get height from a separate texture now.
+    
+    Self-Illuminated shaders get illumination from a separate texture now.
+    
+    Terrain lighting modes (Vertex/Lightmap/Pixel) are gone. Terrain is lit just like everything else now.
+    
+    When rendering with Shader Replacement, no lighting is ever applied. Skybox, GUI, Halos, Projectors are not rendered.
+    
+    Background shader queue is treated like Geometry now (arbitrary sorting, assumed to be opaque).
+    
+    OnBecameVisible/OnBecameInvisible have slight behaviour changes. For example, now they are not called each frame on a shadow caster that is not visible itself.
+    
+    Self-Illuminated materials calculate emissive color as (material color * texture * illumination); previously was (texture * illumination).
+    
+    Simplified Shadow Bias setting on Lights.
+    
+    Depth render textures on D3D9 use native depth buffer. Value distribution changed from linear to z-buffer like (just like in OpenGL).
+    
+    Spot lights attenuate exactly like Point lights now.
+    
+    Point lights with Cookies actually attenuate now.
+    
+    OnRenderObject script callback behaviour changed. Now those callbacks are called after everything is rendered; not at points in the middle of rendering.
+    
+    Changed the way the Camera-DepthTexture and Camera-DepthNormalTexture shaders are loaded so that they can be overridden when needed.
+    
+    Custom Tree shaders specify their billboard shader via Dependency keyword now (instead of Tag). The billboard shader will be automatically included in the build.
+    
+    Screen space coordinates should use float4 on all platforms (used to be V2F_SCREEN_TYPE). When sampling a texture with tex2Dproj, use UNITY_PROJ_COORD macro around it.
+    
+    Added WorldSpaceViewDir() and WorldSpaceLightDir() functions to UnityCG.cginc.
+    
+    Obscure Graphics Changes That No One Will Probably Notice TM: documentation.
+    
+    Renamed the 2.x tree shaders and the 3.x Tree Creator shaders; both are put under "Nature" section.
+    
+    OnPreCull, OnPreRender, OnPostRender and OnWillRenderObject messages are not sent to disabled behaviors.
+    
+    Old Unity 2.x Lightmapped shaders moved under "Legacy Shaders" submenu.
+    
+    Terrain: Removed the concept of grayscale lighting from terrains.
+
+Editor Changes:
+
+    Unity Editor on Mac OS X requires Intel-based Mac and OS X 10.5 "Leopard" or later.
+
+    Removed Soft Vegetation option from Quality Settings UI. It does nothing in built-in shaders now.
+
+    Separated preferences for 3.x and 2.x editors.
+
+    Removed ancient Dinosaur graphics emulation.
+
+    Moved "All compile errors must be fixed" notification to scene view notifications (moved it out of console).
+
+    Made the curve editor send a CurveChangeCompleted event when the curve change has been completed.
+
+    Create New Project dialog now expects user to select an existing, empty folder on the Mac
+
+    Mesh Import option "Split Tangents" is on by default.
+
+    Texture Importer:
+
+        Bump maps are now referred to as "normal maps" in the editor.
+
+        Normal maps are labelled as "NM" in their format.
+
+        PVRTC compression level moved to advanced settings.
+
+        Generating a Cubemap will make the cubemap be the root asset.
+
+        Textures that only use one value across the whole alpha channel and that value is not 1 are marked as needing-alpha-channel.
+
+    The command and control key modifiers in the view tool have been switched on OS X. Now command moves and control zooms. Control still moves on Windows.
+
+Physics Changes:
+
+    Rigidbody mass is no now longer limited to 10000.
+
+    RaycastCollider is now deprecated.
+
+    Center of gravity and inertia will now always be automatically recalculated when setting or animating collider properties or positions, unless they had been explicitly set from code before.
+
+    Slope limit on character controller now works properly above 45 degrees. When loading old scenes the value will be clamped to 45 degrees to mimic the old behaviour.
+
+    JointDrive.maximumForce will now also be taken into consideration when JointDrive.mode is JointDriveMode.Position. You may need to change your joint setups so that they still work.
+
+Unity iOS Changes:
+
+    iPhoneStreamingAssets is renamed to StreamingAssets and is now located under the Assets folder (visible from within the Editor).
+    
+    Target iOS Version field added to player settings. Now deployment target can be specified separately from active SDK version.
+    
+    "Enable Unity Networking" flag removed from iOS player settings. Now stripping of networking is handled automatically.
+    
+    Most iPhoneInput members moved to Input class.
+    
+    Native plugin support added to both Basic and Advanced Unity iOS licenses.
+    
+    Added support for iPad / iPhone Simulator
+    
+    Hardware audio decoder is now shared between audio clips.
+
+Other Changes:
+
+    Random number generator (Random class) was changed. It is marginally slower, but produces better "randomness", especially in lower bits. Additionally, integer version is not limited to 15 bits range.
+    
+    Internal Random number generators (for Particles etc.) are reset after each level load. Now your particles in any level do not depend on what levels were loaded before.
+    
+    The default runtime font is now Arial 13, as rendered as a dynamic font on Mac OS X and Windows.
+    
+    Scripting: Renamed WWW.data to WWW.text
+    
+    Scripting: ScriptableObject derived classes must be instantiated using one of ScriptableObject.CreateInstance overloads.
+    
+    Scripting: UnityScript strict mode no longer allows arbitrary downcasts from Object (unless #pragma downcast is used).
+    
+    Input: Keyboard on MacOS X will now reflect the behavior on Windows (two separate KeyDown events for key code and character, KeyUp event only for key code).
+    
+    Scripting: Removed support for .NET 1.1 profile.
+    
+    Scripting: Made previously undocumented GUIClip class internal to UnityEditor.
+    
+    Networking: Connection tester now requires 4 public IP addresses to work.
+
+Here, I Fixed It!
+
+We fixed some things as well...
+
+Editor Fixes:
+
+    General: Improved Undo behaviour.
+
+    General: Game View Stats window has more accurate frametime & FPS display.
+
+    General: Don't enter Play mode if there are compiler errors.
+
+    General: Debug.LogWarning will not pause the game if console has Error Pause selected.
+
+    General: You can now search for script derived types in the project window (when Type is selected).
+
+    General: Fix newly created materials in project view sometimes having empty names.
+
+    General: Reset menu option is now undoable.
+
+    General: Fixed importing standard packages into projects with non-Latin characters in path on Windows.
+
+    General: Fix occasional exceptions with Undo when asset inspector loses selected assets.
+
+    General: Fix editor window sometimes shrinking into the corner when changing layout presets on Mac OS X.
+
+    General: Fixed a bug where selecting a scriptable object with a missing script reference would result in null reference exceptions
+
+    Crash: Fixed crash when deleting the last item in an array of strings.
+
+    Crash: Fix crash on Windows when undocking Game View.
+
+    Crash: Fix crash caused by EyeDropper picking color on different monitor.
+
+    Crash: Editor is more resilient to missing object references (eg. a Unity iPhone 1.7 upgraded project was crashing the editor on play).
+
+    Inspector: "Open Compiled Shader" in Shader Inspector works more predictably and uses text editor chosen in preferences.
+
+    Inspector: Fixed display of boolean arrays.
+
+    Inspector: Fixed Material/Mesh/Object previews being affected by scene Fog.
+
+    Inspector: Fix "Any" Texture properties in Materials using the wrong GUI style.
+
+    Inspector: Fixed bug where opening a terrain inspector would dirty the terrain causing it to get saved although nothing had changed.
+
+    Asset server: Fix editor hanging on OS X when trying to merge conflicting text assets.
+
+    Asset Server: Fix unable to update when parent of file modified on server is locally deleted.
+
+    Asset Server: Cleaner Diff output when comparing binary files in Asset Server.
+
+    Asset Server: Fixed asset server caching failing in some cases (e.g. when using EditorUtility.CopySerialized).
+
+    Importing: Tangents will be properly handled when mesh compression is enabled.
+
+    Importing: Fixed direct import from Maya 2011.
+
+    Importing: Using TextAsset to store binary data now actually works, as long as your file has the .bytes extension.
+
+    Importing: Cylindrical cubemap projection generation now works.
+
+    Importing: On rare occasions Unity Editor on Windows was throwing 'Writing file error' while reimporting all assets and anti-virus running in the background.
+
+    Importing: Fix texture object fields in cubemap inspector losing the thumbnail when reimporting.
+
+    Importing: Shader files with uppercase file extensions are properly imported now.
+
+    Importing: Reduced memory usage during texture import.
+
+    Importing: Better memory handling when importing assets, switching scenes, building player.
+
+    Importing: FBX importer gives detailed warnings if it detects problems in the skin of a model.
+
+    Importing: Fixed import of user properties from 3D asset files.
+
+    Importing: Fixed import of multiple animation takes.
+
+    Scene View: The grid is now also shown in Iso mode.
+
+    Scene View: Terrain is selectable in Scene View just like any other object!
+
+    Animation View: Margins are now fixed instead of a percentage.
+
+    Animation View: Improved handling of window resize.
+
+    Animation View: Make create key operations work better for steep curves and disallow it for read-only curves.
+
+    Animation View: Prevent creating keys outside of permitted horizontal range.
+
+    UI: Maximized state of main editor is remembered across sessions on Windows.
+
+    UI: Don't show Project Wizard or Welcome Screen if Reimport All was invoked.
+
+    UI: Fix some of context menus not being properly validated (grayed out) on OSX.
+
+    UI: EditorWindow.Notification now properly shows white text.
+
+    UI: Clamp profiler frame selection dragging correctly.
+
+    UI: Fixed animation icons being clipped in the inspector.
+
+    UI: Fixed dragging tab on Windows putting window title bar above the screen top.
+
+    UI: Show error message if -nographics is used without -batchmode.
+
+    UI: In Package Import Dialog selecting checkboxes will now correctly affect child elements.
+
+    UI: Fixed Asset Server tooltips in Overview window getting too large and disappearing too soon.
+
+    UI: Fixed old regression where pressing F to frame selection frames selected object in last active scene view, if active window doesn't use frame selection event.
+
+    UI: When editor is processing something on Windows, made utility windows not be on top of all application windows in the system.
+
+    UI: Fix error messages when trying to move file to the same folder via Project view on Windows Vista or 7.
+
+    UI: Fixed icons for sub-assets in search view.
+
+    UI: Show proper cursor when trying to drag files out of Unity Editor on Windows.
+
+    UI: License Info word wraps properly in About Window.
+
+    UI: Fixed the eye dropper color picking tool disabling itself when the mouse is moved too fast.
+
+    UI: Fixed editor not finding GUI styles on computers with some of non-English locales.
+
+Rendering Fixes:
+
+    Driver workaround: Fixed occasional crash on some Intel graphics cards when shader uses mismatching texture types.
+    
+    Driver workaround: Disabled anti-aliasing on Macs (pre-Snow Leopard) with GeForce 7300 graphics cards; occasional driver crashes.
+    
+    Driver workaround: Disabled mip-mapped Render Textures on Macs with Intel GMA 950 cards; occasional driver crashes.
+    
+    Driver workaround: Fixed garbage on Macs with GeForce 7300 GPUs. Had to disable Deferred Lighting on those cards though.
+    
+    Particles: Particle color and UV animation will now be based on the lifetime of each individual particle instead of the max energy set in the emitter.
+    
+    Shadows: Spot light shadows fade out correctly on D3D9.
+    
+    Shadows: Fixed point light self-shadowing artifacts which were mostly happening on Mac.
+    
+    Shaders: Using more than 8 textures in a pixel shader works now!
+    
+    Shaders: Nested block comments (/* foo /*bar*/ */) are supported now.
+    
+    Shaders: Fixed error messages sometimes being printed when both GLSL and non-GLSL shaders are present in the scene.
+    
+    Shaders: When there are Direct3D shader assembly errors, print the shader name in the error message.
+    
+    Shaders: Fixed instruction count reporting for D3D9 assembly shaders.
+    
+    Crash: Fixed crash if accidentally setting invalid shadow cascade count in Quality Settings.
+    
+    Crash: Fixed crash when shader has unterminated block comments.
+    
+    Crash: Fixed crash when shader tries to fallback to itself.
+    
+    Terrain: Fixed various issues with terrain billboards (non-uniform scale, culling, mismatch between root of the billboard and the mesh etc.).
+    
+    Terrain: Fixed too aggressive culling of billboarded terrain details.
+    
+    Terrain: Fixed terrain blocking MouseDown events from scene view gizmos.
+    
+    Terrain: Made it possible to use trees with only one material.
+    
+    Terrain: Now actually use the tree cutoff value that is set on the material.
+    
+    General: Fixed half-texel offset issues with Graphics.Blit on D3D9.
+    
+    General: Removed rect clamping for camera's normalized viewport rectangle.
+    
+    General: Fixed texture binding on iOS/Android; textures won't become corrupted when loading levels now.
+    
+    General: Custom Fonts will now be properly displayed by Unity GUI.
+    
+    General: Fixed AABB calculation for just-unloaded Meshes and skinned meshes with no bones.
+
+Unity iOS Fixes:
+
+    Fixed iPad Simulator 3.2 support
+
+    Fixed stripping issue which caused crashes when coroutines are used.
+
+    Fixed WWW.text and "Fast but no exception" problem.
+
+    Fixed a crash when using AnimationCurve property in a script.
+
+    Fixed input processing on iPhone 4 with native resolution.
+
+    Fixed video player orientation on iOS 4.
+
+Physics Fixes:
+
+    Meshes created with Mesh.CombineMeshes will correctly collide when used with MeshColliders.
+    
+    Make WheelHit report correct sidewaysDir.
+    
+    Make raycasts work when Time.timescale is zero.
+    
+    Kinematic or sleeping rigidbodies will now properly update their internal PhysX state when a parent rigidbody gameObject is moved.
+    
+    Collision events are sent more properly now.
+
+Scripting Fixes:
+
+    WWW.text respects content-encoding specified in HTTP response headers.
+    
+    Debug.Log is now thread safe.
+    
+    Fixed internal UnityScript compiler error caused by nested arrays.
+    
+    Fix crash when opening a project where a script throws an exception in a static constructor.
+    
+    Fixed crash caused by untyped or wrongly typed parameter of message handler.
+    
+    Fixed crash when DestroyImmediate is called in user code and Unity doesn't expect the object to be destroyed.
+    
+    Material.CopyPropertiesFromMaterial() now works as expected.
+    
+    GameObject.SampleAnimation respects the WrapMode of the clip.
+    
+    UnityGUI: Fix GUIUtility.RotateAroundPivot and ScaleAroundPivot using screen space pixels instead of clip space pixels.
+    
+    UnityGUI: Fix ScrollViews not properly ignoring DragPerform/DragUpdated events.
+    
+    UnityGUI: GUILayout.Toolbar now correctly calculates toolbar size.
+    
+    Fixed a typo bouncyness in Physics Material, now it's spelled correctly bounciness.
+    
+    Fixed a crash when setting negative values for particle minEnergy, maxEnergy through a script.
+    
+    Issue an error when the script class name and file name do not match (after script has been attached). Similarly issue an error if a class was changed to be abstract or was turned into an interface.
+
+Networking Fixes:
+
+    Timestamps are now correct in received NetworkView RPC messages.
+    
+    Network.useNat has been deprecated. It is now set automatically when you Connect (since you can now only connect with NAT punchthrough using a GUID) and is set in the InitializeServer function call explicitly.
+    
+    You can now connect using a HostData struct received from the master server (correct method automatically used) and give a connection password when connecting with GUIDs.
+    
+    Fix server crash when player with network views disconnects.
+    
+    Fix for problem when using Network.Instantiate after loading a new scene.
+    
+    Fixed problem with master server not returning local IP addresses when it should (when host/client are on the same router/external IP).
+    
+    Network.TestConnection() now always returns error status correctly. To restart a test after getting an error it needs to be forced with the appropriate parameter.
+    
+    Fixed network scope bug which resulted in state sometimes not being synchronized correctly.
+
+Other Fixes:
+
+    Fixed saving screenshots to non-ASCII path names.
+    
+    Web Player: Fixed some memory leaks.
+    
+    Fixed various corner cases in AnimationEvents logic.
+    
+    Audio + iOS: Make UnitySetAudioSessionActive(true/false) actually work.
+    
+    Audio: Fix crash when trying to access AudioListener and it doesn't exist.
+    
+    Player: fix some of movies playback crashing web and standalone players.
+    
+    BugReporter: Escape special characters in bug description.
+    
+    Web Player: Fixed one frame of garbage showing when going out of fullscreen mode in CoreAnimation plugin on Mac OS X.
+    
+    Audio: AudioSources with PlayOnAwake checked, now plays in the first frame (and can be accessed correctly from Start() and Update()).
+    
+    Audio: .time & .timeSamples can now be set before playing AudioSource(s)
+    
+    Bug Reporter: Do not terminate the if the bug submission fails (Mac).
+    
+    Fixed WWW.uploadProgress crashing the web player (this property still is not fully implemented though).
+    
+    UnityGUI: Fix Vertical Margin error for GUILayout groups with multiple elements.
+    
+    Web Player: Several fixes to make it work better with Google Chrome on Mac OS X.
+
+Known Issues
+
+    MonoDevelop: Single-stepping outside the control flow of a script while debugging results in decreased performance until normal execution continues.
+
+    A flaw in the way 64 bit Windows OS handle structured exceptions for 32 bit applications can cause crashes in Unity players. The issue may surface, for example, if a player running on a 64 bit Windows causes a NullReferenceException to be thrown, even if the exception is handled. This bug affects all 32 bit applications running on 64 bit Windows, including Microsoft .NET applications.
+
+    A hotfix solving the issue is available on support.microsoft.com, but of course this does not help your end user. Your best bet is to keep your players exception-free (which is always a good idea), at least until the fix is distributed to end users via Windows update.
+
+    Touch.deltaPosition and Touch.deltaTime can be inaccurate on Android.
+
+    Tree Editor Leaves can not be manually rotated.
+
+    Debugger: Does not halt on some exceptions thrown from internal Unity engine code.
+
+    Build Settings Window may not initially react to mouse clicks. Workaround: move/resize the window.
+
+    Generate Lightmap UVs: the results may be different on mac and windows. If you encounter this problem, please report a bug.
+
+    Generate Lightmap UVs: performance degradation is expected on highly tessellated mesh. This will be fixed in subsequent releases.
+
+    Graphics: Anti-Aliasing does not work with Deferred Lighting.
+
+Memorable Quotes
+
+    3AM the night before the beta release:
+    
+    Joachim: If we do this we should do it right
+    
+    Nicholas: This is going to be fun. I've never written threaded code before…
