@@ -1,0 +1,37 @@
+Patch 5.6.2p3
+Released: 17 July 2017
+
+Changes
+
+    Editor: Updated Unity logos in About Window and Update Window to match new branding.
+
+Fixes
+
+    (917931) - 2D: Fixed an issue where adjusting Collider2D's Offset when Using Tiled Draw Mode and Auto Tiling would result in inconsistent behaviour.
+    (918524) - 2D: Fixed an issue where the Editor becomes unresponsive when switching from OpenGL to Metal with a tiled sprite in the scene.
+    (920360) - Android: Buildpipe - correctly split resources between APK and OBB when building with LZ4.
+    (924523) - Android: Gradle - Removed debuggable from Manifest when creating APK.
+    (924519 Android: Gradle - Make sure unity3d and other files from raw/ are uncompressed in the APK.
+    (none) - Android: Gradle - Handle too many errors; filter out warnings and detect too long error list.
+    (924517) - Android: Gradle - don't explicitly set debuggable attribute when building with Gradle to avoid lint security warning.
+    (924516) - Android: Fixed the NamePhonePad flag.
+    (922898) - Android: Moved GoogleVR initialisation to run on UI Thread thus fixing startup crash.
+    (887824) - Android: Gradle - Support custom library build.gradle files.
+    (918606) - Android: Fixed an issue with enabling Split Application Binary flag in Android player settings would affect other platforms.
+    (919308) - Android: Fixed an issue with alpha texture size in ETC1 texture compression with split alpha.
+    (925444) - Animation: Fixed layer root motion broken on standalone.
+    (914365) - Animation: Fixed a crash in PlayableTraverser::RootByType that was triggered when disabling a GameObject by using OnStateMachineExit.
+    (901588) - Editor: Restored SRGB write state after internal override.
+    (915524) - Editor: Fixed the case of "Generate Lighting" drop down menu being hidden when inspector was resized to minimal width.
+    (none) - GI Progressive Lightmapper: Fixed a crash in light probe rendering occurring when changing or removing probes.
+    (912603) - Graphics: Fixed sRGB flag returning false on the LDR target texture from a HDR to LDR image effect in a linear project.
+    (923842) - Graphics: Fixed an issue where overlapping cameras drawing to the same target would not composite correctly
+    (913828) - Graphics: Fixed an issue where a ComputeBuffer applied to a Material Block doesn't take effect when drawing via DrawMesh*Indirect.
+    (918788) - Graphics: Fixed a rare crash/hang which, could happen in very complex scenes, when graphics jobs were enabled.
+    (912723) - Graphics: Fixed a crash triggered by setting the SkinnedMeshRenderer.updateWhenOffscreen flag to true via a script.
+    (923517) - IL2CPP: Fixed an issue with setting enum type fields in .NET 4x with relfection using an integer value.
+    (894273) - iOS: Fixed an issue where iOS screen info was retrieved for every request instead of being cached
+    (880426) - Linux: Added an additional fix for uninitialized screen dimensions(/mouse input) at startup with some window managers.
+    (924516) - UI: For Name content type, use NamePhonePad touch screen keyboard type.
+
+Revision: b95d8ca7b219
