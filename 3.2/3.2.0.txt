@@ -1,0 +1,851 @@
+Major Features
+
+    Image Effects: New Depth of Field with bokeh, improved bloom and several other image effect tweaks and fixes.
+
+    New Water: All new Water prefab in standard assets that includes waves, automatically generated foam on shorelines and more.
+
+    Graphics: Major performance improvements in OpenGL ES 2.0 (iOS/Android).
+
+    Shaders: Added optimized/simplified versions of some shaders under "Mobile" category (VertexLit, Bumped Specular, Skybox). They work on other platforms as well, but mobiles will see biggest gains.
+
+    Shaders: Mobile-Optimized Bumped Specular shader is 5.2x faster than Bumped Specular in 3.1 (on iOS)
+
+    Shaders: Added several Unlit shaders that just display a texture with no lighting. They are the fastest textured shaders.
+
+    Debugger: Attaching the script debugger to (and detaching from) Unity and debugging-enabled players is now possible.
+
+    Profiler: you can profile standalone player builds from the Editor. This includes iOS and Android builds!
+
+    Caching: the caching feature is now usable by all content, with or without a special license. Unlicensed content will share a single 50 MB Cache folder.
+
+Editor
+
+Improvements
+
+    Profiler Improvements:
+
+        Profiler is now able to connect to players to do remote profiling.
+
+        Added profiler support for iOS runtime. Editor and iOS device should be connected to the WiFi/LAN network.
+
+        Added profiler stats for physics.
+
+    Assets -> Import Package changed into a submenu for easy access to standard packages.
+
+    Android Remote is now available on all build targets; iPhone remote is now available on all build targets on Mac OS X.
+
+    PlayerSettings script class extended to let Editor scripts control various iOS and Android build settings like stripping, target devices, etc.
+
+    Slide to scrub over AudioClip previews.
+
+    Asset Importing:
+
+        Direct import of Modo files (*.lxo). Officialy supported Modo versions are 501 and higher.
+
+        Direct import from Cinema 4D R12.
+
+        Direct import from Blender 2.55.1 and later.
+
+        Upgraded FBX SDK to 2011.3.1.
+
+        Support for import of mesh instances from FBX files. Import of instances is not enabled for direct import of 3dsMax/Maya files due to limitations on FBX exporters (see Known Issues).
+
+    It is now possible to switch the scene view into bottom camera using a three-finger-swipe gesture up from the up camera on Mac OS X.
+
+    When an asset import fails, it will now show up in the project folder, allowing you to reimport it manually if you like.
+
+    Made window zooming using the magnify gesture on Mac OS X less sensitive so it is not accidentally triggered.
+
+    Handles now have Slider2D function for dragging a 3D handle in a plane, see Handles.Slider2D().
+
+    Tree Creator:
+
+        Improved consistency of the editor's "look" with other Unity editors.
+
+        "Synced" the Move/Rotate Branch/Leaf tools with the Editor Move/Rotate tools.
+
+        Cleaned up tooltip text.
+
+        Model wireframe is hidden when editting branches/leaves.
+
+    Object Picker:
+
+        Builtin resources have been added e.g the primitive meshes, default-material, default-particle texture etc.
+
+        Previews of textures now preserve the aspect ratio of the original texture.
+
+    Added check to prevent users from overwriting their project folder when building a webplayer.
+
+    Added API EditorWindow.FocusWindowIfItsOpen.
+
+    There is now an option to show a save confirmation dialog for writing changes to serialized asset and scenes.
+
+    Added build managed dependencies verification step. It will warn when unsupported .NET assemblies get included into build.
+
+    Undo system now has a memory cap to remove undo snapshots that use a lot of memory. This stops unity from crashing when editing big terrains.
+
+    When Unity quits during a script compilation, Unity will now on next restart recompile all scripts. Scripts are now generated automatically from all scripts in the asset database, making it impossible to get scripts into a non-working state if you for example delete Library/MonoManager.asset.
+
+    Heightmap terrain painting is now a lot faster.
+
+    Fixed text overdraw on inspector drop downs.
+
+    ESC cancels search in Scene, Hierarchy & Project Views.
+
+    Made Object Pickers have correct icon in light skin.
+
+    Mac: Dragging out a window to a secondary display now never places it too far up on the screen.
+
+    Changing GUI.skin is 10x faster in the editor and no longer clobbers the GC.
+
+    Dragging assets around inside a filtered Project view no longer moves the asset to root.
+
+    Dragging objects around inside a filtered Hierarchy view no longer unparents the game object.
+
+    Layout dropdown shows name of last selected layout. It's also pre-filled for save layout name.
+
+    Visible layers layermask is persistent between editor sessions.
+
+    Minor Build Settings window tweaks/polish.
+
+    Window docking has been rewritten, it should now have a way better feel.
+
+    EditorWindows now get OnFocus/LostFocus messages when tabs are switched.
+
+Fixes
+
+    Screen.width and Screen.height are now correct when entering playmode using maximizeOnPlay.
+    
+    Fixed bug where undo / redo would incorrectly combine multiple undo operations into one step
+    
+    Fixed bug where upgrading a project with normal maps would sometimes not mark the texture as a normal map properly in the import settings.
+    
+    Fixed bug where, display of 'Texture not yet compressed' was not working.
+    
+    Fixed issue where dragging on profiler hierarchy would change the active frame.
+    
+    Fixed camera viewport handles incorrect with custom viewport rect.
+    
+    Fixed crash when using null texture in Handles.DrawBezier.
+    
+    Fixed camera's orthographic state is overriden if camera's inspector is visible.
+    
+    Fixed mouse picking in editor issue.
+    
+    Fixed crash when instantiating a prefab with Constant Force added in FixedUpdate.
+    
+    Fixed no visual indicator when dragging textures onto materials.
+    
+    Fixed model preview bitmaps need fixing for models that have an off-center pivot.
+    
+    Fixed change to flare setting lost when followed by drag and drop.
+    
+    Fixed the Object Picker's 'scene' tab list is empty on initial display for certain object types.
+    
+    Fixed warnings in the console for stats window when using networking.
+    
+    Fixed dragging material in sceneview does not always update correctly (Only a Windows issue).
+    
+    Fixed crash on play when using the Animation system to disable a Mesh Renderer.
+    
+    Fixed foldouts eating events when clipped.
+    
+    Fixed object fields not pinging when disabled.
+    
+    Fixed crash when calling Material.SetPass on a null material.
+    
+    Fixed crash when calling NetworkUtility.Ping repeatedly and entering / exiting playmode quickly.
+    
+    Fixed 'screencoord[1]' error messages in some situations.
+    
+    Fixed tab dragging which could either throw an error "Trying to read pixel out of bounds" or show contents of another window.
+    
+    Fixed wrong material previews if Player Settings has VertexLit rendering path.
+    
+    Fixed a bug in Mac OS X Editor where assets with unicode characters in their file name would get converted to lower case names.
+    
+    Previews in the Object Picker are now correct for dirty assets.
+    
+    Fix crash when validating MeshRenderer context menu when there are no materials.
+    
+    Fixed broken image references in script reference.
+    
+    Fix errors when focusing on terrain with the hierarchy view.
+    
+    CustomEditor bug made script-file become unusable in editor.
+    
+    MenuItem with negative priorities are now working correctly.
+    
+    Fixed texture importer was doing mipmap fade for normal maps wrong.
+    
+    Fix sceneview sometimes losing input when a sceneview overlay window was showing (e.g. Camera Preview).
+    
+    Fix Build and Run not working in Mac OS X 10.5.
+    
+    Windows editor doesn't require MS Runtime libs (9.0) to be installed.
+    
+    Fixed rendering issues on Windows with Intel GMA 950/3100 GPUs in Animation, Profiler and Terrain windows.
+    
+    Editor Windows stay on-screen in a much more robust fashion.
+    
+    Fixed confusing Shader Model 3.0 graphics emulation (it was sometimes disabled on capable GPUs).
+    
+    Fixed issue with Static Batching not working after Additive Level Load.
+    
+    QuickTime movie importing now works with the latest version (7.6.9).
+    
+    Fixed occasional crashes on Windows when closing Asset Store window.
+    
+    Fixed Asset Store window minimum size being too large for small screen resolutions.
+    
+    Switching graphics emulation properly reloads all textures now (lightmaps could get wrong encoding before in some cases).
+    
+    Fixed that ProjectSettings->Editor was only available in pro, while it contained nonpro security emulation settings.
+    
+    Fixed inspector enum popups being wrong for fields that have same names but different enum types on same component.
+    
+    Fixed crash when using CustomEditor Attribute on a class not derived from Editor.
+    
+    MonoBehaviour.Update is now correctly called in batch mode in the editor.
+    
+    Fixed bug where prefab instances could lose the prefab overrides on mono behaviours when new properties were added in some corner case scenarios.
+    
+    Fixed clicking behaviour while renaming in Hierarchy & Project View (sometimes Unity would not apply the new name).
+    
+    Fixed context menus not working in various Project Settings inspectors.
+    
+    Fixed imposter camera showing in the hierarchy for a single frame after creation.
+    
+    Fixed Tree Creator mesh not updating properly when editing value's directly in a text field.
+    
+    Fixed creating projects through command line using relative paths on windows.
+    
+    When selecting font with unsupported format in inspector, display nice error box instead of crashing.
+    
+    Control/Command + click in SceneView now selects game objects as well as deselects them.
+    
+    Fixed: Don't open hierarchy window for no good reason when creating e.g. Cube game object.
+    
+    Remove Components -> Miscellaneous -> Tree menu item, as it does not do anything useful.
+    
+    Fixed display of unicode characters in the layouts popup menu.
+    
+    Mac Editor: Popup windows no longer gets sent to back when you close another popup window.
+    
+    Fixed layout label issues with Vector Fields.
+    
+    Dragging out windows no longer can leave a 1px white hairline on bottom and right edges.
+    
+    Dragging while zoomed in on mac no longer renders the window unresizable.
+    
+    Fix gear context icon for material and texture inspectors in dark skin.
+    
+    Build settings properly reflect changes to moving(renaming) scenes.
+
+Graphics
+
+Improvements
+
+    Major performance improvements in OpenGL ES 2.0 (iOS / Android):
+    
+        Much improved performance of shaders that are compiled from Cg/HLSL (e.g. Diffuse for directional light is about 2x faster on iPhone 3Gs). Now fixed/half/float types in Cg map to lowp/mediump/highp precision in GLSL. Use lowest precision type in your shaders!
+
+        Improved GLSL shader optimizer.
+
+        Changed normal map compression approach for mobile platforms. It's much faster now!
+    
+    Fog mode can be changed in Render Settings (also from scripts): Linear, Exp, Exp2 (default).
+    
+    Rendering performance optimizations (lower CPU overhead, less memory consumption).
+    
+    Shadows:
+    
+        Forward rendering path supports Point & Spot light shadows again, as well as multiple shadowing lights! Note that by default shaders do not have this enabled, use fullforwardshadows surface shader directive to enable the behavior.
+
+        Directional Light soft shadows blur width and fadeout speed can be adjusted in Inspector or via script.
+
+        Exposed Light.shadowBias to scripting.
+    
+    Built-in shaders that perform Deferred Lighting, directional light shadow gathering in Deferred Lighting, and directional light shadow blurring can be overriden. Just drop your own shaders with the same names into the project.
+    
+    Deferred light buffer can be accessed from from Image Effects or other shaders (_LightBuffer).
+    
+    Surface Shader improvements:
+    
+        support world-space normal as input (worldNormal).
+
+        fullforwardshadows directive to enable all shadows from any lights in forward rendering loop.
+
+        dualforward directive to enable dual lightmaps in Forward rendering.
+
+        decal:blend mode for shaders used on decal-like surfaces.
+
+        nolightmap directive to exclude lightmap support (makes shaders smaller).
+
+        noambient directive to not apply ambient nor SH lighting.
+
+        halfasview directive to compute normalized half-direction per-vertex, and pass that to the lighting function. Results in faster Specular-type shaders, however view direction won't be entirely correct.
+
+        approxview directive to compute normalized view direction per-vertex instead of per-pixel. Results in faster Specular-type shaders, however view direction won't be entirely correct when camera gets close to surface.
+
+        noforwardadd directive to skip generating forward additive pass. Will make a shader support one full directional light; all other lights will be per-vertex/SH.
+    
+    Shaders: #pragma glsl_no_auto_normalization directive to not auto-normalize normals & tangents in OpenGL ES 2.0 shaders.
+    
+    Shaders: Added TransformViewToProjection to do this properly on mobile devices with regard to orientation (on non-mobile it will be usual multiplication by diagonal terms of projection matrix).
+    
+    Shaders: Added per vertex lit tree shaders previously used in the Bootcamp demo. To be used with Tree Creator trees and located in "Nature/Tree Creator Leaves Fast".
+    
+    Desktop GLSL shaders now allow OpenGL ES precision types to be used.
+    
+    Added GL.GetGPUProjectionMatrix that returns actual projection matrix that will be used in shaders.
+    
+    Added support for 16bit RenderTextures.
+    
+    Scaled meshes are now only recreated if the scale has actually changed. This improves performance hiccups on same games.
+    
+    Texture2D.GetPixel and friends work on RGBA32 textures (common case for uncompressed textures on mobile platforms) in addition to ARGB32 ones.
+    
+    Texture2D.Apply and Texture2D.PackTextures now have additional parameter makeNoLongerReadable (default to false) that will mark Texture as not Readable, and free up system memory after uploading to GPU.
+
+Fixes
+
+    Shaders: Bunch of fixes to Cg->GLSL shader translator:
+    
+        Translates 'half' and 'fixed' matrix types properly (previously 'half' was translated to high precision, and 'fixed' was not supported).
+
+        Support lit() built-in function.
+
+        Fixes to swizzles on floats.
+
+        Support static qualifier.
+
+        Better handling of 2D matrix indexing, e.g. matrix[i][j].
+    
+    Shaders: fixed mis-compilation of matrix constructors & matrix indexing when translating shaders to GLSL.
+    
+    Shaders: fixed mis-compilation of modf() and fmod() when translating shaders to GLSL.
+    
+    Shaders: Postprocess Direct3D pixel shaders that come close to 64 instruction limit to work around a crash on Intel GMA 950.
+    
+    Shaders: Fix some bogus error messages when loading Direct3D shaders.
+    
+    Surface Shaders: in case of syntax errors, proper line numbers are reported now... how cool is that? ;)
+    
+    Surface Shaders: support #pragma multi_compile directives properly.
+    
+    Lightmapper fixes:
+    
+        Fixed UV layer creation for Beast. Fixes all the "Duplicate uv layer name" errors.
+
+        Fixed tiling and offset being ignored for _MainTex on objects using a non-white color.
+
+        Fixed an issue in Beast causing black areas surrounded by white outlines to sometimes appear in lightmaps.
+
+        Fixed lightmapping of objects with mirrored (odd-negative) scale.
+
+        Fixed the crash when lightmapping terrains where the Terrain script references a missing TerrainData asset.
+
+        Fixed an issue with Beast occasionally cancelling the bake process (especially on Mac OS X, but also causing poor performance on Win) when using a lot of memory.
+
+        Fixed the issue with 4096 size terrain lightmaps not baking on Mac OS X.
+    
+    Fixed DXT5 alpha channel decompression to better match what GPUs are actually doing.
+    
+    Fixed Texture2D.GetPixel on Alpha8 format returning 0.00392 in RGB channels instead of 1.0.
+    
+    Fixed a bug in Cloth rendering that was mostly happening on Windows with Radeon GPUs.
+    
+    Fixed custom projection matrices sometimes not working properly.
+    
+    Fixed inconsistent triangle count display in Game View Stats when dynamic batching is used.
+    
+    Fixed creation of compressed textures at runtime.
+    
+    Fixed validation of vertex/pixel shaders that use more textures than the GPU can handle.
+    
+    Fix texture scale/offset not being applied when writing shaders in GLSL for desktop platforms.
+    
+    Fixed editor fonts getting corrupted once RenderTextures are used on Mac OS X 10.5.x with Intel GMA 950 GPU.
+    
+    Fixed Texture2D.ReadPixels on Direct3D when reading into a portion of a texture.
+    
+    Fixed Soft Occlusion Tree shaders sometimes rendering overbright on Windows with GeForce FX/6/7 GPUs.
+    
+    Fixed lightmapped VertexLit shader applying fog in a wrong way on old GPUs with only 1 texture unit.
+    
+    Texture2D.ReadPixels properly reads from Game View when non-full aspect ratio is used.
+    
+    RenderTexture.GetTemporary now always returns a texture with bilinear filtering set (previously could return with something else when returning a texture from existing texture pool).
+    
+    Fixed directional light shadows in case of weird projection matrices (e.g. Refractive Water).
+    
+    Make WindZones be properly affected by Time Scale.
+    
+    WindZones properly affect Tree Creator trees put into terrains now.
+    
+    Fixed wrong Point/Spot light attenuation on Tree Creator leaves.
+    
+    Graphics.Blit does not require using Cull Off in the shader now.
+    
+    Shadows can be properly cast from particles now, if you use opaque or cutout shaders on them.
+    
+    Fixed changing Flare color from script not always having effect.
+    
+    Opaque objects are front-to-back sorted again for performance reasons. Looks like this got lost with all batching work in Unity 3.0.
+    
+    Fixed dynamic batching issues with uniformly scaled objects and vertex lighting on Direct3D.
+    
+    Fixed rendering of scenes containing objects with odd-negative scale in deferred when any of the lights was casting shadows.
+    
+    Fixed Deferred Lighting not respecting camera's Don't Clear mode.
+    
+    Fixed bogus error message when a shader with an empty name has no fallback.
+    
+    Fixed half-texel offset error when generating tree creator texture atlas.
+    
+    OpenGL ES 2.0: Fixed Fog with semitransparent fixed function shaders.
+
+Unity iOS
+
+Improvements
+
+    Alpha-tested objects are drawn after fully opaque ones for performance reasons.
+    
+    Implemented MSAA (Multisample anti-aliasing) support. You choose it in Quality Settings just like for other platforms.
+    
+    Audio: Gapless looping of MP3s! Unity's MP3 encoding is completely rewritten and silent frames and/or audible "pops" around the loop point is no more. Use the "Gapless loop" option in the Audio Importer to encode the MP3 for looping. Beware this stretches/resamples the sound which theoretically can affect quality.
+    
+    Mobile devices now have their own quality settings (Project Settings->Quality->Default Mobile Quality).
+    
+    Improved performance by using OES_vertex_array_object and EXT_discard_framebuffer extensions.
+    
+    Added automated native plugin integration into Xcode project. All .m/.mm/.c/.cpp/.a files located in Assets/Plugins/iOS will be merged into Xcode project with every Unity project build.
+    
+    Performance warning now shows up when deploying a project using anti-aliasing and/or more than 1 pixel light.
+    
+    Use unnamed process-wide kernel semaphores instead of slower system-wide semaphores.
+    
+    Added armv7 only target platform.
+    
+    Added "latest" SDK option, should work only for 4.2 and later SDK.
+
+Fixes
+
+    AOT compiler stability improved when generics are used with value types like Vector3.
+    
+    Audio: Restore AudioSession without losing any state (audio will continue just where it was interrupted).
+    
+    Audio: Fix audio stopping when releasing a source referencing an audio clip that is in use. This resolves audio stopping when loading a new scene.
+    
+    Fixed SystemInfo.operatingSystem.
+    
+    Fixed Toon Outline shaders not working on iOS with landscape orientation (update Toon Shading package).
+    
+    Fixed audio not coming back after an app switch on iOS.
+    
+    Fixed simulator support.
+    
+    Fixed -all_load linker option support.
+    
+    Fixed GUI slider + stripping problem.
+    
+    Fixed problem when editor was stuck in Xcode project append mode.
+    
+    Fixed animation curve stripping problem.
+    
+    Fixed UnityScript and Boo Array support.
+    
+    Fixed MonoProperty.GetValue for .NET 2.0 Subset profile. For full .NET 2.0 profile this feature is not supported.
+    
+    Fixed freeing up audio assets after loading audio into FMOD.
+    
+    Now editor will report location service as stopped instead of running.
+    
+    Audio: Fixed www.audioClip streaming.
+    
+    Improved micro mscorlib compatibility with stripping.
+
+Unity Android
+
+Improvements
+
+    Upgraded to Android OS 2.3 (Gingerbread); Editor needs the latest SDK.
+    
+    Android Remote - Remote debugging tool for Android devices.
+    
+    The script debugger is now enabled for Android players.
+    
+    Added proper development build player, with support for profiling / debugging.
+    
+    Proper device filter for devices equipped with an ARMv6 (VFP enabled) CPU.
+    
+    Support for reversed landscape / portrait up-side-down screen orientation (Gingerbread and later only).
+    
+    Support for extra large screens, ie tablet devices (Gingerbread and later only).
+    
+    Implemented Location Service (GPS/Wifi).
+    
+    Decreased the install size to the Internal Storage flash memory (currently approx. 180KB, ie ~2% of 3.1).
+    
+    Audio: Gapless looping of MP3s! Unity's MP3 encoding is completely rewritten and silent frames and/or audible "pops" around the loop point is no more. Use the "Gapless loop" option in the Audio Importer to encode the MP3 for looping. Beware this stretches/resamples the sound which theoretically can affect quality.
+    
+    First draft of typeless JNI integration from scripts (C#/JS) through AndroidJavaObject / AndroidJavaClass and AndroidJNI / AndroidJNIHelper.
+    
+    Added UnitySendMessage on Java side to provide callback functionality to C# / JavaScript.
+    
+    WWW now uses system URL class; https://, and also jar:, is now supported.
+    
+    Added Application.persistentDataPath and Application.temporaryCachePath.
+    
+    Added PlayerSettings / Other Settings / Force SD-Card Permission.
+    
+    Removed all Unity specific resources from /res/ folder; this will ease the integration of Java resources in Plugins.
+    
+    LVL permissions are detected by usage, rather than whether PlayerSettings / LVL Public Key is filled in.
+    
+    Input.inputString now also works with hardware keyboard on the devices which have one.
+    
+    Added editor preference for Android SDK location.
+    
+    Now have their own quality settings (Project Settings->Quality->Default Mobile Quality).
+    
+    Performance warning now shows up when deploying a project using anti-aliasing and/or more than 1 pixel light.
+
+Fixes
+
+    Fixed the tablet accelerometer bug where portrait/landscape axis were swapped.
+    
+    Fixed NullPointerException race-condition in FMOD when pausing the application.
+    
+    Behaviour of 'Compress Assets on Import' turned off is now that no textures or assets will be reimported with their platform specific override settings right away. Thus allowing for fast switching between build targets. When a build is made, all assets are ensured to have the right format. (was done in earlier builds actually).
+    
+    JDK lookup now fallbacks to use the PATH if registry key is not found / valid (Windows).
+    
+    Fixed: No more duplicate entries in AndroidManifest.xml.
+    
+    Fixed the clip rectangle of the soft input text box not being updated properly.
+    
+    Added missing Mono machine.config specification file (needed for SQL access).
+    
+    Audio/Accelerometer disabled in QCAR application due to missing onResume() call.
+    
+    Audio: Fixed www.audioClip streaming.
+    
+    Fixed crash when the LVL key is invalid.
+    
+    Fixed touch began events to always have zero Touch.deltaPos.
+    
+    When tapping faster than once per frame, individual taps are no longer lost, they're reported as taps with a separate finger ID and properly incremented tap count.
+    
+    Touch.tapCount is no longer hardcoded as 1 and properly returns number of rapid taps in nearly same position.
+    
+    Timestamps no longer lose data by squeezing 64-bit values through 32-bit parameters.
+
+Audio
+
+Improvements
+
+    FMOD 4.32.02 used across all platform/build targets.
+    
+    Fallback on FMODs software mp3 decoder when Apple's decoder (hw/soft) fails completely.
+    
+    Better documentation for min-/max-distance properties.
+    
+    .Play() with a delay now works on iPhone.
+    
+    Streaming with WWW.audioClip now works with OggVorbis (PC/Mac/Web), MP3 (iOS/Android), WAVs (all platforms) and module files (all platforms).
+    
+    Streaming with WWW.audioClip is much faster.
+    
+    Stream audio from disc. Added "Stream from disc" option in the Audio Importer. Choose this to stream audio directly from disc instead of loading the entire clip into memory. This can decrease your application memory usage greatly.
+    
+    Optimize the playback of compressed audio (on Android and iOS).
+
+Fixes
+
+    AudioImporter inspector cleaned up and simplified.
+    
+    Fix sounds starting when switching back to a paused editor on Windows.
+    
+    Fix memory trash when encoding 8 bit wav files to MP3.
+    
+    Never re-encode already encoded/compressed audio.
+    
+    You can now set labels on Audio Clips.
+    
+    Reverb zone's position can now be changed runtime.
+    
+    Optimized play back of uncompressed audio (wav/aiff) files with "Compressed in memory" flag checked.
+    
+    Fixed min/max curve editor drawing when min/max-distance is set from script.
+    
+    Fix audio inspector showing garbage for audio assets that failed to import.
+    
+    Force To Mono checkbox disabled for already encoded files. It had no effect anyway.
+    
+    Meta files on older audio assets not changed when upgrading.
+
+Physics
+
+Improvements
+
+    Tweaked Continuous Collision Detection to behave better, with objects coming to rest properly.
+    
+    Allow access to cloth simulation vertices by exposing Cloth.vertices and Cloth.normals.
+    
+    Added Rigidbody.constraints to allow constraining Rigidbody rotation and movement to specific axes.
+
+Fixes
+
+    Changing the trigger flag of a collider at runtime will now also be respected by Raycasts.
+    
+    OnCollisionExit messages now work when the colliders are moved apart from scripting.
+    
+    Fixed SkinnedCloth crashing Unity on player resolution change.
+    
+    Fixed a crash in PhysX which could occasionally occur when modifying or destroying a collider during a CCD collision.
+    
+    Parenting a collider to a rigidbody at runtime will now correctly add it to the rigidbody.
+    
+    Fixed a crash when destroying or deactivating a collider in OnControllerColliderHit.
+    
+    Fixed editing Character Controller propteries in play mode.
+    
+    Make SphereCollider vs. TerrainCollider collisions smoother.
+    
+    Fixed a crash in PhysX when trying to use some oddly-shaped meshes as convex MeshColliders.
+    
+    Fixed a crash when trying to set properties on an invalid SpringJoint.
+    
+    Fixed wrong prototype for OnCollision* messages causing classID errors.
+        
+    Fixed setting MeshCollider properties from the inspector at runtime and a related editor crash.
+    
+    Collider.bounds will now return an exact bounding box for rotated capsule and sphere colliders.
+
+Other Improvements
+
+    JavaScript Improvements:
+    
+        Multidimensional arrays: int[,]
+
+        do-while statements.
+
+        final/static/internal class modifiers.
+
+        Support for nested classes, enums and interfaces.
+
+        Assembly level attributes: @assembly SomeAttribute()
+
+        Parameter attributes: function foo(@SomeAttribute bar)
+
+        Support for turning off specific pragmas on a per module basis: #pragma strict off
+    
+    MonoDevelop: Improved code completion for JavaScript and Boo, especially on Windows.
+    
+    Scripting Improvements:
+    
+        Added OnDestroy function that is called before any MonoBehaviour will be destroyed.
+
+        Added AssetDatabase.ExportPackage and AssetDatabase.ImportPackage.
+
+        Using AddComponent(Type t) now works for components that come from dynamically loaded assemblies at runtime.
+
+        Added MovieTexture.duration.
+
+        Added Mathf.IsPowerOfTwo and NextPowerOfTwo.
+
+        Object.ToString will now return the object's type and name.
+
+        Updated Boo to 0.9.4.9 version.
+    
+    Increased reliability of destruction functions. OnDestroy and OnDisable will be called on the game object before any modifications to the game object hierarchy have occurred. Destroying of objects is now faster.
+    
+    Networking: It's now possible to remove Network.Instantiate calls from the RPC buffer by calling Network.RemoveRPCs on the first NetworkView in the instantiated object.
+    
+    Caching: the caching feature is now usable by all content, with or without a special license. Unlicensed content will share a single 50 MB Cache folder.
+    
+    Standalone builds: Added an option to disable writing of log files, because Apple may otherwise reject Mac App Store applications in some cases.
+    
+    Standalone builds: Added watermark when running Development builds, to avoid shipping with profiling/debugging turned on.
+    
+    Asset Server: explain to user why some of the selected assets in merge window cannot be merged.
+
+Other Fixes
+
+    Fixed a potential crash when stopping a streaming movie texture while it is downloading.
+    
+    Generated materials during import now have correct capitalization.
+    
+    Exposed texture settings in TextureImporter class.
+    
+    Fixed deadlock in some corner cases in the Instantiate function, while loading asynchronously.
+    
+    Left handed mouse buttons are now correctly recognized on Windows.
+    
+    Standalone Player: Fixed instability/crash when running the Windows player in batchmode.
+    
+    Mac OS X Standalone: Fixed default folder access mode setup to be allowed onto the Mac App Store.
+    
+    OnApplicationPause is always invoked.
+    
+    Fixed "thread_stack_pcs" and "~/.wapi" Mac App Store submission problems.
+    
+    Destroying a transform component is now forbidden and an error message is displaying telling the user to destroy the game object instead.
+    
+    Fixed crash when passing a generic type as argument to Resources.FindObjectsOfTypeAll.
+    
+    Fixed crash when passing a generic type as argument to GetComponent.
+    
+    Fixed: javascript shortcircuited boolean operations that involved implicit boolean casts of operands were not short circuiting.
+    
+    Fixed: javascript support for calling methods taking a variable number of arguments with an explicit array argument.
+    
+    Application.LoadLevel will not destroy scene assets if they are still in use by a game object marked as DontDestroyOnLoad.
+    
+    Fixed Copy, Paste and other keyboard commands in Mac OS X Standalone.
+    
+    Fixed Input.mousePosition while typing in Mac OS X Standalone.
+    
+    Fixed installation of Unity Web Plugin from Dashboard widgets.
+    
+    Caching: Added Caching.IsVersionCached as replacement for the deprecated GetVersionFromCache.
+    
+    Fixed setting the font of a TextMesh from a script (the mesh would not update previously).
+    
+    Fixed a crash when creating Behaviour-derived built-in components during a FixedUpdate() call.
+    
+    Web Player Fixes:
+    
+        Java Applet Installer: Use custom logo and progress bar/frame like in regular web plugin.
+
+        Fixed issue with loading Meshes built with older version of Unity.
+
+        Mouse movement is properly recognized on Google Chrome.
+
+        Internet Explorer now recognizes Tab key.
+
+        Background, border and text colors are properly displayed when installing Web Player.
+
+        Google Chrome doesn't crash when web page is refreshed multiple times in succession.
+
+        Internet Explorer doesn't crash during Web Player installation when legacy Java version is installed.
+
+        Fix crash when webplayer encounters .NET code it thinks is illegal. VerificationException is now thrown instead.
+
+        WWW.LoadUnityWeb will now work with streamed .unity3d files.
+
+        Allow passing strings with line breaks ('\n') to Application.ExternalCall.
+
+        Mac: Fixed Copy&amd;Paste (and other Cmd-key equivalents).
+
+        Mac: Fixed a problem where the player could fail to update the screen in Chrome.
+
+        Mac: Fix an occasional plugin failure when trying to load Unity 2.x content.
+
+        Mac: Make cursor hiding in Google Chrome and Firefox 4 work reliably.
+
+        Mac: Fix focus issue in Firefox 4.
+
+        Mac: Fix crash when unloading plugin in Firefox 4.
+
+        Mac: Fix normal PowerPC webplayer behaving like development webplayer.
+    
+    Animation Fixes:
+    
+        Animations were not sampling last keyframe in Clamp and DefaultWrapMode modes.
+
+        Animations were not stopping properly when animation speed is negative.
+
+        Unity uses much less memory when importing split animations now.
+
+        Fixed leak when animation system sampled material at out of bounds material index.
+
+        ModelImporter inspector doesn't allow to enter 0 frame split animations and ModelImporter gives error if it finds such animations.
+
+        When imported model has has multiple roots and animation doesn't Unity will add an extra root to animation in order to unify hierarchies.
+    
+    Fixed import of textures/materials from old MotionBuilder files.
+    
+    Fixed Materials are not imported from all layers (fixes Fbx2010.2 imports from Cinema4D).
+    
+    Fixed 3ds import crash when special characters are used in texture paths or material name.
+    
+    Implemented detection and warning when Scale Compensation is used in FBX file.
+    
+    Implemented detection and warning for FBX files which have keyframes at invalid times (before -100 hours).
+    
+    Fixed FrameRate import from FBX 2011 plugins - previously it used to always have 30FPS when imported from FBX 2011 plugins (i.e. Maya 2011, 3dsMax 2011 and so on).
+    
+    AssetServer: Fixed case where merging a conflicted file would result in a file with its last content chopped off.
+    
+    Security: Remove excessive logging from socket and www security.
+    
+    Security: Security check now accepts URL extensions using upper case chars.
+    
+    VisualStudio/MonoDevelop integration: ignore warning about private methods not being used, since Unity users need to use that construct a lot.
+    
+    MonoDevelop: Workaround network failures when detecting local editors on Mac OS X.
+    
+    MonoDevelop: Incorporate improvements from MonoDevelop 2.4.2.
+    
+    Mono: Merged fix for generics constraint validation.
+    
+    Mono: Fixed yield when waiting for multiple coroutines.
+    
+    Mono: Fixed crash when Starting empty coroutine.
+    
+    MonoDevelop: Merged fixes from stable 2.4 branch.
+    
+    Networking: message type 73 is now properly processed as a NAT punchthrough failed connection attempt.
+    
+    Networking: Fixed proxy server issues when using Network.useProxy.
+    
+    Networking: Fixed problem with using NAT punchthrough in the Editor, it didn't work after the first time and unknown message ID errors popped up.
+    
+    Networking: Fixed problem with NAT punchthrough on Windows machines related to network GUID overflows.
+    
+    Networking: Fixed problem with NAT detection where Port Restricted was sometimes reported instead of Address Restricted or Full Cone.
+    
+    Fixed using layers and multiple animation per layer could result in incorrect blend.
+    
+    Fixed ImportNormals mode None (on FBXImporter) didn't work it used to do the same as Calculate mode and give and an incorrect warning.
+    
+    Removed/Cleaned up small leaks in WWW class.
+
+Changes
+
+    Editor: iOS SDKs prior 4.x were removed from SDK list. New default is iOS SDK 4.2.
+    
+    Implemented 3 minute timeout for import of Maya files.
+    
+    Implemented detection, fix-up and a warning message for NANs in animation curves of FBX files.
+    
+    Default Sync to VBL to 'true' in Good, Beautiful, and Fantastic Quality Settings.
+    
+    Proper errors when there is another project's library folder in the project.
+    
+    Application.dataPath will work like in the web player, returning the URL of the folder containing the .unity3d file (previously it would just crash).
+    
+    WindZones do not "ramp up" over time anymore.
+
+Known Issues
+
+    When autoconnect profiler is enabled the Editor can become unresponsive after selecting Build and run for Android.
+    
+        Direct Modo file import issues:
+        
+        Files can not be imported from modo 401, due to a problem in Modo batch mode.
+        
+        UV coordinates for some meshes are not imported correctly, due to a problem in Modo Collada plugin.
+        
+    Normals for some meshes are always exported as hard edges, due to a problem in Modo Collada plugin.
+    
+    Unwrap: some implementation details were changed, so you may need to rebake your lightmaps, due to UV changes.
+    
+    3dsMax reference meshes are not imported correctly (FBX plugins do no export any modifications added on top of the instance), because of the bug on Autodesk side. No changes on Unity side are needed, so it will be fixed as soon as Autodesk fixes FBX plugin for 3dsMax.
+    
+    Materials on instance meshes are not imported correctly - they always share the same material. This happens due to structure of FBX files, so this can't be fixed until Autodesk makes FBX structures more suitable for instanced meshes with different materials.
+    
+    When duplicating a dirty asset its preview in the Object Picker is incorrect until dirty again.
