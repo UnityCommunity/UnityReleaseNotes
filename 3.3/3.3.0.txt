@@ -1,0 +1,111 @@
+Android Changes from Pre-Release Version
+
+    Native Activity does not support screen orientation changes during runtime.
+    
+    Remote refuses to connect to the Editor once the device was disconnected.
+    
+    Improvement performance of audio handling (mixing) on Tegra based devices.
+    
+    On-screen keyboard has been completely re-written to support NativeActivity, and handle .hideInput=true;.
+    
+    Editor detects minimum OS / API version before trying to launch the application.
+    
+    AndroidJavaObject et al as proper documentation.
+    
+    Added documentation of the AndroidInput class.
+    
+    Added correct mapping of CIRCLE button on Xperia Play; must use latest firmware on the device.
+    
+    Deprecated WWW.oggVorbis property.
+    
+    Remote: Fixed crash in editor caused by editor side of Android Remote.
+    
+    Fixed broken detection code for Android SDK API-10 (and API-11).
+    
+    Fixed problems with threading and finalizers in AndroidJNI et al.
+    
+    Performance improvements of animation skinning on Tegra based devices.
+    
+    Support for NativeActivity / SonyEricsson Xperia Play.
+    
+    Added support for Screen.SetResolution.
+    
+    Fully dynamic linkage to Mono; Mono is now available from plugins etc.
+    
+    AndroidManifest.xml attribute minSdkVersion exposed under Player Settings / Other Settings.
+    
+    Fixed exception when using AndroidJavaObject.Get().
+    
+    Fixed occasional rendering issues on some Qualcomm based devices (e.g. HTC Vision).
+    
+    Fixed various network issues (local IP, ping, HavePublicAddress etc).
+    
+    Fixed various touch input related issues (Input.multiTouchEnabled, virtual touches, stale touch IDs).
+    
+    Added the Windows registry keys for the JDK lookup on x64 machines.
+
+Other Changes
+
+    iPhone and Android Remote is enabled for Unity free license.
+    
+    Fixed case 392244: Incorrect handling of tall mode of Game View in Android Remote.
+    
+    Fixed case 388824: Android Remote flickering.
+    
+    Fixed case 388828: Android Remote crashes due to buffer overflow.
+    
+    Fixed case 392869: With Build&Run only remove previous installation when update is not possible (otherwise keep PlayerPrefs etc).
+    
+    Fixed case 392194: Fixed AndroidJNI lookup of inner (nested) classes.
+    
+    Fixed case 392099: Touch data reset when resuming application ; fixes stale touches after pause.
+    
+    Fixed case 392922: Fixed problems when using AndroidJNI and Assembly Stripping.
+    
+    Fixed case 392847: Flickering rendering problem (mostly seen on GUI elements) or things not being rendered at all.
+    
+    Fixed case 392831: Input.GetMouseButtonDown(0) and TouchPhase.Began being out of sync.
+    
+    Fixed case 391064: Changed the message presented to Samsung users when the firmware is outdated.
+    
+    Fixed case 391739: Text input is now available in NativeActivity mode.
+    
+    iOS: Fixed VAO cleanup (case 392221: memory leak when using GUI.Label).
+    
+    iOS: Fixed MSAA+discard support: discard read buffer, not draw; discard stencil too.
+    
+    Graphics: Improved performance of fixed-function emulation under GLES2.0.
+    
+    Audio: Correct audio CPU usage displayed in the Profiler.
+    
+    Audio: Fixed WWW.audioClip (wait for the entire clip to download).
+    
+    Fixed case 377132: Fixed rare audio bug where one shots are looping.
+    
+    Fixed case 391171: Better handling of orthographic scene view camera.
+    
+    Fixed case 383402: Fixed continued bouncing OS X Dock icon when using modal progress bars.
+    
+    Fixed case 391471: Fixed editor error messages on Windows with some RenderTexture configurations.
+    
+    Network: Fixed error when reading 32 bit network view IDs size.
+    
+    Remote: Proper icons for the Android Remote.
+    
+    Fixed case 388502: AnimationEvents trigger twice when the event pauses animation then starts it again from coroutine.
+    
+    Fixed case 391106: Font security warnings showing up.
+    
+    Fixed case 390822: Add implementation for IsDirectoryCreated on iOS.
+    
+    Fixed case 388828: Various crash fixes for Android Remote.
+    
+    Fixed case 373197: iPhone Remote prints excessively to the editor console.
+    
+    Fixed case 388824: Unity Remote white-flickers if you reconnect it to the editor.
+    
+    Fixed case 389248: Unity Remote refuses to connect to the Editor once the device was disconnected.
+    
+    iOS: Xcode 4 is now recognized as proper build tool.
+    
+    iOS: Added soft debugger support.
