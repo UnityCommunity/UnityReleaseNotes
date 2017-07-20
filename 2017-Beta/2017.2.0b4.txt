@@ -1,0 +1,71 @@
+Unity 2017.2.0b4
+Released: July 20, 2017
+
+2017.2.0b4 Release Notes (diff since 2017.2.0b3)
+
+System Requirements Changes
+
+    Removed iOS 6.0 support. The minimum supported version is now 7.0.
+
+Known Issues
+
+    Animation: Crash in AnimationClip::BuildMecanimDataMainThread when entering a Play mode (925276)
+    Asset Import: Editor crashes in Transform::CountNodesDeep when loading a new scene. (919023)
+    Asset Import: MergePrefabInstance crash when reimporting assets from Assets Store (913659)
+    Asset Import: Null Ref Exception on selecting prefab, after upgrading project from 2017.2.0b1 (930291)
+    Asset Import: Visibility animation curves are invalid when their target meshes are split because of the 65534 vertices limit.
+    Asset Import: [Asset Bundles] Caching.expirationDelay no longer cleans the cache (920498)
+    Asset Pipeline: Crash at MoveTransformToRootOfSceneUndo when undoing addition of RectTransform to prefab. (912166)
+    Asset Pipeline: Reverting changes on applied prefab crashes Unity (825035)
+    Asset Pipeline: Reverting model back to a prefab and then undoing these changes creates an additional broken non-prefab object (864619)
+    Build Pipeline: [ARKit] Unity crashes when building a scene (932080)
+    Editor: BeginsWithCaseInsensitive Assertion Error when creating a folder from the create menu (931888)
+    Editor: Editor fails to launch on attempt to restart (note however that subsequent manual launch works fine). (929923)
+    Editor: rootTransform != NULL assert followed by a crash when undoing/redoing (883861)
+    Editor: [Analytics] Crashes on UsabilityAnalytics_CUSTOM_SendEvent when adding light component under any game object (923355)
+    Graphics: Camera does not render correctly with CameraClearFlags.Depth and MSAA (923842)
+    Graphics: Camera using temporary RenderTexture breaks on the last frames(Frame Debugger) (932065)
+    Graphics: GameObjects mesh is stuck at Combined Mesh (root:scene) and cannot be moved after aborting a build process (891971)
+    Graphics: Lower fps with vSync off, when Static Batching is enabled (922811)
+    Graphics: Mesh is not rendered in target camera when using Graphics.DrawMeshInstanced with not null Camera argument (927910)
+    Graphics: TextMeshPro is not displayed, and errors are logged. (929909)
+    Graphics: [Occlusion culling] Performance spike in Culling when Camera is not rendering every frame (743462)
+    Particles: Unity crashes after deleting a particle system and undoing the delete. (923711)
+    Physics: Rigidbody interpolation speed regression. (923319)
+    Physics: [Particles] 3D World collisions no longer work in Edit Mode (921489)
+    Scripting: [macOS10.13] MonoDevelop doesn't start (921104)
+    Services: Collab "Save to file" logs with Collab disabled. Mac Editor takes 2 minutes to exit Play mode (931990)
+    Video: Crash in mono_marshal_get_cache when reentering Play mode after video clip is previewed (930707)
+    Windows: [WSA] Error messages appear while/after building a project with "Unity C# projects", if the Editor folder contains a script. (918989)
+    Windows: [WSA] Reference rewriter fails in 2017.2 with analytics enabled (927848)
+    Windows: [XR][WSA] Including "Unity C# Projects" while building to Universal Windows Platform, causes builds to fail (927925)
+    XR: GearVR HMD Touchpad does not currently send input through the new input system.
+    XR: Haptics with Vive controller is currently disabled due to issues with correctly playing haptics on the correct controller
+    XR: Hololens / UWP / PS4 VR Devices not yet supported with the new input system for VR use.
+    XR: New API surface for recent UnityEngine.VR.WSA.Input changes has forthcoming breaking changes to land in another beta soon.
+    XR: Virtual Reality SDK Vuforia loading fails when used on iOS.
+    XR: [VR Oculus Compositor Splash] Particle System does not work on Build when VR is enabled (926695)
+
+Features
+
+    XR: EditorVR is now supported without need of a custom build (still requires separate download).
+
+Changes
+
+    Android: "Export as ADT project" is now obsolete.
+    Scripting: Serialization: Disabled support for opposite-endinanness asset bundles.
+
+Improvements
+
+    Android: Change to allow extractNativeLibs=false flag to be used if needed.
+    DX12: Native Rendering Plugin improvements:
+        Exposed/implemented native RenderBuffer resource retreival.
+        Fixed multithreading issues.
+    Particles: Added a Restart button to the Scene View overlay.
+    XR: Improvements to pause handling in XR applications. Apps which need to pause when the HMD is removed will no longer resume if window focus changes and viceversa.
+
+Fixes
+
+    Editor: Fix to remove suprious errors in console when logging in to Unity account with Collab enabled. (885388)
+    Graphics: Fix to allow 2D colliders to affect Lens Flares. (911429)
+    Particles: Added more reasons to the Frame Deubgger for why a dynamic batch may be broken. (911933)
