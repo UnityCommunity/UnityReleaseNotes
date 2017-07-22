@@ -1,0 +1,31 @@
+Patch 5.6.2p4
+Released: 21. July 2017
+
+Fixes
+
+    (none) - Android: Fixed a Vulkan error when trying to use anisotropic filtering on Mali GPUs.
+    (918785) - Android: Fixed an issue where spot and point lights were too bright on low-end devices.
+    (922553) - Android: Fixed a development build crash on Android 4.2.2 with VideoCore GPU.
+    (893779) - Animation: AnimatorState's WriteDefaults is working properly on very specific setups.
+    (918033) - Animation: Fixed a crash in Animator Editor window when closing Unity.
+    (921121) - Animation: Fixed an issue where the Animation events would not trigger if animation had less than two frames.
+    (916893) - GI: Fixed an issue where Auto mode overwrites Lightmap indices with wrong values when additively loading scenes.
+    (none) - GI: Progressive Lightmapper: Fixed an issue where auto-mode did not detect when changing material values for alpha cutoff.
+    (none) - GI: Progressive Lightmapper: Fixed an issue where alpha cutoff was not properly converting values.
+    (none) - Graphics: Fixed OpenGL debug labels when using OpenGL ES.
+    (903807) - Graphics: Fixed an occasional glitch when rendering lines/trails.
+    (911935) - iOS: Fixed auto-rotation on ReplayKit.
+    (912594) - iOS: Rewrote the internal clock system and replaced it with a system that takes into account the time when the device is asleep. Also, the startup time is now calculated more accurately.
+    (912675) - Linux: Use default player icon when none is provided.
+    (912675) - Linux : Associate provided icon with player window.
+    (none) - Multiplayer: Fixed an issue whereby reliable messages exchanging had been staled after couple of hours.
+    (900928) - Particles: Detect when a new mesh is selected in the Shape Module, and update the Scene View preview accordingly.
+    (914333) - Particles: Fixed an issue where bounding boxes were too small on some systems, causing culling problems.
+    (899881) - Particles: Ensure trails are properly initialized when particles are being manipulated via script.
+    (912719) - Scripting: Fixed scripting exception being logged as Info instead of Error.
+    (920085) - Scripting: Fixed a crash when invoking LINQ expressions in Editor.
+    (927884) - Services: Fixed an issue where Performance Reporting symbol upload tool could crash.
+    (904449) - WebGL: Fixed Corrupted Sprites on MS Edge.
+    (857023) - XR: Added missing Editor icons for world anchor, spatial mapping, touch input, and audio spatialization components.
+
+Revision: 35c1064e76f5
