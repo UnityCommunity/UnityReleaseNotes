@@ -1,0 +1,24 @@
+Patch 5.5.4p2
+Released: 26. July 2017
+
+Changes
+
+    Android: Removed tapjacking protection because it causes touch input to be lost when a transparent overlay is shown on top of the Unity view.
+
+Fixes
+
+    (909472) - Asset Bundles: Fixed a crash when loading GuiStyleState from an asset bundle.
+    (905561) - Asset Bundles: Fixed an asset bundle loading issue causing the error "The referenced script on this Behavior is missing!" under certain circumstances.
+    (924869) - Android: Fixed an issue with alpha texture size in ETC1 texture compression with split alpha
+    (925765) - Editor - Other: Fixed moving multiple objects makes only one of them to move according to handles
+    (888995) - Editor: Fix to move deleted files to recycling bin on windows.
+    (907854) - Editor: Fixed the transform precision issue when moving multiple objects.
+    (894273) - iOS : Fixed an issue where iOS screen info was retrieved for every request instead of being cached.
+    (913886) - iOS: Fixed Application.installMode for apps downloaded from AppStore.
+    (766851) - Physics: Fix for normals issue with cloth using tiny mesh.
+    (895771) - Physics: Fix to avert 'value must be greater' errors in cloth.
+    (809914) - Physics: Fixed the case of CharacterController starting to ignore collisions with certain objects after a number of scene reloads.
+    (907581) - UI: Fixed a memory leak in UI::DepthSortLayer(). Fixed a crash when UI Element m_Scale value was set to a large number, in the Editor or via script.
+    (917177) - UI: Fixed a rare Transform::kReceivedDueToParentTRSChanged assertion failure introduced in 5.5.3p4.
+
+Revision: 9810290216f5
