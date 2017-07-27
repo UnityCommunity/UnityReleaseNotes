@@ -1,0 +1,34 @@
+Patch 2017.1.0p2
+Released: 27. July 2017
+
+Improvements
+
+    DX12: Native Rendering Plugin improvements - exposed extra functionality for working with backbuffers.
+
+Fixes
+
+    (none) - Android: Fixed a Vulkan error when trying to use anisotropic filtering on Mali GPUs.
+    (918785) - Android: Fixed an issue where spot and point lights were too bright on low-end devices.
+    (922553) - Android: Fixed a development build crash on Android 4.2.2 with VideoCore GPU.
+    (893779) - Animation: Fixed an issue of AnimatorState's WriteDefaults not working properly on very specific setups.
+    (918033) - Animation: Fixed a crash in Animator Editor window when closing Unity.
+    (921121) - Animation: Fixed an issue where the Animation events would not trigger if animation had less than two frames.
+    (928601) - Animation: Fixed a crash when changing OverrideController during interrupted transition.
+    (928562) - Animation: Fixed Generic animation layers affecting base humanoid root motion.
+    (none) - Graphics: Fixed OpenGL debug labels when using OpenGL ES.
+    (903807) - Graphics: Fixed an occasional glitch when rendering lines/trails.
+    (912675) - Linux: Use default player icon when none is provided.
+    (912675) - Linux: Associate provided icon with player window now.
+    (none) - Multiplayer: Fixed an issue where reliable messages exchanging had been staled after a couple of hours.
+    (900928) - Particles: Detect when a new mesh is selected in the Shape Module, and update the Scene View preview accordingly.
+    (914333) - Particles: Fixed an issue where bounding boxes were too small on some systems, causing culling problems.
+    (899881) - Particles: Ensure trails are properly initialized when particles are being manipulated via script.
+    (912719) - Scripting: Fixed scripting exception being logged as Info instead of Error.
+    (920085) - Scripting: Fixed a crash when invoking LINQ expressions in Editor.
+    (927884) - Services: Fixed an issue where Performance Reporting symbol upload tool could crash.
+    (912789) - UI: Fixed memory leaks caused by unreleased Meshs in the UI Profiler.
+    (911115) - Video: Fixed MovieTexture support for Metal.
+    (904449) - WebGL: Fixed Corrupted Sprites on MS Edge.
+    (857023) - XR: Added missing Editor icons for world anchor, spatial mapping, touch input, and audio spatialization components.
+
+Revision: 31954117ff6c
