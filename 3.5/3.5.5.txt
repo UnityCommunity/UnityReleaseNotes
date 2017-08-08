@@ -1,0 +1,56 @@
+This release of Unity primarily contains fixes to Unity 3.5. For more information about recent features, see the Unity 3.5 Release Notes.
+
+    Shuriken Particle System
+    Built-in Pathfinding
+    Upgraded Occlusion Culling & new LOD
+    Google Chrome Native Client deployment
+    Linear Space Lighting and HDR
+
+Hotfix Web Player 3.5.5f4
+
+    Mac Web Player: Fix input in full screen mode.
+    Mac Web Player: Fix installers to work with default security settings on Mac OS X 10.8 Mountain Lion
+
+Hotfix 3.5.5f3
+
+    Editor: Fixed issues with Asset Store window on retina displays
+
+Fixes
+
+    Android: Fixed black screen on Kindle when accessing Quick Settings.
+    Android: Script debugging yields/coroutines could sometimes cause a crash - this has been fixed.
+    Android: Fixed gl context-recreation. Now you can change AA or DisplayBuffer bitness at runtime even if post-effects are used.
+    Editor: Windows now draw correctly when fullscreen on OSX 10.8 Mountain Lion
+    Editor: Fixed dependency on X11 of pvr texture tool.
+    Editor: Allow importing assets with leading spaces on Windows.
+    Graphics: Fixed surface shaders regression in 3.5.3 that assumed custom surface output structure always has "Specular" member that is a scalar
+    Graphics: Fixed VRAM amount detection on some Intel SandyBridge / IvyBridge GPUs.
+    Graphics: Fixed rendering cameras in editor batch mode
+    Graphics: Fixed crash in particle system when source mesh has no normal or tangents
+    Graphics: Allow editor to build shaders in -nographics batch mode
+    iOS: Fixed Texture2D.ReadPixels on iOS6.
+    iOS: Fixed crash with suspending while video is playing.
+    iOS: Fixed more splash issues.
+    iOS: SystemInfo.deviceUniqueIdentifier no longer uses deprecated UIDevice.uniqueIdentifier.
+    iOS: Updated iPad2 detection to handle newly released one.
+    Mac Web Player: Fix focus handling when browser window loses focus.
+    Mobile: fixed broken lighting when dynamically batching uniformly scaled meshes.
+    MonoDevelop: Fixed cursor display on Mac Retina displays.
+    Navmesh: Fix for regression in 3.5.3 - where long paths some times be discarded when stoppingDistance > 0.
+    Script: Fixed crash when calling material.GetFloat(null).
+    Substance: Substances with bitmap inputs were not regenerating correctly.
+    Substance: Fix garbage collecting.
+    Substance: Cache fixes.
+
+Features
+
+    Added Mesh.colors32 for faster and less memory consuming way of setting colors for procedural meshes.
+
+Known Issues
+
+    Mobile: We changed the way Texture2D.ReadPixels works. Now, if you do call it during Update (or, generally, not during rendering frame) to grab the copy of the screen, the call will be deferred to the end of the current frame. Due to this, logic behind Apply was changed too.
+    What you need to do if you use ReadPixels to read pixels from the screen:
+        if you just grab screen copy and call Apply, you are good to go: both calls will be deferred to the end of the frame
+        if you grab screen copy, and do something with it, and call Apply after that: you need to defer all this to the next frame. The easiest way is to use coroutines with yield in between ReadPixels and your operations plus Apply.
+        On the other hand, you can always do ReadPixels in Camera's OnPostRender, or when you have active RenderTexture.
+    Editor: We dropped IMGTech standalone PVR Compressor, and built our own using their PVRTCLib. We do handle most of the options, but we do allow only one form of args with params: -arg
