@@ -1,0 +1,11 @@
+This release of Unity primarily contains fixes to Unity 3.5. For more information about recent features, see the Unity 3.5 Release Notes.
+
+    Shuriken Particle System
+    Built-in Pathfinding
+    Upgraded Occlusion Culling & new LOD
+    Google Chrome Native Client deployment
+    Linear Space Lighting and HDR
+
+Fixes
+
+    Android: Crash when pausing/resuming on OS 4.1 / Jellybean has been fixed.
