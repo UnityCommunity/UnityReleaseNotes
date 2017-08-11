@@ -1,0 +1,38 @@
+Patch 2017.1.0p3
+Released: 11 August 2017
+
+Fixes
+
+    (930987) - Animation: Fixed a regression that was preventing Math symbols from being evaluated in the Animation window's input field.
+    (930335) - Animation: Fixed a glitch that was causing a stuttering in the Animation curve when rotating a GameObject in the Animation window.
+    (927443) - Animation: Fixed a crash that was caused during the assignment of an incomplete AnimatorController stored in an AssetBundle.
+    (920973) - Asset Bundles: Fixed an issue where IK float values weren't blending.
+    (885275) - Build Pipeline: Fixed an assert and potential crash when building projects with Materials or Shader Variant Collections which reference missing shaders ie deleted.
+    (918761) - Collab: Added softlocks to project browser in single-column mode.
+    (923508) - Collab: Fixed update, immediately cancel, update again, crash.
+    (694728) - Graphics: Fixed incorrect shadows appearing in the scene view when visualizing occlusion culling.
+    (811757) - Graphics: Fixed runtime crash when modifying skinned mesh and GPU Skinning is enabled.
+    (909148) - Graphics: Fixed "Tiled GPU perf. warning: RenderTexture color surface was not cleared/discarded doing..." in Unity when emulating OpenGL ES 2.0 or 3.0.
+    (903537) - Graphics: Fixed lighting rendering when using multiple cameras and at least one camera renders to a RenderTexture.
+    (909569) - Graphics: Fixed importing of single channel uint16 textures.
+    (911910) - Graphics: Fixed an issue which after clearing occlusion data occlusion view volumes were still visible.
+    (911654) - Graphics: Fixed a crash when instancing is enabled on specific Material.
+    (878317) - Graphics: Fixed a rare crash caused by recursive rendering ie. Camera.Render() or Water rendering.
+    (912603) - Graphics: Fixed sRGB flag returning false on the LDR target texture from a HDR to LDR image effect in a linear project.
+    (913612) - Graphics: Fixed Nav Mesh Preview in Scene View being affected by lighting.
+    (910659) - Graphics: Fixed an issue where lights did not render correctly when using a camera with a RenderTexture and non-fullscreen viewport.
+    (910036) - Graphics: Fixed rendering issues when using a camera with a RenderTexture and non-fullscreen viewport.
+    (920547) - Graphics: Fixed memory leak in Texture2DArray and CubeMapArrayTexture.
+    (919058) - IL2CPP: Fixed a crash in QueryComponentByType when animation was used with engine code stripping enabled and there was no Sprite Renderer component in any scene in the build.
+    (916064) - Mono: Restored the "Use micro mscorlib" stripping option for Android.
+    (927637) - Physics: Fixed an issue where ContactPoint2D.normalImpulse and ContactPoint2D.tangentImpulse were always zero when accessing via callbacks.
+    (908903) - Shaders: Vulkan - fixed a rare incorrect shader generation on expressions with write masks.
+    (923506) - Timeline: Fixed View Settings in Timeline getting reset when going into Play Mode.
+    (926701) - Timeline: Fixed inconsistencies in root motion position between Editor and Player.
+    (911008) - UWP: Fixed the issue where locking the mouse in UWP player would cause wrong values returned from Input.GetAxis() on the next Update.
+    (929988) - WebGL: Fixed compilation crashing with node on windows 7 64 bits.
+    (934502) - WWW: Return null from WWW.error if there's no error, now. This was causing issues in Android when attempting to display information fetched from Facebook.
+    (923806) - XR: Fixed an issue where stereo Convergence setting had no actual impact.
+    (918634) - XR: Added VRUsage parameter to GetTemporary(). This fixes an issue with blitting to a temporary renderTexture.
+
+Revision: 0f0686ba7d25
