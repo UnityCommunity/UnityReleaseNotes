@@ -1,0 +1,8 @@
+Patch 5.4.5p5
+Released: 17 August 2017
+
+Fixes
+
+    Editor: Fixed Security Vulnerability UNITY-SEC-844 - https://unity3d.com/security
+
+Revision: 8c4c93a90556
