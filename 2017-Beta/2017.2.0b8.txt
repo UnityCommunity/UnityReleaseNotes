@@ -1,0 +1,50 @@
+Unity 2017.2.0b8
+Released: August 18, 2017
+
+Unity 2017.2.0b8 release notes
+2017.2.0b8 Release Notes (diff since 2017.2.0b7)
+Known Issues
+
+    Android: Shader #pragma target 4.0 4.6 and 5.0 not working on Android phone (933203)
+    Asset Import: Editor crashes in Transform::CountNodesDeep when loading a new scene. (919023)
+    Asset Import: MergePrefabInstance crash when reimporting assets from Assets Store (913659)
+    Asset Import: Visibility animation curves are invalid when their target meshes are split because of the 65534 vertices limit.
+    Asset Pipeline: Crash at MoveTransformToRootOfSceneUndo when undoing addition of RectTransform to prefab. (912166)
+    Asset Pipeline: Export package window contains extra folders (Library, Packages) (940149)
+    Asset Pipeline: Reverting changes on applied prefab crashes Unity (825035)
+    Asset Pipeline: Reverting model back to a prefab and then undoing these changes creates an additional broken non-prefab object (864619)
+    Build Pipeline: [ARKit] Unity crashes when building a scene (932080)
+    Editor: BeginsWithCaseInsensitive Assertion Error when creating a folder from the create menu (931888)
+    Editor: Camera.targetTexture is not updated from OnPreRender to OnPostRender (937031)
+    Editor: Editor fails to launch on attempt to restart (note however that subsequent manual launch works fine). (929923)
+    Editor: rootTransform != NULL assert followed by a crash when undoing/redoing (883861)
+    Editor: Unable to export a Unity package (938223)
+    Editor: Unity becomes unusable at next launch without Internet if "remember my choice" was unchecked during previous login with Internet. (933197)
+    Graphics: Camera using temporary RenderTexture breaks on the last frames(Frame Debugger) (932065)
+    Graphics: GameObjects mesh is stuck at Combined Mesh (root:scene) and cannot be moved after aborting a build process (891971)
+    Graphics: Lower fps with vSync off, when Static Batching is enabled (922811)
+    Graphics: TextMeshPro is not displayed, and errors are logged. (929909)
+    Particles: Unity crashes after deleting a particle system and undoing the delete. (923711)
+    Scripting: [macOS10.13] MonoDevelop doesn't start (921104)
+    Scripting: MonoBehaviour::GetObjectGUIState crashes when selecting color via Color Picker. (934613)
+    Services: Collab "Save to file" logs with Collab disabled. Mac Editor takes 2 minutes to exit Play mode (931990)
+    UI: UI Mask component crashes editor after you Build & Run (935112)
+    Video: Crash in mono_marshal_get_cache when reentering Play mode after video clip is previewed (930707)
+    WebGL: Memory leak when building for WebGL. (935474)
+    Windows: [WSA] Error messages appear while/after building a project with "Unity C# projects", if the Editor folder contains a script. (918989)
+    Windows: [XR][WSA] Including "Unity C# Projects" while building to Universal Windows Platform, causes builds to fail (927925)
+    XR: Hololens / UWP / PS4 VR Devices not yet supported with the new input system for VR use.
+    XR: Virtual Reality SDK Vuforia loading fails when used on iOS.
+    XR: Windows Mixed Reality usage on b7 results in hangs and black screens at start-up. This has been fixed in b8 for VR HMDs, but is still an issue for HoloLens.
+    XR: [SPS] Occlusion mesh is visible when rendering to an RT (936114)
+    XR: [VR Oculus Compositor Splash] Particle System does not work on Build when VR is enabled (926695)
+
+Improvements
+
+    XR: XRDevice.SetTrackingSpaceType will now allow users to reason about where the floor is on VR HMDs for WindowsMR.
+
+Fixes
+
+    Editor: Fixed exception when backspacing iOS target SDK version in PlayerSettings inspector.
+    Physics: Ensure no work is done if the 2D physics world is empty. (940666)
+    XR: Performance and stability during in-editor remoting has been improved for the HoloLens. (901423)
