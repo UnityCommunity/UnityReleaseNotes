@@ -48,3 +48,30 @@ Fixes
     Editor: Fixed exception when backspacing iOS target SDK version in PlayerSettings inspector.
     Physics: Ensure no work is done if the 2D physics world is empty. (940666)
     XR: Performance and stability during in-editor remoting has been improved for the HoloLens. (901423)
+
+The following are changes and fixes to 2017.2.0 features and regressions...
+Fixes
+
+    Android: Allow coarse location to be specified in the manifest. (933268)
+    Editor: Ensure we always provide an asset preview. (858928)
+    Editor: Fix in-launcher names of projects loaded via relative path. (873823)
+    Editor: Fix screen capture. (932630)
+    Editor: Fixed bug where entering play mode made part of PlayerSettings inspector disappear until it repainted at least once. (930646)
+    Editor: Fixed Security Vulnerability UNITY-SEC-844 - https://unity3d.com/security
+    Linux: Fallback to xinerama/xvidmode for video modes initialization if xrandr fails.
+    Scripting: Fix alignment issue for 64-bit integers and doubles on Android and other non-iOS ARMv7 platforms. (898636)
+    Scripting: Fix internal compiler error due to yield in a lambda statement. (634364)
+    Scripting Upgrade: Avoid allocating GC memory when calling List.Sort with Comparer\1` (935845)
+    Scripting Upgrade: Report GC pause time correctly in profiler. (931981)
+    Shaders: Set the correct value for the SHADER_TARGET preprocessor macro during Surface Shader analysis to match the value used during Surface Shader compilation. (893229)
+    Timeline: Fix for hidden time area when reopening Timeline. (935500)
+    Timeline: Fix for timeline clip modifications not always applying. (926861)
+    Timeline: Fix Playable Director not dirtying properly when changing wrap mode. (930195)
+    Timeline: Fix preview mode on root transforms when recording. (931859)
+    Timeline: Fix runtime exception on AOT compiled builds. (937737)
+    Timeline: Fix single click on a timeline clip when multiple clips are selected. (888799)
+    Timeline: Fix state changes on timeline pause in Activation and Control tracks. (938170)
+    Timeline: Modifying Avatar Masks now show immediately in Timeline preview. (936941)
+    XR: Fixed the naming of Vuforia AR in the XR Settings to Vuforia Augmented Reality.
+    XR: Input API for UnityEngine.XR.WSA.Input changes that landed in b1 has been reworked into its final shape.
+    XR: PCs that triple-buffer their eye textures under Mixed Reality will now recycle those textures, improving performance.
