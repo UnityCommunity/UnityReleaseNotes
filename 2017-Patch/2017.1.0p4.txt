@@ -1,0 +1,8 @@
+Patch 2017.1.0p4
+Released: 17 August 2017
+
+Fixes
+
+    Editor: Fixed Security Vulnerability UNITY-SEC-844 - https://unity3d.com/security
+
+Revision: 892c0f8d8f8a
