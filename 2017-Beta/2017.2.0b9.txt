@@ -1,0 +1,46 @@
+Unity 2017.2.0b9
+Released: August 29, 2017
+
+Unity 2017.2.0b9 release notes
+2017.2.0b9 Release Notes (diff since 2017.2.0b8)
+Known Issues
+
+    Asset Import: Editor crashes in Transform::CountNodesDeep when loading a new scene. (919023)
+    Asset Import: MergePrefabInstance crash when reimporting assets from Assets Store (913659)
+    Asset Import: Visibility animation curves are invalid when their target meshes are split because of the 65534 vertices limit.
+    Asset Pipeline: Crash at MoveTransformToRootOfSceneUndo when undoing addition of RectTransform to prefab. (912166)
+    Asset Pipeline: Export package window contains extra folders (Library, Packages) (940149)
+    Asset Pipeline: Reverting changes on applied prefab crashes Unity (825035)
+    Asset Pipeline: Reverting model back to a prefab and then undoing these changes creates an additional broken non-prefab object (864619)
+    Build Pipeline: [ARKit] Unity crashes when building a scene (932078, 945254)
+    Editor: BeginsWithCaseInsensitive Assertion Error when creating a folder from the create menu (931888)
+    Editor: Editor fails to launch on attempt to restart (note however that subsequent manual launch works fine). (929923)
+    Editor: rootTransform != NULL assert followed by a crash when undoing/redoing (883861)
+    Editor: Unity becomes unusable at next launch without Internet if "remember my choice" was unchecked during previous login with Internet. (933197)
+    Graphics: Lower fps with vSync off, when Static Batching is enabled (922811)
+    Particles: Unity crashes after deleting a particle system and undoing the delete. (923711)
+    Scripting: [macOS10.13] MonoDevelop doesn't start (921104)
+    Services: Collab "Save to file" logs with Collab disabled. Mac Editor takes 2 minutes to exit Play mode (931990)
+    UI: UI Mask component crashes editor after you Build & Run (935112)
+    Video: Crash in mono_marshal_get_cache when reentering Play mode after video clip is previewed (930707)
+    XR: Data from headPose is incorrect on GestureRecognizer events. (944108)
+    XR: Virtual Reality SDK Vuforia loading fails when used on iOS.
+    XR: Windows Mixed Reality usage on b7 results in hangs and black screens at start-up. This has been fixed in b8 for VR HMDs, but is still an issue for HoloLens.
+    XR: [SPS] Occlusion mesh is visible when rendering to an RT (936114)
+    XR: [VR Oculus Compositor Splash] Particle System does not work on Build when VR is enabled (926695)
+
+Features
+
+    XR: Added support for Google ARCore augmented reality technology when targeting Android 7.0 and above. The Tango API provides accurate device position & orientation information as well as feature point detection that describes the physical space of the user's surroundings. With Unity's support for ARCore it is convenient for developers to drive a standard Unity camera using their device's real-world position & orientation, create planes representing surfaces of the device's surroundings, and render the color camera's image as the background for an augmented reality experience.
+
+Changes
+
+    Graphics: When using custom shadow resolution on a light, this resolution won't be clamped as usual, allowing to reach up to 8k shadowmap if needed.
+
+Improvements
+
+    XR: Improved rendering performance of Daydream and Gear VR apps.
+
+Fixes
+
+    Editor: Fixed crash when selecting reflection probe background color via Color Picker. (934613)
