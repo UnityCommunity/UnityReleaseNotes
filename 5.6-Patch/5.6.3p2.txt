@@ -1,0 +1,79 @@
+Patch 5.6.3p2
+Released: 1 September 2017
+
+Improvements
+
+    Editor: Added editor strings (profiler, Unity remote & etc.) for 2nd gen. iPad Pro.
+    DX12 Native Rendering Plugin improvements - exposed extra functionality for working with backbuffers/fixed threading issues.
+
+Changes
+
+    Editor On Material inspector "Enable Instancing" is changed to "Enable GPU Instancing".
+    Android: Backed out android resource override fix.
+
+Fixes
+
+    (935105) - AI: NavMeshBuilder can now use non-read/write meshes to generate NavMeshes in edit mode.
+    (none) - Analytics: Switched the analytics events sent to the new protocol.
+    (925738) - Android: VideoPlayer - Fixed an issue where H264 video did not loop on HTC One (OS 4.2.2).
+    (925797) - Android: Fixed a regression that was causing the incorrect scaling of the splash screen.
+    (924780, 924784) - Android: Gradle: Added settingsTemplate.gradle to allow user customization.
+    (937876) - Android: Fixed an issue with having lots of VBOs allocated even for an empty scene on Android during application startup.
+    (923652) - Android: Buildpipe - Don't force exported gradle projects to be signed.
+    (920126) - Animation: Fix for events not being fired during CrossFade at 0F.
+    (930336) - Animation: Fixed a glitch that was causing a stuttering in the Animation curve when rotating a GameObject in the Animation window.
+    (927444) - Animation: Fixed a crash that was caused during the assignment of an incomplete AnimatorController stored in an AssetBundle.
+    (930988) - Animation: Fixed a regression that was preventing Math symbols from being evaluated in the Animation window's input field.
+    (928601) - Animation: Fixed a crash when changing OverrideController during interrupted transition.
+    (920973) - Asset Bundles: Fixed an issue where IK float values weren't getting blended if animations were split between two Asset Bundles.
+    (930819) - Asset Bundles: Fixed an issue where calling LoadAllAssets with a type parameter could cause loading errors.
+    (891971) - Build: Fixed an issue where scenes were not restored correctly if the build process was aborted.
+    (885275) - Build Pipeline: Fixed an assert and a potential crash when building projects with Materials or Shader Variant Collections which referenced missing shaders (i.e deleted).
+    (865522) - Build Pipeline: Fixed GameReleaseCollector crash on recursive function.
+    (815319) - Build Pipeline: Fix for corrupt OSX standalone app icons in certain situations.
+    (917568) - Build Pipeline: Fixed incorrect mesh channel stripping when mesh was used as a shape emitter in particle systems.
+    (925913) - Editor: Calculate mipmap count properly when importing NPOT textures with '-nographics'.
+    (913251) - Graphics: Fixed a crash when building splash screen with only a portrait background image.
+    (916142, 933890) - Graphics: Removed code that tries to re-use dynamic gemometry buffers for multiple renders - there were too many edge cases to reliably detect when this was possible.
+    (910036) - Graphics: Fixed rendering issues when using a camera with a RenderTexture and non-fullscreen viewport.
+    (913612) - Graphics: Fixed Nav Mesh Preview in Scene View being affected by lighting.
+    (878317) - Graphics: Fixed a rare crash caused by recursive rendering ie. Camera.Render() or Water rendering.
+    (911654) - Graphics: Fixed a crash when instancing was enabled on specific Material.
+    (903537) - Graphics: Fixed lighting rendering when using multiple cameras and at least one camera renders to a RenderTexture.
+    (909148) - Graphics: Fixed "Tiled GPU perf. warning: RenderTexture color surface was not cleared/discarded doing..." in Unity when emulating OpenGL ES 2.0 or 3.0.
+    (811757) - Graphics: Fixed runtime crash when modifying skinned mesh and GPU Skinning was enabled.
+    (929961) - Graphics: Fixed a race condition crash when using Native Graphics Jobs.
+    (919162) - Graphics: Fixed memory leak in Texture2DArray and CubeMapArrayTexture.
+    (915959) - Graphics: Ensure textures with too high mip count on Metal are not created.
+    (921467) - IL2CPP: Prevent a compilation error in the generated code for some Windows Store apps.
+    (929802) - IL2CPP: Prevent a failure during code conversion when a constrained method call is made on a volatile type.
+    (923517) - IL2CPP: Fixed an issue with setting enum type fields in .NET 4x with relfection using an integer value.
+    (930252) - IL2CPP: Corrected a possible crash with the RegionInfo class in mscorlib.dll was incorrectly removed by the managed code linker.
+    (821419) - Input: Fixed an issue on Windows where IME for Chinese, Japanese and Korean was enabled when typing even though not focused on a text field.
+    (940918) - iOS: Fixed: Cardboard Enable Transition View.
+    (934401) - iOS: Fixed 'Stale touch detected!' error message that showed up after minimizing, re-opening an app and immediate start tapping the screen with multiple fingers.
+    (none) - iOS: Fixed trampoline compilation issues for iOS 11 simulator.
+    (none) - Linux: Fixed native plugin lookup when the plugin was marked as compatible with both x86 and x86_64.
+    (911189 ) - Particles: Fixed problems when upgrading instanced Particle System Prefabs.
+    (901440) - Particles: Restore "Show Selected" mode to the Particle System Editor Window.
+    (930370) - Particles: Fixed a crash when a sub-emitter GameObject did not exist.
+    (927637) - Physics: Fixed an issue where ContactPoint2D.normalImpulse and ContactPoint2D.tangentImpulse were always zero when accessing via callbacks.
+    (859361) - Platforms: Fixed a crash when '-cleanedLogFile' was passed but no log file name was given.
+    (918651) - Scripting: Fixed an issue where the managed debugger on Windows was hanging when all scripts with OnAudioFilterRead had been disabled.
+    (898636) - Scripting: Fixed alignment issue for 64-bit integers and doubles on Android and other non-iOS ARMv7 platforms.
+    (936096) - Scripting: Prevent a failure during code conversion when a constrained method call is made on a volatile type.
+    (926516) - Scripting: Fixed a potential domain reload issue in play mode when trying to validate scripts.
+    (899502) - Shaders: Fixed GLSL shader compile errors due to lack of default precision specifier.
+    (908903) - Shaders: Vulkan- Fixed a rare incorrect shader generation on expressions with write masks.
+    (935808) - Terrain: Fixed a crash that could happen when there are a very large number of terrains with SpeedTree trees on them.
+    (935800) - Terrain: Fixed an issue where error messages about JobTempAlloc would appear in player output log if trees were used on a terrain.
+    (876232) - UI: Fixed unity crashing when undoing the deletion of a prefab with a UI element.
+    (none) - Universal Windows Platform: Fixed building generated UWP projects with Visual Studio 2017.3 when using .NET scripting backend.
+    (911008) - Universal Windows Platform: Fixed the issue where locking the mouse in UWP player would cause wrong values returned from Input.GetAxis() on the next Update.
+    (none) - VR: Removed some unnecessary GPU work at the end of the frame for VR apps.
+    (850334) - VR: Fixed - Stereo Convergence setting has no actual impact.
+    (905062) - VR: _MainTex_ST values are now correct in non VR mode.
+    (918634) - VR: Fixed blit to temporary RT not setting _MainTex_ST.
+    (938063) - XR: Fixed volume buttons not adjusting sound for Google Cardboard applications after they have launched.
+
+Revision: b3d7a6428558
