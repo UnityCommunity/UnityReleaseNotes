@@ -1,0 +1,41 @@
+Patch 5.6.3p3
+Released: 8 September 2017
+
+Improvements
+
+-iOS : Added App Store icon slot to iOS player settings (required by Xcode 9.0)
+Changes
+
+    VR : Updated Google VR NDK to 1.80.
+
+Fixes
+
+    (918875) - Android : Resources.Load no longer stalls LoadScene and LoadSceneAsync.
+    (938685) - Build Pipeline : Fixed a bug where running Unity in batch mode wasn't selecting the correct build target group on startup.
+    (none) - Graphics : Fixed TrailRenderer not recording the first position when instantiated using a position and rotation value.
+    (none) - Graphics : Fixed incorrect rendering on Metal after switching from a scene which called Shader.SetGlobalTexture with cubemap texture.
+    (938089, 944773) - Graphics : Fixed a rare crash when dynamic batching is enabled.
+    (916425) - Graphics : Fixed memory leak in Editor scene view.
+    (918642) - Graphics : Fixed a crash when a valid Mesh had no submeshes.
+    (918636) - Graphics : Fixed a rare case when shader compilation failed with error message "Failed to find parameters of a compiled D3D9 shader".
+    (898184) - Graphics : Fixed a crash when Vulkan loader was installed but no drivers were installed and Vulkan was used as the default API.
+    (906072) - Graphics : Fixed a crash when trying to use 16-bit RenderTexture on systems which did not support them.
+    (826751) - Graphics : Fixed a crash when using Compute Shader with very large number of thread groups i.e. greater than 500,000.
+    (775291) - Graphics : Improved documentation to explain when using Graphics.Blit to a Null target it may get re-routed to a texture if the main camera had a RenderTexture as a target.
+    (782380) - Graphics : Fixed an issue where by multiple display camera was not rendering after reloading the scene using SceneManager.LoadScene().
+    (922739) - Graphics : Fixed an issue where Terrain was not showing wireframe in shaded-wireframe mode.
+    (922996) - Graphics : Fixed a crash when assigning (invalid) Mesh to a SkinnedMeshRenderer from script in standalone player.
+    (922715) - Graphics : Fixed a crash on exit from fullscreen player when using OpenGLCore graphics API.
+    (733687) - Graphics : Fixed Mesh becoming offset and scaled when accessing 'mesh' property on a MeshFilter on a static GameObject and static batching was enabled.
+    (803067) - Graphics : Fixed dynamic batching overwriting the vertex colour stream on untextured meshes.
+    (none) - Graphics : Fixed loading shaders in a variant collection not loading the variants from all passes which match.
+    (921083) - Graphics : Fixed a crash when depth surface was missing from RenderTarget setup i.e. GrabPass.
+    (none) - IL2CPP : Fixed calling System.Collections.Generic.IDictionary2<K, V> methods on native objects that implement Windows.Foundation.Collections.IMap2<K, V> interface from managed code and calling Windows.Foundation.Collections.IMap2<K, V> methods on managed objects that implement System.Collections.Generic.IDictionary2<K, V> interface from native code.
+    (932981) - IL2CPP : Fixed calling Windows.Foundation.Collections.PropertySet methods that derive from IDictionary`2<string, object> interface from managed code.
+    (940906) - IL2CPP : Added an extra check for a method with a body but an empty instruction list to prevent a crash in IL2CPP.
+    (925709) - Particles : Removed unnecessary sync between main and graphics threads improving performance when more than one camera is rendering
+    (none) - Scripting : Raised MarshalDirectiveException rather than aborting when invalid array marshaling directive was encountered
+    (none) - Scripting : Avoid stack overflow from occurring in Unity liveness logic (asset GC).
+    (none) - Scripting : Fixed Marshal.StructureToPtr when a field type was a multidimensional array of blittable types.
+
+Revision: 88d4ddf6344a
