@@ -1,0 +1,54 @@
+Patch 2017.1.1p1
+Released: 8 September 2017
+
+Improvements
+
+    Graphics: When using custom shadow resolution on a light, this resolution won't be clamped as usual, allowing to reach up to 8k shadowmap if needed.
+    iOS: Added an Marketing icon kind for iOS and a slot for a 1024x1024 App Store icon.
+    Tizen: Load the first scene during displaying Splash screen.
+
+Changes
+
+    XR : Updated Google VR NDK to 1.80.
+
+Fixes
+
+    (941884) - 2D : Correctly use Sprite Atlas packed offset when calculating UVs for OverrideGeometry().
+    (941882) - 2D : Expose sRGB (gamma color space) option and packing padding option to Sprite Atlas inspector.
+    (935105) - AI : UpdateNavMeshData will process non read/write meshes in editor when not in playmode.
+    (918875) - Android : Resources.Load no longer stalls LoadScene and LoadSceneAsync.
+    (920126) - Animation : Fix for events not being fired during CrossFade at 0F.
+    (934848) - Build pipeline : Fixed a regression where the working directory of a Standalone build would default to the Assets folder, which is not allowed.
+    (873467) - Editor : Fixed Callback registration failed kMaxCallback crash when entering playmode.
+    (913251) - Editor : Fixed crash when building splash with a protrait background but no landscape background was assigned.
+    (925589) - Editor : Fixed ""TLS Allocator ALLOC_TEMP_THREAD, underlying allocator ALLOC_TEMP_THREAD had unfreed allocations" while calling PluginImporter.SetPlatformData.
+    (941182) - Editor : Plugins will be correctly excluded from player build, when using combination Any Platform = true with specific platforms excluded.
+    (942743) - Editor : Fixed an issue where Launcher did not allow user to login and do re-activate when license was invalid.
+    (726487) - GI : Fixed a case of object lighting preview being empty for meshes with no normals.
+    (919234) - GI : Fixed an issue where creating a new scene in project window affected the lighting settings of other scenes.
+    (925579) - GI : Fixed shadowmask in Forward rendering when multiple directional lights are used.
+    (941966) - Graphics : Improved motion vectors precision when dynamic batching is disabled.
+    (921297) - Graphics : Fixed TrailRenderer not recording the first position when instantiated using a position and rotation value.
+    (923026) - Graphics : Fixed the case of Light Cookie rendering differently in Forward and Deferred mode.
+    (921297) - Graphics : Fixed TrailRenderer not recording the first position when instantiated using a position and rotation value.
+    (938089, 944773) - Graphics : Fixed a rare crash when dynamic batching was enabled.
+    (none) - Graphics : Made ImageEffects always use the right source buffer, and blit to the final destination if necessary.
+    (937886) - iOS : Fixed SetIconsForTargetGroup when settings icons for iOS
+    (940917) - iOS : Cardboard Enable Transition View fix added.
+    (933033) - Multiplayer : Properly traversing inheritance chain.
+    (914038) - Particles : Fixed an upgrade issue where prefab instance shape module values could get corrupted.
+    (930802) - Resource Management : Optimized the loading of assets performed via Resources.Load. This addresses a performance regression reported in Android platforms.
+    (937737) - Timeline : Fix for ExecutionEngineException being thrown at runtime when using Timeline on iOS.
+    (938170) - Timeline : Fixed Activation and Control Tracks when application was Paused.
+    (935900) - Timeline : Fix for time ruler being inaccessible after relaunching Unity.
+    (926861) - Timeline : Fix for timeline clips not properly being set as dirty.
+    (931859) - Timeline : Fix preview mode not always working for humanoid root transforms and custom clips.
+    (931602) - UnityWebRequest : Fixed automatic scheme prepending to web address (prepend http://)
+    (932312) - UnityWebRequest : Allow comments in header values except when known to be unsupported.
+    (926842) - WebGL : Fixed file:// protocol warning on browsers that do not allow it.
+    (927459) - WebGL : Fixed server compression configuration warning.
+    (775206) - WebGL : Fixed Fullscreen mode on Safari.
+    (923698) - WebGL : Fixed back-buffer anti-aliasing on WebGL1.0.
+    (938063) - XR : Fixed volume buttons not adjusting sound for Google Cardboard applications after they had launched.
+
+Revision: 007fc09e806c
