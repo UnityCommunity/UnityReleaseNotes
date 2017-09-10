@@ -1,0 +1,193 @@
+Unity 2017.1.1f1
+4 Sep, 2017
+
+Release notes
+Improvements
+
+    Android: Gradle - Support custom library build.gradle files. (887824)
+    DX12: Native Rendering Plugin improvements - exposed extra functionality for working with backbuffers.
+    Editor: Added editor strings (profiler, Unity remote & etc.) for 2nd gen. iPad Pro.
+    Editor: New special search filter for folder: "t:folder"
+    Linux: Print log file path before redirecting.
+    Windows Player: Improved "Oops!" crash dialog.
+    Windows: Added API to expose crash dump report path: UnityEngine.Windows.CrashReporting.
+
+Changes
+
+    Editor: On Material inspector "Enable Instancing" is changed to "Enable GPU Instancing".
+    Graphics: Fix for a crash (922996 in 2017.1.0p5) has been removed. - (946068)
+    Licenses: Updated FBX license to require acceptance of FBX SDK license (https://damassets.autodesk.net/content/dam/autodesk/www/Company/docs/pdf/legal-notices-&-trademarks/Autodesk_FBX_SDK_2015_License_and_Services_Agreement.pdf).
+    Timeline: Tagged BasicPlayableBehaviour as Obsolete.
+
+Fixes
+
+    2D: Fixed an issue where adjusting Collider2D's Offset when Using Tiled Draw Mode and Auto Tiling would result in inconsistent behaviour. - (917931)
+    2D: Fixed an issue where Sprite from the same atlas not hashed & packed correctly. - (927372)
+    2D: Fixed an issue where the Editor became unresponsive when switching from OpenGL to Metal with a tiled sprite in the scene. - (918524)
+    2D: Fixed an issue whereby Sprite Atlas variant would pack without an error when master was compressed with crunched. - (935388)
+    2D: Fixed console showing error when multiple selecting asset while locking Sprite Atlas inspector and Pack. - (920773)
+    Android: [VideoPlayer] H264 video doesn't loop on HTC One (OS 4.2.2) - (925738)
+    Android: Apps no longer signed with signature scheme v2 when building for oculus.
+    Android: Buildpipe - Correctly split resources between APK and OBB when building with LZ4. - (920359)
+    Android: Fixed a development build crash on Android 4.2.2 with VideoCore GPU. - (922553)
+    Android: Fixed a Vulkan error when trying to use anisotropic filtering on Mali GPUs.
+    Android: Fixed an issue having lots of VBOs allocated even for an empty scene on Android during application startup. - (937875)
+    Android: Fixed an issue where spot and point lights were too bright on low-end devices. - (918785)
+    Android: Fixed an issue where spot and point lights were too bright on low-end devices. - (918785)
+    Android: Fixed an issue with alpha texture size in ETC1 texture compression with split alpha. - (918605)
+    Android: Fixed the issue where OBB was not available after installing from Google Play on some phones until device was restarted.
+    Android: Gradle - Do not explicitly set debuggable attribute when building with Gradle to avoid lint security warning. - (910280)
+    Android: Gradle - Handle too many errors; filter out warnings and detect too long error list.
+    Android: Gradle - Make sure unity3d and other files from raw/ are uncompressed in the APK. - (924518)
+    Android: SoftInput - Fixed the autocorrection not being disabled on Samsung phones. - (906014)
+    Android: SoftInput - Fixed the NamePhonePad flag. - (924515)
+    Animation: Fixed a crash in Animator Editor window when closing Unity. - (918033)
+    Animation: Fixed a crash in Animator Editor window when closing Unity. - (918032)
+    Animation: Fixed a crash that was caused during the assignment of an incomplete AnimatorController stored in an AssetBundle. - (927443)
+    Animation: Fixed a crash when changing number of input in AnimationLayerMixerPlayable at runtime. - (922283)
+    Animation: Fixed a crash when changing OverrideController during interrupted transition. - (928601)
+    Animation: Fixed a glitch that was causing a stuttering in the Animation curve when rotating a GameObject in the Animation window. - (930335)
+    Animation: Fixed a regression that was preventing Math symbols from being evaluated in the Animation window's input field. - (930987)
+    Animation: Fixed an issue of AnimatorState's WriteDefaults not working properly on very specific setups. - (893779)
+    Animation: Fixed an issue where the Animation events would not trigger if animation had less than two frames. - (921121)
+    Animation: Fixed an issue where the Animator's State Machine would start to flicker in Playmode if the Animator window was too small to display the active State. - (917195)
+    Animation: Fixed an issue whereby AnimatorState's WriteDefaults was not working properly on very specific setups. - (893779)
+    Animation: Fixed bad frame when changing Playable Graph during StateMachineBehaviours.
+    Animation: Fixed Generic animation layers affecting base humanoid root motion. - (928562)
+    Asset Bundles: Fixed an issue where calling LoadAllAssets with a type parameter could cause loading errors. - (930819)
+    Asset Bundles: Fixed an issue where IK float values weren't blending. - (920973)
+    Build Pipeline: Fixed an assert and potential crash when building projects with Materials or Shader Variant Collections which reference missing shaders ie deleted. - (885275)
+    Build Pipeline: Fixed an issue with enabling Split Application Binary flag in Android player settings would affect other platforms. - (919307)
+    Build Pipeline: Fixed incorrect mesh channel stripping when mesh was used as a shape emitter in particle systems. - (917568)
+    Collab: Added softlocks to project browser in single-column mode. - (918761)
+    Collab: Fixed an issue where user was not prompted to save local scene edits before updating. - (907960)
+    Collab: Fixed update, immediately cancel, update again, crash. - (923508)
+    Collaborate: Fixed an issue with the initial collaborate publish where it will continuously retry upon failure. - (932469)
+    Editor: Calculate mipmap count properly when importing NPOT textures with '-nographics'. - (925913)
+    Editor: Ensure that an asset preview is always provided. - (858928)
+    Editor: Fixed a case of "Generate Lighting" drop down menu being hidden when inspector was resized to minimal width. - (915524)
+    Editor: Fixed a crash when loading scenes created in Unity versions before 2017.1 with specific lighting setup. - (932793)
+    Editor: Fixed a performance regression that cause very long startup time when invoking a test run. - (900957)
+    Editor: Fixed an issue in the Inspector Window that prevented the 'Nothing Selected' component from being shown. - (925505)
+    Editor: Fixed in-launcher names of projects loaded via relative path. - (873823)
+    Editor: Fixed LookDev rendering issues: Frame to object feature, Initial position of prefabs in LookDev. -
+    Editor: Fixed one case of importing projects from very old Unity versions.
+    Editor: Fixed player build success notification.
+    Editor: Fixed screen capture. - (932630)
+    Editor: Fixed Security Vulnerability UNITYSEC-844-https://unity3d.com/security
+    Editor: Fixed the inability to rename a objects in the Hierarchy view if LookDev was open. - (908324)
+    GI: Fix to only show clustering view when realtime GI is on, or when baking is on with Enlighten. - (911953)
+    GI: Progressive Lightmapper: Fixed a crash in light probe rendering occurring when changing or removing probes.
+    GI: Progressive Lightmapper: Fixed an issue where alpha cutoff was not properly converting values.
+    GI: Progressive Lightmapper: Fixed an issue where auto-mode did not detect when changing material values for alpha cutoff.
+    Graphics: Changed every instance of the string "Custom Texture" to "Custom Render Texture" in menus and tooltips. - (924625)
+    Graphics: Cubemap Custom Render Texture initialization is now applied to all faces (regardless of active face update flags).
+    Graphics: Don't enable blending on unsupported pixel formats on Metal. - (920781)
+    Graphics: Ensure textures are not created with too high mip count on Metal. - (915959)
+    Graphics: Fixed "Tiled GPU perf. warning: RenderTexture color surface was not cleared/discarded doing..." in Unity when emulating OpenGL ES 2.0 or 3.0. - (909148)
+    Graphics: Fixed a crash in Custom Render Texture when switching target platforms in the Editor. - (925171)
+    Graphics: Fixed a crash on exit from fullscreen player when using OpenGLCore graphics API. - (922715)
+    Graphics: Fixed a crash when a valid Mesh had no submeshes. - (918642)
+    Graphics: Fixed a crash when adding CommandBuffers during OnPreCull callabck and visualizing occlusion data with lighting enabled. - (902870)
+    Graphics: Fixed a crash when instancing is enabled on specific Material. - (911654)
+    Graphics: Fixed a crash when using Compute Shader with very large number of thread groups i.e. greater than 500,000. - (826751)
+    Graphics: Fixed a crash when Vulkan loader was installed but no drivers were installed and Vulkan was used as the default API. - (898184)
+    Graphics: Fixed a deadlock when building lighting in Editor or during a player build. - (918993)
+    Graphics: Fixed a rare (could happen in very complex scenes) crash/hang when graphics jobs were enabled. - (918788)
+    Graphics: Fixed a rare case when shader compilation failed with error message "Failed to find parameters of a compiled D3D9 shader". - (918636)
+    Graphics: Fixed a rare crash caused by recursive rendering ie. Camera.Render() or Water rendering. - (878317)
+    Graphics: Fixed an issue where lights did not render correctly when using a camera with a RenderTexture and non-fullscreen viewport. - (910659)
+    Graphics: Fixed an issue where overlapping cameras drawing to the same target would not composite correctly. - (923842)
+    Graphics: Fixed an issue whereby Terrain not showing wireframe in shaded-wireframe mode. - (922739)
+    Graphics: Fixed an issue which after clearing occlusion data occlusion view volumes were still visible. - (911910)
+    Graphics: Fixed an occasional glitch when rendering lines/trails. - (903807)
+    Graphics: Fixed different sampling on sRGB RenderTextures compared to non-sRGB RenderTextures when in Gamma space in standalone players. - (909829)
+    Graphics: Fixed dynamic batching overwriting the vertex colour stream on untextured meshes. - (803067)
+    Graphics: Fixed GPU profiler block for Custom Texture Update.
+    Graphics: Fixed importing of single channel uint16 textures. - (909569)
+    Graphics: Fixed incorrect shadows appearing in the scene view when visualizing occlusion culling. - (694728)
+    Graphics: Fixed lighting rendering when using multiple cameras and at least one camera renders to a RenderTexture. - (903537)
+    Graphics: Fixed loading shaders in a variant collection not loading the variants from all passes which match.
+    Graphics: Fixed memory leak in Editor scene view. - (916425)
+    Graphics: Fixed memory leak in Texture2DArray and CubeMapArrayTexture. - (920547)
+    Graphics: Fixed Mesh becoming offset and scaled when accessing 'mesh' property on a MeshFilter on a static GameObject and static batching was enabled. - (733687)
+    Graphics: Fixed Nav Mesh Preview in Scene View being affected by lighting. - (913612)
+    Graphics: Fixed OpenGL debug labels when using OpenGL ES.
+    Graphics: Fixed OpenGL ES debug labels.
+    Graphics: Fixed rendering issues when using a camera with a RenderTexture and non-fullscreen viewport. - (910036)
+    Graphics: Fixed runtime crash when modifying skinned mesh and GPU Skinning is enabled. - (811757)
+    Graphics: Fixed sRGB flag returning false on the LDR target texture from a HDR to LDR image effect in a linear project. - (912603)
+    Graphics: Fixed the scale and rotation matrix on the PreviewRenderUnility Camera having no effect. - (914676)
+    Graphics: Improved line and trail rendering, when trying to display overlapping/nearby points - (848934, 827583)
+    Graphics: Rendering optimistion for GLES graphics API. - (917105)
+    IL2CPP: Fixed a crash in QueryComponentByType when animation was used with engine code stripping enabled and there was no Sprite Renderer component in any scene in the build. - (919058)
+    IL2CPP: Fixed various crashes. - (929802, 930163, 930252)
+    IL2CPP: Prevent a compilation error in the generated code for some Windows Store apps.
+        Prevent a failure during code conversion when a constrained method call is made on a volatile type.
+        Prevent a possible crash in List.AddRange. - (921467, 936096, 929802, 930163)
+    iOS: Fixed 'Stale touch detected!' error message that showed up after minimizing, re-opening an app and immediate start tapping the screen with multiple fingers. - (934901)
+    iOS: Fixed an issue where Unity would not generate icons for Spotlight and Notifications in a Xcode project. - (918406)
+    iOS: Fixed auto-rotation on ReplayKit. - (911935)
+    iOS: Fixed trampoline compilation issues for iOS 11 simulator.
+    iOS: Rewrote the internal clock system and replaced it with a system that took into account the time when the device was asleep. Also, the startup time is now calculated more accurately. - (912594)
+    iOS: Use YIELD for atomic_pause on ARM. - (938975)
+    Launcher: Fixed an issue that Web Signin would print loading error in Editor.log (with access token). - (938693)
+    Launcher: Fixed the issue where Remember me did not work when using the Web hosted sign in.
+    Launcher: Fixed the issue where Remember me did not work when using the Web hosted sign in.
+    Launcher: Fixed the launcher offline issue. - (938742)
+    Linux: Addiitonal fix for initializing screen dimensions (mouse input). - (880426)
+    Linux: Associate provided icon with player window now. - (912675)
+    Linux: Fallback to xinerama/xvidmode for video modes initialization if xrandr fails.
+    Linux: Use default player icon when none is provided. - (912675)
+    Mono: Restored the "Use micro mscorlib" stripping option for Android. - (916064)
+    Multiplayer: Fixed an issue where reliable messages exchanging had been staled after a couple of hours.
+    Multiplayer: Fixed an issue where reliable messages exchanging had been staled after couple of hours.
+    Networking: UnityWebRequest: Fixed an issues where cookies were not sent on redirect. - (832192)
+    OSX: Fixed a crash when WebCamTexture is used. - (917133)
+    Particles: Detect when a new mesh is selected in the Shape Module, and update the Scene View preview accordingly. - (900928)
+    Particles: Ensure trails are properly initialized when particles are being manipulated via script. - (899881)
+    Particles: Fixed an issue where bounding boxes were too small on some systems, causing culling problems. - (914333)
+    Particles: Fixed mesh particles becoming inverted when using render alignment- View. - (927395)
+    Particles: Fixed use of Unscaled delta time in Edit Mode. - (910018)
+    Physics: Fixed an issue where ContactPoint2D.normalImpulse and ContactPoint2D.tangentImpulse were always zero when accessing via callbacks. - (927637)
+    Platforms: Fixed a crash when '-cleanedLogFile' was passed but no log file name was given. - (859361)
+    Scripting Upgrade: Fixed a crash when System.Reflection.Emit was used to generate assemblies for the AppDomain.AssemblyResolve event. - (920772)
+    Scripting Upgrade: Fixed an exception when calling 'System.Reflection.MonoProperty.GetterAdapterFrame' on AOT platforms. - (930594)
+    Scripting Upgrade: Fixed export package window tree structure. - (934518)
+    Scripting Upgrade: Fixed memory corruption/crash after domain reload when using Assembly.Load(Byte[]). - (923165)
+    Scripting Upgrade: Improved distribution of Guid.GetHashCode(). - (930644)
+    Scripting: Fixed a crash when invoking LINQ expressions in Editor. - (920085)
+    Scripting: Fixed a potential domain reload issue in play mode when trying to validate scripts. - (926516)
+    Scripting: Fixed an issue when using SimplifyPoints and the provided array was too small.
+    Scripting: Fixed an issue where the send function from our synchronization context would fail to execute on the main thread. - (934819)
+    Scripting: Fixed managed debugger on Windows hanging when all scripts with OnAudioFilterRead have been disabled. - (918651)
+    Scripting: Fixed scripting exception being logged as Info instead of Error. - (912719)
+    Scripting: Fixed WWW class being unsafe for multiple invocations of Dispose(). - (931213)
+    Services: Fixed an issue where Performance Reporting symbol upload tool could crash. - (927884)
+    Shaders: Fixed GLSL shader compile errors due to lack of default precision specifier. - (899502)
+    Shaders: Vulkan - Fixed a rare incorrect shader generation on expressions with write masks. - (908903)
+    Terrain: Fixed a crash that could happen when you have a very large number of terrains with SpeedTree trees on them. - (929987)
+    Terrain: Fixed an issue where error messages about JobTempAlloc would appear in player output log if trees were used on a terrain. - (898262)
+    Timeline: Fixed a crash when using Timeline with a MacOS player. - (926710)
+    Timeline: Fixed inconsistencies in root motion position between Editor and Player. - (926701)
+    Timeline: Fixed root motion on humanoid characters when there were no base animation clips. - (934535)
+    Timeline: Fixed View Settings in Timeline getting reset when going into Play Mode. - (923506)
+    Timeline: Rebuild Graph performances improvements.
+        Preventing clips from drawing outside of the visible area.
+    UI: Fixed memory leaks caused by unreleased Meshs in the UI Profiler. - (912789)
+    UI: GraphicRaycaster and EventSystem performance improvements. - (934842)
+    UI: InputField - For Name content type, use NamePhonePad touch screen keyboard type - (924515)
+    UI: Sprite Atlas variant will display correct on Image component. - (935390)
+    Universal Windows Platform: Fixed building generated UWP projects with Visual Studio 2017.3 when using .NET scripting backend.
+    UWP: Fixed the issue where locking the mouse in UWP player would cause wrong values returned from Input.GetAxis() on the next Update. - (911008)
+    Video: Fixed MovieTexture support for Metal. - (911115)
+    WebGL: Fixed compilation crashing with node on windows 7 64 bits. - (929988)
+    WebGL: Fixed Corrupted Sprites on MS Edge. - (904449)
+    WebGL: Fixed Corrupted Sprites on MS Edge. - (904449)
+    Windows: Crash dumps are written to users' Persistent Data Path, resolving an issue where installing Unity games to Program Files caused crash dumps to fail. - (928646)
+    WWW: Return null from WWW.error if there's no error, now. This was causing issues in Android when attempting to display information fetched from Facebook. - (934502)
+    XR: Added missing Editor icons for world anchor, spatial mapping, touch input, and audio spatialization components. - (857023)
+    XR: Added VRUsage parameter to GetTemporary(). This fixes an issue with blitting to a temporary renderTexture. - (918634)
+    XR: Fixed an issue where stereo Convergence setting had no actual impact. - (923806)
+
+Revision: 5d30cf096e79
