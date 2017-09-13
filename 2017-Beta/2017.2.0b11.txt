@@ -1,0 +1,55 @@
+2017.2.0 Beta 11
+Released: 12. September 2017
+
+Release notes
+2017.2.0b11 Release Notes (diff since 2017.2.0b10)
+
+Known Issues
+
+    Asset Import: Editor crashes in Transform::CountNodesDeep when loading a new scene. (919023, 950116)
+    Asset Import: Visibility animation curves are invalid when their target meshes are split because of the 65534 vertices limit.
+    Asset Import: MergePrefabInstance crash when reimporting assets from Assets Store. (913659)
+    Asset Pipeline: Crash at MoveTransformToRootOfSceneUndo when undoing addition of RectTransform to prefab. (912166)
+    Asset Pipeline: Reverting changes on applied prefab crashes Unity. (825035)
+    Asset Pipeline: Reverting model back to a prefab and then undoing these changes creates an additional broken non-prefab object. (864619)
+    Editor: rootTransform != NULL assert followed by a crash when undoing/redoing. (883861)
+    Graphics: Lower fps with vSync off when Static Batching is enabled. (922811)
+    Particles: Unity crashes after deleting a particle system and undoing the delete. (923711)
+    Scripting: Script Updater Fails on built-in Monobehaviours. Upgrading a HoloLens project to 2017.2 will therefore currently break it. Fix expected before the final 2017.2 release. (949587)
+    Services: Collab "Save to file" logs with Collab disabled. Mac Editor takes 2 minutes to exit Play mode. (931990)
+    UI: UI Mask component crashes editor after you Build & Run. (935112)
+    XR: Data from headPose is incorrect on GestureRecognizer events. (944108)
+    XR: HoloLens experiences high latency when using Vuforia Augmented Reality Support.
+    XR: [SPS] Occlusion mesh is visible when rendering to an RT. (936114)
+    XR: [VR Oculus Compositor Splash] Particle System does not work on Build when VR is enabled. (926695)
+    
+Changes
+    XR: Camera.stereoMirrorMode is now obsolete.
+    
+Fixes
+    Asset Import: Fixed editor crash and visibility curves correctness on FBX with non baked animations. (940745)
+    Audio: Audio Source occasionally became louder when played repeatedly. (921686)
+    Audio: AudioClip in Audio Source component only played the first selected audio clip. (901001)
+    Audio: AudioSource had short volume glitches at the beginning of playback when a Rigidbody was attached. (915586)
+    Audio: AudioSource volume was incorrect when re-enabling disabled AudioSource. (992299)
+    Audio: AudioSource were affected by AudioReverbZone even with the Bypass Reverb Zones setting enabled. (931206)
+    Audio: Changing Reverb Preset of an AudioReverbZone via script had no effect on audio. (802828)
+    Audio: Deleting a mixer asset from Audio Mixer window no longer causes deletion of the selected folder. (895642)
+    Audio: Fixed error when trying to undo 'Set as start Snapshot' action. (926480)
+    Audio: Fixed glitches in audio mixer group view when adding/duplicating a large number of groups. (908919)
+    Audio: Fixed incorrect display of source-listener distance when both source and listener are attached to the same game object and the game object is accelerating. (849469)
+    Audio: Mixer: Duplicated groups can now be undone. (907123)
+    Audio: On Windows, it was not possible to receive information about microphone devices when its name contained special characters. (895350)
+    Audio: The audio clip no longer starts to play when auto-play is enabled in the preview window and the Game/Scene view is detached. (922827)
+    Audio: The AudioListener.pause property was not reset when exiting Play mode. (917676)
+    Audio: The first AudioMixerSnapshot.TransitionTo call incorrectly started a transition from selected snapshot instead of the defined start snapshot. (905679)
+    Editor: Fix application menu items and their shortcuts in launcher window on OSX. (921224)
+    Editor: Fix red line at the edge of a window when stretched on OSX. (931831)
+    Editor: Fixed issue that user is not recognized as signed in when opening a cloud project
+    iOS: Fixed PBXProjectExtensions.AddFileToEmbedFrameworks when .pbxproj contains unknown sections. (942488)
+    Package Manager: Give the option for the user to continue loading the project even though package resolution failed (no internet or wrong manifest). No packages will be loaded and a sticky error message will be displayed. (945057)
+    Video: Fix for loss of audio when changing video playback speed on iOS/OSX with AudioSources. (938801)
+    Video: Fixed crash for dangling render texture pointer in VideoPlayer . (930707)
+    Video: Transcoding issues with uncompressed RGBA .mov. (948288)
+    Video: Typo in VideoPlayer editor for Audio Source property tooltip. (948289)
+    Video: (1) was added to VideoPlayer name when added with drag-and-drop. (948287)
