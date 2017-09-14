@@ -1,0 +1,15 @@
+Patch 5.5.4p5
+Released: 14 September 2017
+
+Fixes
+
+    (895425) - Editor: Fixed assets being marked for delete instead of opened for edit in Version Control in cases where the asset was deleted and recreated (e.g. re-baking NavMeshes).
+    (898826) - Editor: When Perforce is selected as the Version Control Mode in Editor Settings, make it clear that other settings cannot be edited until the Editor Settings file is opened for edit.
+    (938975) - IOS: Use YIELD for atomic_pause on ARM.
+    (none) - macOS: Apple File System (APFS) compatibility fix added.
+    (921104) - Scripting: Fixed MonoDevelop startup crash on macOS 10.13 High Sierra.
+    (859361) - Scripting: Fixed a crash when '-cleanedLogFile' was passed but no log file name was given.
+    (936520) - Shaders: Addressed an internal issue that was causing the same shader to be built different as part of an AssetBundle on each successive build run. This only affected certain shaders and only occurred in macOS.
+    (none) - Universal Windows Platform: Fixed building generated UWP projects with Visual Studio 2017.3 when using .NET scripting backend.
+
+Revision: 7a1d1547db9c
