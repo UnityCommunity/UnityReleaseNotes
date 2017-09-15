@@ -1,0 +1,69 @@
+Patch 2017.1.1p2
+Released: 14 September 2017
+
+Fixes
+
+    (940999, 939414) - Android: Buildpipe - Fixed permissions popping up when providing resources in res/ .
+    (944010, 898416) - Android: Removed API 16 - 19 from target sdk version selection list.
+    (946059, 945338) - Android: Fixed black screen on startup on Android O devices.
+    (946377, 946349) - Android: Permissions - Fixed ephemeral permissions not popping up on Android Oreo.
+    (946429, 945994) - Android: SoftInput - Fixed the Korean input on Samsung phones.
+    (934626) - Animation: Fixed root motion not correctly aligning avatar on WebGL.
+    (916233) - Collab: Fixed an issue where renamed files with new changes were not being pushed to the server and were ignored when comparing client/server states.
+    (none) - Editor: Fixed incorrect lighting when switching to Metal device if Editor was started in OpenGL.
+    (946016, 935289) - Editor: Fixed an issue where OnHierarchyChange() and EditorApplication.hierarchyWindowChanged events were not sent when selecting gameobjects with previews and when adding gameobjects to a scene if they had the HideInHierarchy flag.
+    (none) - GI: Added A-Trous filter for the Progressive Lightmapper.
+    (none) - Graphics: Fixed an incorrect rendering on Metal after switching from a scene which called Shader.SetGlobalTexture with cubemap texture.
+    (927145) - Graphics: Fixed crash in player when using non RGBA32 format 3D textures.
+    (930666) - Graphics: Report an error instead of crashing when Mesh had invalid positions e.g. NaN.
+    (932940) - Graphics: Fixed Assert "Invalid mask passed to GetVertexDeclaration() when using post-effect" being triggered e.g. a custom post-effect.
+    (932065) - Graphics: Fixed camera rendering to a temporary RenderTexture from clearing the stencil bits when it should not i.e. for HDR cameras.
+    (923977) - Graphics: Fixed a crash when calling Graphics.SetRenderTarget with a RenderBuffer.
+    (926718) - Graphics: Fixed crash in CameraStackRenderingState::ReleaseResources e.g. searching in Hierarchy window.
+    (933768) - Graphics: Fixed D3D11 errors in scenes with a Camera having HDR enabled and depth-only clear.
+    (933203) - Graphics: Fixed #pragma target 4.0, 4.6, 5.0 not working on some Android devices.
+    (none) - IL2CPP: Fixed calling System.Collections.Generic.IDictionary2<K, V> methods on native objects that implement Windows.Foundation.Collections.IMap2<K, V> interface from managed code and calling Windows.Foundation.Collections.IMap2<K, V> methods on managed objects that implement System.Collections.Generic.IDictionary2<K, V> interface from native code.
+    (932981) - IL2CPP: Fixed calling Windows.Foundation.Collections.PropertySet methods that derive from IDictionary`2<string, object> interface from managed code.
+    (940906) - IL2CPP: Added an extra check for a method with a body but an empty instruction list to prevent a crash in IL2CPP.
+    (930414) - IL2CPP: Do not strip System.Reflection types used by Mono.
+    (938702) - IL2CPP: Prevent a NotSupportedException from occurring when System.Net.WebRequest is used with the .NET 4.6 profile on iOS.
+    (935563) - IL2CPP: Avoid stack overflow from occurring in Unity liveness logic.
+    (941950) - iOS: Fixed a crash when Low Memory was signalled very early.
+    (936504, 933588) - iOS: Fixed the underlying behaviour of the iOS player in order to make the Unity window to be the key window after an orientation change. This was causing problems when, for example, an attempt was made to open an URL when launching FBlogin through the Unity Facebook SDK when in portrait only autorotate state.
+    (947026, 940902) - iOS: Fixed Metal TextureUsage crash when Metal API Validation was enabled.
+    (938980) - Fixed an issue where NetworkTransport.SendMulticast caused Unity to crash.
+    (945175) - OSX: Fix for memory leak in LocalFileSystemOSX::Enumerate when using AssetDatabase.CopyAsset.
+    (948069, 926730) - OSX: Fixed Metal VSync on OSX 10.13 to follow Quality Settings.
+    (925709) - Particles: Removed unnecessary sync between main and graphics threads improving performance when more than one camera is rendering.
+    (938951) - Physics: Fixed an occasional crash due to orphaned 2D physics contacts.
+    (916584) - Physics: Stop invalid warning being output to console when destroying a CompositeCollider2D component.
+    (928582, 941997, 795258) - Profiler: Fixed a memory leak when connection switched from player to editor.
+    (940368) - Scripting: Fixed an infinite compilation caused by being unable to delete files in Library/ScriptAssemblies on Windows.
+    (923633, 944636) - Scripting: Fixed "Unity extensions are not yet initialized" assertions when opening a project on Windows.
+    (none) - Scripting: Fixed an issue with Unity not using the latest changes made to scripts after recompile in Unity on Windows.
+    (932039) - Scripting: Fix to avoid boxing of values when invoking UnityEvents if the types of the event and listener matches exactly.
+    (898636) - Scripting: Fixed an alignment issue for 64-bit integers and doubles on Android and other non-iOS ARMv7 platforms.
+    (634364) - Scripting: Fixed an internal compiler error due to yield in a lambda statement.
+    (940280) - Scripting: Fixed use of System.Net.WebRequest in OSX Standalone player.
+    (942459) - Scripting: Fixed a crash when invalid IL code was encountered.
+    (918046) - Scripting: Fixed a crash when Ldflda opcode is used and null check was missing.
+    (912607) - Scripting: Fix debugger error of "Unable to step" when trying to step over dead code blocks
+    (935726) - Scripting: Raise MarshalDirectiveException rather than aborting when invalid array marshaling directive is encountered.
+    (935563) - Scripting: Avoid stack overflow from occurring in Unity liveness logic (asset GC).
+    (940012) - Scripting: Fixed Marshal.StructureToPtr when a field type is a multidimensional array of blittable types.
+    (931981) - Scripting Upgrade: Report GC pause time correctly in profiler.
+    (935845) - Scripting Upgrade: Avoid allocating GC memory when calling List.Sort with Comparer`1.
+    (944305) - Scripting Upgrade: Fix "About" window not displaying correctly when using latest scripting runtime.
+    (941204) - Scripting Upgrade: Fixed a crash when using managed debugger on OSX.
+    (941391) - Scripting Upgrade: Fixed a crash when constructing delegate on null reference with virtual method target.
+    (926881) - Scripting Upgrade: Fixed a crash when inspecting values in managed debugger.
+    (944152) - Scripting Upgrade: Fixed a hang when closing Editor.
+    (921175) - Scripting Upgrade: Fixed a hang when closing Editor after opening bug reporter.
+    (933557, 931791) - Shaders: Addressed an internal issue that was causing the same shader to be built different as part of an AssetBundle on each successive build run. This only affected certain shaders and only occurred in macOS.
+    (918041, 914981) - UWP: Fixed web request not being sent.
+    (948876, 920816) - Video: (1) is added to VideoPlayer name when added with drag-and-drop.
+    (948877, 856784) - Video: Transcoding issues with uncompressed RGBA .mov .
+    (948878, 923258) - Video: Typo in VideoPlayer editor for Audio Source property tooltip fixed.
+    (944408) - Windows Standalone: Fixed Windows Standalone player failing to load Mono when built to a path with non-ascii characters in it with .NET 4.6 runtime.
+
+Revision: b8e3f2d6c409
