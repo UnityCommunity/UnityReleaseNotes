@@ -1,0 +1,95 @@
+Unity 5.4.6f3
+
+Release notes
+
+Improvements
+
+    Android: Improved WebRequest performance.
+    Asset Bundles: Reduced SerializedFile memory usage when reading streams inside AssetBundles.
+    iOS: Added support for the 5th generation iPad.
+    Networking: Added a timeout property to UnityWebRequest, this gives coarse grain control over timeouts for webrequests. (903139)
+    UI: CanvasRenderer::OnTransformChanged will not be called when object is inactive. (815861)
+    VR: Updated Oculus plugin to 1.14.
+
+Changes
+
+    Android: Removed tapjacking protection because it causes touch input to be lost when a transparent overlay is shown on top of the Unity view.
+
+Fixed
+
+    Android: Acquire context on focus before notifying player. (837483)
+    Android: Disabled Debug markers on PowerVR Series 5 devices. (780958)
+    Android: Dropped obscured touch events to prevent tapjacking. (900194)
+    Android: Fixed a crash in WebStreamDecomp after a long sequence of reading asset bundles. (743739, 887242)
+    Android: Fixed a dangerous permission popup issue. (851523)
+    Android: Fixed a rare crash on application exit due to UnityWebStreams not getting cleaned up properly. (867508)
+    Android: Fixed an unnecessary internet permission requirement in empty project. (892203)
+    Android: Fixed manifest merging with new android sdk tools. (898979)
+    Android: Fixed pause/resume issues when loading with static splash image. (867891)
+    Android: Fixed android application building with the latest android sdk. (888859)
+    Android: Make SoftInput not take fullscreen on landscape orientation. (908868)
+    Android: SoftInput - Fixed input field hidden under keyboard when translucent flag was set.
+    Animation: Changing Animator.Speed during an animation transition will now correctly affect the cross-fade speed. (898505)
+    Animation: Fixed IK on Feet not working properly when interrupting transitions. (892043)
+    Animation: Fixed root rotation when importing a humanoid animation that used the "Copy From Other Avatar" feature. (870185)
+    Animation: Improved build and asset bundle data determinism for Human components.
+    Asset Bundles: Fix crash when loading GuiStyleState from an asset bundle (909472)
+    Build Pipeline: Fixed an issue with scene asset bundles that could cause multiple builds with the same scene generate different results. (895452)
+    Core: Fixed job system ending up with high CPU usage in certain circumstances eg. using UnityWebRequest.Send() in Editor after exiting Play mode. (879675)
+    Editor - Other: Editor internal resources can now be rebuilt in 5.4.
+    Editor: Fixed OSX editor load failure when loading on case-sensitive file systems. (890636)
+    Fix for Analytics events content type switches from Application JSON to application/x-www-form-urlencoded. (852301)
+    Fixed an issue where Android devices' rendering could freeze or incorrectly render when using secondary cameras. (859561)
+    GI: Fixed a crash when creating reflection probes from OnWillRenderObject. (873206)
+    Global Illumination: Fixed an issue where baked area light affected objects behind meshes where light shouldn't be present. (875096)
+    Graphics: D3D9 - Make sure that internal resolves don't result in a drawn pixel – i.e single white pixel when using deferred mode. (728324)
+    Graphics: Fixed a crash in GetBuildUsageTagFromAssets that was triggered by pro0ject that had ShaderVariants. (890915)
+    Graphics: Fixed a periodic crash in shadow culling job code (GenerateCombinedDynamicVisibleListJob). (882704)
+    Graphics: Fixed an issue with Assert "Texture aux property (unity_SpecCube0_HDR) should never be a built-in name!". (864237)
+    Graphics: Fixed clear artifacts on metal, if only UI camera is used in scene. (909610)
+    Graphics: Fixed forward-only objects being rendered into Depth/DepthNormals textures multiple times when they had multiple submeshes and deferred shading was used. (863954)
+    Graphics: Fixed SceneView GUI elements being very bright when HDR and Linear mode are enabled. (878724)
+    Graphics: On DirectX, avoid presenting a fresh-black frame whilst performing screen resizing. (849424)
+    Graphics: Set the ambient probe for the deferred reflections pass to fix a difference between graphics jobs and non-graphics jobs rendering. (863625)
+    IL2CPP: Fixed a a rare crash in IL2CPP on some Visual Studio installation setups with message "Unhandled Exception: System.InvalidOperationException: Builder was unable to build using selected toolchain (MsvcDesktopToolChain) or architecture (Unity.IL2CPP.Building.x64Architecture)!"
+    IL2CPP: Fixed a race condition on iOS during method initialization. (870973)
+    IL2CPP: Fixed the issue of memory snapshot profiler not showing multidimensional arrays. (888796)
+    IL2CPP: Modified the implementation of the IL Switch opcode to workaround a possible C++ compiler bug in Xcode 8.3. (898861)
+    iOS: Added support in order to enable auto-rotation while broadcasting using ReplayKit. -(861046)
+    iOS: Fixed Application.installMode for apps downloaded from AppStore (913886)
+    iOS: Fixed inclusion of ReplayKit framework in plugins. (882013)
+    iOS: Removed extra notification sent on application launch. (875180)
+    macOS: Fiexed an editor crash after Build & Run for Android device. (917985)
+    Metal: Fixed an issue with setting DontCare load flag when running multithreaded.
+    Physics: Fixed a crash caused by changing the value of the configuredInWorldSpace flag on a Joint attached to an inactive GameObject. (883312)
+    Purchasing: Fixed an issue with Unity IAP emitting DuplicateTransaction failure for all non-consumable purchases when initialized. (889321)
+    Scripting: Fixed a coroutine crash in Coroutine::CompareCoroutineEnumerator. (888302)
+    Shaders: Fixed advanced blend operations by requiring the shaders to be decorated with UNITY_REQUIRE_ADVANCED_BLEND(mode) declaration. (750307)
+    Shaders: Fixed an incorrect translation from HLSL assembly for AND and OR operands. Fixes a crash when compiling shaders for GLCore. (883080)
+    Shaders: Fixed an internal error on a GLSL shader compiling corner case. (881103)
+    Sprites: Fixed an issue where OverrideGeometry on instantiated sprites produced differing results in the Editor and Standalone. (863256)
+    Tizen: Fix a sensor bug that Input.gyro.gravity and Input.gyro.userAcceleration does not return a correct value. (931740)
+    Tizen: Resolved a crash that occurred when an app tried to exit.
+    UGUI: Fixed a crash when reparenting inactive object. (898809)
+    UGUI: Fixed a memory leak in UGUI.
+    UI: Fixed a curve preview crash not updating when points changed but bounds did not. (856734)
+    UI: Fixed a memory leak in UI::DepthSortLayer(). Fixed a crash when UI Element m_Scale value was set to a large number, in the Editor or via script (907581)
+    UI: Fixed an issue with corrupted text when text font was changed. (904688)
+    UI: Fixed an occasional masking issue when using deferred rendering path on Linux. (873678)
+    UI: Fixed scrollrect performance being slow when it had a lot of content. (856381)
+    UI: Removed an extra call to CanvasRenderer.OnTransformChanged when canvas was set to ScreenSpace.Camera render mode, and the camera was transformed (886258)
+    UnityWebRequest: Fixed Editor freeze when exiting play mode with active UnityWebRequest with custom download handler script. (880565)
+    UnityWebRequest: Fixed high CPU when WebRequest with custom download handler script was aborted. (876027)
+    UnityWebRequest: Fixed redirect in editor when not in play mode. (879749)
+    VCS: Fix for editor not checking out scene file before first write in freshly loaded project. (850239)
+    VR: Fixed a subtle timing bug on Rift that could cause a minor view stuttering in certain situations. (886841)
+    VR: Updated Oculus to version 1.13 and GearVR to version 1.13.1. Fixes plugin loading issue in paths with non-ASCII characters.
+    Windows Store: Fixed a rare case where games can get stuck in a busy loop on dual core devices. (895766)
+
+Known Issue
+
+There is a known incompatibility between Unity and Visual Studio 2017 update 3 when targeting UWP, using .NET scripting backend and building generated Visual Studio project. Please note that IL2CPP scripting backend is not affected. For more information about this issue, please refer to this forum post: https://forum.unity.com/threads/net-scripting-backend-and-visual-studio-2017-3-incompatibility.487833/
+
+Workaround: Modify HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SDKs\Windows\v10.0\ProductVersion to version older than 10.0.15063. The version provided should be installed. You can find all installed versions here - C:\Program Files (x86)\Windows Kits\10\Platforms\UAP
+
+Revision: 7c5210d1343f
