@@ -1,0 +1,42 @@
+Patch 5.6.3p4
+Released: 22 September 2017
+
+Fixes
+
+    (945338, 946060) - Android : Fixed the issue of black screen on startup on Android Oreo devices.
+    (945953) - Android : Fixed a shader compile error on devices not supporting GL_FRAGMENT_PRECISION_HIGH.
+    (935087) - Animation : Fixed alpha channel being animated when in linear color mode.
+    (921652, 937648) - Build Pipeline : Fixed the behaviour of the build process so that all the scripts get recompiled if the build process fails.
+    (none) - Editor : Fixed incorrect lighting when switching to Metal device if Editor was started in OpenGL.
+    (873467) - Editor : Fixed Callback registration failed kMaxCallback crash when entering playmode.
+    (925589) - Foundation : Fix for a fake memory leak spamming "ALLOC_TEMP_THREAD has unfreed allocations" when calling PluginImporter.SetPlatformData.
+    (726487) - GI : Fixed a case where object lighting preview was empty for meshes with no normals.
+    (925579) - GI : Fixed Shadowmask in Forward rendering when multiple directional lights are used.
+    (919234) - GI : Fixed an issue where creating a new scene in project window affected the lighting settings of other scenes.
+    (907378) - GI : Fixed environment Reflection Probe not updating when the user changed the context of the Skybox shader.
+    (829193) - Graphics : Fixed occlusion culling of shadows within the camera sightline.
+    (950977) - Graphics : [Metal] Eliminated Z-fighting artifacts on certain devices.
+    (941950) - iOS : Fixed a crash when Low Memory is signaled very early.
+    (933588, 944619) - iOS : Fixed the underlying behaviour of the iOS player in order to make the Unity window the key window after an orientation change. This was causing problems when, for example, an attempt was made to open a URL when launching FBlogin through the Unity Facebook SDK when in portrait only autorotate state.
+    (944462) - iOS : Fixed an occasional crash on iOS when using UnityWebRequest.
+    (945175) - OSX : Fix for memory leak in LocalFileSystemOSX::Enumerate when using AssetDatabase.CopyAsset.
+    (948070) - OSX : Fixed VSync for Metal on OSX 10.13 to follow Quality Settings.
+    (none) - OSX : Fix for VSync not working on OpenGL Editor.
+    (901096) - Particles : Fixed a crash when script changes quality level at runtime while Shuriken was active.
+    (916584) - Physics : Stop invalid warning being output to console when destroying a CompositeCollider2D component.
+    (928582, 941997, 795258) - Profiler : Fixed memory leak when connection switched from player to editor.
+    (942459) - Scripting : Fixed a crash when invalid IL code was encountered.
+    (918046) - Scripting : Fixed a crash when Ldflda opcode was used and null check was missing.
+    (763091) - Scripting : Fixed a crash if delegate was created on un-inflated generic type.
+    (912607) - Scripting : Fixed debugger error of "Unable to step" when trying to step over dead code blocks.
+    (931791, 936519) - Shaders : Addressed an internal issue that was causing the same shader to be built different as part of an AssetBundle on each successive build run. This only affected certain shaders and only occurred in macOS.
+    (936801) - UnityWebRequest : Fixed a possible freeze on iOS, when running multiple UnityWebRequests with custom download handler scripts.
+    (none) - UnityWebRequest : Fixed early availability of status code when UnityWebRequest was still running.
+    (none) - UnityWebRequest : Ensure that headers are available in UnityWebRequest only after all of them are received.
+    (none) - UnityWebRequest : Fixed possible issues aborting UnityWebRequest when using a custom download handler script.
+    (920106, 930441) - VR : Fixed an issue were the right eye was not rendering with Single Pass rendering and camera had Allow HDR enabled.
+    (918916, 943111) - VR : Fixed an issue whereby CommandBuffer.Blit did not work when used in CameraEvent.AfterEverything.
+    (none) - VR : Improved rendering performance of Daydream and Gear VR apps.
+    (899259) - VR : Fixed an assert IsMatrixValid (matrix) when camera's target eye was set to left or right.
+
+Revision: fbe8bd37d7fa
