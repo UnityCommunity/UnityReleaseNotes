@@ -1,0 +1,44 @@
+Patch 2017.1.1p3
+Released: 22 September 2017
+
+Improvements
+
+    2D: Sprite atlas packing will now spend less time reconciling sprite from cache atlas. Previously this was slow, especially in a new editor session.
+
+Changes
+
+    2D: Sprite atlas packing will now cancel and return an error if there exist sprite(s) with size larger than the pre-determined atlas max size.
+
+Fixes
+
+    (937147, 946596, 937126, 946595) - 2D : Editing 2D primitive asset no longer result error in console.
+    (935087) - Animation : Fixed alpha channel being animated when in linear color mode.
+    (945292) - Animation : Fixed a case where sprite and material reference were not animatable at the same time in the SpriteRenderer.
+    (945035) - Animation : Fixed a case where transition between animations makes GetIKRotation and GetIKPosition returned incorrect value.
+    (921652, 941913) - Build pipeline : Fixed the behaviour of the build process so that all the scripts get recompiled if the build process fails.
+    (941177) - Editor : Fixed prefab preview displaying all game objects in each individual game object preview during multi-selection.
+    (none) - Editor : Don't give fatal error on plugin importer query for nonexistent platform
+    (943905) - Editor : Fixed sprite preview generation.
+    (936062, 942636) - Editor : Fixed modifiers being discarded when pressing hotkey.
+    (829193) - Graphics : Fixed occlusion culling of shadows within the camera sightline.
+    (899729, 925179) - Graphics : Changing worldPos in gles2 to be fp32.
+    (950945, 950947) - Graphics : Metal: Eliminate z-fighting artifacts on certain devices.
+    (947420) - IL2CPP : Implemented a previously unimplemented internal call method to support System.Environment.HashShutDownStarted property.
+    (944939) - IL2CPP : Allow SetSocketOption to work properly for add membership and remove membership with IPv6.
+    (none) - IL2CPP : Fixed calling System.Collections.Generic.IList1<T> methods on native objects that implement Windows.Foundation.Collections.IVector1 interface and calling Windows.Foundation.Collections.IVector1<T> methods on managed objects that implement System.Collections.Generic.IList1 interface.
+    (944462) - iOS : Fixed a occasional crash on iOS when using UnityWebRequest.
+    (901096) - Particles : Fixed a crash when script changes quality level at runtime while Shuriken is active.
+    (936079) - Timeline : Fixed a crash with playable director holding a reference to a non-playable asset.
+    (936047) - Timeline : Fixed preview mode on humanoid root and custom tracks.
+    (946442) - UI : Fixed memory leak caused by profiler.
+    (936801) - UnityWebRequest : Fixed a possible freeze on iOS, when running multiple UnityWebRequests with custom download handler scripts.
+    (none) - UnityWebRequest : Fixed early availability of status code when UnityWebRequest was still running.
+    (none) - UnityWebRequest : Ensure that headers are available in UnityWebRequest only after all of them are received.
+    (none) - UnityWebRequest : Fixed possible issues aborting UnityWebRequest when using a custom download handler script.
+    (899259) - VR : Fixed an assert IsMatrixValid (matrix) when camera's target eye was set to left or right.
+    (920106, 930441) - VR : Fixed an issue were the right eye was not rendering with Single Pass rendering and camera had Allow HDR enabled.
+    (918916, 943111) - VR : Fixed an issue whereby CommandBuffer.Blit did not work when used in CameraEvent.AfterEverything.
+    (none) - VR : Improved rendering performance of Daydream and Gear VR apps.
+    (949510, 950758) - VR : Fixed a flickering image on Oculus when MSAA and HDR are disabled.
+
+Revision: 929150d2fa14
