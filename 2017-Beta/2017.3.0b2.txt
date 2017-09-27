@@ -1,0 +1,392 @@
+Unity 2017.3.0b2
+Released: September 26, 2017
+
+
+Unity 2017.3.0b2 release notes
+2017.3.0b2 Release Notes (diff since 2017.3.0b1)
+Known Issues
+    Editor: DelayedTextField will now persist the edited value when the owning window loses focus (584291, 871673, 871674, 871675, 871703)
+    Editor: Inspector doesn't immediately reflect changes in arrays when an element is deleted (627322)
+    Editor: Remote Device IP Address doesn't get updated if enter wasn't pressed (848969)
+    Package Manager: Package Manager startup freezes when a proxy is enabled without the UNITY_NOPROXY environment variable (931921)
+    Services: Fixed an issue in Collab where renamed files were not being uploaded with their new content (916233)
+
+Improvements
+    Android: [OpenGL ES] Added support for preserving the framebuffer alpha
+
+Fixes
+    Android: Fixed atlased ETC1 textures with split alpha rendering in editor outside of play mode (942923)
+    Android: Fixed realtime HDR reflection probes being black on older Android devices (776875)
+    Scripting: Fix calling MonoBehaviour.StopCoroutine on a parent IEnumerator coroutines not stopping their child IEnumerator coroutines after the second level. (935955)
+    Scripting: Fix rare coroutine crash when exiting play mode (905492)
+    Scripting: Fix rare coroutine crash when having nested coroutines (903628)
+    XR: Fix Cardboard iOS target frame rate (950229)
+    XR: Fix crash in Holographic simulator when trying to exit play mode while paused and VR not enabled (948127)
+
+The following are changes and fixes to 2017.3.0 features and regressions...
+Fixes
+    Android: Fix shader compile error on devices not supporting GL_FRAGMENT_PRECISION_HIGH (945953)
+    Physics: Fix to ensure that re-parenting is taken into account for Kinematic Rigidbody2D tracking any parent Rigidbody2D. (946765)
+    Scripting Upgrade: Fix upgrade of Unity project losing references to components from UnityEngine.VR namespace (949587)
+
+2017.3.0b2 Release Notes (Full)
+Features
+    Analytics: Added support to capture VR device refresh rate, dimension, aspect ratio, HMD tracking and Controllers tracking as part of device info and device status events
+    Animation: Added support for integer and enum animation
+    Asset Pipeline: Added AssetDatabase.ForceReserializeAssets API. This allows serialization changes to assets and metafiles caused by project upgrades to be written out seperately from regular development iterations
+    Editor: Added assembly definition files feature for script compilation pipeline in the editor. Allows you to define your own managed assemblies based upon scripts inside a folder. By splitting your project's scripts into multiple assemblies, script compilation times in the editor can be greatly reduced. Note that the latest version of Visual Studio Tools for Unity is required for this feature to work with solution and project generation for Visual Studio.
+    Editor: DX12 API can now be used in the Editor
+    Editor: Focus events and focus ring
+    Editor: MouseEnter, MouseLeave, MouseOver, MouseOut, AttachToPanel, DetachFromPanel, PostLayout events
+    Editor: Transform Tool
+    Facebook: Segmented uploader for Facebook platform
+    GI: Added support for HDR compressed lightmaps(BC6H) on PC, Xbox One and PlayStation 4. The options is enabled by setting Lightmap Encoding option from Player Settings to High Quality.
+    Graphics: Added Crunch compression support for ETC_RGB4 and ETC2_RGBA8 textures. Improved compression ratio and speed for DXT Crunch.
+    Graphics: Added support for multisampled textures in shaders. To use a multisampled texture in a shader, declare it as Texture2DMS (or, for instance, float for a single-channel texture), and then sample as described in https://msdn.microsoft.com/en-us/library/windows/desktop/dn366998(v=vs.85).aspx. The corresponding RenderTexture must be created with the bindMS flag set on the RenderTextureDescriptor, or the bindTextureMS flag can be set after creation on the RenderTexture itself.
+    Graphics: Adding in Dynamic Resolution as an engine feature debuting on Xbox One platform
+    Graphics: Screen snaps shots can now target an Image, not for a file.
+    Graphics: Support for 32 bit Mesh index buffers:
+       By default meshes larger than 65k vertices will get imported with a 32 bit index buffer; smaller meshes still use 16 bit indices.
+       Added "Index Format" setting to mesh importer to override this behavior.
+       Added Mesh.indexFormat to scripting API for meshes created at runtime.
+    Kernel: New argument: -systemallocator Disable managing of allocations in engine and use system allocations. Useful when using external tools for memory debugging.
+    Particles: Added Unlit and Surface shaders for use with Particle Systems
+    Particles: Control particle speeds without changing their directions, using a new option in the Velocity Module.
+    Particles: Ribbonized Particle Trails
+    Physics: Expose a new broadphase algorithm that is based on subdividing the world boundaries and helps to overcome the performance issues in the standard sweep-and-prune approach by exluding the excess checks of bodies that are far away but overlap each other along one of the principal axis. It's called multi-box pruning and is available in the physics settings in the editor.
+    Physics: Expose a setting that allows receiving the collision and trigger events from kinematic-kinematic and kinematic-static contact paris.
+    Physics: Expose MeshCollider cooking options that allow for much shorter cooking time. Requires the input data to be checked for validity manually.
+    Playables: New delay feature for the IPlayables
+    Playables: New Video Playables Integration
+    Profiler: Added API for custom threads profiling - Profiling.BeginThreadProfiling/EndThreadProfiling
+    Scripting: Add Mono/.NET 2.0 support for Memory Profiler (https://bitbucket.org/Unity-Technologies/memoryprofiler)
+    Services: Performance Reporting Service: Added support for MacOS native crashes.
+    Video: Movie encoding bindings in UnityEngine.Media to expose the VideoClipImporter encoders. Will be used for recording.
+    Video: Panoramic 360/180 2D/3D video workflows
+    XR: Add XR support to Experimental Scriptable Render Pipelines
+    XR: Added new UI to Daydream VR Device configuration to support new 6DOF standalone devices.
+
+Backwards Compatibility Breaking Changes
+    Graphics: DirectX 9 support has been removed from Windows Editor & Standalone. See blog post.
+    Linux: Minimum supported OS version is now Ubuntu 14.04
+    OSX: Support for targeting 32bit macOS applications removed. Existing BuildTarget.StandaloneOSX* enums deprecated, with BuildTarget.StandaloneOSX replacing them
+    SamsungTV: Support for Samsung TV has been removed.
+
+Changes
+    2D: When a Sprite is created by importing a Texture, a default Physics Shape is generated
+    Android: Removed "Export as ADT project" option
+    Asset Import: Markdown files (.md) are now recognized by the TextScriptImporter.
+    Editor: Added methods EditorGUI.EnumFlagsField and EditorGUILayout.EnumFlagsField that respect the values of the enum type and supports custom names for values 0 and ~0 (all bits set). Deprecated methods EditorGUI.EnumMaskField, EditorGUILayout.EnumMaskField, EditorGUI.EnumMaskPopup, and EditorGUILayout.EnumMaskPopup that always assume values to be 1, 2, 4, 8, and so on. (896176)
+    Graphics: Remove Allegorithmic texture compressor
+    Graphics: Updated splash screen logo with new branding style.
+    Graphics: When using custom shadow resolution on a light, this resolution won't be clamped as usual, allowing to reach up to 8k shadowmap if needed.
+    Licenses: Updated FBX license to require acceptance of FBX SDK license (https://damassets.autodesk.net/content/dam/autodesk/www/Company/docs/pdf/legal-notices-&-trademarks/Autodesk_FBX_SDK_2015_License_and_Services_Agreement.pdf)
+    Package Manager: Add "upmResetToEditorDefaults" command-line option and menu item to reset packages to Editor defaults
+    Profiler: Improved profiler data serialization for Players - lower memory overhead, better performance
+    Shaders: Concatenated matrix macros (e.g. UNITY_MATRIX_MVP) are now changed to static variables to avoid repeated calculations.
+    XR: Improvements to the way that XR devices can pause/unpause applications, particular with respect to pausing from application focus lost. Overlapping pause conditions are now handled correctly, regardless of the order in which they occur.
+
+Improvements
+    2D: Expose methods to set and retrieve Physics Shape from a Sprite
+    Android: Add new way to handle audio focus in Android Oreo
+    Android: Added a possibility to configure texture decompression format on Android devices that have no ETC2 texture format support.
+    Android: Updated gradle version and made it the default build system for android
+    Android: [OpenGL ES] Added support for preserving the framebuffer alpha
+    Animation: Added a 2D mode to the Animation Previewer
+    Animation: Added new Translation DoFs for Arms, Legs and Head for Humanoid animation and retargeting. It converts translations (aka stretch) found on imported animation to retargetable Humanoid animation.
+    Animation: Entry, Exit and AnyState StateMachine Transitions can now be copy-pasted (921705)
+    Animation: Framing a single key does not give proper context for manipulation in the curve editor, so we include neighbouring keys.
+    Animation: Support for zoom in the Animator Window.
+    Asset Import: Added "Preserve Hierarchy" toggle to ModelImporter to prevent root transform from being stripped when model has a single root.
+    Asset Import: Video clip transcoding happening during import can now be skipped if the user wants to, leading to a non-transcoded version of the video being used instead.
+    DX12: Native Rendering Plugin improvements - exposed/implemented native RenderBuffer resource retrieval, fixed multithreading issues
+    Editor: Added UnityEngine.Networking.PlayerConnection.ConnectedPlayer.Name, it will let identify connected players easier
+    Editor: Connected Players will now only show debug logging in Editor console, not all of stdout. Also added an option to disable player logging in Editor console.
+    Editor: Editmode and Playmode tests producing files during its run without proper cleanup now logs a warning.
+    Editor: Fixed over 120 missing or incomplete tooltips in the Unity Editor.
+    Editor: Highlight scenes in the project view by double click a scene file from in the Build List.
+    Editor: Now possible to adjust number of lines per log row in the Console window
+    Editor: Select Xcode version to build your project with on MacOS
+    Editor: UnityShaderCompiler tool for macOS and Linux updated to 64bit, improves shader compilation performance
+    GI: Bake shadows on terrains for legacy trees (and other prefabs used for trees). (685764)
+    GI: Fixed debuggning textures for GI. It's now easier to tell when they should be availble, and why they might be missing.
+    GI: Made spot/point falloff match realtime falloff in Progressive Lightmapper
+    GI: Only add lightmap static terrain trees to list of trees to bake (the static flag of the tree prefab is considered)
+    Graphics: Added "base vertex" functionality to Mesh.SetIndices, to allow meshes larger than 65k vertices when using 16 bit index buffer.
+    Graphics: Added non-allocating overloads for GeometryUtility.CalculateFrustumPlanes
+    Graphics: Adding GPU selection in metal MacEditor/MacStandalonePlayer
+    Graphics: GPU Instancing: Now instance properties are packed as arrays of structures.
+       That means internally we changed the constant buffer layout where multiple instance properties are present.
+       You don't have to do much to adopt the new tech. There are three changes in the instancing declaration macros, but the old shaders can be upgraded automatically.
+       For your reference, the three changes are:
+       UNITY_INSTANCING_CBUFFER_START/END are renamed to UNITY_INSTANCING_BUFFER_START/END.
+       UNITY_INSTANCING_BUFFER_END now takes an arrayName in the parentheses.
+       UNITY_ACCESS_INSTANCED_PROP now must be provided with the arrayName in the first argument to indicate where this property comes from.
+       The CPU-side processing of instance property values are optimized and off-loaded to worker thread (if graphics jobs are not enabled) to further reduce CPU cost.
+    Graphics: Improved documentation for graphics hardware tiers
+    Graphics: Improved motion vectors precision when dynamic batching is disabled
+    Graphics: Point light realtime shadows optimized for D3D11
+    Graphics: Update compute shader API: Add SetMatrix, SetMatrixArray and SetVectorArray for SetComputeXXX and for command buffer
+    Graphics: Various performance and memory consumption optimizations to the Vulkan renderer
+    Graphics: Vulkan: Initial multidisplay support (Windows/Linux)
+    Graphics: [Metal] Eliminate Z-fighting artifacts on certain devices
+    iOS: Exposed PlayerSettings.iOS.disableDepthAndStencilBuffers in scripting API (938696)
+    iOS: [Metal] Improved render thread scheduling
+    Kernel: Job system optimisation which reduces CPU usage on job worker threads in specific scenarios.
+    Linux: Enable Wayland support (experimental, requires -force-wayland command line argument)
+    Linux: Update to SDL 2.0.5
+    Mobile: Engine code stripping now works on Android.
+    OSX: Fixed input configuration behaviour in launcher window, sharing code used elsewhere
+    Package Manager: Allow user to reset project packages to Editor defaults
+    Particles: Added a "Simulate All" checkbox for previewing all looping Particle Systems in Edit Mode
+    Particles: Added an option to the Scene View FX dropdown to toggle the visibility of Particle Systems.
+    Particles: Display particle stats in Editor Play Mode for selected systems.
+    Particles: Moved Resimulate and Show Bounds from the Inspector to the Scene View Overlay
+    Particles: Support meshes using lines/linestrips for particle Shape Module spawning (931662)
+    Profiler: Added experimental possibility to use Deep Profiler in Players with Mono runtime
+    Scripting: Added a fastpath which avoids boxing of value types when a UnityEvent invokes listeners with the exact same argument types (932039)
+    Testing: Introduced [RequirePlatformSupport] in the Editor Tests framework, allowing tests to be marked as requiring support for particular platforms to be installed
+    Testing: The -testCategory command line argument, to select the category of tests to run, now supports regular expressions
+   Timeline: Added Multi-selection capabilities to the clip inspector
+    Timeline: Copy/Paste workflow improvements
+    Timeline: Various clip snap improvements :
+       Improved snap precision
+       Added Multi selection clip snap support
+       Double side snap hint
+       Ctrl + mouse move to toggle snap on the fly (moving clip only)
+       No snap on Muted track
+       Auto snap on clip asset duration and loop ends
+    UI: All Editor tabviews now use FitToContents for button contents with flexible space on either side of toolbar instead of filling window width
+    UI: Cache eventCamera access in Raycast() to avoid calling Camera.main many times
+    UI: Improved UI for currently selected profiler connection
+    UI: Improving MarkLayoutAsDirty by early-exiting check loop, inlining check and removing list manipulation
+    UI: Performance improvements to GraphicRaycaster and EventSystem (934842)
+    WebGL: Changed WebGLExceptionSupport.Full to WebGLExceptionSupport.FullWithStacktrace and added WebGLExceptionSupport.FullWithoutStacktrace
+    Windows: Added support for proxy setup on UWP.
+    XR: Added support for Single-Pass stereo rendering on MacOS
+    XR: Improved rendering performance of Daydream and Gear VR apps
+    XR: Improved VR Terrain Trees: fixed billboard trees rotating all the time as viewer moves in VR, better transition of 2D to 3D trees, fast "sort-independent" trees with alpha-to-coverage blending and MSAA , billboard texture aliasing improvements (733507, 946544)
+    XR: Update Google VR NDK to 1.80
+    XR: XR supports jittered projection matrices (for use with TAA) (873685)
+
+API Changes
+    2D: New methods for Sprite to set/retrieve Physics Shape: GetPhysicsShapeCount, GetPhysicsShapePointCount, GetPhysicsShape, OverridePhysicsShape
+    Animation: Add AnimationCurve.Constant()
+    Animation: Animator.CrossFade() and Animator.CrossFadeInFixedTime() can now set the transition time
+    Animation: The structure AnimatorTransitionInfo now has a "duration" property that tells the duration of the current transition, as well as a "durationUnit" property that tells in which unit is expressed this duration: fixed (in seconds) or normalized (in percentage).
+    Build Pipeline: Deprecated BuildTarget.StandaloneOSXIntel, BuildTarget.StandaloneOSXIntel64 and BuildTarget.StandaloneOSXUniversal. BuildTarget.StandaloneOSXUniversal gets upgraded into new BuildTarget.StandaloneOSX that is the only option for targeting macOS in going forward
+    Caching: Added overloaded version of ClearCache() that can clear the cached AssetBundles which are unused longer than the given expiration time.
+    Editor: Added methods EditorGUI.EnumFlagsField and EditorGUILayout.EnumFlagsField that respect the values of the enum type and supports custom names for values 0 and ~0 (all bits set). (896176)
+    Editor: Deprecated methods EditorGUI.EnumMaskField, EditorGUILayout.EnumMaskField, EditorGUI.EnumMaskPopup, and EditorGUILayout.EnumMaskPopup that always assume values to be 1, 2, 4, 8, and so on. (896176)
+    GI: Light.isBaked and Light.alreadyLightmapped are no longer supported. Please use Light.bakingOutput.isBaked (and other members of Light.bakingOutput) instead.
+    GI: Renamed LightmapEditorSettings.Lightmapper members: LightmapEditorSettings.Lightmapper.Radiosity to LightmapEditorSettings.Lightmapper.Enlighten and LightmapEditorSettings.Lightmapper.PathTracer to LightmapEditorSettings.Lightmapper.ProgressiveCPU. Automatic upgrade through the scriptupdater is available.
+    IMGUI: Added GUI/GUILayout.Toolbar method with new GUI.ToolbarButtonSize enum parameter to support Fixed and FitToContents modes for button contents
+    IMGUI: Lowercased EventType enums are now obsolete and upgraded to their corresponding uppercased variants
+    iOS: Added request review API for the App Store via iOS.Device.RequestStoreReview
+    Playables: AudioClipPlayable.IsPlaying() is obsolete, this method was for test purpose only and has been made public by mistake
+    Playables: IPlayable.SetPlayState() is obsolete, please use Play(), Pause() or SetDelay() now
+    Playables: New callback in PlayableBehaviour: OnBehaviourDelay, called the first frame when the playable is delayed
+    Playables: New callback in PlayableBehaviour: PrepareData, called as long as the playable is delayed
+    Playables: New methods for IPlayable: SetDelay() and GetDelay()
+    Playables: New properties in FrameData: effectiveParentDelay and effectiveParentSpeed
+    Scripting: Added AssemblyBuilder.excludeReferences
+    Scripting: Made Vector2.SmoothDamp parameters maxSpeed and deltaTime optional
+    XR: RenderViewportScale is now disabled in Deferred Rendering
+
+Fixes
+    Android: Android: Add "Low Accuracy Location" checkbox to player settings (915891)
+    Android: Android: Buildpipe - Fixed exporting for projects with chars in ProductName which are forbidden by the file system (925490)
+    Android: Fixed an issue with having lots of VBOs allocated even for an empty scene on Android during application startup (920508)
+    Android: Fixed Android not supporting asset bundles larger than 2GB (912482)
+    Android: Fixed atlased ETC1 textures with split alpha rendering in editor outside of play mode (942923)
+    Android: Fixed issue preventing apps using OBB from launching after install from Google Play
+    Android: Fixed OpenGL ES version check for Android and Android Extension Pack detection in the editor (931848)
+    Android: Fixed player crash when profiler with GPU profiling was enabled and graphics API was not OpenGL ES 3 (944118)
+    Android: Fixed realtime HDR reflection probes being black on older Android devices (776875)
+    Android: Shaders that fail to compile no longer spam the log in release builds (837845)
+    Animation: Display clip name in clip importer preview title (888864)
+    Animation: Fixed a crash when closing Animator Window (916970)
+    Animation: Fixed an exception in the transition inspector when the previewer is not docked (935015)
+    Animation: Fixed an issue where Animation Events in empty clips were not getting fired (921121)
+    Animation: Fixed an issue where the Avatar Previewer (StateMachine transitions and Animation Clips previewer) was not centering for some models (936144)
+    Animation: Fixed animation starts sliding in Blend Tree preview when having more that two animations (903883)
+    Animation: Fixed Animation Window clip popup list not alphabetically sorted (934923)
+    Animation: Fixed animations that reference script properties that are in asset bundles (920973)
+    Animation: Fixed AnimatorState's WriteDefaults not working properly on very specific setups (893779)
+    Animation: Fixed assertion message displayed when using override controllers with legacy clips (919054)
+    Animation: Fixed crash in invalid state machine transition (920625)
+    Animation: Fixed crash when changing number of input in AnimationLayerMixerPlayable at runtime. (921997)
+    Animation: Fixed default values when setting an OverrideController (810415)
+    Animation: Fixed editor freezing when duplicating badly formed state machines (913757)
+    Animation: Fixed erroneous visual feedback for the transition in the AnimatorController when transition time is negative (883899)
+    Animation: Fixed Frame-All and Frame-Selected in Animator Window
+    Animation: Fixed humanoid body position not properly animated when used in additive layer (916487)
+    Animation: Fixed interrupted transition on layers that have empty states. (920470)
+    Animation: Fixed keyframes skipped when navigating to Previous/Next keyframe in animation window (927700)
+    Animation: Fixed keyframing of multiple material selection in the animation window (934578)
+    Animation: Fixed muscle settings being reset when changing other muscle settings in the model importer.
+    Animation: Fixed non-animated values in Transform component not properly restored when previewing in Animation Window (809332)
+    Animation: Fixed property not displayed with "Default Value" identifier when last key is deleted in the curve editor (925529)
+    Animation: Fixed state machine range selection not adjusting to bigger graphs (877827)
+    Animation: Fixed unresponsive animation window when zoomed out (919500)
+    Asset Bundles: Fixed bug where incorrect error was getting thrown if an asset was included in the same AssetBundle more than once (932726)
+    Asset Import: Fixed bug with ScriptedImporter where a sub-asset added to the AssetImportContext would become the main asset, when the specified main asset was of certain built-in types
+    Asset Import: Fixed crash when importing a corrupted prefab (919220)
+    Asset Import: Fixed crash when importing some invalid .3ds files. (937949)
+    Asset Import: Fixed editor crash and visibility curves correcteness on FBX with non baked animations. (940745)
+    Asset Import: Updated SketchUp SDK to latest to support SketchUp 2015/2016/2017 (782948)
+    Audio: Audio Source occasionally became louder when played repeatedly. (921686)
+    Audio: AudioClip in Audio Source component only played the first selected audio clip. (901001)
+    Audio: AudioSource had short volume glitches at the beginning of playback when a Rigidbody was attached. (915586)
+    Audio: AudioSource volume was incorrect when re-enabling disabled AudioSource. (922299)
+    Audio: AudioSource were affected by AudioReverbZone even with the Bypass Reverb Zones setting enabled. (931206)
+    Audio: Changing Reverb Preset of an AudioReverbZone via script had no effect on audio. (802828)
+    Audio: Deleting a mixer asset from Audio Mixer window no longer causes deletion of the selected folder. (895642)
+    Audio: Fixed error when trying to undo 'Set as start Snapshot' action. (926480)
+    Audio: Fixed glitches in audio mixer group view when adding/duplicating a large number of groups. (908919)
+    Audio: Fixed incorrect display of source-listener distance when both source and listener are attached to the same game object and the game object is accelerating. (849469)
+    Audio: Mixer: Duplicated groups can now be undone. (907123)
+    Audio: On Windows it was not possible to receive information about microphone devices when its name contained special characters. (895350)
+    Audio: The audio clip no longer starts to play when auto-play is enabled in the preview window and the Game/Scene view is detached. (922827)
+    Audio: The AudioListener.pause property was not reset when exiting Play mode. (917676)
+    Audio: The first AudioMixerSnapshot.TransitionTo call incorrectly started a transition from selected snapshot instead of the defined start snapshot. (905679)
+    Build Pipeline: Fix "Must set an output directory through SetCompileScriptsOutputDirectory before compiling" error when importing some asset packages (923377)
+    Build Pipeline: Fix crash when unloading an asset bundle that contains a GameObject with a non-persistent component (807541)
+    Build Pipeline: Fixed bug where error was getting thrown if Cancel was selected in the folder dialogue for certain types of Android builds (931036)
+    Build Pipeline: Fixed editor crash when attempting to build Assetbundles from a PreProcessBuild callback (920116, 928647)
+    Build Pipeline: Fixed editor crash when reading very old serialized files (911018)
+    Build Pipeline: Modified warning message in the build player window to direct users to log in to use services (800269)
+    Editor: Changing width of LookDev window to lowest possible while HDRI panel is open throws errors (938490)
+    Editor: Crash on macOS when canceling undock of Hierarchy or Scene View (942253)
+    Editor: Don't show incorrect label inspectors on folders in the project browser (914534)
+    Editor: Fix a fatal error caused when code is trying to access a non-existing platform (for example, one that was deprecated and later removed in Unity) (943461)
+    Editor: Fix crash on shutdown after using Windows speech recognizer (946499)
+    Editor: Fix framework inspector showing only one option in Option Dependencies (930624)
+    Editor: Fix issue that caused Windows speech recognizer not to work if a bad syntax file was loaded (871461)
+    Editor: Fix modifiers being discarded when pressing hotkey (936062)
+    Editor: Fix null reference exception on scene view drop (915829)
+    Editor: Fix player build success notification
+    Editor: Fix preview generation when lighting data hasn't been baked (818075)
+    Editor: Fix progress bar display for test tools
+    Editor: Fixed "Help > Software Licenses" menu item not working when editor application has spaces in path (macOS). (914937)
+    Editor: Fixed 9-slice not working well on transform scale values that are other than Vector3.one. (933414)
+    Editor: Fixed a issue that launching the editor using -projectPath argument without a valid license results in hang on splash or no visible window (942380)
+    Editor: Fixed an issue that was preventing the execution of menu items that contained a hotkey character (e.g., '&', '_', etc) via Editor scripts. (941189)
+    Editor: Fixed an issue where GameView size would not be restricted correctly when we don't think there's enough video memory (900779)
+    Editor: Fixed an issue where LogAssert.Expect would ignore the the logtype when finding a satisfying event when running playmode and editmode tests. (935602)
+    Editor: Fixed an issue where ResourceRequest.isDone was never set when loading resources in the Editor with LoadAsync until Editor window got resized (898008)
+    Editor: Fixed bug where Object Selector would default to Scene tab for ScriptableObject and other non-GameObject/Component asset types
+    Editor: Fixed bug where Object Selector would not display objects of a custom type if their unqualified type name matched some Unity type's unqualified name
+    Editor: Fixed Build And Run button for AppleTV on non macOS (938824)
+    Editor: Fixed crash when clicking Gizmos button in Scene view. (923088)
+    Editor: Fixed editor crash on UnloadSceneAsync() when exiting play mode if two scenes are added in Hierarchy (868291)
+    Editor: Fixed Editor crash when using obsolete platform StandaloneOSXUniversal in code. (942560)
+    Editor: Fixed issue that user is not recognized as signed when open a cloud project
+    Editor: Fixed issue where Editor would crash on reload of a named scene without a scene Asset (928294)
+    Editor: Fixed issue where trying to exit Avatar Configuration would not open a new scene and lock the inspector (926815)
+    Editor: Fixed issue where you could not reload the last loaded scene, when there is an unloaded scene in the scene hierarchy. (927176)
+    Editor: Fixed issue with wrong xcode beeing used to build the project on Mac (815711)
+    Editor: Fixed NullReferenceException when selecting objects in hierarchy at the same frame they are destroyed (784805)
+    Editor: Fixed planar handles of position handle using absolute mouse position instead of relative. (920533)
+    Editor: Fixed Profiler not showing chart data after Playmode change if Scene view was set to Maximize on Play. (778068)
+    Editor: Fixed so OnHierarchyChanged event is not fired if a root GameObject added/removed is hidden. Now same behavior as non-root GameObjects.
+    Editor: Fixed so OnHierarchyChanged event is not fired if selection changes to a GameObject that shows preview area or material preview icons in the Inspector. (935289)
+    Editor: Fixed TextField changing height when entering new text and toggles not fully displaying when no text is entered (912001)
+    Editor: Fixed TreeView renaming issue when re-docking an EditorWindow (888658)
+    Editor: Fixed UIElements ScrollView having empty space when scroll bars are hidden (930065)
+    Editor: Fixed various issues in PlayerConnection and EditorConnection, player connect and disconnect should work properly now.
+    Editor: LookDev camera/objects is reset upon creating new unity scene (938493)
+    Editor: LookDev window allows meshes to be dropped from scene hierarchy (938500)
+    Editor: Removed unnecessary error in console when using point mesh topology. (930042)
+    Editor: The generated TestResults.xml when running playmode and editmode tests is now updated to be in NUnit3 format. (910845, 940839)
+    Editor: Unit tests in custom assemblies are again loaded by the test runner as playmode and editmode tests when the assembly is placed inside the assets folder. (926540)
+    Editor: [Profiler] Shows no data if docked and Game View is maximized (778068)
+    GI: Fixed issue where GI data wasn't loading properly from Asset Bundles. (924597)
+    Graphics: Convert scene view texture to LDR before drawing scene view elements. (878724)
+    Graphics: Fix second display rendering on Android/iOS when Camera.targetDisplay is not zero, Camera.targetDisplay is now completely ignored on these platforms (920394)
+    Graphics: Fix shadows when only alpha blended shadow caster are present. (930221)
+    Graphics: Fixed a crash when frustum culling local (point and spot) moving lights. (930408)
+    Graphics: Fixed GameView Stats windows & profiler to display rendered vertex/triangle counts properly when they are larger than 2 Billion.
+    Graphics: Fixed memory leak in Texture2DArray and CubeMapArrayTexture (919162)
+    Graphics: Fixed SkinnedMeshRenderers marked with "update when offscreen" not being updated when rendering via CommandBuffers. (938897)
+    Graphics: Fixed wrong texture quality beeing applyed for graphic APIs not supporting NPOT with mipmaps (881121)
+    Graphics: Increase vsync count cap from 2 to 4 to better align with what is allowed by DXGI (941921)
+    Graphics: Make flares respond to 2D colliders (911429)
+    Graphics: Provide SystemInfo.SupportsBlendingOnRenderTextureFormat() API for checking the support of blending on render texture formats (930826)
+    Graphics: Work around Metal driver issue breaking reflection probes (899153)
+    iOS: Cardboard. Enable Transition View fixed (893415)
+    Kernel: Assert no longer occurs when finding game objects that are deactivating (667483)
+    Kernel: Display correct value when mult-editing and changing property to extreme clamped value (806441)
+    Kernel: Improved error reporting for semantic YAML merges, particularly on macOS (719374)
+    Licenses: Fixed a issue that when cached refresh token & access token expired, command line activation will failed (940084)
+    Multiplayer: Force scene ID to 0 on all prefabs, fixes issue where spawning an a network object instance will create it as a scene object (866792)
+    OSX: Restore previous behaviour of stripping UnityEngine mdb files for macOS Standalone player builds.
+    Package Manager: Allow user to continue after packman resolution failure at startup (945057)
+    Package Manager: Fixed issue where Export package window contains extra folder Packages (940149)
+    Particles: Clamp properties to valid ranges when set via animation (936831)
+    Particles: Clamp properties to valid ranges when set via script (805636)
+    Particles: Improved Frame Debugger messages for when dynamic batches using Particle Systems are broken (911933)
+    Particles: Noise remap curves were still editable after remap had been disabled (923397)
+    Physics: Fix cloth prefab crash when enabling and disabling. (904655)
+    Scripting: Fix calling MonoBehaviour.StopCoroutine on a parent IEnumerator coroutines not stopping their child IEnumerator coroutines after the second level. (935955)
+    Scripting: Fix rare coroutine crash when exiting play mode (905492)
+    Scripting: Fix rare coroutine crash when having nested coroutines (903628)
+    Scripting: Fix to prevent domain reload when in play mode in the editor due to missing script reference in asset bundles (926516)
+    Scripting: Fixed crash when calling SerializedObject.CopyFromSerializedProperty(null) (927291)
+    Scripting Upgrade: Fix crash in AssemblyUpdater when property body contains reference to an obsolete API method / property (935582)
+    Scripting Upgrade: Fixed an issue where the send function from our synchronization context would fail to execute on the main thread (934819)
+    Scripting Upgrade: Fixes an issue where assemblies built with .NET 4.6 fail to be imported (922577)
+    Services: Fixed A very bad internet connexion can result on a black page when launching the editor (937367)
+    Services: Prevent collab from getting into a publish loop (932469)
+    Shaders: Addressed an internal issue that was causing the same shader to be built different as part of an AssetBundle on each successive build run. This only affected certain shaders and only occurred in macOS. (931791)
+    Shaders: Fixed non rendering light probe debug visualization in metal editor (900987)
+    Shaders: Fixing shadow precision into fp32 for mobile platforms. (896448, 899729)
+    Shaders: Shaders: Added in standard shader a warning if bump scale is used on mobile platform (828427)
+    Terrain: Fixed an issue where a terrain detail mesh would have incorrect wind animation if it uses vertex colors as weights and "Optimize Mesh Data" is enabled in Player Settings. (921107)
+    Terrain: Fixed an issue where assertions would appear if you have OnTerrainChanged message callback in your MonoBehaviour. (927365)
+    Timeline: Added snapping on multi-selected clips (883991)
+    Timeline: Fixed drag when moving mouse outside of the Timeline Window. (881880)
+    Timeline: Fixed snap to frame will snap to middle of frame if clip beginning is not snapped (879564)
+    Timeline: Fixed trimming left side of activation clip will eventually move the clip (888393)
+    UI: Fixed a bug where images would not render if they started disabled. (922641)
+    UI: Fixed a memory leak in the UGUI profiler (912789)
+    UI: Fixed broken GUI when selecting prefabs with scripts that have compile errors (930931)
+    UI: Fixed issue in which GraphicRaycaster incorrectly hit graphic elements behind the event camera's far clipping plane. (935665)
+    UI: Fixed null reference exception and malformed UI when selecting prefab referencing deleted asset (930291)
+    UI: Fixing issue where Font fallback references would not serialize properly (911613)
+    UI: Fixing issue with showing wrong data in graph due to same stat name as GFX module (930049)
+    UI: making the event systems be a list such that you can add multiple, remove one and still have the old system working without having to find every time. (840983)
+    UI: Skip RectTransform preview when parent width is zero. (859385)
+    Universal Windows Platform: Follow up fix for runInBackground (759166)
+    Video: .mov with uncompressed RGBA now supported on OSX. (856784)
+    Video: Fix for loss of audio when changing video playback speed on iOS/OSX with AudioSources (938801)
+    Video: Fixed audio getting desynchronized from video after seek operations. (889059)
+    Video: Fixed crash when closing Unity with Video preview (938819)
+    Video: Fixed crash when exiting Standalone player with active VideoPlayer (942012)
+    Video: Fixed crash when releasing VideoPlayer outside Play Mode. (930707)
+    Video: Fixed incorrect VideoPlayer naming suffix when drag-anddropping a VideoClip into the scene. (923258)
+    Video: Fixed typo in one of the VideoPlayer editor tooltips (Audio Source). (920816)
+    Video: Fixed VideoPlayer CameraNear/FarPlane RenderModes when used in conjunction with VR
+    Video: Fixed VideoPlayer Preview outside Play Mode. (931846)
+    Video: On Android, videos stop playing when trying to resynchronize. (935659)
+    Web: Fixed chunked data upload in UnityWebRequest on Standalone, iOS, Tizen, WiiU
+    WebGL: Fixed back-buffer anti-aliasing on WebGL1.0 (923698)
+    WebGL: Fixed file:// protocol warning on browsers that don't allow it (926842)
+    WebGL: Fixed Fullscreen mode on Safari (775206)
+    WebGL: Fixed server compression configuration warning (927459)
+    Windows: Fix artifacts when rendering to non-native resolution (930948)
+    Windows: Fixed reading of loca, files in UWP through WebRequest. (910488)
+    Windows: Windows: Fixed switching to full screen from windowed when using dx11. (904471, 923430)
+    XR: Change hard coded GVR Device refresh rate to use Resolution.refreshRate (948896)
+    XR: Eye textures are no longer reallocated every frame when the main camera has MSAA disabled, but it is enabled for the VR device. (919459)
+    XR: Fix an issue with canvas lagging behind when attached to a spatially tracked object while in the editor and play mode. (814569)
+    XR: Fix Cardboard iOS target frame rate (950229)
+    XR: Fix crash in Holographic simulator when trying to exit play mode while paused and VR not enabled (948127)
+    XR: Fix for GearVR HMD touch pad not working with new Input System. (934585)
+    XR: Fix hardware volume controls so they are not locked out in Cardboard (938063)
+    XR: Fixed a number of issues with the VRDevice and rendering in the game view to remove occlusion mesh.
+    XR: Fixed billboard trees moving around in VR as viewer moves or rotates. Also fix VR issue of morphing tree vertices "growing" as camera moves closer to trees (733507, 946544)
+    XR: Fixed CommandBuffer.Blit doesn't work when used in CameraEvent.AfterEverything (918916)
+    XR: Fixed crash when using Android single-pass stereo rendering with the Mock HMD (930458)
+    XR: Fixed incorrect viewport in Single-Pass Stereo when blitting between different sized render textures (945940)
+    XR: Right eye is not rendering with Single Pass rendering and camera has Allow HDR enabled on Android (920106)
