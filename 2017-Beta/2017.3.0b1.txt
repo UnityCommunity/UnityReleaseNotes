@@ -1,0 +1,98 @@
+2017.3.0b1
+Released: 25. September 2017
+
+Release notes
+2017.3.0b1 Release Notes (diff since 2017.3.0a7)
+
+Known Issues
+    Editor: DelayedTextField will now persist the edited value when the owning window loses focus (584291, 871673, 871674, 871675, 871703)
+    Editor: Inspector doesn't immeadiately reflect changes in arrays when an element is deleted (627322)
+    Editor: Remote Device IP Address doesn't get updated if enter wasn't pressed (848969)
+    Package Manager: Package Manager startup freezes when a proxy is enabled without the UNITY_NOPROXY environment variable (931921)
+    Services: Fixed an issue in Collab where renamed files were not being uploaded with their new content (916233)
+
+Features
+    Physics: Expose a new broadphase algorithm that is based on subdividing the world boundaries and helps to overcome the performance issues in the standard sweep-and-prune approach by exluding the excess checks of bodies that are far away but overlap each other along one of the principal axis. It's called multi-box pruning and is available in the physics settings in the editor.
+    Physics: Expose a setting that allows receiving the collision and trigger events from kinematic-kinematic and kinematic-static contact paris.
+    XR: Added new UI to Daydream VR Device configuration to support new 6DOF standalone devices.
+
+Changes
+    2D: When a Sprite is created by importing a Texture, a default Physics Shape is generated
+
+Improvements
+    2D: Expose methods to set and retrieve Physics Shape from a Sprite
+    Android: Add new way to handle audio focus in Android Oreo
+    Editor: Editmode and Playmode tests producing files during its run without proper cleanup now logs a warning.
+    Graphics: [Metal] Eliminate Z-fighting artifacts on certain devices
+    iOS: [Metal] Improved render thread scheduling
+    OSX: Fixed input configuration behaviour in launcher window, sharing code used elsewhere
+
+API Changes
+    2D: New methods for Sprite to set/retrieve Physics Shape: GetPhysicsShapeCount, GetPhysicsShapePointCount, GetPhysicsShape, OverridePhysicsShape
+    Animation: Animator.CrossFade() and Animator.CrossFadeInFixedTime() can now set the transition time
+    Animation: The structure AnimatorTransitionInfo now has a "duration" property that tells the duration of the current transition, as well as a "durationUnit" property that tells in which unit is expressed this duration: fixed (in seconds) or normalized (in percentage).
+    Scripting: Made Vector2.SmoothDamp parameters maxSpeed and deltaTime optional
+
+Fixes
+    Asset Import: Fixed crash when importing some invalid .3ds files. (937949)
+    Editor: Fix crash on shutdown after using Windows speech recognizer (946499)
+    Editor: Fix issue that caused Windows speech recognizer not to work if a bad syntax file was loaded (871461)
+    Editor: Fix preview generation when lighting data hasn't been baked (818075)
+    Editor: Fixed a issue that launching the editor using -projectPath argument without a valid license results in hang on splash or no visible window (942380)
+    Editor: Fixed bug where Object Selector would default to Scene tab for ScriptableObject and other non-GameObject/Component asset types
+    Editor: Fixed bug where Object Selector would not display objects of a custom type if their unqualified type name matched some Unity type's unqualified name
+    Editor: Fixed Editor crash when using obsolete platform StandaloneOSXUniversal in code. (942560)
+    Graphics: Increase vsync count cap from 2 to 4 to better align with what is allowed by DXGI (941921)
+    Kernel: Assert no longer occurs when finding game objects that are deactivating (667483)
+    Licenses: Fixed a issue that when cached refresh token & access token expired, command line activation will failed (940084)
+    Package Manager: Allow user to continue after packman resolution failure at startup (945057)
+    Physics: Fix cloth prefab crash when enabling and disabling. (904655)
+    Video: Fixed crash when closing Unity with Video preview (938819)
+    Video: Fixed crash when exiting Standalone player with active VideoPlayer (942012)
+    Video: Fixed crash when releasing VideoPlayer outside Play Mode. (930707)
+    Video: Fixed VideoPlayer Preview outside Play Mode. (931846)
+    Web: Fixed chunked data upload in UnityWebRequest on Standalone, iOS, Tizen, WiiU
+    Windows: Fix artifacts when rendering to non-native resolution (930948)
+    Windows: Fixed reading of loca, files in UWP through WebRequest. (910488)
+    XR: Change hard coded GVR Device refresh rate to use Resolution.refreshRate (948896)
+
+The following are changes and fixes to 2017.3.0 features and regressions...
+
+Improvements
+    GI: Remove warning message from Lighting Window about Mixed lights not being supported in preview version of the Progressive Lightmapper.
+    Video: No more audio glitches when seeking in videos, or when the audio of videos is underflowing.
+    XR: Updated Vuforia to version 7.0.22
+
+Fixes
+    Animation: Couldn't set the transition time in Animator.CrossFade() (941945)
+    Animation: Further fixed alpha channel being animated when in linear color mode (935087)
+    Asset Import: Check for normal maps when importing embedded materials (944362)
+    Editor: Don't give fatal error on plugin importer query for nonexistent platform
+    Editor: Fix sprite preview generation (943905)
+    Editor: Fixed editor crashes in Transform::CountNodesDeep when loading a new scene (919023)
+    Editor: Fixed editor crashing when trying to open another project, or restarting it in any other way (935345)
+    Editor: [GraphView] Framing shortcuts are not functioning correctly (948740)
+    Graphics: Added support for vertex light in forward when shadowmask mode is used. (917094)
+    Graphics: Fixed crash when certain variables of CustomRenderTexture are used in script. (942563)
+    Graphics: Fixed crash when opening Occlusion tab in a scene containing Speedtrees (940486)
+    Graphics: Fixed GL_INVALID_ENUM error with OpenGL ES when using point primitives
+    Graphics: Fixed not being able to set any Mesh on a Skinned Mesh Renderer. (946068)
+    Graphics: Fixed the normals being flipped when using DrawMeshInstanced if the previous drawcall had a negative scale. (891894)
+    Graphics: Fixed typo in Wind Zone's Pulse Magnitude tooltip (946648)
+    Graphics: Vulkan: Fix shutdown crash when running with graphics jobs
+    Multiplayer: NetworkTransport.SendMulticast causes Unity to crash (938980)
+    Scripting: Fix crash if delegate is created on un-inflated generic type (763091)
+    Scripting: Fix debugger error of "Unable to step" when trying to step over dead code blocks (912607)
+    Scripting Upgrade: Do not use the AppleTlsProvider on macOS and iOS, as Unity doesn't implement a backend for it. Instead, use the default TLS provider. (938287)
+    Scripting Upgrade: Implement stack overflow handling on Windows (922636)
+    Universal Windows Platform: Fixed "Failed to locate" exception in UWP Build Settings dialog. (949019)
+    Video: Fixed bug where multiple VideoClip resources could not be played on Standalone players. (943395)
+    Video: Fixed crash in VideoClipImporter Preview when using Legacy MovieTexture (945085)
+    Web: Ensure that headers are available in UnityWebRequest only after all of them are received
+    Web: Fix early availability of status code when UnityWebRequest is still running
+    Web: Fix possible freeze on iOS, when running multiple UnityWebRequests with custom download handler scripts (936801)
+    Web: Fix possible issues aborting UnityWebRequest when reading local file or using custom download handler script
+    XR: Fixed a bug where objects would drop out in the game view when stereo instancing is used (930018)
+    XR: Fixed inability to launch applications on HoloLens (941004)
+    XR: Fixed the issue with target eye not working with stereo instancing or multiview (895976)
+    XR: Fixed VRStats for Oculus (947215)
