@@ -1,0 +1,20 @@
+Patch 2017.1.1p4
+Released: 3 October 2017
+
+Fixes
+
+    (945953) - Android: Fixed a shader compile error on devices not supporting GL_FRAGMENT_PRECISION_HIGH.
+    (938978) - Animation: Fixed animation events firing twice when using Animator manual update.
+    (930814) - Animation: Fixed a crash when spawning an Animator with a state machine that uses OnStateMachineEnter.
+    (935602, 944933) - Editor: Fixed an issue where LogAssert.Expect would ignore the the logtype when finding a satisfying event when running playmode and editmode tests..
+    (910845, 940838) - Editor: The generated TestResults.xml when running playmode and editmode tests is now updated to be in NUnit3 format.
+    (942253) - Editor: Crash on macOS when canceling undock of Hierarchy or Scene View has been fixed.
+    (921598) - Graphics: Fixed sprite mode to be not a blank when texture type was change via script.
+    (none) - Multiplayer: Force sync internal timers internal time after io thread resuming.
+    (930933) - Particles: Fixed a performance regression when using Size modules.
+    (889059, 947404) - Video: Fixed audio getting desynchronized from video after seek operations.
+    (946558) - Windows Standalone: Fixed an issue that would sometimes cause recursive player loop error.
+    (933341, 942734) - Windows Store Apps: Fixed an issue where input was being queued on scene load.
+    (941345, 942736) - Windows Store Apps: Fixed an issue that was preventing Unity from loading if it is part of an optional store package
+
+Revision: 4b0ddcd3f6ad
