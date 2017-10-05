@@ -1,0 +1,88 @@
+Unity 5.5.5f1
+4 Oct, 2017
+
+
+Release notes
+Changes
+
+    Android: Removed tapjacking protection because it causes touch input to be lost when a transparent overlay is shown on top of the Unity view.
+
+Fixes
+
+    Analytics: Fix for Analytics events content type switches from Application JSON to application/x-www-form-urlencoded. (852301)
+    Android: Changed the threshold to recognize big cores of ARM big.LITTLE architecture better. (915806)
+    Android: Dropped obscured touch events to prevent tapjacking. (900192)
+    Android: Fixed an issue with alpha texture size in ETC1 texture compression with split alpha (924869)
+    Android: Fixed pause/resume issues when loading with static splash image. (867891)
+    Android: Make SoftInput not take fullscreen on landscape orientation. (905369)
+    Animation: Fixed an issue whereby AnimatorState's WriteDefaults was not working properly on very specific setups. (893779)
+    Animation: Fixed animating Material Vector4 properties when in linear color space. (908999)
+    Asset Bundles: Fixed a crash when loading GuiStyleState from an asset bundle. (909472)
+    Asset Bundles: Fixed a performance regression when loading assets from asset bundles that contain a very large number of objects. (887644)
+    Asset Bundles: Fixed an asset bundle loading issue causing the error "The referenced script on this Behavior is missing!" under certain circumstances. (905561)
+    Asset Bundles: Fixed an issue where calling LoadAllAssets with a type parameter could cause loading errors. (930819)
+    Build Pipeline: Fixed GameReleaseCollector crash on recursive function. (865522)
+    Editor - Other: Fixed moving multiple objects makes only one of them to move according to handles. (925765)
+    Editor: Fix to move deleted files to recycling bin on windows. (888995)
+    Editor: Fix to prevent crashes in the editor due to UI and animation. (889776)
+    Editor: Fixed assets being marked for delete instead of opened for edit in Version Control in cases where the asset was deleted and recreated (e.g. re-baking NavMeshes). (895425)
+    Editor: Fixed Security Vulnerability UNITY-SEC-844-https://unity3d.com/security Revision: 245d8623a674
+    Editor: Fixed the transform precision issue when moving multiple objects. (907854)
+    Editor: Prevent re-entrant MouseDrag in ListView causing drag&drop stuttering. (874335)
+    Editor: When Perforce is selected as the Version Control Mode in Editor Settings, make it clear that other settings cannot be edited until the Editor Settings file is opened for edit. (898826)
+    Editor: Windows editor regression on 5.5. (848131)
+    FSBTool: Re-enabled GCADPCM audio import on 64-bit Windows.
+    Global Illumination: "Bake paused in play mode" hangs on opening another scene in Play mode. (726106)
+    Global Illumination: Baked Area light affects objects behind meshes where light should not be present. (875096)
+    Global Illumination: Upgraded Enlighten SDK to 3.03.UN6.58373. Fixed the Final Gather + transparent objects regression that started occurring in Unity 5.4. (836139)
+    Graphics: Fixed a memory leak in Texture2DArray and CubeMapArrayTexture. (920457)
+    Graphics: Fixed a rare crash in SkinnedMeshRenderer because of wrongly aligned matrices. (921008)
+    Graphics: Fixed Cubemap.GetPixel returning the wrong data from a BC6H compressed cubemap. (871140)
+    Graphics: Fixed Particle System mesh wireframe in Shape Module does not display properly -(900937)
+    Graphics: Fixed UI and gizmo being rendered with the wrong gamma in scene view. (878724)
+    Graphics: Improve the documentation for RenderTexture to clarify the behaviour of RenderTexture.DiscardContents.
+    IL2CPP: Corrected a possible crash with the RegionInfo class in mscorlib.dll was incorrectly removed by the managed code linker. (930252)
+    IL2CPP: Improved error message reporting for problems with attributes during code conversion. (912004)
+    iOS : Fixed an issue where iOS screen info was retrieved for every request instead of being cached. (894273)
+    iOS: Fixed an issue where Unity would not generate icons for Spotlight and Notifications in an Xcode project. (918411)
+    iOS: Fixed Application.installMode for apps downloaded from AppStore. (913886)
+    iOS: Fixed corrupted orientation view when forcing interface orientation via script (using Screen.orientation) on iOS10. (835745)
+    IOS: Use YIELD for atomic_pause on ARM. (938975)
+    macOS: Apple File System (APFS) compatibility fix added.
+    Metal: Fixed const buffer recycling, decreases memory usage.
+    Mono: Fixed an intermittent crash in Unity (editor or player) while debugging managed code. (914171)
+    Mono: Prevent a crash that might occur when deep profiling is enabled in the Unity editor. (898854)
+    Navigation: Fixed using NavMeshAgent and NavMeshObstacle simultaneously causing Y coordinate of the object to become MaxValue. (911086)
+    NavMesh: Fixed the tile carving algorithm so that it was capable of handling colinear degenerate triangles. This was causing the generated NavMesh to have a double line on polygon and was causing a trembling movement for its associated GameObject. (905336)
+    Particles: Fix for a crash on some Android hardware caused by invalid particle data. (896001)
+    Particles: Fixed a problem with particle system bounding box calculation. (931631)
+    Particles: Fixed an occasional crash when emitting from a skinned mesh renderer shape. (907277)
+    Physics: Fix for normals issue with cloth using tiny mesh. (766851)
+    Physics: Fix to avert 'value must be greater' errors in cloth. (895771)
+    Physics: Fixed a crash that happened when continuously scaling a MeshCollider while activating and deactivating it at the same time. (878740)
+    Physics: Fixed an issue with Raycast not always detecting a CapsuleCollider2D or a BoxCollider2D. (917323)
+    Physics: Fixed an issue with Raycast not always detecting an EdgeCollider2D when attached to a Rigidbody2D in certain poses. (916478)
+    Physics: Fixed the case of CharacterController starting to ignore collisions with certain objects after a number of scene reloads. (809914)
+    Physics:Fixed the voodoo trigger events being fired to scripts when a degenerate CapsuleCollider was used. (701504)
+    Scene Management : Fixed an issue where objects marked as 'DoNotDestroyOnLoad' and were disabled could be deleted on scene load/unload. (792933)
+    Scripting: Fixed a crash when '-cleanedLogFile' was passed but no log file name was given. (859361)
+    Scripting: Fixed MonoDevelop startup crash on macOS 10.13 High Sierra. (921104)
+    Shaders: Addressed an internal issue that was causing the same shader to be built different as part of an AssetBundle on each successive build run. This only affected certain shaders and only occurred in macOS. (936520)
+    Shaders: Fixed a shader compiler error on D3D9 Shader Model 2.0 for standard shader with normal map, alpha cutout and fog. (869384)
+    Shaders: Fixed an incorrect shader translation to GLSL and Metal shader code from a logical OR on boolean vectors. Fixed shader compile errors on Vulkan eg "Shader error in 'Hidden/Post FX/Screen Space Reflection': '' : compilation terminated at line 141 (on vulkan)". (901719)
+    Shaders: Fixed an incorrect shader translation to GLSL and Metal shader code from unsigned divide operation.
+    Shadows/Lights: Fixe an issue where the attenuation texture was not entirely black in its last pixel. (751629)
+    Shadows/Lights: Fixed light halos drawing when more than 64 of them. (902205)
+    Sprites: Fixed an issue where sprites from ETC2 atlases were drawn incorrectly when sharing a packing tag with ETC1 split alpha sprites. (780763)
+    UI: Fixed a memory leak in UI::DepthSortLayer(). Fixed a crash when UI Element m_Scale value was set to a large number, in the Editor or via script. (907581)
+    UI: Fixed a rare Transform::kReceivedDueToParentTRSChanged assertion failure introduced in 5.5.3p4. (917177)
+    Universal Windows Platform: Fixed building generated UWP projects with Visual Studio 2017.3 when using .NET scripting backend.
+    Windows Store: Fixed a potential stack overflow when building a project with a large custom cursor. (909977)
+    Windows Store: Fixed an out of bounds array access assert in Mesh code. (866141)
+    Windows Store: Fixed Ctrl+C deleting input field instead of copying it. (881845)
+    Windows Store: Fixed IL2CPP not being able to build C++ code with VS 2017 Update 2. (916281)
+    Windows Store: Fixed paste when clipboard changes while the application is in background. (880362)
+    Windows Store: Fixed pressing and holding Xbox controller button leading to false keydown events during the first frame of a scene. (875834)
+    Windows Store: Fixed serialization when a serializable type derives from another serializable type in another assembly that has a serializable private field. (892653)
+
+Revision: d875e6967482
