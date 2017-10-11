@@ -1,0 +1,73 @@
+2017.3.0 Beta 4
+Released: 10. October 2017
+
+Release notes
+2017.3.0b4 Release Notes (diff since 2017.3.0b3)
+Known Issues in 2017.3.0b4
+
+    Editor: DelayedTextField will now persist the edited value when the owning window loses focus (584291, 871673, 871674, 871675, 871703)
+
+    Editor: Inspector doesn't immediately reflect changes in arrays when an element is deleted (627322)
+
+    Editor: Remote Device IP Address doesn't get updated if enter wasn't pressed (848969)
+
+    Package Manager: Package Manager startup freezes when a proxy is enabled without the UNITY_NOPROXY environment variable (931921)
+
+    Services: Fixed an issue in Collab where renamed files were not being uploaded with their new content (916233)
+
+Backwards Compatibility Breaking Changes
+
+    Tizen: Tizen mobile support has been removed.
+
+Changes
+
+    Graphics: The 'imageContentsHash' member, which was previously only accessible using the RenderTexture API, can now be accessed for all Texture objects. (952466)
+
+Improvements
+
+    Asset Import: Exposed ModelImporter.MaterialLocation to allow the user to switch the material import location in AssetPostprocessor scripts.
+
+    Graphics: GPU Instancing:
+        On most platforms a feature called "flexible instancing array sizes" is introduced where user doesn't need to specify the instancing array sizes any more. Instead, it is figured out from the next draw's instance count.
+        By always taking the maximum constant buffer size allowed by the device then divide by the instance data structure size, instance batch count can be further improved, especially on OpenGL and Metal.
+        Shader compiling time for instancing variants are greatly reduced.
+        We observed moderate performance improvements especially for scenes with lots of small batches. Could be worth checking out if you rely on Unity renderloops to automatically batch instances for you.
+
+Fixes
+
+    2D: Fix ArgumentOutOfRangeException thrown when attempt to move point outside of the sprite rect in Sprite Editor while holding control key (946546)
+
+    Web: Fixed resource leak when aborting a UnityWebRequest that downloads an AssetBundle
+
+The following are changes and fixes to 2017.3.0 features and regressions...
+Improvements
+
+    Graphics: Metal: Fix occasional GPU hangs when dispatching compute shader (950983)
+
+    Multiplayer: Web socket batch sending (improved performance of sending for websockets)
+
+Fixes
+
+    2D: Fix ReflectionTypeLoadException from TilePalette when TilePalette is opened with 4.6 .Net and a user assembly cannot be loaded (952556)
+
+    2D: SortingGroup applies sorting changes when child objects are duplicated or added dynamically (951394)
+
+    Android: Fix setting multiple response headers with same name in UnityWebRequest (944091)
+
+    Animation: Fixed NullReferenceException in BlendTree inspector. (948661)
+
+    Editor: fixed: Text in TextField goes beyond field borders (931957)
+
+    Physics: Ensure that the PlatformEffector2D ignores any contacts involving trigger colliders. (950833)
+
+    Physics: Ensure that when a Collider2D material changes, any existing contacts change to match the material properties. (953653)
+
+    Physics: Ensure that when a Rigidbody2D is set to "StartAsleep" sleep mode that any initial contacts do not wake it. (941024)
+
+    Web: Fix regression: WWW.responseHeaders should never return null (949038)
+
+    Web: UnityWebRequest: fix POST key/value dictionary containing very long values (946124)
+
+    Windows: Fixed Windows Standalone displaying blank icon on the window corner (954635)
+
+    XR: Update UI for Daydream head tracking support
