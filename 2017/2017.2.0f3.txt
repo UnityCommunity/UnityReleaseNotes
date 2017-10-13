@@ -1,0 +1,46 @@
+Unity 2017.2.0f3
+12 Oct, 2017
+
+2017.2.0f3 Release Notes (diff since 2017.2.0f2)
+Changes
+
+    Package Manager: Moved the location of the project packages manifest from /UnityPackageManager/Project to /UnityPackageManager.
+
+Improvements
+
+    Services: Updated Unity Ads to version 2.1.1.
+
+Fixes
+
+    Licenses: Editor can now read computer names containing unicode strings. (954004)
+
+    XR: Android density (screen resolution) changes no longer result in a crash. (950540)
+
+The following are changes and fixes to 2017.2.0 features and regressions...
+Improvements
+
+    Multiplayer: Improved batch sending for web sockets.
+
+Fixes
+
+    Editor: Fixed race condition that could cause Editor to freeze on entering play mode. (954551, 956287)
+
+    Editor: Resolved an issue where reverting changes to a prefab would corrupt the prefab. (696346, 864619, 883861, 931300, 931877)
+
+    Graphics: Fixed crash when opening Occlusion tab in a scene containing Speedtrees. (940486)
+
+    iOS: Fixed iOS11 crash when launching app in landscape mode. (949029)
+
+    iOS: Fixed startup crash on iOS 7.x and OSX 10.9.x. (957572)
+
+    Package Manager: VCS plugins now track the Package Manager manifest. (949497)
+
+    Particles: Fixed issue whereby emission bursts did not upgrade correctly when updgrading a project from an earlier version of Unity. (956329)
+
+    Windows: Fixed case of Windows Standalone displaying a blank icon in the corner of window. (954635)
+
+    XR: Fixed crashes when running Holographic Simulator in Editor. (949293)
+
+    XR: Fixed issues with using renderViewportScale on WindowsMR.
+
+Revision: 46dda1414e51
