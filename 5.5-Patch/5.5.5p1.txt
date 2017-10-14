@@ -1,0 +1,18 @@
+Patch 5.5.5p1
+Released: 13 October 2017
+
+Fixes
+
+    (945338, 946061) - Android: Fixed black screen on startup on Android Oreo devices.
+    (873467) - Editor: Fixed the Callback registration failed kMaxCallback crash when entering playmode.
+    (950978) - Graphics: [Metal]Eliminate Z-fighting artifacts on certain devices.
+    (910406) - Graphics: Fixed an occasional flicker of graphics elements on metal.
+    (921598) - Graphics: Fixed Sprite Mode regression in the Inspector Import Settings so it defaults to Single rather than None, when an image was imported.
+    (934878, 953124) - iOS: Addressed a compatibility issue that was preventing apps from compiling for the iOS 11 Simulator.
+    (952020, 952233) - Metal: Fixed a shader compilation regression on macOS 10.11.6 and iOS 8.x and earlier.
+    (935563) - Mono: Avoid stack overflow from occurring in Unity liveness logic (asset GC). Note that this has been fixed only for both standalone and mobile platforms.
+    (743134) - UI: Fixing an issue with Input Field caret not masking properly.
+    (905337, 958707) - UI: Fixed an issue whereby the CanvasManager cleared the stencil buffer every frame.
+    (913717) - XR: Fixed a crash in ovrp_SetOverlayQuad3 in player when entering/exiting fullscreen mode on PC.
+
+Revision: 8a9b2336c562
