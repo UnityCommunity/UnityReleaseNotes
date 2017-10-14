@@ -1,0 +1,56 @@
+Patch 2017.1.2p1
+Released: 13 October 2017
+
+Improvements
+
+    Editor: Fixed instabilities within Integration tests, namely suites, ProfilerSuite.ProfilerDynamicSampleTests, ProfilerSuite.ProfilerCustomSamplerTests.
+    Multiplayer: Increased send bandwidth for web sockets.
+    Video: No more audio glitches when seeking/undefflow hapens during playback of VideoPlayer.
+
+Fixes
+
+    (934735) - Android: Fixed an issue where "Success" message was shown on failed builds.
+    (913546) - Android: Fixed corrupted textures with mip maps on phones with VideoCore gpus
+    (946291,941214) - Android: Fixed an issue where apk signing would fail when using certain symbols in the passwords.
+    (930354) - Animation: Fixed a crash when opening an animator controller with a circular reference through StateMachineBehaviours.
+    (931944) - Asset Pipeline: AssetDatabase.GetSubfolders now returns paths correctly, and API documentation has been updated to reflect that it takes a relative path as an argument.
+    (938617) - DX12: Fixed constant buffer memory being overwritten in certain circumstances.
+    (925955) - DX12: Fixed bad pipeline state issue causing errors.
+    (none) - DX12: Fixed copy queue memory leak.
+    (905397) - Editor: Fixed a crash when a cubemap with invalid metafile was imported.
+    (940084) - Editor: Fixed command line activation failed when there is a old cached access token.
+    (942923) - Graphics: Fixed atlased ETC1 textures with split alpha rendering in Editor outside of play mode.
+    (950989) - Graphics: Metal: Fix occassional GPU hangs when dispatching compute shader
+    (935870) - Graphics: Import Settings: Fixed changing texture type to Normal map not resetting existing alphaIsTransparency setting.
+    (922769) - Graphics: Fixed "Assertion failed: 'IsNormalized(normal)'" when computing spotlight frustum planes.
+    (914192) - Graphics: Fixed OpenGL rendering to specific mip level in certain circumstances.
+    (840231) - Graphics: Clarified behaviour for RenderTexture.autoGenerateMips specifically when using Graphics.CopyTexture.
+    (891510) - Graphics: Added GL support to be able to bind sRGB textures as RWTextures i.e. for compute shaders in linear rendering mode.
+    (none) - Internal: Fixed some test runs returning true when calling 'IsHumanControllingUs'.
+    (none) - iOS: Added identification enums for iPhone 8, 8+ and X.
+    (944301) - iOS: Fixed a multithreading issue where downloading and aborting a lot of files was causing instabilities
+    (847499) - Lighting: Lightmap import max size fix added.
+    (935633) - Particles: Fixed an issue whereby Box Shape changed emission direction when scaled to 0.
+    (934787) - Particles: Fixed am issue where Particle System could spawn bursts twice in some situations.
+    (930005) - Particles: Fixed UI errors when using Planes collision mode.
+    (944029) - Particles: Fixed batching issues when using Generate Lighting Data on Particle Trails.
+    (944205) - Particles: Fixed an issue where Horizontal billboards had an incorrect vertex normal.
+    (950833) - Physics: Ensure that the PlatformEffector2D ignores any contacts involving trigger colliders.
+    (941024) - Physics: Ensure that when a Rigidbody2D is set to "StartAsleep" sleep mode that any initial contacts do not wake it.
+    (953653) - Physics: Ensure that when a Collider2D material changes, any existing contacts change to match the material properties.
+    (920303) - Shaders: Added errors in UsePass/Fallback snippets as runtime errors so they get properly cleared when the source shader is updated.
+    (933203) - Shaders: Fixed #pragma target 4.0, 4.6, 5.0 not working on some Android devices.
+    (none) - Video: Fixed VideoPlayer CameraNear/FarPlane RenderModes when used in conjunction with VR.
+    (938819) - Video: Fixed a rash at TestAndRemoveObject when closing Unity with video preview playing.
+    (930707) - Video: Fixed a rash in mono_marshal_get_cache when reentering Play mode after video clip was previewed.
+    (931846) - Video: Fixed an issue whereby video Clip Preview works only in Play mode.
+    (942012) - Video: [Windows][Standalone] Fixed a crash when exiting standalone 'UnityPlayer.dll caused an Access Violation'.
+    (943241) - WebGL: Fixed MS Edge detection.
+    (946393) - WebGL: Fixed division by zero when AudioSource.pitch is zero.
+    (949858) - WebGL: Fixed Timeline crash on missing DSPConnection::setMix().
+    (950574) - WebRequest: Fixed resource leak when aborting a UnityWebRequest that downloads an AssetBundle.
+    (950540) - XR: Fixed handling of Android density (screen resolution) changes to avoid a crash.
+    (931397) - XR: Fixed black screen on startup on Cardboard when GLES2 or GLES3 was used.
+    (950229) - XR: Fixed Cardboard iOS target frame-rate.
+
+Revision: c2ed782bb21e
