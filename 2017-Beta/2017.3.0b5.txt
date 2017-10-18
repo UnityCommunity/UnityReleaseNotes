@@ -1,0 +1,53 @@
+Unity 2017.3.0b5
+Released: October 17, 2017
+
+Unity 2017.3.0b5 release notes
+2017.3.0b5 Release Notes (diff since 2017.3.0b4)
+Fixes
+
+    UI: Fixed issue in RectTransform where changes would be lost if applied before Activating the GameObject. (953409)
+
+The following are changes and fixes to 2017.3.0 features and regressions...
+Improvements
+
+    Editor: Add "Select all" and "Deselect all" buttons for platforms to Assembly Definition Files inspector
+
+    iOS: Add identification enums for iPhone 8, 8+ and X.
+
+Fixes
+
+    2D: Fixes the generation of Sprite Physics Shape for Sprites when the Texture is set to multiple Sprites mode, has no user Sprite Physics Shape set and does not generate a tight mesh for the Sprite.
+
+    Animation: Fixed bool property not properly restored to initial value when exiting animation window preview. (947491, 956124)
+
+    Animation: Fixed CurveField not updating animation curve when reference changes from render to render. (952170)
+
+    Asset Pipeline: Fixed an issue where AssetDatabase.GetSubFolders() didn't return any results, and updated the manual to reflect that this method only accepts relative paths (931944)
+
+    Editor: Fix compilation pipeline errors when using .asmdef filenames with multiple extensions (dots in the filename) (954642)
+
+    Graphics: Fixed asserts when animations disable newly visible renderers (950215, 951844)
+
+    iOS: Fix startup crash on iOS 7.x and OSX 10.9.x (957571)
+
+    Physics: Ensure that we correctly match enter/exit collision/trigger callbacks when a single simulation step causes a contact to stop then start again. (932044)
+
+    Physics: Removed severe penalties for usage of auto-sync (940805, 954384)
+
+    Scripting: Fix issue with AssemblyBuilder not triggering CompilationPipeline.assemblyCompilationStarted and CompilationPipeline.assemblyCompilationFinished
+
+    Scripting: Fix issue with CompilationPipeline.assemblyCompilationStarted and CompilationPipeline.assemblyCompilationFinished not getting called in some cases
+
+    Scripting: Fix issue with exception being thrown during CompilationPipeline.assemblyCompilationStarted and CompilationPipeline.assemblyCompilationFinished events causing infinite compilation
+
+    Scripting Upgrade: Fix upgrade of Unity project losing references to components from UnityEngine.VR namespace (949587)
+
+    UI: Fix crash when batch material is null (935112)
+
+    UI: Fixed many bugs/performance problems caused by driven properties in uGUI by reverting to the 2017.1 driven property system.
+
+    Windows: Fix Loading animation on cursor continues to play after the game is loaded. (860330)
+
+    Windows: Fixed pause when transitioning into first scene after showing splash screen. (945779)
+
+    XR: Background image for ARCore apps are no longer stretched when running a Samsung S8
