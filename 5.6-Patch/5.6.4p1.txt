@@ -1,0 +1,50 @@
+Patch 5.6.4p1
+Released: 20. October 2017
+
+Improvements
+
+    Global Illumination: Added ATrous filter for the Progressive Lightmapper.
+    iOS: Add identification enums for iPhone 8, 8+ and X.
+    Multiplayer: Increased send bandwidth for web sockets.
+    tvOS: Implement support for 4K AppleTV icons and splashscreens.
+
+Fixes
+
+    (916719) - APIUpdater: Fixed unnecessary reference to mscorlib 4.0 being added to assemblies in some cases.
+    (none) - DX12: Fixed copy queue memory leak.
+    (938617) - DX12: Fixed constant buffer memory being overwritten in certain circumstances.
+    (925955) - DX12: Fixed bad pipeline state issue causing errors.
+    (879511) - Editor: Fixed an error messages when enabling Version Control "Work Offline" mode e.g. "InvalidOperationException: Operation is not valid due to the current state of the object".
+    (944934, 935602) - Editor: Fixed an issue where LogAssert.Expect would ignore the the logtype when finding a satisfying event when running playmode and editmode tests.
+    (940837, 910845) - Editor: The generated TestResults.xml when running playmode and editmode tests is now updated to be in NUnit3 format.
+    (950990) - Graphics: Metal: Fix occasional GPU hangs when dispatching compute shaders.
+    (667190) - Graphics: Fixed "group < 0x7fff" errors when hitting undocumented limit for LOD groups.
+    (930666) - Graphics: Report an error instead of crashing when Mesh has invalid positions e.g. NaN.
+    (932065) - Graphics: Fixed camera rendering to a temporary RenderTexture from clearing the stencil bits when it shouldn't i.e. for HDR cameras.
+    (926718) - Graphics: Fixed a crash in CameraStackRenderingState::ReleaseResources e.g. searching in Hierarchy window.
+    (933768) - Graphics: Fixed D3D11 errors in scenes containing a Camera that has HDR enabled and depth-only clear.
+    (921598) - Graphics: Fixed the Sprite Mode in the Inspector Import Settings so it defaults to Single rather than None, when an image is imported.
+    (939897) - Graphics: Fixed an issue where off-screen SkinnedMeshRenderer with 'update when off-screen' enabled was not skinned.
+    (950215) - Graphics: Fixed asserts when animations disable newly visible renderers.
+    (935563) - IL2CPP: Avoid stack overflow from occurring in Unity liveness logic (asset GC).
+    (944939) - IL2CPP: Allow SetSocketOption to work properly for add membership and remove membership with IPv6.
+    (none) - IL2CPP: Fixed calling System.Collections.Generic.IList1 methods on native objects that implement Windows.Foundation.Collections.IVector1 interface and calling Windows.Foundation.Collections.IVector1 methods on managed objects that implement System.Collections.Generic.IList1 interface.
+    (949032) - iOS: SystemInfo.supportedRenderTargetCount now correctly returns 8 for devices that support it.
+    (939661) - Lines: Fixed a case where looping lines with corner vertices were causing graphical corruption.
+    (952232, 952020) - Metal: Fixed a shader compilation regression on macOS 10.11.6 and iOS 8.x and earlier.
+    (none) - Multiplayer: Fixed update timers internal time after io thread resuming.
+    (898217) - OSX: Application.persistentDataPath always returns. Library/ApplicationSupport (instead of occasional Library/Caches).
+    (954747) - OSX: Fixed High Sierra OS freeze while using Local Cache Server.
+    (936628) - Particles: Fixed an issue where the ParticleSystem.Emit() was ignoring the playback time when reading the Main Module curves/gradients.
+    (937693) - Particles: Fixed an issue where Sorting Fudge was incorrect when using a Custom Sort Axis on a camera.
+    (910284) - Particles: Fixed an issue where some Shape Module properties could become corrupt during an upgrade (Radius, Arc, Random Direction).
+    (932044) - Physics: Ensure that the enter/exit collision/trigger callbacks are correctly matched when a single simulation step causes a contact to stop then start again.
+    (none) - Profiling: - Fixed various instabilities with Integration tests, namely suites ProfilerSuite.ProfilerDynamicSampleTests and ProfilerSuite.ProfilerCustomSamplerTests.
+    (930803, 904652) - Resource Management: Optimized the loading of assets performed via Resources.Load. This addresses a performance regression reported in Android platforms.
+    (925180, 899829) - Shaders: Fixed an issue with shadows precision on mobile platforms.
+    (944301) - UnityWebRequest: Fixed a resource leak when aborting an AssetBundle download, leading to higher memory usage and sometimes CPU throttling.
+    (946559) - Windows Standalone: Fixed an issue that caused recursive player loop error when moving window around.
+    (none) - XR: Fixed handling of Screen resolution changes, especially in VR
+    (931397) - XR: Fixed black screen on startup on Cardboard when GLES2 or GLES3 is used.
+
+Revision: e67c4b7007d5
