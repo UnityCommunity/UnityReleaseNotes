@@ -1,0 +1,152 @@
+2017.3.0 Beta 6
+Released: 24. October 2017
+
+Release notes
+2017.3.0b6 Release Notes (diff since 2017.3.0b5)
+Known Issues in 2017.3.0b6
+
+    Animation: Can't deselect a state machine selection in the animator controller anymore (950805)
+
+    Asset Import: [TextureImporter] Override fails to work with textures that contain alpha and the format does not (948116)
+
+    Cache Server: [macOS][High Sierra] Operating System freezes when changing Cache Server Mode multiple times (954747)
+
+    Editor: TransformHierarchy is not created when accessing a AsyncLoaded GameObject before the AsyncLoad is complete (860938)
+
+    Editor: Unity doesn't start when blocked by firewall or when internet connection is poor (937499)
+
+    Editor: [Mac] Crash on window close after interacting with object picker (939211)
+
+    Facebook: Facebook Platform support throws BadImageFormatException error and prevents building (956872)
+
+    SceneManager: "corrupted scene: Failed to unload 'ProjectSettings/UnityAdsSettings.asset" error in console (826788)
+
+    Scripting: Instantiating a prefab after creating a list with type "ResourceRequest" after a while loop crashes the Editor (908339)
+
+    Scripting: Unity extensions are not yet initialized assertions at project opening (923633)
+
+    Universal Windows Platform: [WSA] System.IO.DirectoryNotFoundException when exporting to WSA player (UWP/.NET Backend) with long project folder (959984)
+
+    XR: Crash in UnityEngine.XR.WSA.Input.InteractionManager:Initialize (954044)
+
+    XR: [Android] Exception while initializing GoogleVR from Unity library using Gradle build system (Release build) (946104)
+
+
+API Changes
+
+    Asset Import: Applied user feedback to ScriptedImporters (Experimental feature): API signature changes and constraints removal.
+
+    Playables: New method added to allow building or rebuilding the graph without initiating Play(): PlayableDirector.RebuildGraph
+
+
+Fixes
+
+    Web: Fix reading of local files (in Pictures/Documents/User directories) in UWP through WebRequest and WWW (910488)
+
+
+The following are changes and fixes to 2017.3.0 features and regressions...
+Fixes
+
+    Android: Fix header availability in UnityWebRequest on Android when response uses chunked transfer (956599)
+
+    Animation: Fix an irrelevant assert in Animation Component (943954)
+
+    Animation: FIxed an issue where Playable graphs would react differently if configured in coroutines vs Update (927919)
+
+    GI: Fix a crash in 'RenderTexture::DiscardContents' when opening the scene. (935328)
+
+    GI: Fix a crash in ApplyMaterialPassWithCache when generating lighting and Lightmap Static option is enabled. (946517)
+
+    GI: Fix Enlighten not generating lightmaps for meshes imported without UVs and with Generate Lightmap UVs option enabled. (854349)
+
+    GI: Fix exception being thrown when the backgroung color of a Reflection Probe is changed. (939947)
+
+    GI: Fix for real-time lightmaps still being present after Precomputed Real-time GI is disabled. (888351)
+
+    GI: Fix Lightmap Static tree prefabs not being able to sample lighting through light probes. (946727)
+
+    GI: Fix project build errors when Reflection Probes Projection setting in Tier1(Graphics Settings) is unchecked. (925552)
+
+    GI: Fix real-time lightmaps performance regression. (944363)
+
+    GI: Fix Reflection Probe sphere preview not being rendered in Scene View. (928456)
+
+    GI: Fix terrain artifacts caused by Enlighten terrain mesh triangulation being different from the original mesh triangulation. (754298)
+
+    Graphics: Added error message for graphics APIs that do not support texture wrap mode "mirror once" (Android Vulkan, Android GLES3 and WebGL). (912323)
+
+    Graphics: Added GetColor API to MaterialPropertyBlock. (942523)
+
+    Graphics: Emit error messages instead of assert when the screen position is out of view frustum. (947342)
+
+    Graphics: Fix incorrect definition of _ShadowCoord in AutoLight.cginc leading to unexpected compilation errors or extra useless interpolator. (924464)
+
+    Graphics: Fix Vulkan validation layer errors (on Windows) when switching to fullscreen. (941149)
+
+    Graphics: Fix Vulkan validation layer errors associated with image barriers.
+
+    Graphics: Fixed crash in SkinnedMeshRenderer::PrepareSkinCommon when SkinnedMeshRenderer has Animator and Cloth attached. (941369)
+
+    Graphics: Fixed D3D11 driver assert message and potential crash " Invalid mask passed to GetVertexDeclaration() when using post-effect" (932940)
+
+    Graphics: Fixed object with "Dynamic Occludee" property being disabled rendering in Preview window when selecting a different object. (944223)
+
+    Graphics: Fixed OpenGL errors in the Editor due to mismatched of color and depth MSAA samples.
+
+    Graphics: Fixed specific case where not all requested shader variants ending up in an asset bundle. (948053)
+
+    Graphics: Fixed Tree shadows being culled when zoomed in on Occlusion Visualization mode. (941334)
+
+    Graphics: Fixed Vulkan multiple display support.
+
+    Physics: Fix colliders missing pose updates when they were inactive during the scene load (945332)
+
+    Physics: Fix physics settings being always marked as dirty up on the editor start, even when nothing was changed (948866)
+
+    Physics: Fix Physics.ComputePenetration returning incorrect result when a collider was scaled and had it's centre offset (951233)
+
+    Physics: Fixes GameObject which has a disabled cloth component not following parent's transform (946307)
+
+    Physics: Set cloth pointer to null in SkinnedMeshRenderer when deactivating, else SkinnedMeshrenderer will try to use a de-allocated cloth object. (946356)
+
+    Scripting: Fix crash in debugger when trying to stop while a single step operation is in progress (951901)
+
+    Scripting: Save/resume entire 128-bits of xmm argument registers (952069)
+
+    Scripting Upgrade: Fix crash on OSX when socket error ENXIO is encountered (944464)
+
+    Scripting Upgrade: Fix crash when struct has array field of same type (807575)
+
+    Shaders: Disable instancing support when performing surface shader analysis. (935126, 941827)
+
+    Shaders: Fixed incorrect translation of shaders using resinfo with mask operators. (943340)
+
+    Shaders: Fixed incorrect translation to GLSL of compute shaders using bfi instructions with mask operators. (927339)
+
+    Shaders: Fixed surface shader compilation error 'unknown semantics "SV_InstanceID" specified for "instanceID" (d3d9)'. (935126)
+
+    Shaders: HLSLcc shader conversion implement missing F32TO16 and F16TO32 opcode handling.
+
+    Terrain: Fix crash when loading a non read/write enabled texture from an asset bundle. Texture will not be shown unless it is marked as read/write (915780)
+
+    Timeline: Fixed a crash from control tracks causing cycles in evaluation (949374)
+
+    Web: Fix header availability in UnityWebRequest when response has no body
+
+    Web: Fix possible crash in UnityWebRequest on Windows platforms when using UnityWebRequest with custom download handler script
+
+    XR: Eye texture resolution now works correctly when rendering with multi-pass on Windows MR
+
+    XR: Fixed "Unknown texture format ..." issue in Editor
+
+    XR: Fixed a perf regression due to a change in clear behavior
+
+    XR: Fixed an issue when blitting between RenderTextures with different VRUsage set
+
+    XR: Fixed issue where Camera.stereoSeparation was being incorrectly applied on Oculus HMDs
+
+    XR: Fixed issue with renderViewportScale on Windows MR
+
+    XR: Fixed rendering issue when using multiple cameras with different depth ranges on Windows Mixed Reality (927404)
+
+    XR: Updated the code to invalidate the depth stencil buffer of eye textures. This leads to a perf improvement
