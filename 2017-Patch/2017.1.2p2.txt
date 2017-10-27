@@ -1,0 +1,48 @@
+Patch 2017.1.2p2
+Released: 27 October 2017
+
+Improvements
+
+    iOS: Implement support for 4K AppleTV icons and splashscreens.
+
+Fixes
+
+    (930830) - AI: Fixed an unwanted gap in the navigation mesh produced by a concave edge crossing a tile boundary.
+    (956599) - Android: Fixed header availability in UnityWebRequest on Android when response uses chunked transfer.
+    (952170) - Animation: Fixed CurveField not updating animation curve when reference changes from render to render.
+    (943954) - Animation: Fixed an irrelevant assert in Animation Component.
+    (952674) - API Updater: Fixed an unnecessary reference to mscorlib 4.0 being added to assemblies in some cases.
+    (931359) - Asset Import: Fixed psd import issue where a PSD looked different from a PNG.
+    (942296) - Build: Fixed exceptions in OnPreProcessBuild halting the build process incorrectly;
+    (933679) - Build Pipeline: Implemented code optimization to reduce time spent entering playmode
+    (920537) (958238) - Build Pipeline: Fixed a crash in BuildReporting::BuildReport::BeginBuildStep caused when BuildAssetBundles was being called from an OnPreprocessBuild callback.
+    (950320) (950323) - Facebook: Minor fixes for upload package creation process.
+    (none) - Facebook: Fixed an incompatibility issue with Facebook SDK 7.10.1.
+    (939897) - Graphics: Fixed an issue where off-screen SkinnedMeshRenderer with 'update when off-screen' enabled not being skinned.
+    (950215) - Graphics: Fixed asserts when animations disable newly visible renderers.
+    (none) - Graphics: Fix startup crash on OS X 10.11 with Metal.
+    (935463) - Graphics: Fixed updating of bounding boxes for SkinnedMeshRenderers with 'Update When Offscreen' set.
+    (948887) - IL2CPP: Fixed incorrect the behavior of DateTime.TryParse with the .NET 4.6 profile.
+    (955991) - IL2CPP: Fixed an intermittent crash in the garbage collector on PS4.
+    (950637) - IL2CPP: Improve stack traces for NullReferenceException cases on iOS when Xcode 8.3.1 or later is used with release builds.
+    (947807) - IL2CPP: Adding support in IL2CPP for Module.ScopeName property, which is used by Assembly.GetModule() to find a module in an assembly by name.
+    (none) - IL2CPP: Fixed calling native ICommand interface methods on managed and native objects.
+    (950465) - IL2CPP: Fixed marshaling System.DateTimeOffset to Windows.Foundation.DateTime when passing it to Windows Runtime APIs.
+    (954747) - OSX: Fixed High Sierra OS freeze while using Local Cache Server.
+    (932044) - Physics: Fixed matching of enter/exit collision/trigger callbacks when a single simulation step causes a contact to stop then start again.
+    (946307) - Physics: Fixed GameObject with disabled cloth component not following parent's transform.
+    (948379) - Profiler: Fixed a deadlock issue when creating a profiler sampler with a duplicate name eg: Profiler.BeginSample("Destroy").
+    (953068) - Scripting: Fixed Awake containing the wrong transform values when instantiated.
+    (763091) - Scripting: Fixed crash if delegate is created on un-inflated generic type.
+    (951901) - Scripting: Fixed crash in debugger when trying to stop while a single step operation is in progress.
+    (952069) - Scripting: Fixed XMM registers getting overwritten in 64-bit mode.
+    (949127) - Scripting: Fixed alignment of 64-bit types on iOS.
+    (958346) - Scripting: Fixed hang on exit in batch mode.
+    (951780) - Terrain: Fix crash when loading a non read/write enabled texture from an asset bundle. Texture will not be shown unless it is marked as read/write.
+    (957844) - UI: Fixed issue with input when a zero Z scale or zero X & Y scale were used.
+    (none) - Video: Fixed crash when stopping the WebGL VideoPlayer if callbacks are pending.
+    (none) - Web: Fixed header availability in UnityWebRequest when response is HTTP failure or there is no body.
+    (957488) - XR: Fixed an issue with Camera.stereoSeparation being incorrectly applied on Oculus HMDs.
+    (none) - XR: Combined depth/stencil invalidation to work around a driver bug on some Android platforms.
+
+Revision: eba6bfec1bb2
