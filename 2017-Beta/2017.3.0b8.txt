@@ -1,0 +1,52 @@
+2017.3.0 Beta 8
+Released: 3. November 2017
+
+Release notes
+2017.3.0b8 Release Notes (diff since 2017.3.0b7)
+Known Issues in 2017.3.0b8
+
+    Android: Gradle builds fail when there are more than 250 files in streamingAssets (962451)
+
+    Editor: TransformHierarchy is not created when accessing a AsyncLoaded GameObject before the AsyncLoad is complete (860938)
+
+    Editor: Unity doesn't start when blocked by firewall or when internet connection is poor (937499)
+
+    Editor: [Mac] Crash on window close after interacting with object picker (939211)
+
+    Editor: [Mac] Crash on window close after interacting with object picker (939211)
+
+    Facebook: Facebook Platform support throws BadImageFormatException error and prevents building (956872)
+
+    SceneManager: "corrupted scene: Failed to unload 'ProjectSettings/UnityAdsSettings.asset" error in console (826788)
+
+    Scripting: Instantiating a prefab after creating a list with type "ResourceRequest" after a while loop crashes the Editor (908339)
+
+    Scripting: Unity extensions are not yet initialized assertions at project opening (923633)
+
+    Universal Windows Platform: [WSA] System.IO.DirectoryNotFoundException when exporting to WSA player (UWP/.NET Backend) with long project folder (959984)
+
+    XR: Crash in UnityEngine.XR.WSA.Input.InteractionManager:Initialize (954044)
+
+    XR: [Android] Exception while initializing GoogleVR from Unity library using Gradle build system (Release build) (946104)
+
+Fixes
+
+    Android: Buildpipe - Fixed longer export times because of the build report (950381)
+
+    Cache Server: Fixed several cache server bugs that would manifest as freezes/hangs or failures when reading from a cache server (943300)
+
+    Graphics: Fixed crash when importing a BC6 source texture and the destination format is RGBA8UNorm.
+
+    Graphics: Fixed crash when passing null property block to CommandBuffer.DrawMeshInstanced. (951975)
+
+    Linux: Improve native plugin lookup
+
+    Universal Windows Platform: Fix building project when its product name ends with a space or contains unicode characters (885265, 942554, 945345)
+
+    Universal Windows Platform: Fixed "AssemblyConverter running on already processed assemblies. There is something wrong with your build." error message when building on top of a built project that had its UnityOverwrite.txt file deleted (940463)
+
+    Universal Windows Platform: Fixed an inconsitent with other platforms error message "Script Error (script name): Update() can not take parameters." when those magic methods are defined in a certain order on .NET scripting backend (950025)
+
+    Universal Windows Platform: Fixed an issue where Build & Run wouldn't work with VS2017 if a project name had parentheses in it.
+
+    Windows: Fix resolution reset when switching from minimized back to fullscreen (950056)
