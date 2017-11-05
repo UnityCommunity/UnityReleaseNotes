@@ -1,0 +1,48 @@
+2017.3.0 Beta 7
+Released: 31. October 2017
+
+Release notes
+2017.3.0b7 Release Notes (diff since 2017.3.0b6)
+Known Issues in 2017.3.0b7
+
+    Android: Gradle builds fail when there are more than 250 files in streamingAssets (962451)
+
+    Editor: TransformHierarchy is not created when accessing a AsyncLoaded GameObject before the AsyncLoad is complete (860938)
+
+    Editor: Unity doesn't start when blocked by firewall or when internet connection is poor (937499)
+
+    Editor: [Mac] Crash on window close after interacting with object picker (939211)
+
+    Editor: [Mac] Crash on window close after interacting with object picker (939211)
+
+    Facebook: Facebook Platform support throws BadImageFormatException error and prevents building (956872)
+
+    SceneManager: "corrupted scene: Failed to unload 'ProjectSettings/UnityAdsSettings.asset" error in console (826788)
+
+    Scripting: Instantiating a prefab after creating a list with type "ResourceRequest" after a while loop crashes the Editor (908339)
+
+    Scripting: Unity extensions are not yet initialized assertions at project opening (923633)
+
+    Universal Windows Platform: [WSA] System.IO.DirectoryNotFoundException when exporting to WSA player (UWP/.NET Backend) with long project folder (959984)
+
+    XR: Crash in UnityEngine.XR.WSA.Input.InteractionManager:Initialize (954044)
+
+    XR: [Android] Exception while initializing GoogleVR from Unity library using Gradle build system (Release build) (946104)
+
+Changes
+
+    Android: Release gradle builds are now signed with a debug key by default and will no longer fail if no key is provided
+
+    Android: Release gradle builds no longer have proguard enabled by default
+
+Fixes
+
+    AI: Fixed unwanted gap in the NavMesh produced by a concave edge crossing a tile boundary. (930830, 959522)
+
+    Android: Partially fixed streaming assets being compressed when building with gradle (952981)
+
+    Particles: Lights module emitted lights when Maximum Lights was set to 0 (956067)
+
+    Particles: Prevent bursts being added when multiple systems are selected, as it leads to unexpected results. (958320)
+
+    Particles: Sub Emitters with rate over distance could keep emitting after their parent particle has stopped moving due to a collision (950108)
