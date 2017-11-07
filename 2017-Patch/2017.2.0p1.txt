@@ -1,0 +1,98 @@
+Patch 2017.2.0p1
+Released: 6 November 2017
+
+Improvements
+
+    2D - Exposed methods to set and retrieve Physics Shape from a Sprite.
+    2D - Sprites created by importing a texture now have a default Physics Shape generated.
+    Graphics - Added APIs to retrieve areas safe for UI rendering. Currently supported on iOS and tvOS only.
+    iOS - Added identification enums for iPhone 8, 8+ and X.
+    Shaders - Concatenated matrix macros (e.g. UNITY_MATRIX_MVP) are now changed to static variables to avoid repeated calculations.
+    tvOS - Implemented support for 4K AppleTV icons and splashscreens.
+    XR - Improved performance on Windows Mixed Reality by removing a potential thread stall that would occur whenever beginning a new frame while the previous frame had not completed presenting.
+
+Fixes
+
+    (947462) - 2D: Fixed updating an active Tilemap palette prefab not exposing it into the SceneView.
+    (951514) - 2D: Fixed TilemapRenderer showing tiles when Tilemap.ClearAllTiles() is called.
+    (952556) - 2D: Fixed ReflectionTypeLoadException from TilePalette when TilePalette is opened with 4.6 .Net and a user assembly cannot be loaded.
+    (930830)(959526) - AI: Fixed unwanted gap in the NavMesh produced by a concave edge crossing a tile boundary.
+    (945953) - Android: Fixed shader compile error on devices not supporting GL_FRAGMENT_PRECISION_HIGH.
+    (944091) - Android: Fixed setting multiple response headers with same name in UnityWebRequest.
+    (924891) - Android: Disable GPU fences for two Android 6 devices which have been found to have compatibility issues causing performance loss: HTC 10 and LG G5 SE.
+    (945292) - Animation: Fixed case where sprite and material reference were not animatable at the same time in the SpriteRenderer.
+    (945035) - Animation: Fixed case where transition between animations makes GetIKRotation and GetIKPosition returned incorrect value.
+    (952170) - Animation: Fixed CurveField not updating animation curve when reference changes from render to render.
+    (941945) - Animation: Fixed being unable to set the transition time in Animator.CrossFade().
+    (948768 947491) - Animation: Fixed bool property not properly restored to initial value when exiting animation window.
+    (931359 931267) - Asset Import: Fixed psd import issue where a psd looked different from a png.
+    (931944) - AssetDatabase: Fixed an issue where AssetDatabase.GetSubFolders() didn't return any results, and updated the manual to reflect that this method only accepts relative paths.
+    (942296) - Build: Exceptions in OnPreProcessBuild will now halt the build process correctly.
+    (941192) (958237) - Build Pipeline: Fixed a crash in BuildReporting::BuildReport::BeginBuildStep caused when BuildAssetBundles was being called from an OnPreprocessBuild callback.
+    (905397 918819) - Editor: Fixed importing a cubemap with invalid metafile crashing.
+    (948326 930624) - Editor: Fixed Plugin Inspector showing only one option in Framework Dependencies when switching to iOS platform and .NET 4.6
+    (950172) - Editor: Fixed crash when dragging component without managed instance to hierarchy.
+    (942923) - Graphics: Fixed atlased ETC1 textures with split alpha rendering in editor outside of play mode.
+    (939897) - Graphics: Fixed an issue where an off-screen SkinnedMeshRenderer with 'update when off-screen' enabled was not being skinned.
+    (950215) - Graphics: Fixed asserts when animations disable newly visible renderers.
+    (None) - Graphics: Fixed GL_INVALID_ENUM error with OpenGL ES when using point primitives.
+    (946068) - Graphics: Fixed not being able to set any Mesh on a Skinned Mesh Renderer.
+    (942563) - Graphics: Fixed crash when certain variables of CustomRenderTexture are used in script.
+    (941334) - Graphics: Fixed Tree shadows being culled when zoomed in on Occlusion Visualization mode.
+    (944223) - Graphics: Fixed object with "Dynamic Occludee" property being disabled rendering in Preview window when selecting a different object.
+    (912323) - Graphics: Added error message for graphics APIs that do not support texture wrap mode "mirror once" (Android Vulkan, Android GLES3 and WebGL).
+    (947342) - Graphics: Emit error messages instead of assert when the screen position is out of view frustum.
+    (None) - Graphics: Fix Vulkan validation layer errors associated with image barriers.
+    (941149) - Graphics: Fix Vulkan validation layer errors (on Windows) when switching to fullscreen.
+    (948053) - Graphics: Fixed specific case where not all requested shader variants ending up in an asset bundle.
+    (932940) - Graphics: Fixed D3D11 driver assert message and potential crash "Invalid mask passed to GetVertexDeclaration() when using post-effect".
+    (935463) - Graphics: Fixed updating of bounding boxes for SkinnedMeshRenderers with 'Update When Offscreen' set.
+    (942401) - iOS: Fixed screen not always automatically rotating correctly after disabling and enabling auto-rotation.
+    (949032) - iOS: Fixed SystemInfo.supportedRenderTargetCount not correctly returning 8 for devices that support it.
+    (949361) - iOS: Fixed crash in Handheld.PlayFullScreenMovie when playback ends.
+    (847499) - Lighting: Fixed maximum lightmap import size.
+    (954747) - OSX: Fixed High Sierra OS freeze while using Local Cache Server.
+    (941076) - Particles: Fixed Birth SubEmitter not always firing when using random between two constants lifetime.
+    (950833) - Physics: Fixed PlatformEffector2D not ignoring contacts involving trigger colliders.
+    (941024) - Physics: Fixed RigidBody2Ds being woken when set to "StartAsleep" sleep mode.
+    (953653) - Physics: Fixed Collider2D material changes not being propagated to existing contacts.
+    (932044) - Physics: Ensure that we correctly match enter/exit collision/trigger callbacks when a single simulation step causes a contact to stop then start again.
+    (946307) - Physics: Fixes GameObject which has a disabled cloth component not following parent's transform.
+    (953068) - Scripting: Fixed Awake containing the wrong transform values when instantiated.
+    (958250 955089) - Scripting: Fixed startup-crash on macOS 10.13 when using multiple monitors.
+    (951875 899729) - Shaders: Fixed shadow precision for mobile platforms.
+    (935126)(941827) - Shaders: Disable instancing support when performing surface shader analysis.
+    (927339) - Shaders: Fixed incorrect translation to GLSL of compute shaders using bfi instructions with mask operators.
+    (943340) - Shaders: Fixed incorrect translation of shaders using resinfo with mask operators.
+    (None) - Shaders: Fixed HLSLcc shader conversion not handling F32TO16 and F16TO32 opcodes.
+    (951780) - Terrain: Fixed crash when loading a non read/write enabled texture from an asset bundle. Texture will not be shown unless it is marked as read/write.
+    (None) - UI: Fixed many bugs/performance problems caused by driven properties in uGUI by reverting to the 2017.1 driven property system.
+    (None) - Video: Fixed VideoPlayer CameraNear/FarPlane RenderModes when used in conjunction with VR.
+    (946124) - Web: Fixed POST key/value dictionary containing very long values in UnityWebRequest.
+    (949038) - Web: Fixed WWW.responseHeaders returning null.
+    (943241) - WebGL: Fixed MS Edge detection.
+    (946393) - WebGL: Fixed divide by zero when AudioSource.pitch is zero.
+    (949858) - WebGL: Fixed Timeline crash on missing DSPConnection::setMix().
+    (931829) - Windows: Fixed ProcessMouseInWindow causing CPU spikes up to 4ms on Standalone builds.
+    (899209) - Windows: Fixed Windows touch input events being out of sync from positioning events.
+    (860330) - Windows: Fixed loading animation on cursor continuing to play after the game is loaded.
+    (946829) - XR: Fixed landscape left being forced when landscape right is disabled.
+    (931397) - XR: Fixed black screen on startup on Cardboard when GLES2 or GLES3 is used.
+    (927404) - XR: Fixed incorrect culling when using multiple cameras with Windows Mixed Reality.
+    (950519) - XR: Fixed Assert when playing Mixed Reality applications in Editor without Mixed Reality Portal running.
+    (952039) - XR: Fixed Holographic Simulation not working in Editor.
+    (943109) - XR: Eliminated errors and warnings showing per frame in console during Holographic Emulation.
+    (948814) - XR: Fixed crash in Editor when toggling play mode aftering blooming to shell on Windows Mixed Reality.
+    (956693) - XR: Fixed issue with "Unsupported texture format .." warnings appearing when XR is enabled.
+    (None) - XR: Fixed stretched background image for ARCore apps running on Samsung S8.
+    (909869) - XR: InputTracking.Recenter is now hooked up properly on Windows Mixed Reality.
+    (942154) - XR: Tracking loss screen no longer appears on WindowsMR headsets, now mimics the behavior of other platforms during tracking loss.
+    (945163) - XR: Tracking space type now falls back to Stationary when boundary hasn't been configured.
+    (946714) - XR: Fixed issue with being able to set tracking space type to Stationary.
+    (949193) - XR: Camera transform changes during and after tracking loss now mimics other platforms' behavior.
+
+Known Issues
+
+    (963224 - Graphics: Graphical glitches on certain materials when creating a build for Android devices with Vulkan API using Standard shader. -(966036) - Editor: Input field stays highlighted after Enter key is pressed.
+
+Revision: 24fd82ce573a
