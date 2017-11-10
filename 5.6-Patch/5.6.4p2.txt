@@ -1,0 +1,25 @@
+Patch 5.6.4p2
+Released: 9 November 2017
+
+Fixes
+
+(930830) (936512) - AI: Fixed unwanted gap in the NavMesh produced by a concave edge crossing a tile boundary
+(956599) - Android: Fixed header availability in UnityWebRequest when response uses chunked transfer
+(943954) (924891) - Animation: Fixed an irrelevant assert in Animation Component
+(942296) - Build: Fixed exceptions in OnPreProcessBuild not halting the build process correctly
+(920536)(920116) (958239) (947004) - Build: Fixed a crash in BuildReporting::BuildReport::BeginBuildStep caused when BuildAssetBundles was being called from an OnPreprocessBuild callback
+(935463) - Graphics: Fixed updating of bounding boxes for SkinnedMeshRenderers with 'Update When Offscreen' set
+(955082) - Graphics: Fixed an issue where performing an undo on a Static Lightmap Object caused an error related to transforms to be reported
+(963062) - OSX: Fixed hang for Metal when using MSAA on OSX 10.11 for Nvidia GPUs
+(None) - OSX: Fixed startup crash on OSX 10.11 and iOS 7 with Metal
+(946307) - Physics: Fixed GameObject with a disabled cloth component not following parent's transform
+(951901) - Scripting: Fixed crash in debugger when trying to stop while a single step operation is in progress
+(949127) - Scripting: Fix 64-bit type packing in the iOS runtime
+(959867) - tvOS: Fixed icon asset catalog setup when certain multi-layer icons are missing
+(759166) - UWP - Fixed "Run in Background" player setting not making player to ignore minimize events
+(962253) - VR: Fixed iOS Google VR Podfile not reporting the correct version
+(941166)(775206) - WebGL: Enabled fullscreen support in Safari >= 10.1
+(957491) - XR: Fixed issue with Camera.stereoSeparation being incorrectly applied to Oculus HMDs. (None) - XR: Fixed android driver issue by invalidating the depth and stencil buffers at the same time
+(892084) - XR: Fixed camera aspect ratio after disabling VR.
+
+Revision: 278fc6850ee0
