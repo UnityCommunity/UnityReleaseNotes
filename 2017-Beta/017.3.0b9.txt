@@ -1,0 +1,46 @@
+Unity 2017.3.0b9
+Released: November 12, 2017
+
+Unity 2017.3.0b9 release notes
+2017.3.0b9 Release Notes (diff since 2017.3.0b8)
+Known Issues in 2017.3.0b9
+
+    Android: Gradle builds fail when there are more than 250 files in streamingAssets (962451)
+
+    Editor: TransformHierarchy is not created when accessing a AsyncLoaded GameObject before the AsyncLoad is complete (860938)
+
+    Editor: Unity doesn't start when blocked by firewall or when internet connection is poor (937499)
+
+    Editor: [Mac] Crash on window close after interacting with object picker (939211)
+
+    Editor: [Mac] Crash on window close after interacting with object picker (939211)
+
+    Facebook: Facebook Platform support throws BadImageFormatException error and prevents building (956872)
+
+    SceneManager: "corrupted scene: Failed to unload 'ProjectSettings/UnityAdsSettings.asset" error in console (826788)
+
+    Scripting: Instantiating a prefab after creating a list with type "ResourceRequest" after a while loop crashes the Editor (908339)
+
+    Scripting: Unity extensions are not yet initialized assertions at project opening (923633)
+
+    Universal Windows Platform: [WSA] System.IO.DirectoryNotFoundException when exporting to WSA player (UWP/.NET Backend) with long project folder (959984)
+
+    XR: Crash in UnityEngine.XR.WSA.Input.InteractionManager:Initialize (954044)
+
+    XR: [Android] Exception while initializing GoogleVR from Unity library using Gradle build system (Release build) (946104)
+
+Features
+
+    Scripting: Added command line option "overrideMonoSearchPath" for desktop standalone players (OSX, Windows). "overrideMonoSearchPath" specifies an extra folder to search when Mono is loading assemblies. One intended use is to have two versions of the same project i.e. trial and full version. The assets are the same but the scripts are different. This command line option can be used to re-use the assets but load different scripts.
+
+Improvements
+
+    Physics: Cloth self and inter collision tools and technology. Improved constraint painting.
+
+API Changes
+
+    Playables: Playable.ConnectInput now takes an optional weight parameter
+
+Fixes
+
+    Scripting: Fixed issue where resetting SerializedProperty.prefabOverride for one property could incorrectly reset other properties in some circumstances. (960775)
