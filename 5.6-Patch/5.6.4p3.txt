@@ -1,0 +1,29 @@
+Patch 5.6.4p3
+Released: 20 November 2017
+
+Improvements
+
+    Android: Improve error messages from android sdk tools
+    Apple TV: Added support for attitude data coming from new AppleTV remote.
+    iOS: Add player setting to specify which device edges defer system gestures to the second swipe.
+    iOS: Add player setting to specify whether the home button should be hidden on iPhone X
+    iOS: Add support for iPhone X launch images.
+
+Fixes
+
+    (944118) - Android: Fixed player crash when profiler with GPU profiling was enabled and graphics API was not OpenGL ES 3.
+    (776875) - Android: Fixed realtime HDR reflection probes being black on older Android devices.
+    (956658) - Android: Fixed build with target sdk 21-23.
+    (934782) - Android: Fixed permissions popup crash.
+    (931038) - Android: Fixed android video player stuttering and dropping frames.
+    (934841) - Android: Fixed android video player playback lagging after activating input field.
+    (942625) - Android: Fixed symbols.zip not including symbols file
+    (943438) - Animation: Fixed assert when loading AnimationClip asynchronously in AssetBundles.
+    (926559) - Editor: Fixed lightmaps being generated even when the scene does not contain any baked light contribution.
+    (949574)GI: Progressive Lightmapper crashes with transparent shader.
+    (951089) (949036) iOS: Fixed support for fonts of Tibetan, Armenian, Braille, Georgian and Thai languages in iOS 10 and iOS 11.
+    (962350 960914) - iOS: Fixed the Screen.dpi() method in the Trampoline code not returning the correct number of DPI in iPhone 8, iPhone 8+ and iPhone X. Also fixed the iPhone 8+ and iPhone X model checking.
+    (887019) - Lighting: Fixed issue where Progressive Lightmapper was not transmitting indirect rays through translucent objects.
+    (963867 956196) - OSX: Fix Editor crash when using GLCore on High Sierra with Intel 6xxx series GPU.
+
+Revision: 11e8f66cfca7
