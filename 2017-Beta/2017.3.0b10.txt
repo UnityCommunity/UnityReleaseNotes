@@ -1,0 +1,53 @@
+2017.3.0 Beta 10
+Released: 20. November 2017
+
+Release notes
+2017.3.0b10 Release Notes (diff since 2017.3.0b9)
+
+Known Issues in 2017.3.0b10
+    Android: Gradle builds fail when there are more than 250 files in streamingAssets. Can be workarounded by using a custom file extension for the files you want uncompressed. This extension should be specified in a custom gradle mainTemplate under "noCompress". You should also remove "STREAMING_ASSETS" from the template to avoid hitting the file limit. (962451)
+    Editor: TransformHierarchy is not created when accessing a AsyncLoaded GameObject before the AsyncLoad is complete (860938)
+    Editor: Unity doesn't start when blocked by firewall or when internet connection is poor (937499)
+    Editor: [Mac] Crash on window close after interacting with object picker (939211)
+    Editor: [Mac] Crash on window close after interacting with object picker (939211)
+    Facebook: Facebook Platform support throws BadImageFormatException error and prevents building (956872)
+    SceneManager: "corrupted scene: Failed to unload 'ProjectSettings/UnityAdsSettings.asset" error in console (826788)
+    Scripting: Instantiating a prefab after creating a list with type "ResourceRequest" after a while loop crashes the Editor (908339)
+    Scripting: Unity extensions are not yet initialized assertions at project opening (923633)
+    Universal Windows Platform: [WSA] System.IO.DirectoryNotFoundException when exporting to WSA player (UWP/.NET Backend) with long project folder (959984)
+    XR: Editor crashes when entering play mode without HMD connected and XR enabled for WSA (955908)
+    XR: [Android] Exception while initializing GoogleVR from Unity library using Gradle build system (Release build) (946104)
+
+Features
+    XR: Added a new option under the Windows MR player settings called "Enable Depth Buffer Sharing". Enabling depth buffer sharing will allow the OS to better stabilize images without the need to manually set the focus plane. The following URL contains information about the benefits of image stabilization. https://developer.microsoft.com/en-us/windows/mixed-reality/hologram_stability
+
+API Changes
+    XR: Added PlayerSettings Get/SetVirtualRealitySupported, Get/SetVirtualRealitySDKs, and GetAvailableVirtualRealitySDKs for aquiring and settings the XR Settings Virtual Reality Supported toggle and Virtual Reality SDKs list.
+
+The following are changes and fixes to 2017.3.0 features and regressions...
+Fixes
+    2D: Fixed assert with Sorting Group where multiple Sorting Groups are used and one is deactivated (962872)
+    Editor: Fix crashes in webviews during shutdown (966216)
+    Editor: Fix deep profiler child samples time.
+    Editor: Fixed curve WrapModeIcon drawing when the Curve window is embedded into another window. (947024)
+    Editor: Fixed incorrect framing of GameObject hierarchies in Scene View. (957525)
+    Editor: Fixed incorrect y calculation of wrap icon in curve window. (947024)
+    Editor: Fixed issue in Collab, when a file copy fails during publish, the collabsnapshot continued to be updated erroneously (952686)
+    Editor: Fixed Scene view picking sometimes not selecting the topmost object (943051)
+    Editor: Fixed WWW class regressions (949418)
+    Editor: Particle system curve editor 'optimize' and 'remove' buttons are now always shown and are disabled instead of being hidden. (952196)
+    Editor: Removed UnityWebRequest header Transfer-Encoding: identity (960676)
+    Editor: SceneView bounds calculations now take multiple colliders and renderers into account when calculating the framing and centre point. (953301)
+    Graphics: Fixed asserts and potential memory leaks when Skinned Mesh Renderers with the "Update When Offscreen" property enabled are not visible (961692, 964998)
+    Multiplayer: Reliable message can be delivered twice
+    OSX: Fixed incorrect mouse position when running in full screen and non-native aspect ratio. (964731)
+    Package Manager: An empty folder named "etc" is no longer created at the root of Unity projects. (957000)
+    Physics: Fixed a crash on project load caused by tiny meshes (953083, 962801)
+    Physics: Fixed issue where PhysicsManager settings are reverted to default upon entering Play mode (954601, 967751)
+    Playables: Fixed crash when setting an invalid source playable (956316)
+    XR: Fixed a performance regression on Microsoft HoloLens (959749)
+    XR: Fixed Daydream applications hanging before quiting to Android home when calling Application.Quit (966173)
+    XR: Fixed forcing LandscapeLeft default Orientation on all mobile VR applications.
+    XR: Fixed Windows Mixed Reality XAML apps failing to render on Windows desktop (922492)
+    XR: Fixed Windows Mixed Reality XAML apps launching to a black screen (954629)
+    XR: Fixed Windows Mixed Reality XAML apps unable to get back to exclusive mode after blooming to the shell (953314)
