@@ -1,0 +1,54 @@
+Patch 2017.1.2p3
+Released: 21 November 2017
+
+Improvements
+
+    Apple TV: Added support for attitude data coming from new Apple TV remote.
+    Android - Improved error messages from android sdk tools.
+    iOS - Added player setting to specify which device edges defer system gestures to the second swipe.
+    iOS - Added player setting to specify whether the home button should be hidden on iPhone X.
+    iOS - Added support for iPhone X launch images.
+    Graphics - Improved documentation for graphics hardware tiers.
+    Shaders - Concatenated matrix macros (e.g. UNITY_MATRIX_MVP) are now changed to static variables to avoid repeated calculations.
+
+Fixes
+
+    (944118) - Android: Fixed player crash when profiler with GPU profiling is enabled and graphics API was not OpenGL ES 3.
+    (776875) - Android: Fixed realtime HDR reflection probes being black on older Android devices.
+    (956658) - Android: Fixed android build failing with target SDKs 21-23.
+    (934782) - Android: Fixed crash when killing the application during permission request.
+    (931038) - Android: Fixed stuttering with android video player multithreaded rendering.
+    (934841) - Android: Fixed android video player playback starting to lag after activating input field.
+    (959867) - Apple TV: Fixed icon asset catalog setup when certain multi-layer icons are missing.
+    (946958) - Editor: Fixed crash while processing input during destruction.
+    (913869) - Editor: Reduced size of LightingDataAsset when baking light probes with multiple scenes loaded.
+    (926559) - Editor: Fixed an issue where lightmaps are generated even though the scene does not contain any baked light contribution.
+    (930408) - Graphics: Fixed lights on animated rigs thorwing errors and potentially crashing.
+    (955082) - Graphics: Fixed an issue where performing an undo on a Static Lightmap Object causes an error related to transforms to be reported.
+    (944413) - Graphics: Fixed crash when creating sprite with unsupported texture format.
+    (949574)GI: Progressive Lightmapper crashes with transparent shader.
+    (None) - Graphics: Fixed GL_INVALID_ENUM error with OpenGL ES when using point primitives.
+    (942563) - Graphics: Fixed crash when certain variables of CustomRenderTexture are used in script.
+    (952403) - IL2CPP: Fixed crash when calling Socket.GetSocketOption using latest scripting runtime.
+    (943671) - IL2CPP: Fixed ArgumentException when accessing Socket.LocalEndPoint on .NET 4.6.
+    (951089) (949036) - iOS: Fixed support for fonts of Tibetan, Armenian, Braille, Georgian and Thai languages in iOS 10 and iOS 11.
+    (887019) - Lighting: Fixed issue where Progressive Lightmapper was not transmitting indirect rays through translucent objects.
+    (963866) - OSX: Fixed Editor crash when using GLCore on High Sierra with Intel 6xxx series GPU.
+    (963060) - OSX Metal: Fixed hang when using MSAA on OSX 10.11 on Nvidia GPUs.
+    (957899) - Particles: Fixed mesh particles being rendered upside-down when using view-space.
+    (957427) - Particles: Fixed crash when emitting from script and using a Size module.
+    (946356) - Physics: Fixed cloth pointer not being set to NULL when deactivating SkinnedMeshRenderer.
+    (922684) - Physics: Updated physics documentation to better explain how friction and bounciness are combined.
+    (916451) - Physics: Fixed TerrainData.SetHeights not updating the terrain collider properly at run-time.
+    (960775) - Prefabs: Fixed issue where resetting SerializedProperty.prefabOverride for one property could incorrectly reset other properties in some - circumstances.
+    (963350) - Terrain: Fixed crash when a splat texture only has a normal map.
+    (952802) - UI: Fixed tabbing between input fields not properly giving editing focus.
+    (954117) (924562)- Video: Video Clip is not played when loading it from an Asset Bundle on Windows.
+    (964785) (854484) - Video: Muting Game View does not mute video audio.
+    (964789) (937173) - Video: Fixed inspector preview not cropping video files name.
+    (946124) - Web: UnityWebRequest: Fixed POST key/value dictionary containing very long values.
+    (949038) - Web: Fixed WWW.responseHeaders returning NULL.
+    (892084) - XR: Fixed camera aspect ratio not being preserved when switching from VR to non-VR.
+    (962253) - XR: Fixed Podfile not reporting the correct version.
+
+Revision: 249a06fbaf10
