@@ -1,0 +1,55 @@
+Patch 2017.2.0p3
+Released: 27 November 2017
+
+Improvements
+
+    Android: Proguard is no longer enabled by default for gradle release builds.
+    Android: Release gradle builds now signed with a debug key instead of failing to build.
+    GI: Various lightmap seam stitching improvements for Progressive Lightmapper.
+    IL2CPP: Improved incremental build performance on OSX.
+    Playables: Updated the Playable API documentation.
+    Playables: Updated Playable.ConnectInput to take take an optional weight parameter.
+
+Fixes
+
+    (934841) - Android: Fixed android video player playback starting to lag after activating input field.
+    (931038) - Android: Fixed android video player stuttering and dropping frames.
+    (942625) - Android: Fixed symbols.zip not including symbols file.
+    (951350) - Collab: Fixed project manifest not being tracked in Collab.
+    (957525) - Editor: Fixed incorrect framing of GameObject hierarchies in Scene View.
+    (953301) - Editor: Fixed SceneView bounds calculations not taking multiple colliders and renderers into account when calculating the framing and centre - point.
+    (947024) - Editor: Fixed curve WrapModeIcon drawing when the Curve window is embedded into another window.
+    (943051) - Editor: Fixed Scene view picking sometimes not selecting the topmost object.
+    (961428 925381) - Editor: Fixed issue where performing a drag and drop operation to a GameObject that is being edited in the Preview window of Timeline would apply changes to its associated Prefab that cannot be reverted.
+    (935149) - GI: Fixed MaterialPropertyBlock values for Meta pass when using on terrain mesh with Realtime GI.
+    (929875) - GI: Fixed the UI in inspector not correctly showing light mode when multiple lights are selected.
+    (851817) - GI: Fixed crash when deleting Speedtree asset files from project folder when in use by prefab.
+    (930221) - GI: Fixed shadows when shadow prepare job is not run.
+    (950907) - Graphics: Fixed potential hang with DirectX11 or DirectX12 when using different sized render targets and multiple cameras.
+    (954828) - Graphics: Fixed culling of projectors not matching Editor scene cameras..
+    (840098) - Graphics: Fixed incorrect calculation of the Umbra occlusion culling near plane from the camera settings.
+    (956877) - Graphics: MeshRenderers with disabled "Dynamic Occluded" property were not being frustum culled.
+    (952043) - IL2CPP: Fixed crash when calling Socket.GetSocketOption using latest scripting runtime.
+    (943671) - IL2CPP: Fixed ArgumentException when accessing Socket.LocalEndPoint.
+    (966623) - IL2CPP: Fixed crash in thread pool during shutdown.
+    (966830) - iOS: Fixed an issue where the development team ID was not written to the Xcode project in manual signing mode.
+    (962793 960914) - iOS: Fixed the Screen.dpi() method in the Trampoline code not returning the correct number of DPI in iPhone 8, iPhone 8+ and iPhone X.
+    (963865) - OSX: Fixed Editor crash when using GLCore on High Sierra with Intel 6xxx series GPU.
+    (957044) - Physics: Fixed Collider2D crashing when disabled by an animation.
+    (960530) - Physics: Fixed previously ignored collision not being ignored when recreating 2D physics contacts.
+    (960775) - Prefabs: Fixed issue where resetting SerializedProperty.prefabOverride for one property could incorrectly reset other properties.
+    (None) - Shaders: Fixed importing a shader include file only clearing the include cache on a single shader compiler process leaving all the other processes with outdated include files in the cache.
+    (944334) - Graphics: Fixed issue where some user shader keywords were handled incorrectly leading to compilation errors when building for standalone.
+    (951036) - UWP: Fixed issue where ComputeBuffer.SetData() and ComputeBuffer.GetData() returned empty result when running on .NET scripting backend and the array types weren't referenced from any parameters.
+    (None) - Video: Fixed crash in VideoPlayer when stopping and callbacks were pending.
+    (None) - VR: Fixed incorrect stereo eye offsets in Windows Mixed Reality.
+    (910488) - WWW: Fixed reading of local files not working in UWP with UnityWebRequest.
+    (949418) - WWW: Fixed WWW class regressions related to throwing NullReferenceException
+    (None) - XR: Fixed Windows Mixed Reality applications not reporting an updated boundary if it has been reconfigured while the app was running.
+
+Known Issues
+
+    (971024) - Editor: Focusing on Canvas focuses on child object when pivot is in center mode.
+    (971895) - Editor: Center pivot point of UI objects is not consistent.
+
+Revision: 40117ac43b95
