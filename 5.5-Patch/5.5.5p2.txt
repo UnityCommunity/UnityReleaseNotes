@@ -1,0 +1,10 @@
+Patch 5.5.5p2
+Released: 28 November 2017
+
+Fixes
+
+    (935087) - Animation: Fixed alpha channel being animated when in linear color mode.
+    (826244) - Graphics: Fixed Texture2D.ReadPixels nreading from the wrong location on iOS/Metal when reading a section of an image.
+    (963868) (956156) - OSX: Fixed editor crash when using GLCore on High Sierra with Intel 6xxx series GPU.
+
+Revision: 371251174a02
