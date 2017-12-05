@@ -1,0 +1,50 @@
+Patch 2017.2.0p4
+Released: 4. December 2017
+
+Improvements
+
+    Scripting: Added command line option "overrideMonoSearchPath" for desktop standalone players (OSX, Windows).
+    XR: Added PlayerSettings Get/SetVirtualRealitySupported, Get/SetVirtualRealitySDKs, and GetAvailableVirtualRealitySDKs for aquiring and setting the XR Settings on Virtual Reality Supported toggle and Virtual Reality SDKs list.
+    XR: Enabled single-pass stereo rendering for Windows MR.
+
+Fixes
+
+    (968721) - 2D: Fixed switching platform and building project without making any changes will not cause Sprite Atlas asset to change.
+    (961094) - Android: Fixed crash on some Adreno devices.
+    (963291) - Android: Fixed plugin importer architecture selection.
+    (959908) - Android: Fixed loading player data for very specific file sizes/content.
+    (964073 - DirectX 12: Fixed a crash when running on Windows 7 machine with first API in the list being DX12 and Graphics Jobs enabled.
+    (947024) - Editor: Fixed incorrect wrap icon button in particle curve editor window.
+    (953161) - Editor: Fixed player settings not using the default icon if non are specified.
+    (962721) - Editor: Fixed incorrect tool placement when pivot mode was set to Center.
+    (968535) - Editor: Fixed editor restart prompt when selecting the same Active Input Handling option.
+    (956577) - GI: Fixed 'Show Lightmap Resolution' checkbox not working.
+    (962696) - Graphics: Fixed batching with unused stencil bit in G-Buffer pass.
+    (None) - Multiplayer: Fixed reliable message being delivered twice.
+    (964731) - OSX: Fixed incorrect mouse position when running in full screen and non-native aspect ratio.
+    (944450) - Package Manager: Fixed initialisation failure when host file is missing or empty.
+    (957000) - Package Manager: Fixed creation of empty folder named 'etc'.
+    (957436) - Package Manager: Fixed error/crash if there is a comma symbol in the project name.
+    (965605) - Physics: Ensured that loading a scene with a Rigidbody2D with simulation off allows interpolation when simulation is subsequently turned on.
+    (963200) - Physics: Ensured that manual transform sync correctly updates the Rigidbody2D pose correctly.
+    (967740) - Physics: Ensured that 'Collision2D.GetContacts()' returns a single contact when passing a single element array.
+    (956316) - Playables: Fixed crash when setting an invalid source playable.
+    (969932) - UI: Fixed RectMask2D not masking when it's child has a child with Mask and Image components inside the RectMask2d area.
+    (964652) - Video: Fixed clip from asset bundle not played.
+    (969297) - Video: Fixed muting game view does not mute video audio.
+    (969298) - Video: Fixed video not playing in build when building for another platform.
+    (969299) (937173) - Video: Fixed inspector preview not cropping title.
+    (966690) - Video: Fixed erroneous stride crash on Windows.
+    (973008) - Video: Fixed crashing RemoteWebCamTexture (when using the Unity Remote helper app) when marked DontDestroy.
+    (973005) - Video: Fixed editor crash when previewing/playing video on older OSX version.
+    (962204) - Video: Fixed video decoding errors due to bad file I/O for high res/bitrate video.
+    (973009) - Video: Fixed Video Player component rendering video with artifacts on OSX.
+    (900105) - WebGL - Fixed missing logo/progress bar during loading screen.
+    (966173) - XR: Fixed Daydream applications hanging before quiting to Android home when calling Application.Quit.
+    (None) - XR: Fixed forcing LandscapeLeft default Orientation on all mobile VR applications.
+    (953314) - XR: Fixed Windows Mixed Reality XAML apps not able to get back to exclusive mode after blooming to the shell.
+    (954629) - XR: Fixed Windows Mixed Reality XAML apps launching to a black screen.
+    (922492) - XR: Fixed Windows Mixed Reality XAML apps not rendering on desktop.
+    (963878) - XR: Fixed Windows Mixed Reality apps rendering with incorrect eye offsets.
+
+Revision: 0c3a6a294e34
