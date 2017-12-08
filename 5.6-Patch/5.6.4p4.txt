@@ -1,0 +1,21 @@
+Patch 5.6.4p4
+Released: 7 December 2017
+
+Fixes
+
+    896143 - Audio: Quality of atrac9 clips can now be adjusted properly in the audio importer.
+    954607 - Editor: Fixed occasional hang during Editor startup.
+    953161 - Editor: Fixed player settings not using the default icon when there are none specified.
+    854349 - GI: Fixed Enlighten not generating lightmaps for meshes imported without UVs and with Generate Lightmap UVs option enabled.
+    (925552) - GI: Fixed project build errors when Reflection Probes Projection setting in Tier1(Graphics Settings) is unchecked.
+    (754298) - GI: Fixed terrain artefacts caused by Enlighten terrain mesh triangulation being different from the original mesh triangulation.
+    (939947) - GI: Fixed exception being thrown when the background color of a Reflection Probe is changed.
+    (935328) - GI: Fixed a crash in 'RenderTexture::DiscardContents' when opening the scene.
+    (None) - IL2CPP: Improve incremental build performance on OSX.
+    966623 - IL2CPP: Fixed crash in thread pool during shutdown.
+    955760 - iOS: Fixed crash when connection is lost in the middle of AssetBundle download using WWW.
+    (None) - Multiplayer: Fixed reliable message can be delivered twice.
+    (827984) - Scripting: Fixed deadlocks and pauses when using System.Threading.Monitor.
+    (None) - XR: Fixed mobile XR applications forcing landscape left orientation when right has been selected in the player settings.
+
+Revision: 72f24c04957f
