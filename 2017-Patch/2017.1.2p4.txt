@@ -1,0 +1,64 @@
+Patch 2017.1.2p4
+Released: 11 December 2017
+
+Improvements
+
+    Video: RGB to YUV conversion that happens during video transcoding and recording is now 2-3 times faster.
+
+Fixes
+
+    (935433) - AI: Fixed NavMesh.SamplePoint failing for meshes in range when another navmesh was below the point and out of range.
+    (942625) - Android: Fixed symbols.zip not including symbols file.
+    (924891) - Android: Disable GPU fences for two Android 6 devices which have been found to have compatibility issues causing performance loss: HTC 10 and LG G5 SE.
+    (959908) - Android: Fixed loading player data for very specific file sizes/content.
+    (961094 (948200)) - Android: Fixed crash on some Adreno devices.
+    (971571) - Android: Fixed a rare static splash screen crash.
+    (964932 (943438)) - Animation: Fixed assert when loading AnimationClip asynchronously in AssetBundles.
+    (964917 (925381)) - Editor: Fixed an issue where performing a drag and drop operation to a GameObject that is being edited in the Preview window of Timeline would apply changes to its associated Prefab that cannot be reverted.
+    (943051) - Editor: Fixed Scene view picking sometimes not selecting the topmost object.
+    (953161) - Editor: Fixed Player Settings, not using the default icon if there are no icons specified.
+    (948327 (930624)) - Editor: Fixed plugin Inspector showing only one option in Framework Dependencies for iOS platform and .NET 4.6.
+    (968535) - Editor: Fixed editor restart prompt when selecting the same Active Input Handling option.
+    (954607) - Editor: Fixed random hangs during Editor startup.
+    (969962 (956872)) - Facebook: Fixed unhandled BadImageFormatException for deleted SDK .dll.
+    (854349) - GI: Fixed Enlighten not generating lightmaps for meshes imported without UVs and with Generate Lightmap UVs option enabled.
+    (925552) - GI: Fixed project build errors when Reflection Probes Projection setting in Tier1(Graphics Settings) is unchecked.
+    (754298) - GI: Fixed terrain artifacts caused by Enlighten terrain mesh triangulation being different from the original mesh triangulation.
+    (939947) - GI: Fixed exception being thrown when the backgroung color of a Reflection Probe is changed.
+    (935328) - GI: Fixed a crash in 'RenderTexture::DiscardContents' when opening a scene.
+    (936003) - GI: Changed memory label for filtering in Progressive Lightmapper.
+    (930042) - GI: Remove unnecessary error message being displayed in console.
+    (935149) - GI: Fixed metadata pass values when using terrain mesh with MaterialPropertyBlock and Realtime GI.
+    (929875) - Graphics: Fixed displaying incorrect light mode when multiple lights are selected.
+    (930221) - Graphics: Fixed shadows when shadow prepare job is not run.
+    (964921 (962696)) - Graphics: Fixed batching with unused stencil bit in G-Buffer pass.
+    (None) - IL2CPP: Improve incremental build performance on OSX.
+    (966623) - IL2CPP: Fixed crash in thread pool during shutdown.
+    (922979) - IL2CPP: Fixed an issue where android builds would crash on launch with the 4.5 runtime when the byte code stripping option was selected.
+    (962352) - iOS: Fixed the Screen.dpi() method from the Trampoline code in order to return the correct number of DPI in iPhone 8, iPhone 8+ and iPhone X. Also fixed - the iPhone 8+ and iPhone X model checking.
+    (920200 (878689)) - iOS: Added an option to disable UISystemGestureGateGestureRecognizers touch delays in the Trampoline. These delays are meant to filter out accidental - clicks very close to the edges of the screen, but some users reported that they have been experiencing issues related to them, DISABLE_TOUCH_DELAYS flag has been added in order to control this behaviour.
+    (972893 (942401)) - iOS: Fixed screen not rotating away when disabling current autorotation using Screen.autorotateTo.
+    (967467 (966830)) - iOS: Fixed PlayerSettings.iOS.appleDeveloperTeamID being ignored if automatic signing is off.
+    (None) - Multiplayer: Fixed reliable message sometimes being delivered twice.
+    (960530) - Physics: Fixed previous collision not being ignored when recreating 2D physics contacts.
+    (957044) - Physics: Fixed collider from crashing or getting into a bad state when disabled from an animation.
+    (965605) - Physics: Fixed loading a scene with a Rigidbody2D with simulation off allowing interpolation when simulation is subsequently turned on.
+    (965075) - Physics: Fixed recursive 2D physics callbacks happening when re-parenting inside a callback.
+    (869346) (835980) - Plugins: Removed warning messages about Audio spatializers in logs for applications that were not using spatializers.
+    (935582) - Scripting: Fixed crash in AssemblyUpdater when property body contains reference to an obsolete API method / property.
+    (827984) - Scripting: Fixed deadlocks and pauses when using System.Threading.Monitor.
+    (964302) - Terrain: Remove Editor error about non read/write textures.
+    (953270) - UI: Fixed 'd3d11: failed to create buffer' error in CanvasRenderer.
+    (958902 (924188)) - UI: Fixed issue where canvas elements that are moved whilst they're disabled weren't displayed in the correct location upon being re-enabled.
+    (962255 (908289)) - Video: Fixed video decoding errors due to bad file I/O for high res/bitrate video.
+    (965362) - Video: Fixed VideoPlayer crash on OSX 10.9 and iOS 7.0 or below.
+    (965363 (921560)) - Video: Fixed crashing RemoteWebCamTexture (when Unity Remote helper app) when marked DontDestroy.
+    (966690) - Video: Fixed erroneous negative stride crash on Windows.
+    (940942) - WebGL: Fixed missing slashes in https blob url.
+    (900105) - WebGL: Fixed black screen / missing progress bar during loading.
+    (949418) WWW: Fixed WWW class regressions related to throwing NullReferenceException.
+    (None) - XR: Fixed a thread affinity issue on certain mobile devices that could affect performance when resuming VR apps.
+    (966173) - XR: Fixed Daydream applications hanging before quitting to Android home when calling Application.Quit.
+    (None) - XR: Fixed forcing LandscapeLeft default Orientation on all mobile VR applications.
+
+Revision: d597d0924185
