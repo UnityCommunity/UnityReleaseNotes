@@ -1,0 +1,133 @@
+2017.3.0 Release Candidate 2
+Released: 8. December 2017
+
+Release notes
+2017.3.0f2 Release Notes (diff since 2017.3.0f1)
+Known Issues in 2017.3.0f2
+
+    Android: Gradle builds fail when there are more than 250 files in streamingAssets. As a workaround, you can use a custom file extension for the files you want uncompressed. Specify this extension in a custom Gradle mainTemplate under "noCompress". You should also remove "STREAMING_ASSETS" from the template to avoid hitting the file limit. (962451)
+
+    Editor: MonoDevelop might get corrupted on macOS. Workaround is to rename MonoDevelop.app to something else like MonoDevelop2.app and then back to MonoDevelop.app again. This will make MonoDevelop work again. (969131)
+
+    Universal Windows Platform: [WSA]Unity throws a System.IO.DirectoryNotFoundException error when exporting to the WSA player (UWP/.NET Backend) with a Project folder that has a long path. (959984)
+
+    XR: [Android] Unity throws an exception while initializing GoogleVR from the Unity library using the Gradle build system. (946104)
+
+Known Issues - won't be fixed in 2017.3.0
+
+    Editor: Unity does not create the Transform hierarchy on an an async-loaded GameObject if it accesses the GameObject before the async load is complete. (860938)
+
+    Editor: Use of "external script editor" in editor preferences doesn't work with some editors. Workaround is to use "open by file extension". (974296)
+
+    Scripting: Instantiating a prefab crashes the Editor if you create a list with type ResourceRequest after a while loop. (908339)
+
+    Substance: Animated Procedural Textures break async level loading. (959858)
+
+Improvements
+
+    Graphics: Fixed Occlusion culling regression that was causing objects to be incorrectly culled. (972075)
+
+    XR: Updated Vuforia to version 7.0.36
+
+API Changes
+
+    XR: Added 'PlayerSettings.VROculus.sharedDepthBuffer' and 'PlayerSettings.VROculus.dashSupport' for aquiring and setting the Oculus properties in the XR Settings.
+
+Fixes
+
+    Graphics: Fixed changing the projectors render queue in script not having an effect. (841236, 974526)
+
+    OSX: Fixed new instance of MonoDevelop opening every time a script is opened (964078)
+
+    UI: Fixed crash in Canvas::CaptureBatchFrame caused by array out of bounds. (965672)
+
+    UI: Fixing issue with selection bounds not calculating the whole child hierarchy bounds for RectTransforms (971895)
+
+    Universal Windows Platform: Fixed debugging scripts on .NET scripting backend (934783, 949806)
+
+    Universal Windows Platform: Fixed NavMeshObstacles being ignored on 64-bit master builds (955086)
+
+    Universal Windows Platform: Fixed NotSupportedException being thrown on UWP builds with .NET scripting backend enabled when using Timeline (966790)
+
+    Universal Windows Platform: Fixed project generation when project name has "&" or "'" characters in it (959804)
+
+    Windows: Fixed executable not having Unity version info (964052)
+
+    Windows: Fixed game window not getting minimized when using exclusive fullscreen mode on Windows key press (953086)
+
+The following are changes and fixes to 2017.3.0 features and regressions...
+Improvements
+
+    Editor: Added an optional async mode for Perforce VCS Status Queries for users experiening laggy connections to their server. This can be activated in the Editor Settings. Added an overlay icon to indicate that the status of a file is being refreshed. (922829, 974081)
+
+Fixes
+
+    AI: Fix NavMeshAgents swapping to different NavMeshes when they are disabled and re-enabled right on an edge (970718)
+
+    Android: Fix rendering on Tegra 3 devices
+
+    Android: Fixed a rare static splash screen crash (971571)
+
+    Asset Import: Fixed bug with import of FBX with custom framerate generating animationClips with wrong framerate. (916405, 973915)
+
+    Asset Import: Fixed wrong asset selector type in material remapping import settings if material is already assigned (971556)
+
+    Editor: Fix issue with .asmdef assemblies not referencing editor only assemblies correctly.
+
+    Editor: Fix issue with non-source files being added to all generated .csproj files. Now only added to the .csproj files they belong to.
+
+    Editor: Fix issue with NullReferenceException being thrown in some cases when showing inspector for managed plugins.
+
+    Editor: Fix random hangs during Editor startup (954607)
+
+    Editor: Fixed total GPU time calculation when GPU profiler is enabled (968870)
+
+    GI: Fix for case 956577: [UI] Show Lightmap Resolution button is broken. (956577)
+
+    Graphics: Fixed crash during a visibility callback when a GameObject which was not visible is set inactive followed by setting a visible GameObject inactive. (968591)
+
+    iOS: Fix for locked orientation app gets rotated from portrait to landscape when sharing to another app on iOS 8 & 9 (913856)
+
+    iOS: Fixed videos started with Handheld.PlayFullScreenMovie not resuming after returning to the app in some circumstances (954593)
+
+    Scripting: Fix Compiliaton.GetAssemblyNameFromScriptPath throwing exception instead of returning null.
+
+    Scripting: Fixed issue with CompilationPipeline.assemblyCompilationFinished being called before the assembly existed at the assembly path.
+
+    Shaders: Fixed some edge cases where shaders would be compiled using cached include file data which was out of date.
+
+    Terrain: Fix crash when clicking on a missing tree prefab in the terrain inspector. (972296)
+
+    Terrain: Fix default smoothness for terrain without a texture. (962764)
+
+    Timeline: Fixed console errors when using Default Playables package (967026)
+
+    Timeline: Fixed issue with clips not responding to context click when not selected. (972068)
+
+    Timeline: Fixed preview mode for properties animated by Control Tracks (965091)
+
+    Timeline: Fixed zoom becoming locked at high zoom values (966608)
+
+    UI: Fixed issue with CanvasRenderers not removing themselfs when disabled. (974518)
+
+    Universal Windows Platform: Fixed Build & Run in Visual Studio 2017.4 (964301)
+
+    Universal Windows Platform: Fixed crash on player startup when autoconnect profiler option is enabled on .NET scripting backend (966364)
+
+    Universal Windows Platform: Fixed WSA.Cursor.SetCustomCursor resetting after mouse is moved (958304)
+
+    WebGL: Fix rendering on Safari (955664, 968441)
+
+    XR: Call to UnityEngine.Experimental.XR.Boundary.TryGetGeometry now correctly returns the geometry instead of throwing an internal exception (963315)
+
+    XR: Fixed a rare random crash in Windows Mixed Reality apps
+
+    XR: Fixed a regression that would cause BEV cameras not to track properly
+
+    XR: Fixed crash when starting Play mode with Emulation mode set to Remoting but no active connection (962944)
+
+    XR: Fixed crash when toggling XRSettings.enabled from TRUE -> FALSE -> TRUE on Windows Mixed Reality in Editor (952997)
+
+    XR: Fixed inconsistency between generic code path and WSA-namespace-specific path for whether select is pressed (970843)
+
+    XR: Fixed tracking loss never recovers in Windows Mixed Reality apps (969994)
