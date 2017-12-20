@@ -1,0 +1,77 @@
+2017.3.0 Release Candidate 1
+Released: 1. December 2017
+
+Release notes
+2017.3.0f1 Release Notes (diff since 2017.3.0b11)
+Known Issues in 2017.3.0f1
+
+    Android: Gradle builds fail when there are more than 250 files in streamingAssets. As a workaround, you can use a custom file extension for the files you want uncompressed. Specify this extension in a custom Gradle mainTemplate under "noCompress". You should also remove "STREAMING_ASSETS" from the template to avoid hitting the file limit. (962451)
+
+    Universal Windows Platform: [WSA]Unity throws a System.IO.DirectoryNotFoundException error when exporting to the WSA player (UWP/.NET Backend) with a Project folder that has a long path. (959984)
+
+    XR: [Android] Unity throws an exception while initializing GoogleVR from the Unity library using the Gradle build system. (946104)
+
+Known Issues - won't be fixed in 2017.3.0
+
+    Editor: Unity does not create the Transform hierarchy on an an async-loaded GameObject if it accesses the GameObject before the async load is complete. (860938)
+
+    Editor: Use of "external script editor" in editor preferences doesn't work with some editors. Workaround is to use "open by file extension". (974296)
+
+    Scripting: Instantiating a prefab crashes the Editor if you create a list with type ResourceRequest after a while loop. (908339)
+
+    Substance: Animated Procedural Textures break async level loading. (959858)
+
+Fixes
+
+    Editor: Fixed incorrect tool placement when pivot mode was set to Center (962721)
+
+    Scripting Upgrade: Fix failure to resolve system types when building .Net player when user code, guarded by '#if NET_CORE' used obsolete APIs. (946498)
+
+    Testing: Test runner can now launch tests on iOS/tvOS and get results back (943302)
+
+    UI: Adding delay to updating the rect when in on Enable to prevent prefab modification.empty assert (713684)
+
+    UI: Fixing circular refernce with slider trying to drive itself. You can no longer assign the sliders transform to the rect fields (957602)
+
+    UI: Fixing Freeze/crash when creating & destroying a lot of GUI canvases/elements (959492)
+
+    UI: Fixing issue with not sending the rect changed when parenting changes. (962072)
+
+    WebGL: Fix missing progress bar and logo during loading screen (900105)
+
+The following are changes and fixes to 2017.3.0 features and regressions...
+Fixes
+
+    Editor: Fix for editor restart prompt when selecting the same Active Input Handling option (968535)
+
+    Editor: Fix performance issue in IMGUI when there is a lot of elements in a window. (970882, 971461)
+
+    Physics: Fixed a crash on project load caused by tiny meshes (953083)
+
+    Physics: Fixed crashes when loading new scene and activating cloth gameobject in coroutine (951789)
+
+    Physics: Fixed error message when changing Mesh on Skinned Mesh Renderer on game objects that has Cloth Component (950424)
+
+    Physics: Fixed issue where Editor freezes for long time when adding Cloth component to a Mesh with high vertex count (956856)
+
+    Physics: Fixed issue where Physics Debugger's layer mask does not filter GameObject correctly (948201)
+
+    Physics: Fixed potential crash in Rigidbody::GetVelocity() when opening certain scenes (955697)
+
+    Web: UnityWebRequest: fix crash when checking AssetBundle download progress, that gets aborted (968877)
+
+    Web: UnityWebRequest: Fix DownloadHandlerFile not truncating file on overwrite
+
+    Web: UnityWebRequest: fix hang when busy waiting on a redirecting request (963947)
+
+    Web: UnityWebRequest: improve performance for DonwloadHandlerScript (965165)
+
+    WebGL: Fix crash for relative URL in UnityWebRequest when exceptions are disabled (965094)
+
+    WebGL: Fix UnityWebRequest with relative URL when running with custom port (961465)
+
+    XR: Fix for crash when subscribing to InteractionManager events without HMD plugged in on Windows Mixed Reality (972003)
+
+    XR: Fix for Windows Mixed Reality controllers not being detected by Editor during play mode (948931)
+
+    XR: Fixed an issue that would prevent being able to disable and re-enable XRSettings.enabled on Windows Mixed Reality
