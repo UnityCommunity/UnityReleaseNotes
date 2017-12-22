@@ -1,0 +1,11 @@
+Patch 2017.3.0p1
+Released: 22 December 2017
+
+Fixes
+
+    (966036) - Editor: Fixed input field staying highlighted after enter key is pressed.
+    (960531) - Editor: Fixed dragging slider causing creation of too many undo steps.
+    (976076) - Graphics: Fixed crash in Projector:PrepareRenderNode after selecting a gameobject in the hierarchy.
+    (931921) - Package Manager: Fixed an issue where editor was not starting for some users by adding 127.0.0.1 address to the default list of non-proxied address.
+
+Revision: 4596dd67072f
