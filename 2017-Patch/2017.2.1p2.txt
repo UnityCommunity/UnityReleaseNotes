@@ -1,0 +1,41 @@
+Patch 2017.2.1p2
+Released: 12 January 2018
+
+Improvements
+
+    iOS: Expose APIs that allow changing home button hiding and system gesture deferral properties on runtime.
+
+Fixes
+
+    (941945) - Animation: Improved fix for creating an ongoing transition.
+    (967382) - Animation: Fixed an issue that was causing the Editor to throw an exception when selecting animator transitions in an undocked preview window.
+    (973917) - Asset import: Fixed bug with import of FBX with custom framerate generating animationClips with an incorrect framerate.
+    (975345) - Audio: Fixed a crash in AudioLowPassFilter on Nintendo Switch.
+    (959444) - Build Pipeline: Improved player and asset bundle build performance for large builds.
+    (953940) - Cache Server: Fixed an issue which caused the Unity client to hang indefinitely.
+    (975920) - Editor: Fixed lightingdata.asset files getting re-opened in text mode in certain situations.
+    (946550) - GI: Fixed editor crash when when deleting a prefab which is used as a tree in Terrain inspector.
+    (957651) - IL2CPP: Fixed a crash on iOS which can occur when a device is awakened during a blocking socket call with a SIGPIPE signal.
+    (962771) - IL2CPP: Work around for a C++ compiler bug in the Android r13b NDK that could cause the NullCheck method to be incorrectly removed from the - resulting binary.
+    (980362) - iOS: Fix iOS 11 crash when application is launched from URL and airplay screen mirroring is enabled.
+    (980303) - iOS: Allow landscape startup on iOS11.
+    (956318) (57809) - iOS: Fixed trampoline calling UI methods ([UIApplication delegate]) from a background thread.
+    (913856) (57503) - iOS: Fixed locked orientation app getting rotations from portrait to landscape when sharing to another app on iOS 8 & 9
+    (979005) (58588) - iOS: Fixed problem with missing keyboard Done/Cancel buttons for iPhone X.
+    (None) - Package Manager: Fixed editor not starting because of custom proxy configuration on host machine.
+    (966306) - Particles: Fixed emission properties being incorrectly upgraded from previous Unity versions.
+    (930358) - Scripting: Fixed crash when using GitHub for Unity.
+    (962764) - Terrain: Fixed default smoothness for terrain without a texture.
+    (966790) - Universal Windows Platform: Fixed NotSupportedException being thrown on UWP builds with .NET scripting backend enabled when using Timeline.
+    (955086) - Universal Windows Platform: Fixed NavMeshObstacles being ignored on 64-bit master builds
+    (949806) (934783) - Universal Windows Platform: Fixed debugging scripts on .NET scripting backend
+    (953086) - Windows: Fixed game window not getting minimized when using exclusive fullscreen mode on Windows key press.
+    (964052) - Windows: Fixed executable not having Unity version info.
+    (None) - XR: Fixed a random crash in Windows Mixed Reality.
+    (969944) - XR: Fixed tracking loss never recovers in Windows Mixed Reality.
+    (963320) - XR: Fixed issue with grabpass when used single-pass stereo rendering.
+    (970906) - XR: Fixed ScreenCapture.CaptureScreenshot() captures stereo instancing screenshots incorrectly.
+    (971944) - XR: Fixed shaders targeting XR platforms being included in builds where XR support is disabled.
+    (None) - XR: Fixed a regression that would cause BEV cameras not to track properly.
+
+Revision: 1dc514532f08
