@@ -1,0 +1,50 @@
+atch 2017.3.0p2
+Released: 15 January 2018
+
+Improvements
+
+    iOS: Expose APIs that allow changing home button hiding and system gesture deferral properties on runtime.
+    XR: Update Google NDK to v1.100
+    XR: Update Oculus to version 1.20
+    XR: Update Vuforia to version 7.0.43
+    XR: Added XR.WSA.HolographicSettings.IsContentProtectionEnabled. This gets or sets whether the app is displaying protected content. While content protection is enabled, rendered content will be visible only in the headset, disabling the Mixed Reality Portal's preview.
+    XR: Added XR.WSA.HolographicSettings.ReprojectionMode. This gets or sets the kind of reprojection the app is requesting to stabilize its holographic rendering relative to the user's head motion.
+
+Fixes
+
+    (978651) - 2D: Fixed NullReferenceException from Tilemap Palette when assembly changes.
+    (941945) - Animation: Fixed issue with creating an ongoing transition.
+    (58017) - Asset Pipeline: Cancel dialog/reimport after skipping video import processing.Dominique Leroux.
+    (959444) - Build Pipeline: Improved buildpipeline performance for large builds.
+    (976076) - Graphics: Fixed Crash in Projector::PrepareRenderNode after selecting GameObject in the Hierarchy.
+    (970747) - Graphics: Fixed occasional TrailRenderer error message when using Local alignment and more than one width curve key.
+    (957651) - Il2CPP: Fixed a crash on iOS which can occur when a device is awakened during a blocking socket call with a SIGPIPE signal.
+    (963785) - IL2CPP: Fixed a C++ compiler bug in the Android r13b NDK that could cause the NullCheck method to be incorrectly removed from the resulting binary.
+    (983852) - iOS: Metal: Fixed MSAA corner case causing warning messages and validation error.
+    (978917) - iOS: Fix for black screen flickering when screen orientation is changed via script.
+    (979002) - iOS: iPhone X, fixed problem with missing keyboard Done/Cancel buttons.
+    ([956318 57804](https://issuetracker.unity3d.com/product/unity/issues/guid/956318 57804/)) - iOS: Fixed trampoline being able to call UI methods ([UIApplication delegate]) from background thread.
+    (980302) - iOS: Fixed landscape splashscreen not enabled for iOS11 on some devices.
+    (980361) - iOS: Fix iOS 11 crash when application is launched from URL and airplay screen mirroring is enabled.
+    (971905) - Launcher: Fix Open project dialog stop working.
+    (963246) - Launcher: Fix display of Unity Teams "Seat Required" message when project is both in the cloud and on disk.
+    (969863) - Particles: Fixed particles showing visual artifacts when ribbon count was higher than the current particle count.
+    (968908) - Particles: Fixed material texture becoming invisible when its shader had been set from 'Particles/Standard Surface' or 'Particles/Unlit'.
+    (964377) - Particles: Fixed ribbon trail of Sub Emitter not inheriting color from spawning particle.
+    (961702) - Particles: Fixed flip U/V settings being ignored after enabling Custom Vertex Streams.
+    (None) - Scripting: Fixed issue with generic types not being collected correctly in Mono/.NET 2.x memory snapshot.
+    (827984) - Scripting: Fixed deadlocks and pauses when using System.Threading.Monitor.
+    (948492) - Scripting: Fixed mcs hanging while compiling script.
+    (952631) - Scripting Upgrade: Fixed DllImport when library name is specified with a path.
+    (957072) - Scripting Upgrade: Improved TypeLoadException messages.
+    (907918) - Scripting Upgrade: Fixed URI processing on OSX.
+    (945353) - Scripting Upgrade: Fixed InternalsVisibleTo.
+    (962711) - Scripting Upgrade: Fixed value types larger than 1MB.
+    (967206) - Scripting Upgrade: Fixed random crash due to memory corruption on domain reload.
+    (978596) - Scripting: Fixed an issue causing GC allocation for UnityEvent handler without parameters in some cases.
+    (962771) - UnityLinker: Prevented an error from the linker when an iOS type is used in an assembly on Android.
+    (955086) - Universal Windows Platform: Fixed NavMeshObstacles being ignored on 64-bit master builds.
+    (None) - XR: Fixed issue with capturing a screen shot image while in single-pass instancing mode.
+    (None) - XR: Fixed single-pass shadow issue when used with Nvidia VRWorks.
+
+Revision: b91e4c5f54ad
