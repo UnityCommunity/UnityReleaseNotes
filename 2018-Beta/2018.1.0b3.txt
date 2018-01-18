@@ -1,0 +1,66 @@
+Unity 2018.1.0b3
+Released: January 18, 2018
+
+Unity 2018.1.0b3 release notes
+2018.1.0b3 Release Notes (diff since 2018.1.0b2)
+System Requirements Changes
+
+    Removed support for Windows XP in standalone player builds. Windows Vista is the now minimum supported OS for Windows standalone player.
+    Deprecated support for MonoDevelop. VisualStudio is now the recommended and supported C# editor on both macOS and Windows.
+
+Known Issues
+
+    Audio: [Audio Mixer] Crash on play when duplicated audio group is assigned to audio source (962084)
+    Build Pipeline: BuildObserver failed is thrown when building a project with Vuforia enabled. (984712)
+    Editor: "Assertion failed" exception is generated on opening a project on Mac OSX (977901)
+    GI: AddInstancePropertiesJob error while baking with specific assets (973689)
+    GI: Baking pipeline still runs even if GI systems are disabled (989061)
+    GI: Editor freezes on 'Writing Lighting Data' when baking multiple scenes in Build Settings (989055)
+    GI: [Progressive Lightmapper] Scene is completely black after clicking Generate Light button (988957)
+    GI: [UI] New parameters are incorrectly introduced for directional, spot and point lights (988956)
+    Graphics: [UI] Multiple debug scene visualization modes are broken (988955)
+    Particles: Line renderer is rendered in scene/game window when selecting object in the Project window (972298)
+
+Features
+
+    Editor: Added Templates for 3D, 2D, Lightweight (Preview), Lightweight VR (Preview), and High Definition (Preview) to streamline the new user experience with Scriptable Render Pipeline features as well as to define better starting points for graphical, player, and lighting settings. Note that these are not yet easily selectable - this will come soon via an update to the Launcher.
+    GI: Progressive Lightmapper is now out of preview!
+    Package Manager: Added Package Manager user interface v1.3.0, from where a project's packages can be managed and new packages can be discovered. Note that the UI isn't yet final and will see further improvements during the beta cycle. Known limitations at this time:
+        No visual indication of recommended vs. otherwise discoverable packages.
+        Light on details for most packages, including for alternative versions available.
+
+Improvements
+
+    Multiplayer: Two or more channels can now share the messages order, so that messages which send via differnet channels will be delivered in order.
+    WebGL: Added indexedDB caching support for all build files in WebGL and for compiled WebAssembly code.
+
+API Changes
+
+    Multiplayer: Added GetHostPort function, reporting the port number assigned to the host.
+
+Fixes
+
+    Editor: Collaborate no longer deletes ignored files when restoring to an older version. (985130)
+    Graphics: Fix to avoid attempting to render LineRenderers with huge vertex counts. (977228)
+    Particles: Implemented more accurate handling of start delay and non-fixed-update. (971841)
+    UI: Fixed a bug preventing renaming UI objects after duplicating them. (950420)
+    UI: Fixed a crash caused by UI Mask on Buid & Run when material is null. (935112)
+
+The following are changes and fixes to 2018.1.0 features and regressions...
+Fixes
+
+    Android: Fix to no longer include Android Adaptive icons in build if only a single layer is specified. (970815)
+    Editor: Fixed an issue with normalization of transform rotations which was causing spurious tiny differences in the rotation quaternion when serialized to YAML files. (984239)
+    Editor: Fixed case of blurriness in UIElements. (985084)
+    Editor: Fixed GetSRGBWrite() assert that occurred when changing the colorspace from "gamma" to "linear". (985872)
+    Editor: Improve handling of Collaborate errors in the new History Window.
+    Editor: We now import Android & iOS icons correctly when opening a project created with an older version of Unity. (974198)
+    iOS: Fix to initialize iOS project signing info fields from editor settings correctly, if they have not been set in player settings. (972905)
+    iOS: Metal: Fixed MSAA corner case issue causing warning messages and validation errors. (983851)
+    OSX: Fixed case of detached Editor windows going behind the Editor when clicking outside both. (827158)
+    OSX: Fixed case of IDE not getting focus when opening script on Mac. (978478)
+    OSX: Fixed case of VS for Mac opening a new instance on restart of Unity. (978636)
+    Physics: Fixed a problem whereby the physics settings in Editor would revert to default values on entry to play mode. (954601)
+    Universal Windows Platform: UWP builds no longer fail when project contains Assembly Definition files. (985351)
+    XR: Fix to ensure that orientation settings are not locked when VR Support is enabled for Android and iOS Player Settings, and updated info message related to these settings. (973918)
+    XR: Updated GVR NDK to 1.100. (977805)
