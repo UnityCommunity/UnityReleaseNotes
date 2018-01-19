@@ -1,0 +1,21 @@
+Patch 2017.3.0p3
+Released: 19 January 2018
+
+Fixes
+
+    (973815) - Android: Fixed decimal point button in decimal keyboard for older Samsungs.
+    (978299) - Animation: Fixed InvalidOperationException when clicking cancel in 'Add Animation Clip' dialog window in animation window.
+    (932926) - Editor: Collaborate no longer deletes ignored files when restoring to an older version.
+    (978478) - OSX: Fixed IDE does not get focused when opening script on Mac.
+    (978636) - OSX: Fixed VS for Mac opens new instance after Unity was reopened.
+    (827158) - OSX: Fixed detached Editor windows go behind the Editor when clicked outside of them.
+    (971980) - Particles: Fixed support for entering Infinity into the Start Lifetime field.
+    (968096) - Particles: Fixed Duration field when used on Sub-Emitters.
+    (974867) - Particles: Fixed Stop Action when used on particles that finish off screen.
+    (975289) - Particles: Fixed a crash when using RuntimeInitializeOnLoadMethod with a Particle System.
+    (977710) - Particles: Fixed a crash when enabling certain modules via script (e.g. Size over Lifetime).
+    (976439) - Profiler: Fixed deep profiling in standalone players.
+    (984447) - Fixed building UWP player with IL2CPP scripting backend and Analytics enabled.
+    (973918) - XR: Removed application orientation settings disable when Virtual Reality Supported was enabled and updated info message related to the settings.
+
+Revision: bfcbae508940
