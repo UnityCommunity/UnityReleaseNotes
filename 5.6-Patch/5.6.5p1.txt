@@ -1,0 +1,38 @@
+Patch 5.6.5p1
+Released: 22. January 2018
+
+Improvements
+
+    XR: Update Google VR NDK to v1.100
+
+Fixes
+
+    (907324) - Animation: Fixed a crash when an animator reset was triggered during a StateMachineBehaviour awake.
+    (930814) - Animation: Fixed a crash when Animator instantiated from Script enters a Sub-State Machine with StateMachineBehaviour.
+    (972927) - AppleTV: Removed 2x App store icon slices that cause App Store validation to fail.
+    (None) - Build Pipeline: Improved build pipeline performance for large builds.
+    (922829) - Editor: Added an optional Async mode for Perforce Integration (see Editor Settings) to account for high latency with a remote server.
+    (929875) - GI: Fixed incorrect light modes being shown when multiple lights are selected.
+    (935149) - GI: Fixed Meta pass values when using terrain mesh with MaterialPropertyBlock and Realtime GI.u(930042) - GI: Fixed Unnecessary error message being displayed in console.
+    (941369) - Graphics: Fixed crash in SkinnedMeshRenderer::PrepareSkinCommon when SkinnedMeshRenderer has Animator and Cloth attached.
+    (971965) - Graphics: Fixed crash when opening project with BC6H texture.
+    (961692, 964998) - Graphics: Fixed asserts and potential memory leaks when Skinned Mesh Renderers with the "Update When Offscreen" property enabled are not visible.
+    (968591) - Graphics: Fixed crash during a visibility callback when a GameObject which was not visible is set inactive followed by setting a visible GameObject inactive.
+    (927145) - Graphics: Fixed crash in player when using non RGBA32 format 3D textures.
+    (907391) - Graphics: Fixed case when some of the cameras don't render anything because depth buffer contains garbage.
+    (956919) - Graphics: Fixed issue where DrawMeshInstanced calls will render with inverse normals if the previous draw call used negative scaling.
+    (841236) - Graphics: Fixed changing the projectors render queue in script not having an effect.
+    (957651) - Il2CPP: Prevented a crash on iOS which can occur when a device is awakened during a blocking socket call with a SIGPIPE signal.
+    (979007) - iOS: iPhone X, fixed problem with missing keyboard Done/Cancel buttons.
+    (954593) - iOS: Fixed videos started with Handheld.PlayFullScreenMovie not resuming after returning to the app in some circumstances.
+    (58811) - iOS: Metal: Fixed MSAA corner case causing warning messages and validation error Marton Ekler.
+    (952284) - iOS: [Metal] Fixed potential GPU crash.
+    (878407) - Physics: Fixed PhysX crash when calling Physics.OverlapBoxNonAlloc on Android devices.
+    (980640) - Resources: Improved Load performance in some circumstances.
+    (930358) - Scripting: Fixed crash when using GitHub for Unity.
+    (953068) - Scripting: Fixed Awake containing the wrong transform values when instantiated.
+    (911613) - UI: Fixed issue where an assigned fallback font would not be used.
+    (961763) - VR: Shaders meant to be used in VR platforms will no longer be included in builds where VR support is disabled.
+    (966173) - XR: Fixed Daydream applications hanging before quiting to Android home when calling Application.Quit.
+
+Revision: b5fcd78dd1ab
