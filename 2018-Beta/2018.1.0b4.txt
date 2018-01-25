@@ -1,0 +1,101 @@
+Unity 2018.1.0b4
+Released: January 23, 2018
+
+Unity 2018.1.0b4 release notes
+2018.1.0b4 Release Notes (diff since 2018.1.0b3)
+
+System Requirements Changes
+
+    Removed support for Windows XP in standalone player builds. Windows Vista is the now minimum supported OS for Windows standalone player.
+    Deprecated support for MonoDevelop. VisualStudio is now the recommended and supported C# editor on both macOS and Windows.
+
+Known Issues in 2018.1.0b4
+
+    Animation: Null Reference exception occurs when trying to add/delete the event or changing sample number. (989758)
+
+    Audio: [Audio Mixer] Crash on play when duplicated audio group is assigned to audio source (962084)
+
+    Editor: "Assertion failed" exception is generated on opening a project on Mac OSX (977901)
+
+    GI: AddInstancePropertiesJob error while baking with specific assets (973689)
+
+    GI: Baking pipeline still runs even if GI systems are disabled (989061)
+
+    GI: Editor freezes on 'Writing Lighting Data' when baking multiple scenes in Build Settings (989055)
+
+    GI: [Progressive Lightmapper] Scene is completely black after clicking Generate Light button (988957)
+
+    GI: [UI] New parameters are incorrectly introduced for directional, spot and point lights (988956)
+
+    Graphics: [UI] Multiple debug scene visualization modes are broken (988955)
+
+    Particles: Line renderer is rendered in scene/game window when selecting object in the Project window (972298)
+
+API Changes
+
+    2D: Experimental API TextureGenerator.GenerateTexture now takes in a NativeArrray for image buffer instead of setting a IntPtr in TextureGenerationSettings.
+
+    Graphics: Exposed RenderPipelineAsset.OnValidate and OnDisable methods.
+
+Fixes
+
+    Android: Fixed issue where decimal point button in decimal keyboard was not selectable on older Samsung devices. (973815)
+
+    Editor: Fixed case of never-ending exception when an invalid character was present on the iOS version string in Player Settings. (986098)
+
+    Graphics: Fixed issue where the TrailRenderer didn't drop a point at its spawning location. (978250)
+
+    OSX: Fixed case of game continuing to receive mouse input when running in the background on macOS. (758806)
+
+    OSX: Fixed case of input from USB mouse disabling further touchpad input in Input.GetAxis on MacBooks. (842835)
+
+    OSX: Fixed issue where the second screen was not shown on macOS when scene was built as 64bit or Universal. (959498)
+
+    Physics: Fixed crash in PhysicsManager::SetColliderTransform, that would be triggered when entering playmode after reloading a scene that had changes on disk. (958230)
+
+The following are changes and fixes to 2018.1.0 features and regressions...
+Improvements
+
+    XR: Updated icons for Vuforia related assets.
+
+    XR: Updated Oculus to version 1.21.
+
+    XR: Updated Vuforia to version 7.1.20.
+
+Fixes
+
+    2D: Fixed case of mipmap slider not working in Sprite Editor Window. (982004)
+
+    Animation: Fixed shadow rendering in Animation preview. (962517)
+
+    Animation: Fixed the calculation of AimConstraint.upVector when using the Up Object setting and the Up Object is part of a hierarchy.
+
+    Cache Server: Fixed an issue where using a Cache Server and reimporting Assembly Definition files would fail to trigger rebuilding of the assembly. (975773, 983744)
+
+    Editor: Fixed case of "Can not send network message. Receiver can not keep up with the amount of data sent" being thrown when capturing memory snapshot using bitbucket profiler.
+
+    Editor: Fixed issue where switching to Android platform would result in "ThreadAbortException: Thread was being aborted". (982605)
+
+    Editor: Removed "Launch Unity" option from Windows installers, to prevent Unity from running as an elevated process. (975351, 988272)
+
+    Editor: The "Show All on Dashboard" button on the Collab history window now points to the correct web endpoint. (958606, 987279)
+
+    iOS: Fixed problem with switching between input fields with different keyboard/input parameters (987956)
+
+    Physics: Fixed case of double full stop on the dropdown boxes in physics settings. (958814)
+
+    Physics: Fixed crash in PhysX when performing box query on Android. (878407)
+
+    Physics: Fixed crash that could occur when entering playmode, after importing a package that changes physics settings. (958230)
+
+    Physics: Fixed issue where errors would be thrown when disabling a collider on an inactive object and then destroying the object or exiting playmode. (968882, 985758)
+
+    Physics: Fixed issue where MeshCollider would be added to prefab in the hierarchy, when selected from the project folder. (960479)
+
+    Terrain: Fixed case of tree density value being ignored when painting trees. (985932)
+
+    Timeline: Fixed an issue where custom tracks could be lost if they contained compile errors. (979700)
+
+    Web: Fixed case of file URI unescaping with multibyte chars in UnityWebRequest/WWW. (978521, 986236)
+
+    XR: Fixed early out of Virtual Reality SDK list when SDKs that are unsupported in Play Mode attempt to initialize. Also improved log messages around the Virtual Reality SDK list in Play Mode. (971293)
