@@ -1,0 +1,15 @@
+Patch 2017.3.0p4
+Released: 29 January 2018
+
+Fixes
+
+    (973815) - Android: Fixdc decimal point button in decimal keyboard for older Samsungs.
+    (978299) - Animation: Fixed InvalidOperationException when clicking cancel in 'Add Animation Clip' dialog window in animation window.
+    (971980) - Particles: Fixed support for entering Infinity into the Start Lifetime field.
+    (968096) - Particles: Fixed Duration field when used on Sub-Emitters.
+    (974867) - Particles: Fixed Stop Action when used on particles that finish off screen.
+    (975289) - Particles: Fixed crash when using RuntimeInitializeOnLoadMethod with a Particle System.
+    (977710) - Particles: Fixed crash when enabling certain modules via script (e.g. Size over Lifetime).
+    (976439) - Profiler: Fixed deep profiling in standalone players.
+
+Revision: 25a5860ad58d
