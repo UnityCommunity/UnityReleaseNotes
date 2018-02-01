@@ -1,0 +1,149 @@
+Unity 2018.1.0b5
+Released: January 31, 2018
+
+Unity 2018.1.0b5 release notes
+2018.1.0b5 Release Notes (diff since 2018.1.0b4)
+System Requirements Changes
+
+    Removed support for Windows XP in standalone player builds. Windows Vista is the now minimum supported OS for Windows standalone player.
+    Deprecated support for MonoDevelop. VisualStudio is now the recommended and supported C# editor on both macOS and Windows.
+
+Known Issues in 2018.1.0b5
+
+    Animation: Configure button doesn't get enabled when the model rig is set to humanoid (980511, 984843)
+
+    Animation: Null Reference exception occurs when trying to add/delete the event or changing sample number. (989758)
+
+    Audio: [Audio Mixer] Crash on play when duplicated audio group is assigned to audio source (962084)
+
+    Editor: "Assertion failed" exception is generated on opening a project on Mac OSX (977901)
+
+    Editor: Cannot Quit Application from launcher using Unity>Quit nor cmd+Q (993381)
+
+    Editor: Unity crashes when the user quits the Editor via menu item Unity | Quit. (991358)
+
+    GI: AddInstancePropertiesJob error while baking with specific assets (973689)
+
+    GI: Baking pipeline still runs even if GI systems are disabled (989061)
+
+    GI: Editor freezes on 'Writing Lighting Data' when baking multiple scenes in Build Settings (989055)
+
+    GI: [UI] New parameters are incorrectly introduced for directional, spot and point lights (988956)
+
+    Graphics: ReflectionProbes that are outside of camera frustum are not culled in SRP (visibleReflectionProbes) (991212)
+
+    Graphics: [UI] Multiple debug scene visualization modes are broken (988955)
+
+    OSX: [OSX 10.13] Switching between 2 game view tabs multiple times freezes editor (991828)
+
+    Particles: Line renderer is rendered in scene/game window when selecting object in the Project window (972298)
+
+    Particles: Unity crashes when duplicating/moving nested particle systems with a disabled renderer (988423)
+
+    Templates: Project templates will be updated in subsequent betas to address the following points:
+        The 2D template currently creates a default scene with a UI canvas: this will be removed in a subsequent build.
+        The 3D Ultra template is missing the "Preview" tag currently.
+        All templates: Lighting settings improvements to come in a subsequent build.
+
+Features
+    Package Manager: Updated Package Manager user interface (from where a project's packages can be managed and new packages can be discovered) to v1.5.1. What's new in 1.5.1:
+        Moved menu item to access the Package Manager UI window from "Project -> Packages -> Manage" to "Window -> Package Manager".
+        The "Install" tab now shows the latest version (and description) available for each package, rather than the current version.
+        The "Update to" button is no longer displayed when the current version is the same as (or greater than) the latest one available.
+        The UI now displays "alpha", "beta", "experimental" and "recommended" tags for packages, as appropriate. Previous versions did not display such tags, so it was not possible to determine the status of packages.
+        UI polish.
+    Launcher: The launcher now allows users to select one of the new project templates when creating new projects. Project templates available currently: 2D, 3D, 3D Ultra (Preview), Lightweight (Preview), Lightweight VR (Preview), and High Definition (Preview).
+
+Changes
+    Android: Newly created projects now default to ARMv7 CPU architecture.
+    XR: Standalone UWP applications targeting Windows Mixed Reality will now cause the OS to notify the user if the Mixed Reality components are not installed or a headset is not connected, rather than silently falling back to non-VR desktop mode.
+
+Improvements
+    Asset Import: In optimized mode, if a root bone is specified in the unoptimized SkinnedMeshRenderer and its transform has also been exposed, the root bone will now be kept as is, otherwise it will be set to root. (972082, 988438)
+    iOS: Added a checkbox to the iOS plugin importer: when checked, the plugin is added to the "Embedded Binaries" folder. (984264)
+
+API Changes
+    UI: Added characterLimit property for TouchScreenKeyboard.
+
+Fixes
+
+    2D: Fixed case of Sprite 2D physicsShape not being set until the 'Edit Physics Shape' tab is opened for the first time after texture import. (985912)
+
+    GI: Fixed case of scene becoming completely black after clicking 'Generate Lighting' button. (988957)
+
+    Graphics: Fixed crash when using shadow-casting Lines/Particles/Trails with SRP. (985077)
+
+    OSX: Removed "Do you really want to quit?" dialog that appeared when closing windowed Mac Standalone build. (984155)
+
+    Particles: Fixed issue where particle bounds were not being calculated correctly when transform scale was non-uniform. (977520)
+
+    UI: Fixed an issue where calling ClearProgressbar did not remove the progress bar in synchronous code in the Editor on MacOS.
+
+The following are changes and fixes to 2018.1.0 features and regressions...
+Improvements
+
+    IL2CPP: Windows and Mac standalone players with IL2CPP scripting backend no longer use stacktrace sentries in development builds. This increases performance significantly in certain scenarios. (989030)
+
+    IL2CPP: Windows and Mac standalone players with IL2CPP scripting backend now always have null and array bound checks enabled. (989028)
+
+Fixes
+
+    2D: Fixed null reference exception when applying changes during module switch. (989759)
+
+    Android: Fixed an issue where the full-screen movie player didn't autorotate as expected. (962450)
+
+    Animation: Fixed case of animator being resampled when enabling/disabling Game Object in Editor scene. (986876)
+
+    Animation: Fixed layout issue when deleting clip in a blend-tree inspector. (972008, 986882)
+
+    Asset Import: Corrected messaging around Substance Designer import removal. (986520, 986521)
+
+    Asset Import: Fixed case of AssetPostprocessor.OnAssignMaterialModel not being called for all models. (983321)
+
+    Build Pipeline: Fixed crash when loading meshes from asset bundles that contain both compressed and uncompressed meshes. (984070, 995368)
+
+    Editor: Fixed regression with Assembly-CSharp.dll and friends referencing editor-only assemblies. (982271)
+
+    GI: Fixed case of baking pipeline still running if GI systems are disabled. (989061)
+
+    IL2CPP: Enabled dead code stripping for the clang toolchain. (976218)
+
+    IL2CPP: Fix to prevent an unlikely but possible crash when default parameter values are used. (973052)
+
+    IL2CPP: Fixed a crash in the Unity Linker (System.InvalidProgramException: Failed to resolve [UnityEngine]System.Resources.NeutralResourcesLanguageAttribute) when using a managed DLL containing a non-existing attribute. (969958)
+
+    IL2CPP: Implemented email sending via SmtpClient with .NET 4.6. (947208)
+
+    IL2CPP: Implemented method EnsureSufficientExecutionStack for .NET 4.6. (976623)
+
+    IL2CPP: Improved the performance of code conversion when using many nested generic types. (975496)
+
+    iOS: Fixed ReplayKit recording on iOS 11. (940872)
+
+    Particles: Fixed issue where a particle system would sometimes disappear when it was close to the edge of the frustum and the camera was moving. (964176)
+
+    Particles: Fixed issue where particle systems with negative Transform scale were sometimes rendered incorrectly. (979638, 982998)
+
+    Shaders: Fix to track user-defined shader include paths persistently and to trigger shader reimports if any include path has changed.
+
+    Shaders: Fixed built-in shader variables to work with compute shaders.
+
+    Shaders: Fixed shader include dependencies to work with files inside packages.
+
+    Timeline: Fixed Clip Inspector to handle the current clip edit mode (Mix, Ripple, Replace) from the TimelineWindow correctly.
+
+    UI: Fixed issue with UI and prefab positioning when disabling/re-enabling child object. (977959, 986372, 988999)
+
+    Universal Windows Platform: Fixed case of keyboard input not distinguishing between left/right shift keys. (968801)
+
+    Windows: Fixed case of default with/height setting not being honored for 'Windowed' mode. (968584)
+
+    XR: Fixed a crash that would occur if an application used Unity's Spatial Mapping component without VR being enabled or without using Windows Mixed Reality. (973172)
+
+    XR: Fixed an issue with lights failing to illuminate scene geometry completely during stereo rendering. (965494)
+
+    XR: Fixed crash during build when using stereo display. (977488, 987308)
+
+    XR: Fixed crash when connecting simulator device while running in Editor. (980089, 989354)
+
+    XR: Fixed crash when Holographic Emulation is set to Remote with no device connected. (952777)
