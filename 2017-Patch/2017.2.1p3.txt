@@ -1,0 +1,33 @@
+Patch 2017.2.1p3
+Released: 1 February 2018
+
+Improvements
+
+    XR: Update Google VR NDK to v1.100.
+    XR: Update Oculus to version 1.21
+
+Fixes
+
+    (973815) - Android: Fixed decimal point button in decimal keyboard for older Samsungs.
+    (972927) - Apple TV: Removed 2x App store icon slices that cause App Store validation to fail.
+    (969205) - Assets: Fixed Assetdatabase.Refresh taking longer than necessary.
+    (985914) - Fixed crash caused by a Sprite Atlas trying to load in sprites that were packaged in an Asset Bundle that hasn't been loaded.
+    (922829) - Editor: Added an optional Async Query Mode for Perforce VCS integration (see Editor Settings) to stop the editor freezing when the Perforce - connection has high latency.
+    (976076) - Graphics: Fix for Crash in Projector::PrepareRenderNode after selecting GameObject in the Hierarchy.
+    (983853) - iOS: Metal: Fixed MSAA corner case causing warning messages and validation error.
+    (940608) - iOS: Fixed an issue where fullscreen movies could no longer be dismissed with a tap on iOS 11.
+    (968096) - Particles: Fixed Duration property when used on Sub-Emitters.
+    (974867) - Particles: Fixed Stop Action when it should be used for off-screen Particle Systems.
+    (975289) - Particles: Fixed crash when using [RuntimeInitializeOnLoadMethod] attribute.
+    (977710) - Particles: Fixed crash when enabling some modules from script (e.g. SizeOverLifetime).
+    (878407) - Physics: Fixed PhysX crash when calling Physics.OverlapBoxNonAlloc on Android devices.
+    (978101) - Scripting: Fixed an issue causing GC allocation for UnityEvent handler without parameters in some cases.
+    (978680) - Scripts Only Build: Fixed issue where a user could select a different destination than the last non-scripts only build.
+    (979757) - Video: Fixed crash on attempting to upgrade project.
+    (958543) - Video: Fixed not being able to Enable Transcoding on Video File.
+    (978449) - Video: Fixed video not being played when trying to play it in the Video Clip Importer preview.
+    (971293) - XR: Fixed early out of Virtual Reality SDK list when SDKs that are unsupported in play mode try to initialize. Also Improved log messages around the Virtual Reality SDK list in Play Mode.
+    (986941) - XR: Removed application orientation settings disable when Virtual Reality Supported is enabled and update info message related to the settings.
+
+Revision: 273860332f50
+
