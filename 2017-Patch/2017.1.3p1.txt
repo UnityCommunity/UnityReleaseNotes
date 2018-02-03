@@ -1,0 +1,76 @@
+Patch 2017.1.3p1
+Released: 2. February 2018
+
+Improvements
+
+    iOS: Expose APIs that allow changing home button hiding and system gesture deferral properties on runtime.
+    XR: Update Oculus to version 1.20
+    XR: Update Google VR NDK to v1.100
+
+Fixes
+
+    (970718) - AI: Fixed NavMeshAgents swapping to different NavMeshes when they are disabled and re-enabled right on an edge.
+    (962450) - Android: Fixed an issue where the full-screen movie player didn't autorotate.
+    (941945) - Animation: Improved fix for creating an ongoing transition.
+    (967380) - Animation: Fixed an issue that was causing the Editor to throw an exception when selecting animator transitions in an undocked preview window.
+    (907324) - Animation: Fixed a crash when an animator reset was triggered during a StateMachineBehaviour awake.
+    (972927) - AppleTV: Removed 2x App store icon slices that cause App Store validation to fail.
+    (975350) - Audio: Fixed crash in AudioLowPassFilter on Switch.
+    (95944) - Build Pipeline: Improved buildpipeline performance for large builds.
+    (922829) - Editor: Adds an optional Async Query Mode for Perforce VCS integration (see Editor Settings) to stop the editor freezing when the Perforce connection has high latency.
+    (970697) - Editor: Fixed being able to start multiple PlayMode and EditMode test runs at the same time from the test runner ui.
+    (933548) - Graphics: Fixed changing the projectors render queue in script not having an effect.
+    (956919) - Graphics: Fixed issue where DrawMeshInstanced calls will render with inverse normals if the previous draw call used negative scaling.
+    (968591) - Graphics: Fixed crash during a visibility callback when a GameObject which was not visible is set inactive followed by setting a visible GameObject inactive.
+    (941149) - Graphics: Fixed Vulkan validation layer errors associated with image barriers.
+    (951091) - Graphics: Fixed crashes that can happen on DirectX12 with graphics jobs enabled to do with DynamicVBOs.
+    (950907) - Graphics: Fixed potential hang on DirectX11 or DirectX12 when using different sized render targets and multiple cameras.
+    (None) - Graphics: Fixed D3D11 driver assert message and potential crash "Invalid mask passed to GetVertexDeclaration() when using post-effect".
+    (948053) - Graphics: Fixed specific case where not all requested shader variants ending up in an asset bundle.
+    (941149) - Graphics: Fixed Vulkan validation layer errors (on Windows) when switching to fullscreen.
+    (954828) - Graphics: Fixed projectors not being culled correctly to match Editor scene cameras.
+    (912323) - Graphics: Added error message for graphics APIs that do not support texture wrap mode "mirror once" (Android Vulkan, Android GLES3 and WebGL). Christophe Riccio 912323.
+    (961692, 964998) - Graphics: Fixed asserts and potential memory leaks when Skinned Mesh Renderers with the "Update When Offscreen" property enabled are not visible.
+    (907391) - Graphics: Fixed case when some of the cameras don't render anything because depth buffer contains garbage.
+    (973052) - IL2CPP: Prevented an unlikely, but possible crash when default parameter values are used.
+    (959791) - IL2CPP: Fixed a problem with the decimal to double conversion implementation with the new scripting runtime.
+    (957651) - IL2CPP: Fixed a crash on iOS which can occur when a device is awakened during a blocking socket call with a SIGPIPE signal.
+    (975496) - IL2CPP: Improved the performance of code conversion when many nested generic types are used.
+    (980360) - iOS: Fixed iOS 11 crash when application is launched from URL and airplay screen mirroring is enabled.
+    (980304) - iOS: Enabled landscape splashscreen for more iOS11 devices.
+    (940608) - iOS: Fixed an issue where fullscreen movies could no longer be dismissed with a tap on iOS 11.
+    (913856) - iOS: Fixed for locked orientation app gets rotates from portrait to landscape when sharing to another app on iOS 8 & 9.
+    (954593) - iOS: Fixed videos started with Handheld.PlayFullScreenMovie not resuming after returning to the app in some circumstances.
+    (983854) - iOS: Fixed MSAA corner case causing warning messages and validation error on Metal.
+    (979006) - iOS: Fixed problem on iPhone X with missing keyboard Done/Cancel buttons.
+    (956318) - iOS: Fixed trampoline calling UI methods ([UIApplication delegate]) from background thread (case 956318).
+    (977710) - Particles: Fixed crash after enabling certain modules via script (e.g. Size over Lifetime).
+    (984402) - Physics: Fixed issue where Physics Debugger's layer mask does not filter GameObject correctly.
+    (984401) - Physics: Fixed potential crash in Rigidbody::GetVelocity() when opening certain scenes.
+    (984400) - Physics: Fixed crashes when loading new scene and activating cloth gameobject in coroutine.
+    (878407) - Physics: Fixed PhysX crash when calling Physics.OverlapBoxNonAlloc on Android devices.
+    (978630) - Scripting: Fixed an issue causing GC allocation for UnityEvent handler without parameters in some cases.
+    (930358) - Scripting: Fixed crash when using GitHub for Unity.
+    (960555) - Scripting Upgrade: Fixed crash when using 'fixed' statement on a string.
+    (954427) - Scripting Upgrade: Fixed Android crash when NullReferenceException is raised.
+    (978681) - Scripts Only Build: Fixed issue where a user could select a different destination than the last non-scripts only build.
+    (927339) - Shaders: Fixed incorrect translation to GLSL of compute shaders using bfi instructions with mask operators.
+    (944334) - Shaders: Fixed case where some user shader keywords were handled incorrectly leading to compilation errors when building for standalone.
+    (None) - Shaders: Implement missing F32TO16 and F16TO32 opcode handling in HLSLcc shader conversion.
+    (943340) - Shaders: Fixed incorrect translation of shaders using resinfo with mask operators.
+    (911613) - UI: Fixed issue where an assigned fallback font would not be used.
+    (955086) - Universal Windows Platform: Fixed NavMeshObstacles being ignored on 64-bit master builds.
+    (966790) - Universal Windows Platform: Fixed NotSupportedException being thrown on UWP builds with .NET scripting backend enabled when using Timeline.
+    (963980) - Video: Fixed videos being transcoded when switching platform even when they are cached in Cache Server.
+    (962118) - Video: Fixed meta files being updated during platform switch when transcoded files are identical
+    (971945) - VR: Fixed shaders meant to be used in VR platforms will being included included in builds where VR support is disabled.
+    (None) - Web: Fixed possible crash in UnityWebRequest on Windows platforms when using UnityWebRequest with custom download handler script.
+    (973260) - Web: UnityWebRequest: Improved performance for DownloadHandlerScript.
+    (971875) - Web: UnityWebRequest: Fixed crash when checking AssetBundle download progress that gets aborted.
+    (971870) - WebGL: Fixed UnityWebRequest with relative URL when running with custom port.
+    (970681) - WebGL: Fixed crash for relative URL in UnityWebRequest when exceptions are disabled.
+    (937594) - WebGL: Added indexedDB caching mechanism for XMLHttpRequest in WebGL.
+    (972355) - Windows Standalone: Fixed a regression where a fullscreen application would be restored to the native resolution of the attached display after losing focus. The expected outcome was that it should be restored to the original resolution that it was launched on.
+    (986942) - XR: Fixed orientation settings being locked when VR Support is enabled, and updated info messages related to these settings.
+
+Revision: 02d73f71d3bd
