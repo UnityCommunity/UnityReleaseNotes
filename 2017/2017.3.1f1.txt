@@ -1,0 +1,93 @@
+Unity 2017.3.1f1
+5 Feb, 2018
+
+Release notes
+Improvements
+
+    iOS: Expose APIs that allow changing home button hiding and system gesture deferral properties on runtime.
+    XR: Update Google NDK to v1.100
+    XR: Update Oculus to version 1.20
+    XR: Update Vuforia to version 7.0.43
+    XR: Added XR.WSA.HolographicSettings.IsContentProtectionEnabled. This gets or sets whether the app is displaying protected content. While content protection is enabled, rendered content will be visible only in the headset, disabling the Mixed Reality - Portal's preview.
+    XR: Added XR.WSA.HolographicSettings.ReprojectionMode. This gets or sets the kind of reprojection the app is requesting to stabilize its holographic rendering relative to the user's head motion.
+
+Fixes
+
+    2D: Fixed NullReferenceException from Tilemap Palette when assembly changes. (978651)
+    Android: Fixed decimal point button in decimal keyboard for older Samsungs. (973815)
+    Animation: Fixed issue with creating an ongoing transition. (941945)
+    Animation: Fixed layouting issue when deleting clip in a blend tree inspector. (978674)
+    Animation: Fixed an issue with shadow rendering in the Animation Previewer. (962517)
+    Animation: Fixed InvalidOperationException when clicking cancel in 'Add Animation Clip' dialog window in animation window. (978299)
+    AppleTV: Removed 2x App store icon slices that cause App Store validation to fail. (972927)
+    Asset Pipeline: Cancel dialog/reimport after skipping video import processing.Dominique Leroux. (58017)
+    Build Pipeline: Improved buildpipeline performance for large builds. (959444)
+    Editor: Fixed input field staying highlighted after enter key is pressed. (966036)
+    Editor: Fixed lightingdata.asset files getting re-opened in text mode in certain situations. (975920)
+    Editor: Editor no longer crashers when closing 2 custom editor windows at the same time. (967778)
+    Editor: Fixed "Permission denied" error message on read-only .meta file when upgrading project from a previous version. (980258)
+    Editor: Collaborate no longer deletes ignored files when restoring to an older version. (932926)
+    Editor: Fixed ForceReserializeAssets incorrectly updating the timeCreated field in .meta files. (984239)
+    Editor: Fixed an issue with normalization of transform rotations which was causing spurious tiny differences in the rotation quaternion when serialized to YAML files. (984239)
+    Editor: Fixed dragging slider causing creation of too many undo steps. (960531)
+    Graphics: Fixed occasional TrailRenderer error message when using Local alignment and more than one width curve key. (970747)
+    Graphics: Fixed Crash in Projector::PrepareRenderNode after selecting GameObject in the Hierarchy. (976076)
+    Graphics: Fixed crash in Projector:PrepareRenderNode after selecting a gameobject in the hierarchy. (976076)
+    Il2CPP: Fixed a crash on iOS which can occur when a device is awakened during a blocking socket call with a SIGPIPE signal. (957651)
+    IL2CPP: Fixed a C++ compiler bug in the Android r13b NDK that could cause the NullCheck method to be incorrectly removed from the resulting binary. (963785)
+    iOS: Fixed landscape splashscreen not enabled for iOS11 on some devices. (980302)
+    iOS: Fix iOS 11 crash when application is launched from URL and airplay screen mirroring is enabled. (980361)
+    iOS: Fix for black screen flickering when screen orientation is changed via script. (978917)
+    iOS: Metal: Fixed MSAA corner case causing warning messages and validation error. (983852)
+    iOS: iPhone X, fixed problem with missing keyboard Done/Cancel buttons. (979002)
+    iOS: Fixed trampoline being able to call UI methods ([UIApplication delegate]) from background thread. (956318)
+    Launcher: Fix Open project dialog stop working. (971905)
+    Launcher: Fix display of Unity Teams "Seat Required" message when project is both in the cloud and on disk. (963246)
+    OSX: Fixed IDE does not get focused when opening script on Mac. (978478)
+    OSX: Fixed detached Editor windows go behind the Editor when clicked outside of them. (827158)
+    OSX: Fixed VS for Mac opens new instance after Unity was reopened. (978636)
+    Package Manager: Fixed an issue where editor was not starting for some users by adding 127.0.0.1 address to the default list of non-proxied address. (931921)
+    Particles: Fixed Stop Action when used on particles that finish off screen. (974867)
+    Particles: Fixed Duration field when used on Sub-Emitters. (968096)
+    Particles: Fixed a crash when using RuntimeInitializeOnLoadMethod with a Particle System. (975289)
+    Particles: Fixed a crash when enabling certain modules via script (e.g. Size over Lifetime). (977710)
+    Particles: Fixed flip U/V settings being ignored after enabling Custom Vertex Streams. (961702)
+    Particles: Fixed support for entering Infinity into the Start Lifetime field. (971980)
+    Particles: Fixed ribbon trail of Sub Emitter not inheriting color from spawning particle. (964377)
+    Particles: Fixed particles showing visual artifacts when ribbon count was higher than the current particle count. (969863)
+    Particles: Fixed issue where Local Aligned particles with negative scale could be displayed incorrectly. (979638)
+    Particles: Fixed material texture becoming invisible when its shader had been set from 'Particles/Standard Surface' or 'Particles/Unlit'. (968908)
+    Profiler: Fixed deep profiling in standalone players. (976439)
+    Scripting: Fixed an issue causing GC allocation for UnityEvent handler without parameters in some cases. (978596)
+    Scripting: Fixed mcs hanging while compiling script. (948492)
+    Scripting: Fixed deadlocks and pauses when using System.Threading.Monitor. (827984)
+    Scripting: Fixed issue with generic types not being collected correctly in Mono/.NET 2.x memory snapshot. (None)
+    Scripting Upgrade: Fixed crash when using 'fixed' statement on a string. (960555)
+    Scripting Upgrade: Fixed InternalsVisibleTo. (945353)
+    Scripting Upgrade: Fixed Android crash when NullReferenceException is raised. (954427)
+    Scripting Upgrade: Fixed random crash due to memory corruption on domain reload. (967206)
+    Scripting Upgrade: Fixed value types larger than 1MB. (962711)
+    Scripting Upgrade: Fixed URI processing on OSX. (907918)
+    Scripting Upgrade: Improved TypeLoadException messages. (957072)
+    Scripting Upgrade: Fixed DllImport when library name is specified with a path. (952631)
+    Scripting Upgrade: Fixed Android crash when script debugger is enabled. (973794)
+    Scripting Upgrade: Fixed Socket.Send failing silently on Windows. (984723)
+    Timeline: Fixed an issue where custom tracks could be lost if they contained compile errors. (979700)
+    Unity Package Manager: Fixed "Permission denied" error message on read-only .meta file when upgrading project from a previous version. (980258)
+    UnityLinker: Prevented an error from the linker when an iOS type is used in an assembly on Android. (962771)
+    Universal Windows Platform: Fixed NavMeshObstacles being ignored on 64-bit master builds. (955086)
+    UWP: Fixed building UWP player with IL2CPP scripting backend and Analytics enabled. (984447)
+    Video: Fixed Media Foundation hang that would eventually freeze the Editor. (986905)
+    Web: Ensured only use non-chunked data transfer in WWW. (974046)
+    Web: Fixed file URI support with multibyte chars in UnityWebRequest/WWW. (986237)
+    Web: MadeContent-Disposition for file sections standard-compliant in UnityWebRequest POST. (980326)
+    XR: Fixed single-pass shadow issue when used with Nvidia VRWorks. (None)
+    XR: Fixed issue with capturing a screen shot image while in single-pass instancing mode. (None)
+    XR: Removed application orientation settings disable when Virtual Reality Supported was enabled and updated info message related to the settings. (973918)
+    XR: Fixed early out of Virtual Reality SDK list when SDKs that are unsupported in play mode try to initialize. Also Improved log messages around the Virtual Reality SDK list in Play Mode. (971293)
+
+Known Issues
+
+    iOS: Changing screen orientation via script on iOS 8 stretches/upscales the game view making only a part of it visible.
+
+Revision: fc1d3344e6ea
