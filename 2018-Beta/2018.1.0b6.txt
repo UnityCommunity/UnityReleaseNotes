@@ -1,0 +1,196 @@
+2018.1.0 Beta 6
+Released: 8. February 2018
+
+Release notes
+2018.1.0b6 Release Notes (diff since 2018.1.0b5)
+System Requirements Changes
+
+    Removed support for Windows XP in standalone player builds. Windows Vista is the now minimum supported OS for Windows standalone player.
+    Deprecated support for MonoDevelop. VisualStudio is now the recommended and supported C# editor on both macOS and Windows.
+
+Known Issues in 2018.1.0b6
+
+    GI: AddInstancePropertiesJob error while baking with specific assets (973689)
+
+    Particles: Line renderer is rendered in scene/game window when selecting object in the Project window (972298)
+
+    Audio: [Audio Mixer] Crash on play when duplicated audio group is assigned to audio source (962084)
+
+    Animation: Null Reference exception occurs when trying to add/delete the event or changing sample number. (989758)
+
+    Particles: Unity crashes when duplicating/moving nested particle systems with a disabled renderer (988423)
+
+    Animation: Configure button doesn't get enabled when the model rig is set to humanoid (984843)
+
+    OSX: [OSX 10.13] Switching between 2 game view tabs multiple times freezes editor (991828)
+
+    Editor: Cannot Quit Application from launcher using Unity>Quit nor cmd+Q (993381)
+
+    UI: UI Button changes its position after re-entering the playmode (995548)
+
+    Animation: Curve with weighted keyframes does not animate properly in the animator (986008)
+
+    Templates: Project templates will be updated in subsequent betas to address the following points:
+        The 2D template currently creates a default scene with a UI canvas: this will be removed in a subsequent build.
+        The 3D Ultra template is missing the "Preview" tag currently.
+        All templates: Lighting settings improvements to come in a subsequent build.
+        Progressive lightmapper doesn't work on Linux, which means that all 3D templates will crash on launch. The 2D template should still work.
+
+Features
+
+    Editor: Assembly Definition Files (asmdef) assemblies are now compiled on startup before any other scripts (Assembly-CSharp.dll and friends) and compilation does not stop on the first compile error. All asmdef assemblies that succesfully compile and have all their references compiled are loaded before compiling the remaining scripts (Assembly-CSharp.dll and friends). This ensures that Unity packages are always built and and loaded regardless of other compile errors in the project.
+
+    Package Manager: Updated Package Manager user interface (from where a project's packages can be managed and new packages can be discovered) to v1.6.1. What's new in 1.6.1:
+        When updating the package, the user is now asked to confirm temporary closure of the window. Note however that this will only be the case when updating from v1.6.1 onwards. When updating from 1.5.1 to 1.6.1, a restart of Unity is necessary for the update to take effect.
+        The window is now dockable.
+        UI style rework, making it consistent with the rest of the Editor.
+        Added keyboard navigation in the Packages list
+
+Changes
+
+    Android: Updated JDK requirements to JDK 8. This a requirement from the latest Android SDK.
+
+    Android: We now create a 2048-bit RSA key for signing the apk.
+
+    WebGL: Removed experimental label from WebAssembly linker target.
+
+Improvements
+
+    XR: Android builds that support ARCore can now be built using target API version 14 or higher.
+
+API Changes
+
+    2D: Added DetectChunkCullingBounds to TilemapRenderer to allow for correct culling of large tiles. (971087)
+
+    Editor: Explicitly setting the following delegates to null will no longer draw a control handle, instead of drawing using a default implementation: PrimitiveBoundsHandle.midpointHandleDrawFunction, ArcHandle.angleHandleDrawFunction, ArcHandle.radiusHandleDrawFunction, JointAngularLimitHandle.angleHandleDrawFunction.
+
+    Editor: Explicitly setting the following delegates to null will now result in a handle size of 0 instead of using a default value: PrimitiveBoundsHandle.midpointHandleSizeFunction, ArcHandle.angleHandleSizeFunction, ArcHandle.radiusHandleSizeFunction, JointAngularLimitHandle.angleHandleSizeFunction.
+
+Fixes
+
+    Asset Import: Fixed an issue where the update avatar button would not disappear in the ModelImporter Rig panel. (837263, 990716)
+
+    Editor: Fixed Editor hang when merging files with Collaborate. (971434)
+
+    GI: Fixed case of default specular reflection texture containing object from the scene when Umbra is enabled. (975325)
+
+    GI: Fixed case of Reflection Probes always including Terrain objects even if they are not Reflection Probe Static. (863968)
+
+    Graphics: Fix for leaking texture IDs associated with the depth textures on some platforms.
+
+The following are changes and fixes to 2018.1.0 features and regressions...
+Improvements
+
+    XR: Updated Vuforia icons with improved images and added new images for Vuforia scripts missing icons.
+
+Fixes
+
+    2D: Fixed case of error message "A script behaviour has a different serialization layout when loading" being thrown when a Tilemap is loaded in players with code stripping. (969827)
+
+    2D: Fixed case of Tilemap not setting Tiles with the correct data in players with code stripping. (965608)
+
+    2D: Fixed crash after building and loading an Asset Bundle with Tilemap in the Editor. (976411)
+
+    2D: Fixed crash when Tilemap is loaded with invalid Tiles in the Editor. (972214)
+
+    Android: Daydream: Fixed case of app displaying black screen when started from Build+Run. (971671)
+
+    Android: Fixed a bug causing the loading of native audio plugins to fail on Android. (992023)
+
+    Audio: Fixed a bug where AudioManager::Update was generating a small amount of garbage memory if a spatializer was selected. (991977)
+
+    Build Pipeline: Fixed crash when loading meshes from asset bundles that contain both compressed and uncompressed meshes. (984070)
+
+    Editor: Fix to allow removal of RectTransform when other components only depend on Transform. (988027)
+
+    Editor: Fixed case of rectangle selector remaining after right-click. (980071)
+
+    Editor: Fixed case of scene visualization modes not working. (969889)
+
+    Editor: Fixed case of Skybox field in the Lighting Window not showing the correct value when working with multiple scenes. (916245)
+
+    Editor: Fixed case of wrong parameters being displayed for directional, spot and point lights. (972240)
+
+    Editor: Fixed crash when importing animator controller with null transitions. (986025)
+
+    Editor: Fixed crash when selecting an FBX import preset in the project window. (988419)
+
+    Editor: Fixed issue where GUI.Box tooltip would not appear in the Inspector. (993499)
+
+    Editor: Fixed issue where it was possible to select nodes through (i.e. behind) an anchored minimap. (985978)
+
+    Editor: Fixed issue with Visual Studio integration not being initialized correctly on Editor startup. This would in turn cause issues with loading the C# solution and C# debugging (and more) in Visual Studio. (992141)
+
+    Editor: Fixed JDK required for building for targets other than Android (990943)
+
+    Editor: Fixed performance regression when reloading assemblies after recompiling scripts. (987611)
+
+    Editor: Fixed scene view color encoding breakage when using linear color space. (973729)
+
+    Editor: GraphView: Fixed bug in Node.RefreshPorts where delegate would keep on being added. (993498)
+
+    Editor: Using Application.internetReachability with OnGUI no longer results in errors in the Console. (967806, 993500)
+
+    GI: Fix for a rare deadlock when writing a LightingData asset.. (989055)
+
+    GI: Fixed case of scene state becoming dirty after performing a GI bake on unmodified scene. (974110)
+
+    GI: Fixed cases where a lightmap bake would appear to run but would actually do nothing. (973666)
+
+    GI: Fixed issue where Lightmapping.BakeMultipleScenes executed via batch mode with the -quit argument would fail to create lightmap textures. (949305)
+
+    Graphics: Fixed an occasional hang in the player when building with graphics jobs enabled. (967436)
+
+    iOS: Fixed crash when using UnityWebRequest with DownloadHandlerfile. (989197)
+
+    Multiplayer: Fix to skip all soft socket errors to prevent host from closing.
+
+    Network: Fixed crash during GC collection when using Ping class. (972519, 984998)
+
+    Package Manager: Fixed case of "Assertion failed: Failed to change file flags" exception being generated on creating a new project. (977901)
+
+    Package Manager: Fixed compilation errors due to missing scripts when updating/removing packages. (987952)
+
+    Particles: Fixed case of unnessesary CPU usage when no particle systems exist and C# jobs are used. (990576)
+
+    Scripting Upgrade: Fixed Android "Failed to load Mono" error. (986625)
+
+    Scripting Upgrade: Fixed Android crash when script debugger is enabled. (973794)
+
+    Scripting Upgrade: Fixed Android crash when NullReferenceException is raised. (954427)
+
+    Scripting Upgrade: Fixed case of profiler not counting GC allocations. (988906)
+
+    Scripting Upgrade: Fixed cause of EntryPointNotFoundException when calling HTTPClient.GetAsync on Android. (935292)
+
+    Scripting Upgrade: Fixed crash on exit when script debugger is enabled. (974228)
+
+    Scripting Upgrade: Fixed crash when using named pipes. (942966)
+
+    Scripting Upgrade: Fixed issue where Socket.Send would fail silently on Windows. (984723)
+
+    Scripting Upgrade: Fixed issue with dynamic assemblies never being unloaded when entering/exiting playmode. (923165)
+
+    Scripting Upgrade: Fixed issue with Windows Standalone 32-bit randomly failing to start. (980742)
+
+    Services: Performance Reporting: we now report the device model field for managed exceptions. (980806, 980814)
+
+    Shaders: Fixed bug resulting in unnecessary shader reimports on project startup/build.
+
+    Timeline: Fixed issue where moving an undoed clip with the inspector in replace mode would duplicate it. (989021)
+
+    UI: Fixed crash in ShouldUpdateTransformBefore. (986584)
+
+    UI: Fixed issue where the position and rotation specified when calling Object.Instantiate were not applied correctly for a RectTransform. (980300, 992285)
+
+    UI: Fixed problem where undoing the activation of a UI layout component did not undo the side effects to the children RectTransforms. (989958)
+
+    Web: Fixed case of native UnityWebRequest not getting destroyed until garbage was collected, even if explicitly disposed. (988819)
+
+    Web: Fixed file URI with host component in UnityWebRequest. (971557, 991605)
+
+    XR: Fixed crash during build when using stereo display. (977488, 987308)
+
+    XR: Fixed crash on HoloLens when trying to use touch keyboard. (992326)
+
+    XR: Fixed screenshot capture in VR. (956227, 986618)
