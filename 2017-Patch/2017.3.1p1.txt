@@ -1,0 +1,68 @@
+Patch 2017.3.1p1
+Released: 14. February 2018
+
+Changes
+
+    Asset Import: Adjusted messaging around Substance Designer import removal.
+    XR: Android builds that enable ARCore no longer fail when the minimum Android SDK is less than 24.
+    XR: Standalone UWP applications targeting Windows Mixed Reality will now cause the OS to notify the user if the Mixed Reality components are not installed or a headset is not connected, rather than silently falling back to non-VR desktop mode.
+
+Fixes
+
+    (969827) - 2D: Fixed error message "A script behaviour has a different serialization layout when loading" when a Tilemap is loaded in players with code stripping.
+    (976411) - 2D: Fixed crash after building and loading an Asset Bundle with Tilemap in the Editor.
+    (972214) - 2D: Fixed crash when Tilemap is loaded with invalid Tiles in the Editor.
+    (965608) - 2D: Fixed Tilemap not setting Tiles with the correct data in players with code stripping.
+    (990691) - 2D: Fixed an issue that was causing the Physics Shape of a Sprite2D to not being properly set unless the 'Edit Physics Shape' tab was opened first.
+    (966605) - 2D: Fixed Physics2D.TilemapCollider.TileUpdate taking an extremely long time to update every time a script recompile happens.
+    (992023) - Android: Fixed a bug causing the loading of native audio plugins to fail on Android.
+    (962450) - Android: Fixed an issue where the full-screen movie player didn't autorotate.
+    (986004) - Animation: Fixed crash when importing animator controller with null transitions.
+    (950805) - Animation: Fixed state deselection in the Animator State Machine.
+    (947918) - Animation: Fixed Timeline Sequence not firing Animation Events.
+    (975824) (966082) - Animation: Fixed Animator.GetBehaviours returning an empty array after saving scene.
+    (975555) - Animation: Fixed crash when calling Animator.MatchTarget without a controller.
+    (962745) (938640) - Animation: Fixed a crash caused by invoking QueryComponentByType() when code stripping is enabled.
+    (984070) - Asset Bundles: Fixed crash when loading meshes from asset bundles that contain both compressed and uncompressed meshes.
+    (983321) - Asset Import: Fixed AssetPostprocessor.OnAssignMaterialModel not being called for all models when importing materials as sub-assets.
+    (991111) - Audio: Fixed a bug where AudioManager::Update was generating a small amount of garbage memory, if a spatializer was selected, that would later need to get garbage-collected.
+    (975773) - Cache Server: Fixed an issue where using a Cache Server and reimporting Assembly Definition files would fail to trigger rebuilding of the assembly.
+    (971434) - Editor: Fixed Editor hang when merging large changesets or large scene files with Collaborate.
+    (973052) - IL2CPP: Fixed an unlikely, but possible crash when default parameter values are used.
+    (976218) - IL2CPP: Enabled dead code stripping for clang toolchain.
+    (959791) - IL2CPP: Fixed a problem with the decimal to double conversion implementation with the new scripting runtime.
+    (969958) - IL2CPP: Fixed a crash in Unity Linker (System.InvalidProgramException: Failed to resolve [UnityEngine]System.Resources.NeutralResourcesLanguageAttribute) when using a managed - DLL that has a non-existing attribute on it.
+    (947208) - IL2CPP: Implemented sending of email via SmtpClient with .NET 4.6.
+    (976623) - IL2CPP: Implemented the EnsureSufficientExecutionStack method for .NET 4.6.
+    (975496) - IL2CPP: Improved the performance of code conversion when many nested generic types are used.
+    (973813) - Metal: Fixed an edge case crash when using grab-pass on metal.
+    (982435) - OSX: Fixed crash on Editor panel close on select versions of macOS.
+    (988874) - Particles: Fixed flickering due to a floating point error when sorting by youngest/oldest.
+    (982271) - Scripting: Fixed regression with Assembly-CSharp.dll and friends referencing editor only assemblies.
+    (991464) - Scripting Upgrade: Fixed a C# compiler bug which could result in "the type cannot be used as type parameter `T' in the generic type or method" errors.
+    (935292) - Scripting Upgrade: Fixed EntryPointNotFoundException when calling HTTPClient.GetAsync on Android.
+    (942966) - Scripting Upgrade: Fixed crash when using named pipes.
+    (974228) - Scripting Upgrade: Fixed crash on exit when script debugger is enabled.
+    (980815) (980816) - Services: Performance Reporting: Report device model field for Managed Exceptions.
+    (986871) - Timeline: Fixed ArgumentOutOfRangeException when shift-selecting a clip, if that clip was moved and the move operation was undo.
+    (992286) (980300)- UI: Fixed issue where position and rotation specified when calling Object.Instantiate was not applied properly to a RectTransform.
+    (986584) - UI: Fixed crash in RectTransform::ShouldUpdateTransformBefore.
+    (977959) - UI: Fixed issue with UI and prefab positioning.
+    (995452) (937370) - UI: Fixed OnEndDrag not being called when dragging as the app loses focus.
+    (988136) (966172) - UI: Fixed issue where a driven RectTransform could cause a scene to be constantly flagged as dirty.
+    (990752) - UI: Fixed an issue where undoing the activation of a UI layout component did not undo the side effects to the children RectTransforms.
+    (988311) (939853) - UI: Fixed instances where Font.textureRebuilt would not be called even though the internal texture was regenerated.
+    (968801) - UWP: Fixed keyboard input not distinguishing left/right shift keys.
+    (988818) - Web: Fixed native UnityWebRequest not destroyed until garbage collected even if explicitly disposed.
+    (991606) (971557) - Web: Fixed file URI with host component in UnityWebRequest.
+    (968584) - Windows: Fixed default width/height not honored for 'Windowed' mode.
+    (993880) - XR: Fixed stabilization plane not getting set correctly via the SetFocusPointForFrame() API, resulting in poor hologram stabilization and color separation on HoloLens.
+    (988571) - XR: Ported missing properties on the Pose type, which broke user code for Windows Mixed Reality when porting from 2017.2.
+    (965494) - XR: Fixed an issue with lights failing to completely illuminate scene geometry during stereo rendering.
+    (973172) - XR: Fixed a crash that would occur if an application used Unity's Spatial Mapping component without VR being enabled or without using Windows Mixed Reality.
+    (993425) - XR: Fixed calling touch keyboard causeing unhandled exception to be thrown and app closing.
+    (991170) (946104) - XR: Fixed errors when building for Daydream and Cardboard with Proguard enabled.
+    (952777) - XR: Fixed crash when holographic emulation set to remote with no device connected.
+    (987306) - XR: Fixed build crashes when using stereo display.
+
+Revision: 6c5ba423732e
