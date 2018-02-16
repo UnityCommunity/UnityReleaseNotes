@@ -1,0 +1,85 @@
+2018.1.0 Beta 7
+Released: 14. February 2018
+
+Release notes
+2018.1.0b7 Release Notes (diff since 2018.1.0b6)
+System Requirements Changes
+
+    Removed support for Windows XP in standalone player builds. Windows Vista is the now minimum supported OS for Windows standalone player.
+    Deprecated support for MonoDevelop. VisualStudio is now the recommended and supported C# editor on both macOS and Windows.
+
+Known Issues in 2018.1.0b7
+    Animation: Configure button doesn't get enabled when the model rig is set to humanoid (984843)
+    Animation: Null Reference exception occurs when trying to add/delete the event or changing sample number. (989758)
+    Audio: [Audio Mixer] Crash on play when duplicated audio group is assigned to audio source (962084)
+    GI: AddInstancePropertiesJob error while baking with specific assets (973689)
+    GI: Progressive lightmapper doesn't work on Linux, which means that all 3D templates will crash on launch. The 2D template is not affected however.
+    GI: Skybox material is retained even after being removed from lighting settings (999227)
+    OSX: [OSX 10.13] Switching between 2 game view tabs multiple times freezes editor (991828)
+    Particles: Line renderer is rendered in scene/game window when selecting object in the Project window (972298)
+    Particles: Unity crashes when duplicating/moving nested particle systems with a disabled renderer (988423)
+    UI: UI Button changes its position after re-entering the playmode (995548)
+
+API Changes
+    Graphics: Graphics.ConvertTexture now supports RenderTexture as source.
+
+Fixes
+    Graphics: Fix for deadlock in graphics command buffer when updating constant buffers. (986772, 995312)
+
+The following are changes and fixes to 2018.1.0 features and regressions...
+Fixes
+    Animation: Fixed case of Editor crashing on mecanim::animation::SeekClipForward when setting Sample Rate of Sprite Animation to 0 in custom Animator. (988154)
+    Animation: Fixed case of missing menu entries in the Curve Editor contextual menu. (984436)
+    Animation: Fixed case of weighted keyframes not being evaluated correctly in the Animator. (986008)
+    Animation: Fixed case of weighted keyframes not being evaluated correctly in the Particle System. (986384)
+    Animation: Fixed case of Animator.GetBehaviours returning an empty array after a scene has been saved. (966082)
+    Animation: Fixed crash when calling Animator.MatchTarget without a controller. (969752)
+    Animation: Fixed IndexOutOfRangeException when adding a key in an AnimationCurve with only one keyframe. (978950)
+    Asset Import: Fixed AssetImporterEditor initialization to make sure the target editor is setup before OnEnable or Awake. (984843)
+    Editor: Fixed a Windows-specific crash in YAMLMerge when trying to merge files. (985604)
+    Editor: Fixed case of collapsing Profiler Hierarchy View branch when sub-item was selected in another frame. (988266)
+    Editor: Fixed case of profiler graphs drawing below their designated area. (974573)
+    Editor: Fixed error when dragging material preset in scene. (995487)
+    Editor: Fixed errors when switching to Profiler Hierarchy view from Timeline view.
+    Editor: Fixed incorrect compilation of scripts on startup, resulting in erroneous compiler errors and possible freezes. (987611)
+    Editor: Fixed issue where opening a project in the Editor would cause Unity to exit the one already open, without opening the new one. (978204, 996791)
+    Editor: Fixed issue with UWP build failing when using .asmdef assemblies. (979704)
+    Editor: Fixed issue with Rider 2017.2.1.app not being recognized as Rider code editor. We now recognize Rider*.app.
+    Editor: Fixed various performance issues in YAMLMerge. (971434)
+    Graphics: Disabled jobified rendering on graphics devices that don't yet support it. (985591)
+    Graphics: Fixed case of incorrect shadow culling mode in SRP when in reflection (Shadow must use backface culling mode even in reflection). (995489)
+    Graphics: Fixed Windows-specific crash when compiling complex shaders (by increasing the stacksize on the shader compiler). (993249)
+    iOS: Metal: An error is now issued when using ReadPixels() and going out of bounds while reading. (981074, 990593)
+    Kernel: Fixed crash when calling Profiler.EndThreadProfiling() on a main thread. (980553)
+    Kernel: Fixed very rare assert which could happen on old CPUs: "Assertion failed: Null JobInfo in Steal". (983772)
+    Package Manager: Fixed bug where built-in packages (modules) could not be added or removed.
+    Package Manager: Fixed issue where pre-release versions of packages would not be displayed.
+    Scripting: An error is once again shown as expected when a script assembly cannot be overwritten. (988650)
+    Scripting: Fixed case of UnityEngine.Object methods and properties resulting in a crash instead of throwing an exception when passing argument null and assigning null. (978580, 992639)
+    Scripting: Fixed issue where only assemblies with names starting with "Assembly" were debuggable on IL2CPP platforms.
+    Scripting: Fixed issue with MonoScripts for StateMachineBehaviour derived classes not being extracted from managed plugins. (963958)
+    Scripting Upgrade: Fixed an issue building UWP Player with IL2CPP Scripting Backend that targeted .NET Standard 2.0. (996370)
+    Scripting Upgrade: Removed the option to target .NET Standard 2.0 from UWP player settings unless the Scripting Runtime Version is Experimental .NET 4.x. (991782)
+    Shaders: Fixed bad MOVC operation code generation on some GLSL & Metal shaders. (988727)
+    Shaders: Fixed bad swizzles on GLSL & Metal shader image size queries. (938614)
+    Shaders: Fixed certain typed buffer load cases on GLSL & Metal shaders. (996468)
+    Shaders: Fixed errorneous swizzle insertions on some corner cases on GLSL shader. (989777)
+    Timeline: Changes to materials during animation recording no longer affect every object using the same material. (952127, 994628)
+    Timeline: Copy-paste track behaviour is now consistent with copy-paste in the hierarchy. (994621)
+    Timeline: Fixed case of Animation playable assets being shown in timeline after an undo. (994624)
+    Timeline: Fixed case of lost "Add Key" option in the Inspector on Override Tracks. (994625)
+    Timeline: Fixed case of playhead getting reset to zero when there a domain reload. (994622)
+    Timeline: Fixed case of ArgumentException being thrown when resizing Timeline window. (952571)
+    Timeline: Fixed issue where a copied clip in a different timeline would get saved under the original asset. (994627)
+    Timeline: Fixed issue where Activation Track Add Clip did not respect the mouse position. (994629)
+    Timeline: Fixed issue where Override Track would become separated from its parent track if both were selected after drag-and-dropping into Track Group. (973238, 994626)
+    Timeline: Fixed issue where the mouse cursor would get locked in ripple/replace mode on pressing both mouse buttons simultaneously. (994632)
+    Timeline: Fixed issue whereby hitting both mouse buttons simultaneously while in replace mode would delete the clip. (994631)
+    Timeline: Fixed performance issue in Preview mode when duplicating Timeline assets. (976646, 994630)
+    UI: Fix to ensure that OnEndDrag is called when dragging and the app loses focus. (937370, 995451)
+    UI: Fixed instances where textureRebuilt would not be called even though the internal texture was regenerated. (939853, 988312)
+    UI: iOS: Corrected processing of touch canceled events. (973437)
+    Universal Windows Platform: Fixed a performance issue when the UWP platform stops recording audio. (962086)
+    XR: Android: Fixed errors when building for Daydream and Cardboard with Proguard enabled. (946104, 991169)
+    XR: Fix to improve frame rate on Windows MR when tracking is lost. (994651)
+    XR: Fixed case of stabilization plane not getting set correctly via the SetFocusPointForFrame() API, resulting in poor hologram stabilization and color separation on HoloLens. (995063)
