@@ -1,0 +1,14 @@
+Patch 5.6.5p2
+Released: 16. February 2018
+
+Fixes
+
+    (943435) - Build Pipeline: Fixed scene passed to OnProcessScene when entering Play Mode is not being loaded.
+    (940608) - iOS: Fixed an issue where fullscreen movies could no longer be dismissed with a tap on iOS 11.
+    (994961) (953524)- iOS: Fixed black frame flickering when changing screen orientation via script.
+    (900969) - OSX: Fixed changing Input Manager entries causing the player to become unresponsive.
+    (980818) (980806) - Performance Reporting: Report device model field for Managed Exceptions.
+    (992056) - Scripting: Fixed crash when calling UnityEngine.Object.Instantiate on non-main thread.
+    (937594) - WebGL: Added indexedDB caching mechanism for XMLHttpRequest in WebGL.
+
+Revision 02430129007d
