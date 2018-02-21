@@ -1,0 +1,69 @@
+2018.1.0 Beta 8
+Released: 21. February 2018
+
+Release notes
+2018.1.0b8 Release Notes (diff since 2018.1.0b7)
+System Requirements Changes
+
+    Removed support for Windows XP in standalone player builds. Windows Vista is the now minimum supported OS for Windows standalone player.
+    Deprecated support for MonoDevelop. VisualStudio is now the recommended and supported C# editor on both macOS and Windows.
+
+Known Issues in 2018.1.0b8
+    Animation: Configure button doesn't get enabled when the model rig is set to humanoid (984843)
+    Animation: Null Reference exception occurs when trying to add/delete the event or changing sample number. (989758)
+    Audio: [Audio Mixer] Crash on play when duplicated audio group is assigned to audio source (962084)
+    GI: "SerializedObject target has been destroyed" appears after Envionment lighting change (1001038)
+    GI: AddInstancePropertiesJob error while baking with specific assets (973689)
+    GI: Editor crashes after assigning Light Probe Group to Anchor Override Parameter (1002580)
+    GI: In built Player the IsLightmapBakeTypeSupported() GCAlloc's 17B every frame when CPU usage is 0.0% (986319)
+    GI: Progressive lightmapper doesn't work on Linux, which means that all 3D templates will crash on launch. The 2D template is not affected however.
+    GI: Skybox material is retained even after being removed from lighting settings (999227)
+    OSX: [OSX 10.13] Switching between 2 game view tabs multiple times freezes editor (991828)
+    Particles: Line renderer is rendered in scene/game window when selecting object in the Project window (972298)
+    Particles: Unity crashes when duplicating/moving nested particle systems with a disabled renderer (988423)
+
+Changes
+    Editor: Compiling 'unsafe' C# code now requires the "Allow 'unsafe' code" option to be enabled in the player settings for predefined assemblies (Assembly-CSharp.dll, etc.) and in the inspector for Assembly Definition Files assemblies. Enabling this option will make Unity pass the /unsafe option to the C# compiler when compiling scripts.
+
+Improvements
+    Editor: References and defines from mcs.rsp are now added to generated .csproj for MonoDevelop, VS Code and Rider.
+
+Fixes
+    2D: Fixed rendering of Grid when Grid.CellSize/CellGap was set to certain values. (998558)
+    Editor: Fixed bug that could cause GameView to stop updating in some layouts. (988147)
+    Editor: Fixed crash after deleting the a child of a prefab that's nested in a child of itself. (956141)
+    Editor: PostLayoutEvents are now only sent when the element size or position changes. (995315)
+    OSX: CMD-Q and Quit menu option fixed for Unity launcher on macOS. (978777)
+    OSX: Fixed case of close button being grayed out and not available for the Editor main window. (985142)
+    OSX: Fixed case of Mac native resolution not being set correctly. (792350)
+    OSX: Fixed flickering when resizing standalone game window on Mac. (852470)
+    OSX: Fixed FPS drop in the Editor when the user sets Graphics API to OpenGLCore and turns V.Sync Count "Every V Blank" on. (950318)
+    OSX: Fixed issue where game would continue to run even if the Standalone build was minimized, and regardless of whether the user was active on another application. (776557)
+    UI: Fix to refresh the value shown on start in Text elements, in order for prefab overrides to apply correctly. (975553)
+    UI: Fix to switch the RectTransform to permnament registration, to listen to position changes if disabled. (959492)
+    UI: Fixed case of UI constantly sending out transform update messages for a canvas that moves, causing Physics systems to misbehave. (889350)
+    UI: We no longer modify the scene when setting or clearing UNITY_UI_CLIP_RECT for rendering purpose. (967024)
+    WebGL: WWW/UnityWebRequest.isHttpError is now set correctly on 404 error (File not found). (988784)
+    XR: Unity now issues a warning message when user tries to reload a VR Device that is already loaded. (998802)
+
+The following are changes and fixes to 2018.1.0 features and regressions...
+Changes
+    2D: Sprite Editor Window: Outline and Physics Shape module changes:
+        the module will now show outlines only when it has been customised.
+        the TextureImporter Inspector now has an option to enable default Physics Shape for Sprites. (986540, 1000215)
+
+Improvements
+    Package Manager: The UI now displays links to online documentation for packages.
+    XR: Updated Vuforia to version 7.1.24.
+
+Fixes
+    Asset Import: Fixed case of meta file growing with persistent import logs. (989454)
+    Editor: Fixed assert when removing RectTransform required by a MonoBehaviour. (995904)
+    Editor: GraphView: Fixed issue with edges being deleted using Cut action instead of Delete action from the context menu. (985913)
+    GI: Fixed the intensity of baked and real-time emissive materials in Enlighten. (986160)
+    IL2CPP: Corrected a possible build failure with IL2CPP when an attribute constructor has two arguments of type object. (993422)
+    IL2CPP: Fixed crash in UnityLinker that would occur on OSX if an assembly had native or embedded pdbs. (990003)
+    IL2CPP: Improved the startup performance of Unity players built with IL2CPP. (989476)
+    OSX: Fixed editor crash on holding CMD+' , ' while creating/opening project. (988776)
+    OSX: Fixed issue where pressing CMD+Q multiple times would result in multiple instances of 'Scenes have been modified' window popping up. (988061)
+    XR: Vuforia: fixed case of Android laggy camera after using input field. (843460, 960864)
