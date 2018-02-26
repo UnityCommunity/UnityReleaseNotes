@@ -1,0 +1,43 @@
+Patch 2017.3.1p2
+Released: 26 February 2018
+
+Changes
+
+    2D: Change Outline and Physics Shape module behaviour in Sprite Editor Window. The module will only show outlines only when user has customised it.
+    2D: TextureImporter Inspector has an option to enable default Physics Shape for Sprites
+
+Fixes
+
+    (None) - Android: Fixed crash when a compute shader is being used that did not compile/link on a device.
+    (985591) - Android: Fixed issues when trying to use jobified rendering on certain graphics devices like GLES.
+    (952769) - Android: Fixed problem when there is no valid EGL context when running the player loop.
+    (971671) - Android: Fixed black screen in when using Daydream unless started through the Daydream VR launcher.
+    (963958) - Asset Importing: Fixed issue with MonoScripts for StateMachineBehaviour derived classes not being extracted from managed plugins.
+    (996950) - Cloud: Fixed exception when building in Cloud Build with Performance Reporting enabled.
+    (None) - Editor: Fixed issue with "Rider 2017.2.1.app" not being recognized as Rider code editor. Now recognizes "Rider*.app".
+    (979704) - Editor: Fixed issue with UWP build failing when using .asmdef assemblies.
+    (None) - Editor: Fixed issue with only assemblies whose name start with "Assembly" being debuggable on IL2CPP platforms.
+    (1001461) - Editor: Fixed YAMLMerge performance issue when merging large files.
+    (996204) (988580) - Editor: Fixed Editor window, Panel and all related managed object leaking.
+    (986160) - GI: Fixed the intensity of baked and real-time emissive materials in Enlighten.
+    (989476) - IL2CPP: Improvedthe startup performance of Unity players built with IL2CPP.
+    (993422) - IL2CPP: Correct a possible build failure with IL2CPP when an attribute constructor has two arguments of type object.
+    (994283) - Fixed uninstalling Unity leaving sketchupapi.dll behind.
+    (982435) - OSX: Fixed crash on Editor panel close on select versions of macOS.
+    (878407) - Physics: Fixed PhysX crash when calling Physics.OverlapBoxNonAlloc on Android devices.
+    (980553) - Profiler: Fixed EndThreadProfiler crashing Unity when called from main thread.
+    (996508) - PS4: Fixed crash when calling DateTime.Now whilst using il2cpp.
+    (991969) - PS4: Fixed native rendering plugin GetContext() not returning correct value.
+    (977003) - Scripting: Fixed memory snapshot errors related to invalid GCHandle values.
+    (974031) - Scripting: Fixed memory snapshot naming for types without a namespace.
+    (974042) - Scripting: Fixed memory snapshot naming for nested types.
+    (993302) - Scripting: Fixed incorrect value when using Math.Round with MidpointRounding.AwayFromZero.
+    (929984) - Scripting: Fixed crash when using named pipes.
+    (990559) - Scripting: Fixed crash when using unsafe code in an assembly built with VS2017.
+    (973437) - UI: iOS Fixed incorrect processing of touch canceled events.
+    (984325) (966106) - UI: Fixed entering playmode with profiler open and UI in the scene crashes in UI::Canvas::CaptureBatchFrame.
+    (998862) (980089)- XR: Fixed crash when connecting simulator device while running in editor.
+    (994652) - XR: Fixed losing focus causing the thread to sleep causing fps to drop.
+    (994652) - XR: Fixed frame rate throttling when Windows MR device loses tracking.
+
+Revision: fd9fec26f216
