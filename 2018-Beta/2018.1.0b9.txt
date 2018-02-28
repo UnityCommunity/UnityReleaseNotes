@@ -1,0 +1,104 @@
+2018.1.0 Beta 9
+Released: 27. February 2018
+
+Release notes
+2018.1.0b9 Release Notes (diff since 2018.1.0b8)
+System Requirements Changes
+
+    Removed support for Windows XP in standalone player builds. Windows Vista is the now minimum supported OS for Windows standalone player.
+    Deprecated support for MonoDevelop. VisualStudio is now the recommended and supported C# editor on both macOS and Windows.
+
+Known Issues in 2018.1.0b9
+    Camera: MAC OSX - Raycasting is incorrect (related to Camera.main.ScreenPointToRay). (978659)
+    GI: "SerializedObject target has been destroyed" appears after environment lighting change. (978554)
+    GI: Editor crashes after assigning Light Probe Group to Anchor Override Parameter. (1002580)
+    GI: In built Player the IsLightmapBakeTypeSupported() GCAllocs 17B every frame when CPU usage is 0.0%. (986319)
+    GI: Progressive Lightmapper doesn't work on Linux, which means that all 3D templates will crash on launch. The 2D template is not affected however.
+    OSX: [OSX 10.13][2018.1] Rapidly switching between 2 game view tabs multiple times may freeze or crash the editor when rendering with Metal. Note: it's much harder to reproduce on the latest 10.13.4 Beta (17E160e). (991828)
+    Particles: Line renderer is rendered in scene/game window when selecting object in the Project window. (972298)
+    Scripting: [.NET 4.6] Editor crash on "scripting_stack_trace_info_for" when opening a project containing BehaviorDesignerEditor.dll. (1005030)
+
+Features
+    Scripting Upgrade: Scripting Runtime Upgrade is no longer Experimental.
+
+Changes
+    IL2CPP: Deprecated BuildOptions.IL2CPP, which actually never did anything. (986326)
+    Package Manager: Unity Package Manager project sub-folder was moved from UnityPackageManager to Packages. This is to align the physical path with the logical path of packages. Notes:
+        Projects configured with a NuGet should change their configuration to point to another folder (default repository path for NuGet configuration is \packages). The risk of NuGet and Unity Package Manager sharing the Packages folder is minimal, but we suggest to separate them nonetheless to avoid any issues.
+        When opening a project created with a previous version, a migration flow will copy the content of the UnityPackageManager folder to the Packages folder. It is left to the project maintainer to erase the UnityPackageManager folder and update source control configuration.
+    Windows: The Build Player location selection dialog now asks for a folder rather than a file name when building Windows standalone player. The BuildPipeline.BuildPlayer API is not affected by this change. (995320)
+
+API Changes
+    AI: New experimental API for NavMesh queries, usable within C# jobs: namespace UnityEngine.Experimental.AI; struct PolygonID; struct NavMeshLocation; enum PathQueryStatus; enum NavMeshPolyTypes; struct NavMeshWorld; struct NavMeshQuery with these methods: BeginFindPath(), UpdateFindPath(), EndFindPath(), GetPathResult(), IsValid(), GetAgentTypeIdForPolygon(), MapLocation(), GetPortalPoints(), MoveLocations(), MoveLocation(), PolygonLocalToWorldMatrix(), PolygonWorldToLocalMatrix(), GetPolygonType(), Dispose().
+
+Fixes
+    Animation: Fixed NullReferenceException when calling AnimationUtility.SetAnimationEvents. (989647)
+    Asset Import: Fixed handling of Object fields on ScriptedImporters so that they can be assigned a value in the inspector.
+    Asset Import: Fixed AssetImporter.GetAtPath when the asset is imported by a ScriptedImporter.
+    Editor: Added a list of whitelist paths, which will be the only ones to get copied/replaced when cloning a template in project. (996769)
+    Editor: Fixed null reference exception from InspectorWindow.OnSelectionChange() callback during certain operations. (851988, 970700)
+    Graphics: Added support for Cube RenderTexture as a cookie on PointLight. (999718)
+    Scripting: Fixed IndexOutOfRange exception on x64 when indexing into array with negative values. (967679)
+    Universal Windows Platform: Fixed issue where app icons of certain sizes did not appear in the manifest of the exported Visual Studio project. (949269)
+    XR: Tracked Pose Driver no longer causes a crash when using the VR Mock Test Device. (966990)
+
+The following are changes and fixes to 2018.1.0 features and regressions...
+Changes
+    IL2CPP: We no longer allow il2cpp compiler configuration selection on iOS, tvOS and UWP.
+
+Improvements
+    XR: Updated Oculus to version 1.22.
+
+Fixes
+    2D: Fixed issue where textures in the Sprite Editor Window would appear pixelated when mip map was enabled. (1000136)
+    Android: Fixed case of animation not being played when screen sharing is enabled. (958223, 995840)
+    Animation: Fixed an issue where AnimatorOverrideController.ApplyOverrides was executing unnecessary operations, affecting performance adversely. (996351)
+    Animation: Fixed case of animator layer not getting deselected when clicking on the graph part of the UI. (996153)
+    Animation: Fixed Editor crashes on WalkTypeTree after removing any component while in Animation record mode. (978930)
+    Asset Pipeline: Fixed packing of AudioMixerController, AudioMixerGroup and AudioMixerSnapshot into bundles with disabled type trees. (976768)
+    Audio: Fixed a regression where mixer assets edited through the mixer window would be out of sync with the rest of Unity. (964351)
+    Audio: Fixed a visual refresh issue with the output audio mixer group in the AudioSource inspector, when being changed through a script. (965028)
+    Audio: Fixed case of Microphone.Start selecting the first device in some cases, disregarding the selected recording device. (962106)
+    Audio: Fixed inconsistencies and crashes when duplicating mixer assets in the project browser. This is now not permitted. (962084)
+    Audio: Fixed issues where changes to rolloff mode and custom rolloff curves on AudioSources did not take effect before moving the AudioSource.
+    Audio: Fixed various crashes when undoing changes in the mixer, especially related to undoing construction of nested and/or duplicated mixer groups. (964012)
+    Audio: Fixed visual refresh issues where changes to the curve editor on an AudioSource did not reflect script changes. (964942)
+    Editor: Fixed case of custom cursor flickering in Editor window when in play mode. (1001494)
+    Editor: Fixed case of Application.persistentDataPath mismatch between Windows Editor and Windows standalone player. (987110)
+    Editor: Fixed editor crash on Windows when renaming a GameObject with a long name. (991619)
+    Editor: Increased first-time delay for loading the id page. (980070)
+    GI: Fixed issue where skybox material was retained even after being removed from lighting settings. (999227)
+    Graphics: Fixed an issue where the Progressive Lightmapper would fail to bake with certain models. (973689)
+    IL2CPP: Added Windows runtime storage extensions. (992138)
+    IL2CPP: Fix to prevent a hang on iOS devices when a socket operation is in progress and the app is put into the background with the new scripting runtime. (989536)
+    IL2CPP: Fix to prevent incorrect code generation for nullable types when they are passed to a virtual function. (995663)
+    IL2CPP: Fixed case of .cpp, .c and .h files not working as plugins for Standalone il2cpp builds. (987026)
+    iOS: Fixed a problem preventing user from being prompted to log into GameCenter. (1000658)
+    iOS: Metal: fixed MSAA behavior when using RenderPass.
+    Linux: Improved filesystem performance to handle large cache sizes. (972024)
+    OSX: Fixed crash on Editor panel close on certain macOS versions. (982435)
+    Physics: Fix to ensure that Collider2D.Distance with very small distances produces a valid normal. (969960)
+    Physics: Fix to increase the accuracy of rotating a tile clockwise/anti-clockwise by 90-degrees when tilemap painting. This ensures that TilemapCollider2D can be accuractly composited using the CompositeCollider2D. (974119)
+    Physics: Fix to prevent assert message from being displayed when reparenting a Collider2D component that is using a CompositeCollider2D. (977687)
+    Physics: Fix to prevent crash during simulation after destroying a Rigidbody2D that has a child Kinematic Rigidbody2D. (989323)
+    Physics: Fixed an issue where a large volume of initial 2D contacts would produce a crash. (990984)
+    Physics: Fixed an issue where multi-threaded 2D physics could occasionally cause a deadlock. (996088)
+    Physics: Fixed issue where disabling and enabling a collider on an inactive gameobject would produce transform error messages. (968882, 985758)
+    Scripting: Fixed case of incorrect value being produced by Math.Round with MidpointRounding.AwayFromZero. (993302)
+    Scripting: Fixed crash when using named pipes. (929984)
+    Scripting: Fixed crash when using unsafe code in an assembly built with VS2017. (990559)
+    Scripting: Fixed memory snapshot errors related to invalid GCHandle values. (977003)
+    Scripting: Fixed memory snapshot naming for nested types. (974042)
+    Scripting: Fixed memory snapshot naming for types without a namespace. (974031)
+    Scripting Upgrade: Fixed an issue causing projects to fail to load after switching from the .NET 4.6 runtime's .NET standard 2.0 profile to a .NET 3.5 runtime. (980669)
+    Scripting Upgrade: Fixed compilation error when targeting .NET Standard 2.0 profile. (998040)
+    UI: Fixed crash in ShouldUpdateTransformBefore. (986584)
+    UI: Fixed issue where unrelated canvases would be dirtied and re-batched when there were changes to a canvas hierarchy. (926629, 1002327)
+    Universal Windows Platform: Fixed .NET native compiler crash when using List<Matrix4x4> or List<PropertyName> in a serializable class. (979741)
+    Universal Windows Platform: Fixed issue where the reference rewriter did not fix references for System.Net.Sockets.Socket when the DLL referencing it was compiled against .NET 3.5. (947209)
+    Universal Windows Platform: Fixed Application.isMobilePlatform results to be consistent with SystemInfo.deviceType and updated the API docs for these APIs. (991466)
+    Web: UnityWebRequest: Fixed handling of special URIs containing a colon. E.g. blob:http. (992221, 995844)
+    WebGL: Fix to handle playBuffer exceptions on Safari when there is no audio output. (960863, 994911)
+    Windows: Fixed assert when stopping and then immediately destroying DictationRecognizer. (986045)
+    Windows: Fixed crash on startup where screen width/height player prefs in the registry got corrupted. (979198)
+    Windows: Player executable is once again large address aware. (990939)
