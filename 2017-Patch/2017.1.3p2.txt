@@ -1,0 +1,36 @@
+Patch 2017.1.3p2
+Released: 2 March 2018
+
+Improvements
+
+    Linux: Improved filesystem performance to handle large cache sizes
+    XBoxOne: Updated Mono to support dynamic function calls on Xbox One
+    XR: Updated Oculus to version 1.21
+    XR: Updated Oculus to version 1.22
+
+Fixes
+
+    (992023) - Android: Fixed a bug causing the loading of native audio plugins to fail on Android.
+    (971226) - Android/OSX: Fixed android NDK download url to download zips and not bins or executables.
+    (989251) (938640) - Animation: Fixed a crash caused by invoking QueryComponentByType() when code stripping is enabled.
+    (1001458) - Editor: Fixed various performance issues in YAMLMerge.
+    (1001448) - Editor: Fixed a Windows-specific crash in YAMLMerge when trying to merge files.
+    (994988) - Graphics: Fixed OpenGL ES crash due to problem with cached VertexAttribArray.
+    (990596) (981074) - iOS: Metal: Fixed ReadPixels() crash when reading out of active render texture's bounds.
+    (1003886)(995079) - iOS: Fixed Display.SetResolution to work at first frame.
+    (None) - iOS: Metal: Fixed MSAA behavior when using RenderPass.
+    (N/A) - Multiplayer: Now skip soft socket error, to prevent host to be closed.
+    (933610) - OSX: Fixed Metal API timeout crash due to very long frame times on weaker GPUs.
+    (900969) - OSX: Fixed changing Input Manager entries causing the player to become unresponsive.
+    (980806) - Performance Reporting: Report device model field for Managed Exceptions.
+    (974228) - Scripting Upgrade: Fixed crash on exit when script debugger is enabled.
+    (940508)(939853) - UI: Fixed instances where Font.textureRebuilt would not be called even though the internal texture was regenerated.
+    (947209) - Universal Windows Platform: Fixed reference rewriter not fixing references for System.Net.Sockets.Socket when DLL where it's being referenced was compiled against .NET 3.5.
+    (979741) - Universal Windows Platform: Fixed .NET native compiler crash when using List or List in a serializable class.
+    (959795) - Universal Windows Platform: Fix building player with IL2CPP player fails when there are plugins that are marked read-only in the project.
+    (980328)(974665) - Web: Made Content-Disposition for file sections standard-compliant in UnityWebRequest and WWW.
+    (994387)(960863) - WebGL: Fixed not handling playBuffer exception when there is no audio output on Safari.
+    (979198) - Windows: Fixed crash on startup when screen width/height player preferences get corrupted in the registry.
+    (949380)(946104) - XR: Fixed errors when building for Daydream and Cardboard with Proguard enabled.
+
+Revision: 744dab055778
