@@ -1,0 +1,114 @@
+2018.1.0 Beta 10
+Released: 8. March 2018
+
+Release notes
+2018.1.0b10 Release Notes (diff since 2018.1.0b9)
+
+System Requirements Changes
+
+    Removed support for Windows XP in standalone player builds. Windows Vista is the now minimum supported OS for Windows standalone player.
+    Deprecated support for MonoDevelop. VisualStudio is now the recommended and supported C# editor on both macOS and Windows.
+
+Known Issues in 2018.1.0b10
+
+    Camera: MAC OSX - Raycasting is incorrect (related to Camera.main.ScreenPointToRay).
+    GI: "SerializedObject target has been destroyed" appears after environment lighting change.
+    GI: Editor crashes after assigning Light Probe Group to Anchor Override Parameter.
+    GI: In built Player the IsLightmapBakeTypeSupported() GCAllocs 17B every frame when CPU usage is 0.0%.
+    GI: [PLM] Supersampling doesn't work.
+    GI: Progressive Lightmapper doesn't work on Linux, which means that all 3D templates will crash on launch. The 2D template is not affected however.
+    Graphics: Editor crashes at ImageFilters::BlitMultiTap when stepping into Graphics.BlitMultiTap() method.
+    Particles: Line renderer is rendered in scene/game window when selecting object in the Project window.
+    Scripting: Editor crashes when calling NativeArray<T>.Equals().
+    SpeedTree: SpeedTree meshes have bad texcoord data after updating to 2018.1
+
+Known Issues - won't be fixed in 2018.1
+    OSX: [OSX 10.13][2018.1] Rapidly switching between 2 game view tabs multiple times may freeze or crash the editor when rendering with Metal. Note: it's much harder to reproduce on the latest 10.13.4 Beta (17E160e).
+
+Features
+    Package Manager: Updated Package Manager user interface (from where a project's packages can be managed and new packages can be discovered) to v1.8.1. What's new in 1.8.1:
+        We no longer display the "Recommended" tag for packages whose version is suffixed with alpha, beta or experimental.
+        The built-in packages tab is now hidden, as it is not yet fully functional.
+        Fixed sorting of the package list in the "All" tab.
+        Fix to prevent loop error report with an invalid manifest.
+        Fix to prevent infinite error reporting when an exception is thrown during an operation.
+        Fix to only show "View Changes" when there is an "Update" button to display.
+        Fixed typos in the dialog displayed when updating the Package Manager UI itself.
+        Added "View Documentation" link to the package details area.
+        Added "View changes" link to the package details area.
+
+Improvements
+    Shaders: Compute shaders now support #pragma exclude_renderers and #pragma only_renderers.
+    Timeline: Added support for exposed references on custom TrackAssets. (976409)
+    Timeline: TrackAssets now allow multiple TrackClip types through base class specification. (950934)
+    Windows: When installing VS2017, Unity Download Assistant will now also include C++ modules so that IL2CPP builds work out of the box. (1003155)
+    XR: Improved background rendering performance in ARCore by eliminating an unnecessary OpenGL state reset.
+    XR: Updated Vuforia to version 7.1.27.
+
+Fixes
+    Animation: Fixed case of parameter not getting reset to default value when changing override controller. (958173)
+    Editor: Fixed case of cursor lock engaging at unexpected moments on Mac and Windows. (959859)
+    Editor: Fixed crash in scripting_stack_trace_info_for when opening projects where loading of assemblies fails. (1005030, 1005520)
+    Graphics: Fixed case of black screen on devices that do not support RGBA16F rendering to texture. (989654)
+    Graphics: We no longer create OSX GLCore compute shader variants when they are not supported. (989250)
+    Scripting: Fixed case of error being logged to the console when a MonoBehaviour-derived script that is attached to a GameObject was modified to a ScriptableObject-derived script. (946510, 947929)
+    Timeline: Fixed a hang that would occur when using a prefab instance with the same prefab on a control track. (989856)
+    Timeline: Fixed case copied groups being saved under the wrong Timeline. (991434)
+    Timeline: Fixed case of audio waveform not refreshing on re-open. (927126)
+    Timeline: Fixed case of bindings failing on first track with inline curve open. (998182)
+    Timeline: Fixed case of custom track properties not showing in Inspector. (989269)
+    Timeline: Fixed case of Finder window showing 'none' when creating a Timeline asset on OSX. (998190)
+    Timeline: Fixed case of Shift+, / Shift+'.' shortcuts not working when inline curves are selected. (952552)
+    Timeline: Fixed case of Timeline Editor losing scroll position when entering playmode. (876341)
+    Timeline: Fixed case of Timeline not showing rename field after creating a Timeline asset. (995886)
+    Timeline: Fixed case of tracks duplicating names when copied to a new Timeline. (923360)
+    Timeline: Fixed case of ArgumentOutOfRange exception being thrown after undoing a clip move. (927807)
+    Timeline: Fixed case of NullReferenceException being thrown when selecting a clip in playmode. (996000)
+    Timeline: Fixed issue where changes to inline curves were not applied immediately on custom tracks. (976036)
+    Timeline: Fixed issue where Timeline was causing GC allocations under 4.6 scripting runtime. (998642)
+    Timeline: Fixed issue where tracks and clips copied across Timelines would retain links to the original ones. (979587)
+    Timeline: Fixed Undo on root motion offset manipulator. (974289)
+    UI: Fixed issue where graphics raycaster would return the wrong object if the distance between two rays was very small. (974500)
+    XR: Eliminated error spam (Failed to get spatial interaction controller...) and WinRT error (SpatialinteractionSourceLocation.SourcePointerPose failed ...) on WindowsMR, which were occurring under normal expected conditions.
+
+The following are changes and fixes to 2018.1.0 features and regressions...
+
+Improvements
+
+    Editor: Project template updates:
+        Default content updated to be more aesthetically pleasing and showcase good content authoring guidelines.
+        Added tutorial information.
+        Aligned with the latest SRP and PostProcessing package updates.
+        Templates updated:
+            3D with Extras
+            Lightweight SRP
+            Lightweight SRP for VR
+            High End SRP
+
+Fixes
+    Android: Fix to work around gyroscope lag issues on some devices. (912848)
+    Animation: Fixed issue where imported curves with Quaternion Compression would behave unpredictably. (980384)
+    Asset Import: Fixed a crash that would occur when renaming a new animation clip inside the ModelImporter's Animation panel. (990267, 999834)
+    DX12: Fixed crash related to compute skinning buffers. (967444, 999967)
+    Editor: Fixed an issue where an undo in the Muscle & Settings tab of the Avatar Humanoid Editor would result in an error and bad state. (1004368)
+    Editor: Fixed an issue where the inspector would show empty after exiting one of the Avatar Humanoid Configuration tabs. (1004369)
+    Editor: Fixed case of Visual Studio integration no longer working after adding or removing scripts from the Unity project.
+    Editor: Fixed case of ScriptableObject values not being inspectable after compilation in some cases. (952517, 999038)
+    Editor: Fixed issue where both the "Mapping" & "Muscle & Settings" tabs would become disabled after clicking 'Apply' in the Avatar Editor's Humanoid Configuration. (1004367)
+    Editor: Fixed issue where compile errors were not being displayed in the console in some cases, when assembly definition file assemblies had compile errors on Editor startup. (1005184)
+    Editor: Fixed issue where mcs.rsp quoted strings were not parsed correctly.
+    Editor: Fixed issue where mcs.rsp /unsafe option was not being set in .csproj files.
+    Editor: Fixed random Fatal error in Unity CIL Linker player build errors. (1005636)
+    Facebook: Fixed upload token validation issue. (995542)
+    GI: Fixed case of Baked UV Overlapped debug mode not working in Object Maps with some objects. (973670)
+    Graphics: Fixed case of Reflection Probes outside of the camera frustum not being culled in SRP. (991212)
+    Graphics: Fixed OpenGL ES crash due to problem with cached VertexAttribArray. (989484)
+    Graphics: Metal: Fixed shader code generation issues, improving HD pipeline compatibility.
+    iOS: Fixed issue where Display.SetResolution failed silently during first frame from Awake. (995079, 1003911)
+    Multiplayer: Fixed issue where server->client disconnect wasn't working for web sockets.
+    Scripting: Fix to allow UnityScript to work with the .NET Standard 2.0 profile. (995937)
+    Scripting: Fixed crash that would occur when calling Rigidbody2D.Cast() and Collider2D.OverlapCollider() on a component that is null.
+    Scripting Upgrade: Fixed duplicate reference error when targeting .NET Standard 2.0 profile. (996937)
+    Timeline: Timeline and AnimationWindow not longer record MotionT and MotionQ when creating animation on the root node.
+    UI: Fixed issue where RectTransform positioning was incorrect when entering play mode or serializing.
+    UI: Fixed issue where AspectRatioFitter did not drive the RectTransform on the first frame. (988706, 999332)
