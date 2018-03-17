@@ -1,0 +1,164 @@
+Release notes
+2018.1.0b11 Release Notes (diff since 2018.1.0b10)
+System Requirements Changes
+
+    Removed support for Windows XP in standalone player builds. Windows Vista is the now minimum supported OS for Windows standalone player.
+    Deprecated support for MonoDevelop. VisualStudio is now the recommended and supported C# editor on both macOS and Windows.
+
+Known Issues in 2018.1.0b11
+
+    GI: "SerializedObject target has been destroyed" appears after environment lighting change. (978554)
+
+    GI: Editor crashes after assigning Light Probe Group to Anchor Override Parameter. (1002580)
+
+    GI: In built Player the IsLightmapBakeTypeSupported() GCAllocs 17B every frame when CPU usage is 0.0%. (986319)
+
+    GI: [PLM] Supersampling doesn't work. (1006916)
+
+    Graphics: Editor crashes after it bypasses the RenderPass functions (1012788)
+
+    Graphics: Editor crashes at ImageFilters::BlitMultiTap when stepping into Graphics.BlitMultiTap() method. (1004159)
+
+    Networking: Ping.DestroyPing crashes the editor in Ping::Release (1012965)
+
+    Particles: Line renderer is rendered in scene/game window when selecting object in the Project window. (972298)
+
+    Scripting: Editor crashes when calling NativeArray<T>.Equals(). (1005597)
+
+    SpeedTree: SpeedTree meshes have bad texcoord data after updating to 2018.1 (1010215)
+
+Known Issues - won't be fixed in 2018.1
+
+    GI: Progressive Lightmapper doesn't work on Linux, which means that all 3D templates will crash on launch. The 2D template is not affected however. (913799)
+
+    OSX: [OSX 10.13][2018.1] Rapidly switching between 2 game view tabs multiple times may freeze or crash the editor when rendering with Metal. Note: it's much harder to reproduce on the latest 10.13.4 Beta (17E160e). (991828)
+
+Features
+
+    Package Manager: Updated Package Manager user interface (from where a project's packages can be managed and new packages can be discovered) to v1.8.2. What's new in 1.8.2:
+        Updated package tags to reflect the revised package workflow (Preview -> Released(no tag) -> Verified in 2018.1).
+
+Improvements
+
+    Android: Added API 26 and 27 to scripting and the Editor.
+
+API Changes
+
+    AI: Changed struct name in the Experimental API for Navmesh Queries from PolygonID to PolygonId.
+
+Fixes
+
+    DX12: Fixed crash when opening a scene using Android graphics target API and Editor is using DX12 API. (969590)
+
+    Editor: Fixed bug where auxiliary Editor windows with a fixed size would contain a maximize button on macOS. (1006807)
+
+    Editor: Fixed case of Profiling.Recorder not picking up some dynamic markers visible in Profiler. (881136, 1006484)
+
+    Editor: Renamed "OS X Color Picker" to "macOS Color Picker" in Editor Preferences. (991730)
+
+    OSX: Fixed issue where a built scene could be played in higher than desktop resolution in windowed mode. (962469)
+
+    Scripting: Fixed issue where that could cause Editor to crash on load. (980669, 998787)
+
+    Terrain: Fixed crash in SplatMaterials::FindMaterialProperties when opening a scene with specific Material and Terrain combination. (919769)
+
+The following are changes and fixes to 2018.1.0 features and regressions...
+Changes
+
+    Editor: The template list in the Launcher is now sorted alphabetically.
+
+    Web: Switched UnityWebRequest default to chunkedTransfer=false.
+
+Fixes
+
+    Android: Warnings are now disabled in ProGuard by default. This fixes build errors with 3rd party plugins. (935077, 986781)
+
+    Asset Import: Fixed animation type swap in the ModelImporter Rig panel with multiple FBX files selected. (1004081)
+
+    Asset Pipeline: Fixed case of .meta files getting deleted for extension plugins. (1009676)
+
+    Asset Pipeline: Fixed issue where creating the Android-specific Plugins/Android/assets folder would create a kCopyAsset rather than a kFolderAsset. (986154)
+
+    Audio: Fixed a bug where the matrices passed to spatializer and ambisonic audio plugins could be set to the identity matrix briefly when a sound starts playing. (991034)
+
+    Editor: A GameView on a Retina monitor with "Low Resolution Aspect Ratio" disabled no longer causes UGUI scaling issues. (997931, 1008227)
+
+    Editor: An appropriate error is now shown in the console when a Collab user is out of space, where previously a spurious error regarding threading would be shown. (1001161)
+
+    Editor: Fixed case of GameObject inspector header expanding with an open Profiler->Hierachy->DetailView. (989953)
+
+    Editor: Fixed case of incorrect message being shown in dialog when changing a gameobject static flag from everything selected to everything but one item. (1005672)
+
+    Editor: Fixed Metal Editor always having vsync enabled in OSX 10.13. (1009685)
+
+    Editor: Fixed regression where pasting a color in the inspector after having opened the color picker would not paste it to the correct color field. (1005340)
+
+    Editor: Improved Collab History Window page buttons and fixed some error handling issues. (995043)
+
+    Editor: Metal: Fixed an Editor crash that could happen when a shader compilation fails and fallback shader is used instead.
+
+    Editor: Raycasting into a GameView on a Retina monitor with "Low Resolution Aspect Ratio" disabled no longer yields invalid results. (978659, 1008228)
+
+    Editor: Tests in assemblies with similar names no longer result in an error when displaying the test list. (995476)
+
+    GI: Fixed issue where clicking/hovering on the Lighting tab when in playmode would result in "Serialized Object target destroyed" exception being thrown. (978554)
+
+    Graphics: Fixed an issue where clearing the GI Cache and reloading the project would result in errors being shown in the console. (975975, 980811)
+
+    Graphics: Fixed crash in MemoryManager::Reallocate when using Particles/Lines/Trails. (999559)
+
+    Graphics: Fixed issue where light probes wouldn't load in additively loaded scenes. (957736)
+
+    Graphics: Fixed issue where lighting data was much bigger in additively loaded scenes vs in a single scene. (913869)
+
+    Graphics: Fixed some usages of default Material and Shader that resulted in pink shader when using SRP with a custom default material. (1010781)
+
+    Graphics: Metal: Fixed shader code generation issue relating to declaring immediate constant buffer and accessing it. This fixes a cubemap blit shader issue with the HD pipeline.
+
+    IL2CPP: Fixed C++ Compiler Configuration player setting to actually cause generated C++ code to be compiled in that configuration. (1008995)
+
+    IL2CPP: Fixed crash when using IMGUI in without explicitly referencing GUISkin class. (1001825)
+
+    Linux: Fixed crash when the joystick list is non-continuous.
+
+    OSX: Fixed case of mouse input jumping by a large number at the end of movement. (992887)
+
+    Particles: Fixed crash when particle system has no renderer module. (995995, 1008128)
+
+    Scripting: Cured various APIs crashes and erroneous return values on .NET backend. (981757, 987059, 987192, 989205, 989206, 991009, 993363)
+
+    Scripting: Fixed a crash when scheduling C# jobs with some very large batch sizes. (1004878)
+
+    Shaders: Fixed issue where all the shaders would be imported twice during Editor startup if custom include paths were in use. (1009881)
+
+    Timeline: Fixed issue where pasting a Group Track on a timeline asset would break the source asset. (1006987)
+
+    Universal Windows Platform: Fixed a crash in .NET native compiler (RHB0011: Internal error: 'pchTypeNameEnd[0] == L'>"at'f:\dd\ndp\rh\src\tools\rhbind\makepdb.cpp:998) in certain scenarios involving plugins. (991154)
+
+    Universal Windows Platform: Fixed case of build failing on IL2CPP scripting backend if class library from Mono directory (such as System.Data.dll) was copied into the project. (997876)
+
+    Universal Windows Platform: Fixed case of Windows Runtime not being enabled when using .NET Standard 2.0 profile. (1002417)
+
+    Video: Fixed flickering video playback on iOS/Metal (especially visible on High Sierra). (972997, 986039)
+
+    Web: Fixed abort on iOS on UnityWebRequest timeout. (1001438, 1004326)
+
+    Windows: Added missing parentheses in the description for Windows Standalone player with IL2CPP scripting backend.
+
+    Windows: Fixed case of resolution dialog not showing the monitor list and crashing on pressing 'Play' button on some uncommon monitor setups. (996015)
+
+    XR: Fixed case of Windows Mixed Reality often tracking with significant offset when the camera is not initially zero'd out (i.e. transform and rotation not set to 0 for x, y and z axes). (962382)
+
+    XR: Fixed case of GestureRecognizer callbacks not reporting correct grip data. (948559, 956509)
+
+    XR: Fixed case of GestureRecognizer callbacks reporting InteractionSourceKind.Other for hand gestures. (964836)
+
+    XR: Fixed case of GestureRecognizer manipulation event containing incorrect data after resuming from sleep. (976544)
+
+    XR: Fixed case of GestureRecognizer manipulation reporting movement on incorrect axes. (971384, 989909)
+
+    XR: Fixed case of GestureRecognizer not reporting manipulating when tracking is inhibited. (976378)
+
+    XR: Fixed case of InteractionSourcePressedEventArgs and InteractionSource reporting incorrect data on airtap. (986569)
+
+    XR: Fixed log spam when app starts disconnected from Windows MR HMD, and crash when HMD is reconnected. (950796, 1008178)
