@@ -1,0 +1,206 @@
+2018.1.0 Beta 12
+Released: 23. March 2018
+
+Release notes
+2018.1.0b12 Release Notes (diff since 2018.1.0b11)
+System Requirements Changes
+
+    Removed support for Windows XP in standalone player builds. Windows Vista is the now minimum supported OS for Windows standalone player.
+    Deprecated support for MonoDevelop. VisualStudio is now the recommended and supported C# editor on both macOS and Windows.
+
+Known Issues in 2018.1.0b12
+
+    GI: Editor crashes after assigning Light Probe Group to Anchor Override Parameter. (1002580)
+
+    GI: Progressive Lightmapper doesn't work on Linux, which means that all 3D templates will crash on launch. The 2D template is not affected however. (913799)
+
+    Graphics: Editor crashes after it bypasses the RenderPass functions (1012788)
+
+    Networking: Ping.DestroyPing crashes the editor in Ping::Release (1012965)
+
+    Particles: Line renderer is rendered in scene/game window when selecting object in the Project window. (972298)
+
+    SpeedTree: SpeedTree meshes have bad texcoord data after updating to 2018.1 (1010215)
+
+    XR: TypeLoadException: Could not load type 'BuildObserver' from assembly 'Vuforia.UnityExtensions.Editor' thrown when building for Android if Vuforia support is installed. Will be fixed in the next beta. (1011546)
+
+Known Issues - won't be fixed in 2018.1
+
+    OSX: [OSX 10.13][2018.1] Rapidly switching between 2 game view tabs multiple times may freeze or crash the editor when rendering with Metal. Note: it's much harder to reproduce on the latest 10.13.4 Beta (17E160e). (991828)
+
+Features
+
+    Scripting Upgrade: Portable PDBs are supported when running with the new scripting runtime.
+
+Changes
+
+    Graphics: Metal tessellation: Improved shader importing error reporting for when features are unsupported.
+
+    XR: Updated Google VR:
+        to 1.130 for Android
+        to 1.120 for iOS
+
+Improvements
+
+    Build Pipeline: The build process progress bar now shows progress updates on shaders that have more than 100 variants to prevent editor from appearing unresponsive during long builds.
+
+API Changes
+
+    Build Pipeline: Added IPreprocessBuildWithReport, IPostprocessBuildWithReport, and IProcessSceneWithReport interfaces to provide the BuildReport object during the build process.
+
+    Build Pipeline: Reverted IPreprocessBuild, IPostprocessBuild and IProcessScene interfaces to their 2017.3 signatures.
+
+Fixes
+
+    2D: Cured SpriteRenderer memory leak when in tiled draw mode. (1006814, 1010060)
+
+    Asset Import: Fixed case of random errors when clicking on other windows while Avatar Inspector is applying. (994383, 1011622)
+
+    Audio: Fix to avoid GC allocations when using audio callbacks on consoles with IL2CPP (though note that the Mono backend still allocates). (1004804)
+
+    Build Pipeline: Fixed occasional crash when building AssetBundles. (1009641)
+
+    Editor: Collab updates now reload scenes in the correct order to preserve the value of new script variables. (996118)
+
+    Editor: Fix to ensure that Collaborate reloads data in the correct order to avoid losing values of new script variables after update. (996118)
+
+    Editor: Fixed issue whereby Menu item checked state would be lost on entering play mode. (923501)
+
+    GI: Fixed a memory leak when exiting play mode with realtime GI enabled. (991939)
+
+    GI: Fixed a small memory leak in the EnlightenRuntimeManager, resulting to failure to free texture wrapper objects. (991939, 1007945)
+
+    GI: Fixed an assert caused by an incorrectly triggered Lighting Data Asset write. (985915, 1010124)
+
+    GI: Fixed an issue where assigning Light Probe Group to Anchor Override Parameter on a Mesh Renderer component would cause errors and crash the Editor after some time. (1002580)
+
+    GI: Fixed an issue where lightmaps would not bake correctly after the first bake. (1006916)
+
+    GI: Fixed an issue where the output for spotlights from the Progressive Lightmapper was too bright when compared to the output from Enlighten. (953775)
+
+    GI: Fixed issue where an error code would be reported when switching scene visualization mode to Indirect or Emissive due to a lack of data. (997954)
+
+    GI: Fixed issue where doubled-sided GI was not being rendered when an occluder used a transparent texture. (981329)
+
+    GI: Fixed issue where the Progressive Lightmapper wasn't correctly dealing with some quad faces in models. (908068)
+
+    Graphics: Fixed cause of small per-frame allocations, caused by boxing in the GI system. (986319)
+
+    Graphics: Fixed inconsistency in UI between lighting group and material group functionality in the MeshRenderer component. (969494)
+
+    Graphics: Fixed rare crash when seam stitching is enabled on an object packed to the boundary of a lightmap. (1000350)
+
+    Graphics: Fixed rare deadlock in CreateGpuProgram when graphics jobs are enabled. (934897)
+
+    Scripting: Added support for IPv6 on Android with the .NET 2.0 profile (803576, 804510)
+
+    Scripting: Added support for IPv6 on Android with the .NET 2.0 profile. (803576, 804510)
+
+    Scripting: Fixed C# compiler error when using implicit operators and Nullable. (970493)
+
+    Scripting: Fixed case of HashSet.TrimExcess resulting in memory use increase. (969832)
+
+    Scripting: Fixed potential crash when calling MethodInfo.GetParameters(). (1006251)
+
+    Scripting Upgrade: Fixed crash when calling NativeArray.Equals. (1005597)
+
+    Scripting Upgrade: Fixed issue where awaiting continuations that spawn more continuations could cause a hang. (1004428)
+
+    Scripting Upgrade: Fixed Type.GetInterfaces. (985462)
+
+    WebGL: Fixed case of /b getting added to inputString on keyup event. (981495)
+
+    WebGL: Fixed mouse button state after mouse drag. (905712)
+
+    WebGL: Fixed webcam support on Firefox and Safari. (1005628)
+
+    Windows: Fixed case of builds with IL2CPP scripting backend not printing out C++ compilation errors if compilation failed when using VS 2017 Update 6.
+
+The following are changes and fixes to 2018.1.0 features and regressions...
+Improvements
+
+    XR: Updated warning issued when a VR SDK is not supported in the Editor.
+
+Fixes
+
+    Android: Fixed case of screen flickers between game and video loader when launching a video using Handheld.PlayFullScreenMovie. (978602)
+
+    Android: Fixed case of Android Handheld.PlayFullScreenMovie not displaying video when called in rapid succession. (879457)
+
+    Android: Fixed performance regression caused by compiler optimizing for size. (970038)
+
+    Android: Fixed terrain shader issue that could result in crash when calling glLinkProgram on Adreno 3xx. (983938, 992129)
+
+    Android: Fixed Render.Mesh performance regression in apps built with Gradle. (970038)
+
+    Android: Video no longer fails to play with Handheld.PlayFullScreenMovie after reopening the application just before video playback starts. (978599)
+
+    Android: Worker threads are now only assigned to big cores, which improves performance. (970038)
+
+    Editor: Fixed editor crash when exporting package on OSX. (1006812)
+
+    Editor: Fixed issue where error CS0006: Metadata file <path to .dll> could not be found was emitted in some cases when deleting a script and there were no compile errors in scripts. (1003100)
+
+    Editor: Fixed performance issue (excessive CPU load) when building Hierarchy View in Profiler Window. (1003069)
+
+    Editor: Presets no longer keep in-memory AssetImporter data when created and serialized. (989461, 1010830)
+
+    GI: Fixed case of "Failed to copy lightmap snapshot" errors appearing in the console under certain circumstances. (985915)
+
+    GI: New scenes now correctly default to the Progressive Lightmapper baking backend. (996463)
+
+    Graphics: Fixed a crash on shutdown when using compute shaders.
+
+    Graphics: Fixed case of SystemInfo.SupportsTextureFormat returning false for RGB24 and ARGB32. (998555)
+
+    Graphics: Fixed cause of Editor crashes with 'CheckDisalowAllocation' exception. (999377, 1012837)
+
+    Graphics: Fixed crashes when using RenderTexture ConvertTexture() with R8 and RG16. (1008122)
+
+    Graphics: Metal tessellation: Fixed an issue with tessellation patch kernel binding against wrong buffers. This could result in visual artifacts or no output, or cause the machine to hang. (1010697)
+
+    Graphics: Mobile: Fixed standard shader specular highlights. (953606, 1009700)
+
+    iOS: Added support for iPhone X second-stage splash screen. This fixes case of an incorrect splash screen being displayed after launching player on this device. (972995)
+
+    iOS: Fixed case of incorrectly reported screen orientation. (1009022)
+
+    iOS: Improved robustness of second-stage splash screen setup to work correctly on both old and current iOS versions.
+
+    OSX: Fixed crash in UnitcodeInputView during Editor shutdown. (946958)
+
+    Package Manager: Fixed compilation errors due to missing scripts when updating/removing packages. (987952)
+
+    Physics: Fix to ensure that 2D contact points are available during a callback even after the respective physics objects are destroyed. (999627)
+
+    Physics: Fix to ensure that a kinematic Rigidbody2D created in script stays in a relative position to any parent Rigidbody2D when reparented. (983374)
+
+    Physics: Fixed issue where, with auto-simulation switched off, 2D collider shapes that are destroyed do not get removed from the internal shape changes queue, resulting in shape destruction time increasing. (1001875)
+
+    Player: Fixed a rare hang when loading certain scenes. (995312)
+
+    Profiler: Fixed case of missing format extension for binary logging, and added .raw extension to our binary format. (987943, 1008332)
+
+    Scripting: Fixed memory leak when entering play mode. (911661)
+
+    Scripting Upgrade: Fixed apparently random error when using UDPClient. (990979)
+
+    Scripting Upgrade: Fixed crash on encountering SocketException. (986215)
+
+    Scripting Upgrade: Fixed exception when binding a delegate with an Enum value to a method with an int parameter. (977917)
+
+    Scripting Upgrade: Fixed DateTime.Now on scripting runtime upgrade. (943047)
+
+    Timeline: Fixed issue where a default color was missing on custom playable assets. (1010321)
+
+    Timeline: Fixed issue where clip edit modes were changed when typing a value in the clip inspector. (1010320)
+
+    Timeline: Fixed issue where releasing a clip on an invalid target would leave it stuck in ripple mode. (1010322)
+
+    Timeline: Fixed memory leak when switching between Animations with AssetBundle, which would cause AnimationPlayableAsset to remain in memory. (1001595, 1010323)
+
+    Timeline: Fixed Null Reference Exception when opening an Editor instance with Timeline window focused. (1005385)
+
+    Universal Windows Platform: Fixed case of player getting stuck on a white screen when a fatal error (such as "unable to load files" or "system doesn't meet minimum requirements") occurs during startup. (1010354)
+
+    Windows: Fixed case of builds with IL2CPP scripting backend not starting on machines without Visual C++ redistributable package installed. (1010456)
