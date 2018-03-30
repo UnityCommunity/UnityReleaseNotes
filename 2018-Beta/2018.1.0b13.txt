@@ -1,0 +1,49 @@
+2018.1.0 Beta 13
+Released: 30. March 2018
+
+Release notes
+2018.1.0b13 Release Notes (diff since 2018.1.0b12)
+System Requirements Changes
+
+    Removed support for Windows XP in standalone player builds. Windows Vista is the now minimum supported OS for Windows standalone player.
+    Deprecated support for MonoDevelop. VisualStudio is now the recommended and supported C# editor on both macOS and Windows.
+
+Known Issues in 2018.1.0b13
+    Android: Application.Quit() crashes the app (1013695)
+    Graphics: Editor crashes after it bypasses the RenderPass functions (1012788)
+    Windows: Engine fails to start on Windows Vista and 7 without SP1 (1016572)
+
+Known Issues - won't be fixed in 2018.1
+    OSX: [OSX 10.13][2018.1] Rapidly switching between 2 game view tabs multiple times may freeze or crash the editor when rendering with Metal. Note: it's much harder to reproduce on the latest 10.13.4 Beta (17E160e). (991828)
+    Particles: Line renderer is rendered in scene/game window when selecting object in the Project window. Will be addressed post 18.1 release. (972298)
+
+Fixes
+    Linux: Fixed a Progressive Lightmapper crash in the Linux Editor. (913799, 1013759)
+    Services: Fixed case of local assets being overwritten during Collab update. (952569, 1008212)
+
+The following are changes and fixes to 2018.1.0 features and regressions...
+Changes
+    Licenses: Added Alembic licenses to legal.txt.
+
+Improvements
+    XR: Updated Vuforia to version 7.1.31.
+
+Fixes
+    Android: Fixed case of Time.deltaTime sometimes returning negative value on certain devices / Android versions. (970945, 1013172)
+    Android: We no longer sign Oculus apps with apk signer v2 when building with gradle. (1015847)
+    Animation: Fixed issue where a clip containing additional curves played in the Animation component would cause a crash. (1003190)
+    Animation: Fixed issue where playing back certain clips in the Animation window would result in a spew of warnings. (985786)
+    Editor: Fixed Editor shutdown crash caused by performance tracker. (1010980)
+    Editor: Fixed IMGUIContainer corrupted layout when using Begin/End pair. (1015818)
+    Editor: Fixed issue where moving EditorControls from Retina screen to non-Retina could result in some of them becoming corrupted. (1009894)
+    Editor: Fixed various UnityEditor.VersionControl.Provider APIs when used with newly created VersionControl.Assets. (905161)
+    Editor: Updated templates so that projects created from them no longer require manual settings changes in order to build for Android, iOS, tvOS. (1014111, 1016844)
+    Graphics: Fixed mesh vertex format after upgrading from 2017.3. (1010215)
+    Graphics: Metal tessellation: fixed an issue with compute pipeline object caching that could lead to a crash or extra resources leak. (1015909)
+    Graphics: Metal tessellation: fixed performance/driver stability issues by switching to use private GPU memory for scratch memory needed. (1015910)
+    Networking: Fixed ping crash on double destroy. (1012965)
+    Package Manager: Improved loading time of new projects when using project templates (1003263)
+    Physics: Fixed issue resulting in frame CPU spikes in physics. (983582)
+    Timeline: Fix for MissingReferenceException when using Control Tracks.
+    Timeline: Fixed clip blend when Editor is using linear color space. (1013435)
+    XR: Fixed incorrect thread affinity setting on GearVR.
