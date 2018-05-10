@@ -26,8 +26,8 @@
 
 ## Unity Releases RSS Feed *New
 
-https://unity3d.com/unity/releases.xml
-https://unity3d.com/unity/lts-releases.xml
+- https://unity3d.com/unity/releases.xml
+- https://unity3d.com/unity/lts-releases.xml
 
 ---
 
