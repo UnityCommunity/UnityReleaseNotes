@@ -24,6 +24,11 @@
 
 [Unity Release Notes](https://unity3d.com/unity/whats-new/)
 
+## Unity Releases RSS Feed *New
+
+https://unity3d.com/unity/releases.xml
+https://unity3d.com/unity/lts-releases.xml
+
 ---
 
 Made with :heart: by [Unity Community](https://github.com/UnityCommunity/)
