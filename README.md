@@ -26,9 +26,9 @@
 
 ## Unity Releases RSS Feed *New
 
-- https://unity3d.com/unity/releases.xml
-- https://unity3d.com/unity/lts-releases.xml
-
+- Releases https://unity3d.com/unity/releases.xml
+- LTS Releases https://unity3d.com/unity/lts-releases.xml
+- Patch Releases https://unity3d.com/unity/qa/patch-releases/latest.xml
 ---
 
 Made with :heart: by [Unity Community](https://github.com/UnityCommunity/)
