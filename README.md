@@ -1,3 +1,7 @@
+# Alternate (up to date versions)
+
+- https://github.com/frarees/unity-changelog
+
 # Unity Release Notes
 
 :notebook: Release Notes - to be used with github search
